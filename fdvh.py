@@ -36,9 +36,35 @@ DEFAULT_THRESHOLDS = {
         "fail_if_lift_gte": 20.0,
         "warn_if_recall_gte": 0.20,
     },
+    "t3_distribution_overlap": {
+        "fail_if_overlap_lte": 0.05,
+        "warn_if_overlap_lte": 0.20,
+    },
+    "t4_id_memorization": {
+        "fail_if_id_only_ap_ratio_gte": 0.80,
+        "warn_if_id_only_ap_ratio_gte": 0.50,
+        "fail_if_id_only_ap_lift_gte": 3.0,
+        "warn_if_id_only_ap_lift_gte": 1.5,
+        "fail_if_entity_holdout_ap_ratio_lte": 0.50,
+        "warn_if_entity_holdout_ap_ratio_lte": 0.75,
+    },
     "t5_zero_fraud_region": {
         "fail_if_row_share_gte": 0.90,
         "warn_if_row_share_gte": 0.50,
+    },
+    "t6_duplicate_rows": {
+        "fail_if_duplicate_feature_rows_gte": 0.05,
+        "warn_if_duplicate_feature_rows_gte": 0.01,
+        "fail_if_label_conflict_rows_gte": 0.001,
+        "warn_if_label_conflict_rows_gte": 0.0,
+    },
+    "t7_temporal_degradation": {
+        "fail_if_temporal_ap_ratio_lte": 0.50,
+        "warn_if_temporal_ap_ratio_lte": 0.75,
+    },
+    "t8_leakage_review": {
+        "fail_on_feature_name_patterns": True,
+        "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)",
     },
     "t9_cardinality_sanity": {
         "fail_if_amount_distinct_lte": 100,
@@ -46,11 +72,15 @@ DEFAULT_THRESHOLDS = {
         "warn_if_amount_top10_share_gte": 0.70,
         "warn_if_round_thousand_share_gte": 0.95,
     },
-    "duplicates": {
-        "warn_if_duplicate_feature_rows_gte": 0.01,
+    "t10_label_noise_plausibility": {
+        "warn_if_no_oracle_label": False,
+        "fail_if_noise_rate_lte": 0.0,
+        "warn_if_noise_rate_lt": 0.01,
+        "warn_if_noise_rate_gt": 0.30,
+        "fail_if_noise_rate_gte": 0.50,
     },
     "split_drift": {
-        "warn_if_max_non_id_js_lte": 0.01,
+        "warn_if_max_non_id_js_lte": None,
     },
 }
 
@@ -229,8 +259,18 @@ def split_paths(config: dict[str, object]) -> dict[str, list[Path]]:
     return result
 
 
-def positive_label(config: dict[str, object], row: dict[str, str]) -> int:
-    value = normalize(row.get(config["label_col"], ""))
+def label_column(config: dict[str, object], purpose: str = "train") -> str:
+    if purpose == "eval":
+        return str(config.get("oracle_label_col") or config["label_col"])
+    return str(config["label_col"])
+
+
+def positive_label(
+    config: dict[str, object],
+    row: dict[str, str],
+    purpose: str = "train",
+) -> int:
+    value = normalize(row.get(label_column(config, purpose), ""))
     return int(value in set(config.get("positive_values", ["1", "1.0", "Y", "true", "True"])))
 
 
@@ -467,7 +507,7 @@ def run_nb_baseline(
     train_rows = 0
     train_pos = 0
     for row in iter_rows(train_paths):
-        y = positive_label(config, row)
+        y = positive_label(config, row, "train")
         train_rows += 1
         train_pos += y
         model.update(row_tokens(row, feature_cols, date_cols, numeric_cols), y)
@@ -475,7 +515,7 @@ def run_nb_baseline(
     y_values: list[int] = []
     scores: list[float] = []
     for row in iter_rows(test_paths):
-        y_values.append(positive_label(config, row))
+        y_values.append(positive_label(config, row, "eval"))
         scores.append(model.score(row_tokens(row, feature_cols, date_cols, numeric_cols)))
 
     metrics = evaluate_scores(y_values, scores)
@@ -495,14 +535,16 @@ def run_temporal_baseline(
     if not date_cols:
         return None
     date_col = date_cols[-1]
-    years = Counter()
+    granularity = str(config.get("temporal_granularity", "year"))
+    periods = Counter()
     for row in iter_rows(all_paths):
-        year, _, _ = parse_year_month_day(row.get(date_col, ""))
-        if year:
-            years[year] += 1
-    if len(years) < 2:
+        year, ym, ymd = parse_year_month_day(row.get(date_col, ""))
+        period = ymd if granularity == "day" else ym if granularity == "month" else year
+        if period:
+            periods[period] += 1
+    if len(periods) < 2:
         return None
-    test_year = sorted(years)[-1]
+    test_period = sorted(periods)[-1]
 
     model = EvidenceNB()
     train_rows = 0
@@ -510,10 +552,11 @@ def run_temporal_baseline(
     date_set = set(config.get("date_cols", []))
     numeric_set = set(config.get("numeric_cols", []))
     for row in iter_rows(all_paths):
-        year, _, _ = parse_year_month_day(row.get(date_col, ""))
-        if not year or year >= test_year:
+        year, ym, ymd = parse_year_month_day(row.get(date_col, ""))
+        period = ymd if granularity == "day" else ym if granularity == "month" else year
+        if not period or period >= test_period:
             continue
-        y = positive_label(config, row)
+        y = positive_label(config, row, "train")
         train_rows += 1
         train_pos += y
         model.update(row_tokens(row, feature_cols, date_set, numeric_set), y)
@@ -521,17 +564,74 @@ def run_temporal_baseline(
     y_values: list[int] = []
     scores: list[float] = []
     for row in iter_rows(all_paths):
-        year, _, _ = parse_year_month_day(row.get(date_col, ""))
-        if year != test_year:
+        year, ym, ymd = parse_year_month_day(row.get(date_col, ""))
+        period = ymd if granularity == "day" else ym if granularity == "month" else year
+        if period != test_period:
             continue
-        y_values.append(positive_label(config, row))
+        y_values.append(positive_label(config, row, "eval"))
         scores.append(model.score(row_tokens(row, feature_cols, date_set, numeric_set)))
 
     if not y_values:
         return None
     metrics = evaluate_scores(y_values, scores)
     metrics["date_col"] = date_col
-    metrics["test_year"] = test_year
+    metrics["temporal_granularity"] = granularity
+    metrics["test_period"] = test_period
+    metrics["train_rows"] = train_rows
+    metrics["train_positives"] = train_pos
+    metrics["train_prevalence"] = train_pos / train_rows if train_rows else None
+    return metrics
+
+
+def stable_bucket(value: str, modulo: int = 100) -> int:
+    digest = hashlib.blake2b(value.encode("utf-8"), digest_size=4).hexdigest()
+    return int(digest, 16) % modulo
+
+
+def run_entity_holdout_baseline(
+    config: dict[str, object],
+    all_paths: list[Path],
+    entity_col: str,
+    feature_cols: list[str],
+    holdout_share: float = 0.20,
+) -> dict[str, object] | None:
+    if not entity_col:
+        return None
+    threshold = max(1, min(99, round(holdout_share * 100)))
+    date_cols = set(config.get("date_cols", []))
+    numeric_cols = set(config.get("numeric_cols", []))
+    model = EvidenceNB()
+    train_rows = 0
+    train_pos = 0
+    test_rows = 0
+    for row in iter_rows(all_paths):
+        entity = normalize(row.get(entity_col, ""))
+        is_holdout = stable_bucket(entity) < threshold
+        if is_holdout:
+            test_rows += 1
+            continue
+        y = positive_label(config, row, "train")
+        train_rows += 1
+        train_pos += y
+        model.update(row_tokens(row, feature_cols, date_cols, numeric_cols), y)
+
+    if train_rows == 0 or test_rows == 0:
+        return None
+
+    y_values: list[int] = []
+    scores: list[float] = []
+    for row in iter_rows(all_paths):
+        entity = normalize(row.get(entity_col, ""))
+        if stable_bucket(entity) >= threshold:
+            continue
+        y_values.append(positive_label(config, row, "eval"))
+        scores.append(model.score(row_tokens(row, feature_cols, date_cols, numeric_cols)))
+
+    if not y_values:
+        return None
+    metrics = evaluate_scores(y_values, scores)
+    metrics["entity_col"] = entity_col
+    metrics["holdout_share"] = holdout_share
     metrics["train_rows"] = train_rows
     metrics["train_positives"] = train_pos
     metrics["train_prevalence"] = train_pos / train_rows if train_rows else None
@@ -774,6 +874,145 @@ def evaluate_t1(
     return tests
 
 
+def evaluate_t3(
+    overlap_by_col: list[dict[str, object]],
+    config: dict[str, object],
+    thresholds: dict[str, object],
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t3 = threshold_group(thresholds, "t3_distribution_overlap")
+    fail_threshold = t3.get("fail_if_overlap_lte", 0.05)
+    warn_threshold = t3.get("warn_if_overlap_lte", 0.20)
+    amount_cols = set(config.get("amount_cols", []))
+    important_cols = set(config.get("overlap_cols", [])) | amount_cols
+    candidates = [
+        item
+        for item in overlap_by_col
+        if not item.get("is_id")
+        and item.get("overlap") is not None
+        and (not important_cols or item.get("column") in important_cols)
+    ]
+    if not candidates:
+        add_test(
+            tests,
+            "T3",
+            "Class distribution overlap",
+            "INFO",
+            "No overlap-check columns were available.",
+        )
+        return tests
+    lowest = min(candidates, key=lambda item: item["overlap"])
+    overlap = lowest["overlap"]
+    if overlap <= fail_threshold:
+        status = "FAIL"
+        threshold = f"<= {fail_threshold}"
+    elif overlap <= warn_threshold:
+        status = "WARN"
+        threshold = f"<= {warn_threshold}"
+    else:
+        status = "PASS"
+        threshold = f"> {warn_threshold}"
+    add_test(
+        tests,
+        "T3",
+        "Class distribution overlap",
+        status,
+        f"Lowest checked overlap is {overlap:.4f} on {lowest['column']}.",
+        metric=overlap,
+        threshold=threshold,
+    )
+    return tests
+
+
+def evaluate_t4(
+    baselines: dict[str, object],
+    thresholds: dict[str, object],
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t4 = threshold_group(thresholds, "t4_id_memorization")
+    no_id = baselines.get("provided_split_no_id_nb")
+    id_only = baselines.get("provided_split_id_only_nb")
+    if isinstance(no_id, dict) and isinstance(id_only, dict):
+        no_id_ap = no_id.get("average_precision")
+        id_ap = id_only.get("average_precision")
+        prevalence = id_only.get("prevalence")
+        if (
+            isinstance(no_id_ap, (int, float))
+            and isinstance(id_ap, (int, float))
+            and isinstance(prevalence, (int, float))
+            and no_id_ap
+            and prevalence
+        ):
+            ratio = id_ap / no_id_ap
+            lift = id_ap / prevalence
+            fail = t4.get("fail_if_id_only_ap_ratio_gte", 0.80)
+            warn = t4.get("warn_if_id_only_ap_ratio_gte", 0.50)
+            fail_lift = t4.get("fail_if_id_only_ap_lift_gte", 3.0)
+            warn_lift = t4.get("warn_if_id_only_ap_lift_gte", 1.5)
+            if ratio >= fail and lift >= fail_lift:
+                status = "FAIL"
+                threshold = f"ratio >= {fail} and lift >= {fail_lift}"
+            elif ratio >= warn and lift >= warn_lift:
+                status = "WARN"
+                threshold = f"ratio >= {warn} and lift >= {warn_lift}"
+            else:
+                status = "PASS"
+                threshold = f"ratio/lift below warning pair"
+            add_test(
+                tests,
+                "T4.1",
+                "ID-only baseline",
+                status,
+                "Compares ID-only AP to no-ID AP and fraud prevalence.",
+                metric={"ap_ratio": ratio, "ap_lift": lift},
+                threshold=threshold,
+            )
+    else:
+        add_test(
+            tests,
+            "T4.1",
+            "ID-only baseline",
+            "INFO",
+            "No ID-only baseline was available.",
+        )
+
+    entity_metric = baselines.get("entity_holdout_no_id_nb")
+    if isinstance(no_id, dict) and isinstance(entity_metric, dict):
+        provided_ap = no_id.get("average_precision")
+        entity_ap = entity_metric.get("average_precision")
+        if isinstance(provided_ap, (int, float)) and isinstance(entity_ap, (int, float)) and provided_ap:
+            ratio = entity_ap / provided_ap
+            fail = t4.get("fail_if_entity_holdout_ap_ratio_lte", 0.50)
+            warn = t4.get("warn_if_entity_holdout_ap_ratio_lte", 0.75)
+            if ratio <= fail:
+                status = "FAIL"
+                threshold = f"<= {fail}"
+            elif ratio <= warn:
+                status = "WARN"
+                threshold = f"<= {warn}"
+            else:
+                status = "PASS"
+                threshold = f"> {warn}"
+            add_test(
+                tests,
+                "T4.2",
+                "Entity-holdout degradation",
+                status,
+                "Compares entity-holdout no-ID average precision to provided-split no-ID average precision.",
+                metric=ratio,
+                threshold=threshold,
+            )
+    else:
+        add_test(
+            tests,
+            "T4.2",
+            "Entity-holdout degradation",
+            "INFO",
+            "No entity-holdout baseline was available.",
+        )
+    return tests
+
+
 def evaluate_t5(
     amount_rules: dict[str, object],
     thresholds: dict[str, object],
@@ -816,6 +1055,158 @@ def evaluate_t5(
             "Zero-fraud low-amount region",
             "PASS",
             "No zero-positive low-amount region was found.",
+        )
+    return tests
+
+
+def evaluate_t6(
+    duplicate_features: int,
+    label_conflict_rows: int,
+    combined_rows: int,
+    thresholds: dict[str, object],
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t6 = threshold_group(thresholds, "t6_duplicate_rows")
+    duplicate_rate = duplicate_features / combined_rows if combined_rows else 0.0
+    conflict_rate = label_conflict_rows / combined_rows if combined_rows else 0.0
+
+    fail_dup = t6.get("fail_if_duplicate_feature_rows_gte", 0.05)
+    warn_dup = t6.get("warn_if_duplicate_feature_rows_gte", 0.01)
+    if duplicate_rate >= fail_dup:
+        status = "FAIL"
+        threshold = f">= {fail_dup}"
+    elif duplicate_rate >= warn_dup:
+        status = "WARN"
+        threshold = f">= {warn_dup}"
+    else:
+        status = "PASS"
+        threshold = f"< {warn_dup}"
+    add_test(
+        tests,
+        "T6.1",
+        "Duplicate feature rows",
+        status,
+        f"Duplicate rows excluding the label: {duplicate_features:,}.",
+        metric=duplicate_rate,
+        threshold=threshold,
+    )
+
+    fail_conflict = t6.get("fail_if_label_conflict_rows_gte", 0.001)
+    warn_conflict = t6.get("warn_if_label_conflict_rows_gte", 0.0)
+    if conflict_rate >= fail_conflict:
+        status = "FAIL"
+        threshold = f">= {fail_conflict}"
+    elif conflict_rate > warn_conflict:
+        status = "WARN"
+        threshold = f"> {warn_conflict}"
+    else:
+        status = "PASS"
+        threshold = f"= {warn_conflict}"
+    add_test(
+        tests,
+        "T6.2",
+        "Label conflicts for identical features",
+        status,
+        f"Rows in duplicate feature groups with mixed labels: {label_conflict_rows:,}.",
+        metric=conflict_rate,
+        threshold=threshold,
+    )
+    return tests
+
+
+def evaluate_t7(
+    baselines: dict[str, object],
+    thresholds: dict[str, object],
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t7 = threshold_group(thresholds, "t7_temporal_degradation")
+    provided = baselines.get("provided_split_no_id_nb")
+    temporal = baselines.get("temporal_holdout_no_id_nb")
+    if not isinstance(provided, dict) or not isinstance(temporal, dict):
+        add_test(
+            tests,
+            "T7",
+            "Temporal split degradation",
+            "INFO",
+            "No comparable temporal holdout baseline was available.",
+        )
+        return tests
+    provided_ap = provided.get("average_precision")
+    temporal_ap = temporal.get("average_precision")
+    if not isinstance(provided_ap, (int, float)) or not isinstance(temporal_ap, (int, float)) or not provided_ap:
+        return tests
+    ratio = temporal_ap / provided_ap
+    fail = t7.get("fail_if_temporal_ap_ratio_lte", 0.50)
+    warn = t7.get("warn_if_temporal_ap_ratio_lte", 0.75)
+    if ratio <= fail:
+        status = "FAIL"
+        threshold = f"<= {fail}"
+    elif ratio <= warn:
+        status = "WARN"
+        threshold = f"<= {warn}"
+    else:
+        status = "PASS"
+        threshold = f"> {warn}"
+    add_test(
+        tests,
+        "T7",
+        "Temporal split degradation",
+        status,
+        "Compares temporal no-ID average precision to provided-split no-ID average precision.",
+        metric=ratio,
+        threshold=threshold,
+    )
+    return tests
+
+
+def evaluate_t8(
+    header: list[str],
+    feature_cols: list[str],
+    leak_cols: set[str],
+    thresholds: dict[str, object],
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t8 = threshold_group(thresholds, "t8_leakage_review")
+    leaked_features = [col for col in feature_cols if col in leak_cols]
+    if leaked_features:
+        add_test(
+            tests,
+            "T8.1",
+            "Configured leak-column exclusion",
+            "FAIL",
+            f"Configured leak columns are still present as features: {', '.join(leaked_features)}.",
+        )
+    else:
+        add_test(
+            tests,
+            "T8.1",
+            "Configured leak-column exclusion",
+            "PASS",
+            "Configured label/leak columns are excluded from features.",
+        )
+
+    pattern = str(t8.get("suspicious_name_pattern", ""))
+    suspicious = []
+    if pattern and t8.get("fail_on_feature_name_patterns", True):
+        regex = re.compile(pattern, re.I)
+        suspicious = [col for col in feature_cols if regex.search(col)]
+    if suspicious:
+        add_test(
+            tests,
+            "T8.2",
+            "Suspicious feature names",
+            "FAIL",
+            f"Feature names look label/post-outcome-like: {', '.join(suspicious[:8])}.",
+            metric=len(suspicious),
+            threshold="0",
+        )
+    else:
+        add_test(
+            tests,
+            "T8.2",
+            "Suspicious feature names",
+            "PASS",
+            "No suspicious label/post-outcome feature names were found.",
         )
     return tests
 
@@ -882,16 +1273,62 @@ def evaluate_t9(
     return tests
 
 
+def evaluate_t10(
+    label_alignment: dict[str, object] | None,
+    thresholds: dict[str, object],
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t10 = threshold_group(thresholds, "t10_label_noise_plausibility")
+    if not label_alignment:
+        status = "WARN" if t10.get("warn_if_no_oracle_label", False) else "INFO"
+        add_test(
+            tests,
+            "T10",
+            "Label-noise plausibility",
+            status,
+            "No separate oracle label is configured; label-noise plausibility cannot be measured directly.",
+        )
+        return tests
+    noise = label_alignment.get("noise_rate")
+    if not isinstance(noise, (int, float)):
+        return tests
+    fail_low = t10.get("fail_if_noise_rate_lte", 0.0)
+    warn_low = t10.get("warn_if_noise_rate_lt", 0.01)
+    warn_high = t10.get("warn_if_noise_rate_gt", 0.30)
+    fail_high = t10.get("fail_if_noise_rate_gte", 0.50)
+    if noise <= fail_low or noise >= fail_high:
+        status = "FAIL"
+        threshold = f"<= {fail_low} or >= {fail_high}"
+    elif noise < warn_low or noise > warn_high:
+        status = "WARN"
+        threshold = f"< {warn_low} or > {warn_high}"
+    else:
+        status = "PASS"
+        threshold = f"{warn_low}..{warn_high}"
+    add_test(
+        tests,
+        "T10",
+        "Label-noise plausibility",
+        status,
+        "Compares observed investigation labels against oracle labels.",
+        metric=noise,
+        threshold=threshold,
+    )
+    return tests
+
+
 def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str, object]:
     paths_by_split = split_paths(config)
     split_names = list(paths_by_split)
     all_paths = [path for paths in paths_by_split.values() for path in paths]
     header = read_header(all_paths[0])
-    label_col = config["label_col"]
-    leak_cols = set(config.get("leak_cols", [])) | {label_col}
+    label_col = label_column(config, "train")
+    eval_col = label_column(config, "eval")
+    leak_cols = set(config.get("leak_cols", [])) | {label_col, eval_col}
     id_cols = set(config.get("id_cols", []))
     feature_cols = [col for col in header if col not in leak_cols]
     no_id_feature_cols = [col for col in feature_cols if col not in id_cols]
+    id_feature_cols = [col for col in feature_cols if col in id_cols]
     amount_cols = set(config.get("amount_cols", []))
     numeric_cols = set(config.get("numeric_cols", []))
     date_cols = set(config.get("date_cols", []))
@@ -910,8 +1347,12 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
     date_pos_by_year = Counter()
     full_hashes = Counter()
     feature_hashes = Counter()
+    feature_label_hash_counts: dict[str, list[int]] = defaultdict(lambda: [0, 0])
+    label_alignment = None
+    label_alignment_counts = Counter()
     split_stats = {}
     split_value_counts: dict[str, dict[str, Counter[str]]] = {}
+    non_leak_hash_cols = [col for col in header if col not in leak_cols]
 
     for split_name, paths in paths_by_split.items():
         rows = 0
@@ -923,11 +1364,16 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
         for row in iter_rows(paths):
             rows += 1
             combined_rows += 1
-            y = positive_label(config, row)
+            y = positive_label(config, row, "eval")
+            observed_y = positive_label(config, row, "train")
+            if eval_col != label_col:
+                label_alignment_counts[(observed_y, y)] += 1
             positives += y
             combined_pos += y
             full_hashes[row_hash(row, header)] += 1
-            feature_hashes[row_hash(row, [col for col in header if col != label_col])] += 1
+            feature_hash = row_hash(row, non_leak_hash_cols)
+            feature_hashes[feature_hash] += 1
+            feature_label_hash_counts[feature_hash][y] += 1
 
             for col in header:
                 value = normalize(row.get(col, ""))
@@ -978,6 +1424,31 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
     prevalence = combined_pos / combined_rows if combined_rows else 0.0
     duplicate_full = sum(count - 1 for count in full_hashes.values() if count > 1)
     duplicate_features = sum(count - 1 for count in feature_hashes.values() if count > 1)
+    label_conflict_rows = sum(
+        sum(counts)
+        for counts in feature_label_hash_counts.values()
+        if counts[0] and counts[1]
+    )
+    if eval_col != label_col and combined_rows:
+        mismatches = label_alignment_counts[(0, 1)] + label_alignment_counts[(1, 0)]
+        observed_pos = label_alignment_counts[(1, 0)] + label_alignment_counts[(1, 1)]
+        oracle_pos = label_alignment_counts[(0, 1)] + label_alignment_counts[(1, 1)]
+        label_alignment = {
+            "observed_label_col": label_col,
+            "oracle_label_col": eval_col,
+            "noise_rate": mismatches / combined_rows,
+            "mismatches": mismatches,
+            "observed_positives": observed_pos,
+            "oracle_positives": oracle_pos,
+            "observed_prevalence": observed_pos / combined_rows,
+            "oracle_prevalence": oracle_pos / combined_rows,
+            "confusion": {
+                "observed_0_oracle_0": label_alignment_counts[(0, 0)],
+                "observed_0_oracle_1": label_alignment_counts[(0, 1)],
+                "observed_1_oracle_0": label_alignment_counts[(1, 0)],
+                "observed_1_oracle_1": label_alignment_counts[(1, 1)],
+            },
+        }
 
     columns = []
     for col in header:
@@ -1021,10 +1492,11 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
         for value, count in value_counts[col].items():
             pos_count = value_pos[col][value]
             neg_count = count - pos_count
+            overlap_value = numeric_log_bin(value) if col in numeric_cols else value
             if pos_count:
-                pos_counter[value] = pos_count
+                pos_counter[overlap_value] += pos_count
             if neg_count:
-                neg_counter[value] = neg_count
+                neg_counter[overlap_value] += neg_count
             if count < min_support:
                 continue
             positive_rate = pos_count / count
@@ -1096,6 +1568,13 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
         baselines["provided_split_no_id_nb"] = run_nb_baseline(
             config, train_paths, test_paths, no_id_feature_cols
         )
+        if id_feature_cols:
+            baselines["provided_split_id_only_nb"] = run_nb_baseline(
+                config, train_paths, test_paths, id_feature_cols
+            )
+            baselines["provided_split_with_id_nb"] = run_nb_baseline(
+                config, train_paths, test_paths, feature_cols
+            )
         amount_feature_cols = [col for col in no_id_feature_cols if col in amount_cols]
         if amount_feature_cols:
             baselines["provided_split_amount_only_nb"] = run_nb_baseline(
@@ -1113,11 +1592,31 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
         if amount_temporal:
             baselines["temporal_holdout_amount_only_nb"] = amount_temporal
 
+    entity_col = str(config.get("entity_holdout_col") or (list(id_cols)[0] if id_cols else ""))
+    if entity_col:
+        entity_no_id = run_entity_holdout_baseline(
+            config, all_paths, entity_col, no_id_feature_cols
+        )
+        if entity_no_id:
+            baselines["entity_holdout_no_id_nb"] = entity_no_id
+        if id_feature_cols:
+            entity_id_only = run_entity_holdout_baseline(
+                config, all_paths, entity_col, id_feature_cols
+            )
+            if entity_id_only:
+                baselines["entity_holdout_id_only_nb"] = entity_id_only
+
     tests: list[dict[str, object]] = []
     tests.extend(evaluate_t0(config, thresholds))
     tests.extend(evaluate_t1(baselines, amount_rules, thresholds))
+    tests.extend(evaluate_t3(overlap_by_col, config, thresholds))
+    tests.extend(evaluate_t4(baselines, thresholds))
     tests.extend(evaluate_t5(amount_rules, thresholds))
+    tests.extend(evaluate_t6(duplicate_features, label_conflict_rows, combined_rows, thresholds))
+    tests.extend(evaluate_t7(baselines, thresholds))
+    tests.extend(evaluate_t8(header, feature_cols, leak_cols, thresholds))
     tests.extend(evaluate_t9(numeric_profiles, amount_cols, thresholds))
+    tests.extend(evaluate_t10(label_alignment, thresholds))
 
     red_flags = []
     for test in tests:
@@ -1131,7 +1630,6 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
             )
 
     t2 = threshold_group(thresholds, "t2_single_feature_shortcut")
-    duplicate_thresholds = threshold_group(thresholds, "duplicates")
     split_thresholds = threshold_group(thresholds, "split_drift")
 
     for item in single_feature_rules:
@@ -1158,23 +1656,10 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
             if len([flag for flag in red_flags if flag["gate"] == "T2"]) >= 10:
                 break
 
-    duplicate_warn = duplicate_thresholds.get("warn_if_duplicate_feature_rows_gte", 0.01)
-    if duplicate_features / combined_rows >= duplicate_warn:
-        red_flags.append(
-            {
-                "severity": "warn",
-                "gate": "G0",
-                "message": (
-                    f"Duplicate rows excluding label: {duplicate_features:,} "
-                    f"({duplicate_features / combined_rows:.1%})."
-                ),
-            }
-        )
-
     if split_drift:
         non_id_js = [item["js_divergence"] for item in split_drift if not item["is_id"]]
         max_js_threshold = split_thresholds.get("warn_if_max_non_id_js_lte", 0.01)
-        if non_id_js and max(non_id_js) < max_js_threshold:
+        if max_js_threshold is not None and non_id_js and max(non_id_js) < max_js_threshold:
             red_flags.append(
                 {
                     "severity": "warn",
@@ -1200,6 +1685,7 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
             "prevalence": prevalence,
             "duplicate_full_rows": duplicate_full,
             "duplicate_rows_excluding_label": duplicate_features,
+            "label_conflict_rows_excluding_label": label_conflict_rows,
             "date_by_year": {
                 year: {
                     "rows": date_by_year[year],
@@ -1218,6 +1704,7 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
             },
         },
         "split_stats": split_stats,
+        "label_alignment": label_alignment,
         "columns": columns,
         "numeric_profiles": numeric_profiles,
         "single_feature_rules_top": single_feature_rules[:50],
@@ -1274,8 +1761,23 @@ def render_markdown(result: dict[str, object]) -> str:
         f"- Positives: {profile['positives']:,} ({pct(profile['prevalence'])})",
         f"- Duplicate full rows: {profile['duplicate_full_rows']:,}",
         f"- Duplicate rows excluding label: {profile['duplicate_rows_excluding_label']:,}",
+        f"- Label-conflict rows excluding label: {profile['label_conflict_rows_excluding_label']:,}",
         "",
     ]
+    if result.get("label_alignment"):
+        alignment = result["label_alignment"]
+        lines.extend(
+            [
+                "## Label Alignment",
+                "",
+                f"- Observed label: `{alignment['observed_label_col']}`",
+                f"- Oracle label: `{alignment['oracle_label_col']}`",
+                f"- Noise rate: {pct(alignment['noise_rate'])}",
+                f"- Observed positives: {alignment['observed_positives']:,} ({pct(alignment['observed_prevalence'])})",
+                f"- Oracle positives: {alignment['oracle_positives']:,} ({pct(alignment['oracle_prevalence'])})",
+                "",
+            ]
+        )
     if result.get("tests"):
         lines.extend(
             [

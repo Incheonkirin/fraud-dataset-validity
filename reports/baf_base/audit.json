@@ -1,0 +1,5255 @@
+{
+  "name": "baf_base",
+  "title": "BAF Base",
+  "config_path": "configs/baf_base.json",
+  "verdict": "PASS",
+  "row_profile": {
+    "rows": 1000000,
+    "positives": 11029,
+    "prevalence": 0.011029,
+    "duplicate_full_rows": 0,
+    "duplicate_rows_excluding_label": 0,
+    "label_conflict_rows_excluding_label": 0,
+    "date_by_year": {
+      "2022": {
+        "rows": 1000000,
+        "positives": 11029,
+        "prevalence": 0.011029
+      }
+    },
+    "date_by_month": {
+      "202201": {
+        "rows": 132440,
+        "positives": 1500,
+        "prevalence": 0.011325883418906675
+      },
+      "202202": {
+        "rows": 127620,
+        "positives": 1198,
+        "prevalence": 0.009387243378780755
+      },
+      "202203": {
+        "rows": 136979,
+        "positives": 1198,
+        "prevalence": 0.008745866154666044
+      },
+      "202204": {
+        "rows": 150936,
+        "positives": 1392,
+        "prevalence": 0.009222451900143107
+      },
+      "202205": {
+        "rows": 127691,
+        "positives": 1452,
+        "prevalence": 0.011371200789405674
+      },
+      "202206": {
+        "rows": 119323,
+        "positives": 1411,
+        "prevalence": 0.01182504630289215
+      },
+      "202207": {
+        "rows": 108168,
+        "positives": 1450,
+        "prevalence": 0.013405073589231566
+      },
+      "202208": {
+        "rows": 96843,
+        "positives": 1428,
+        "prevalence": 0.014745515938167962
+      }
+    }
+  },
+  "split_stats": {
+    "train": {
+      "rows": 794989,
+      "positives": 8151,
+      "prevalence": 0.010252972053701372,
+      "missing_rate_top": [],
+      "by_year": {
+        "2022": {
+          "rows": 794989,
+          "positives": 8151,
+          "prevalence": 0.010252972053701372
+        }
+      }
+    },
+    "valid": {
+      "rows": 205011,
+      "positives": 2878,
+      "prevalence": 0.014038271117159567,
+      "missing_rate_top": [],
+      "by_year": {
+        "2022": {
+          "rows": 205011,
+          "positives": 2878,
+          "prevalence": 0.014038271117159567
+        }
+      }
+    }
+  },
+  "label_alignment": null,
+  "columns": [
+    {
+      "column": "application_id",
+      "role": "id",
+      "missing_rate": 0.0,
+      "distinct": 1000000,
+      "cardinality_ratio": 1.0,
+      "top1_share": 1e-06,
+      "top5_share": 5e-06,
+      "entropy": 19.931568569559303,
+      "effective_categories": 1000000.0001629791,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "1",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "2",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "3",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "6",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "7",
+          "count": 1,
+          "share": 1e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "event_date",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 8,
+      "cardinality_ratio": 8e-06,
+      "top1_share": 0.150936,
+      "top5_share": 0.675666,
+      "entropy": 2.9882987269338965,
+      "effective_categories": 7.935376788667025,
+      "top_values": [
+        {
+          "value": "2022-04-01",
+          "count": 150936,
+          "share": 0.150936,
+          "positive_rate": 0.009222451900143107
+        },
+        {
+          "value": "2022-03-01",
+          "count": 136979,
+          "share": 0.136979,
+          "positive_rate": 0.008745866154666044
+        },
+        {
+          "value": "2022-01-01",
+          "count": 132440,
+          "share": 0.13244,
+          "positive_rate": 0.011325883418906675
+        },
+        {
+          "value": "2022-05-01",
+          "count": 127691,
+          "share": 0.127691,
+          "positive_rate": 0.011371200789405674
+        },
+        {
+          "value": "2022-02-01",
+          "count": 127620,
+          "share": 0.12762,
+          "positive_rate": 0.009387243378780755
+        },
+        {
+          "value": "2022-06-01",
+          "count": 119323,
+          "share": 0.119323,
+          "positive_rate": 0.01182504630289215
+        },
+        {
+          "value": "2022-07-01",
+          "count": 108168,
+          "share": 0.108168,
+          "positive_rate": 0.013405073589231566
+        },
+        {
+          "value": "2022-08-01",
+          "count": 96843,
+          "share": 0.096843,
+          "positive_rate": 0.014745515938167962
+        }
+      ]
+    },
+    {
+      "column": "fraud_bool",
+      "role": "label_or_leak",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.988971,
+      "top5_share": 1.0,
+      "entropy": 0.08754008565868582,
+      "effective_categories": 1.0625568896258217,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 988971,
+          "share": 0.988971,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "1",
+          "count": 11029,
+          "share": 0.011029,
+          "positive_rate": 1.0
+        }
+      ]
+    },
+    {
+      "column": "income",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 9,
+      "cardinality_ratio": 9e-06,
+      "top1_share": 0.221419,
+      "top5_share": 0.7426,
+      "entropy": 3.0154516423814255,
+      "effective_categories": 8.086142580182656,
+      "top_values": [
+        {
+          "value": "0.9",
+          "count": 221419,
+          "share": 0.221419,
+          "positive_rate": 0.021637709500991333
+        },
+        {
+          "value": "0.1",
+          "count": 157449,
+          "share": 0.157449,
+          "positive_rate": 0.005773298020311339
+        },
+        {
+          "value": "0.8",
+          "count": 146650,
+          "share": 0.14665,
+          "positive_rate": 0.010923968632799182
+        },
+        {
+          "value": "0.6000000000000001",
+          "count": 111973,
+          "share": 0.111973,
+          "positive_rate": 0.008778902056745823
+        },
+        {
+          "value": "0.7000000000000001",
+          "count": 105109,
+          "share": 0.105109,
+          "positive_rate": 0.00881941603478294
+        },
+        {
+          "value": "0.4",
+          "count": 81364,
+          "share": 0.081364,
+          "positive_rate": 0.007337397374760336
+        },
+        {
+          "value": "0.2",
+          "count": 69345,
+          "share": 0.069345,
+          "positive_rate": 0.006316244862643305
+        },
+        {
+          "value": "0.5",
+          "count": 55858,
+          "share": 0.055858,
+          "positive_rate": 0.007948727129506963
+        }
+      ]
+    },
+    {
+      "column": "name_email_similarity",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 998861,
+      "cardinality_ratio": 0.998861,
+      "top1_share": 2e-06,
+      "top5_share": 1e-05,
+      "entropy": 19.929290569559182,
+      "effective_categories": 998422.2568330258,
+      "top_values": [
+        {
+          "value": "0.3025535638126539",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.5308693350462508",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.6386435569174944",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.6820961298702716",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.5219805717244557",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.4742022295667471",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.2506920360499026",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.5847416055518588",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "prev_address_months_count",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 374,
+      "cardinality_ratio": 0.000374,
+      "top1_share": 0.71292,
+      "top5_share": 0.754902,
+      "entropy": 2.7985218937126644,
+      "effective_categories": 6.957272813116798,
+      "top_values": [
+        {
+          "value": "-1",
+          "count": 712920,
+          "share": 0.71292,
+          "positive_rate": 0.014214778656791787
+        },
+        {
+          "value": "11",
+          "count": 11475,
+          "share": 0.011475,
+          "positive_rate": 0.0027015250544662308
+        },
+        {
+          "value": "28",
+          "count": 10275,
+          "share": 0.010275,
+          "positive_rate": 0.00291970802919708
+        },
+        {
+          "value": "29",
+          "count": 10150,
+          "share": 0.01015,
+          "positive_rate": 0.0023645320197044333
+        },
+        {
+          "value": "10",
+          "count": 10082,
+          "share": 0.010082,
+          "positive_rate": 0.002281293394167824
+        },
+        {
+          "value": "27",
+          "count": 10007,
+          "share": 0.010007,
+          "positive_rate": 0.0028979714200059957
+        },
+        {
+          "value": "30",
+          "count": 9362,
+          "share": 0.009362,
+          "positive_rate": 0.0033112582781456954
+        },
+        {
+          "value": "26",
+          "count": 9036,
+          "share": 0.009036,
+          "positive_rate": 0.0017706949977866313
+        }
+      ]
+    },
+    {
+      "column": "current_address_months_count",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 423,
+      "cardinality_ratio": 0.000423,
+      "top1_share": 0.016376,
+      "top5_share": 0.080319,
+      "entropy": 7.810028039429602,
+      "effective_categories": 224.41542622966898,
+      "top_values": [
+        {
+          "value": "6",
+          "count": 16376,
+          "share": 0.016376,
+          "positive_rate": 0.004335613092330239
+        },
+        {
+          "value": "7",
+          "count": 16270,
+          "share": 0.01627,
+          "positive_rate": 0.00313460356484327
+        },
+        {
+          "value": "8",
+          "count": 16089,
+          "share": 0.016089,
+          "positive_rate": 0.0032320218783019453
+        },
+        {
+          "value": "5",
+          "count": 15896,
+          "share": 0.015896,
+          "positive_rate": 0.0031454453950679417
+        },
+        {
+          "value": "9",
+          "count": 15688,
+          "share": 0.015688,
+          "positive_rate": 0.0030596634370219276
+        },
+        {
+          "value": "4",
+          "count": 15030,
+          "share": 0.01503,
+          "positive_rate": 0.002927478376580173
+        },
+        {
+          "value": "10",
+          "count": 14739,
+          "share": 0.014739,
+          "positive_rate": 0.002713888323495488
+        },
+        {
+          "value": "11",
+          "count": 13988,
+          "share": 0.013988,
+          "positive_rate": 0.0031455533314269373
+        }
+      ]
+    },
+    {
+      "column": "customer_age",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 9,
+      "cardinality_ratio": 9e-06,
+      "top1_share": 0.311433,
+      "top5_share": 0.971123,
+      "entropy": 2.2590088286233083,
+      "effective_categories": 4.786625144755033,
+      "top_values": [
+        {
+          "value": "30",
+          "count": 311433,
+          "share": 0.311433,
+          "positive_rate": 0.008313184537284102
+        },
+        {
+          "value": "20",
+          "count": 245855,
+          "share": 0.245855,
+          "positive_rate": 0.004901262939537532
+        },
+        {
+          "value": "40",
+          "count": 238712,
+          "share": 0.238712,
+          "positive_rate": 0.012047990884413017
+        },
+        {
+          "value": "50",
+          "count": 140353,
+          "share": 0.140353,
+          "positive_rate": 0.01998532272199383
+        },
+        {
+          "value": "60",
+          "count": 34770,
+          "share": 0.03477,
+          "positive_rate": 0.033045729076790334
+        },
+        {
+          "value": "10",
+          "count": 20987,
+          "share": 0.020987,
+          "positive_rate": 0.0035259922809358175
+        },
+        {
+          "value": "70",
+          "count": 6517,
+          "share": 0.006517,
+          "positive_rate": 0.040355992020868495
+        },
+        {
+          "value": "80",
+          "count": 1297,
+          "share": 0.001297,
+          "positive_rate": 0.04934464148033924
+        }
+      ]
+    },
+    {
+      "column": "days_since_request",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 989330,
+      "cardinality_ratio": 0.98933,
+      "top1_share": 3e-06,
+      "top5_share": 1.5e-05,
+      "entropy": 19.910139492832837,
+      "effective_categories": 985256.2651803831,
+      "top_values": [
+        {
+          "value": "0.0213681793840271",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.0168225891609184",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.03107554032689",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.0158097953581759",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.0316500016669083",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.0306988779738536",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.0311634053589029",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "0.0293120312863276",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "intended_balcon_amount",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 994971,
+      "cardinality_ratio": 0.994971,
+      "top1_share": 3e-06,
+      "top5_share": 1.5e-05,
+      "entropy": 19.92148641315879,
+      "effective_categories": 993035.9440897707,
+      "top_values": [
+        {
+          "value": "-0.8829498799394292",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-1.5142802598222749",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-1.5320825951804882",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-0.5543811020990086",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-1.4427094962962446",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-1.1891464374657503",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-1.3922561733926009",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "-1.1258458994102172",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "payment_type",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 5,
+      "cardinality_ratio": 5e-06,
+      "top1_share": 0.370554,
+      "top5_share": 1.0,
+      "entropy": 1.9048458003713544,
+      "effective_categories": 3.744688724640924,
+      "top_values": [
+        {
+          "value": "AB",
+          "count": 370554,
+          "share": 0.370554,
+          "positive_rate": 0.011250721892085903
+        },
+        {
+          "value": "AA",
+          "count": 258249,
+          "share": 0.258249,
+          "positive_rate": 0.005281724227392943
+        },
+        {
+          "value": "AC",
+          "count": 252071,
+          "share": 0.252071,
+          "positive_rate": 0.016697676448302265
+        },
+        {
+          "value": "AD",
+          "count": 118837,
+          "share": 0.118837,
+          "positive_rate": 0.010821545478260138
+        },
+        {
+          "value": "AE",
+          "count": 289,
+          "share": 0.000289,
+          "positive_rate": 0.0034602076124567475
+        }
+      ]
+    },
+    {
+      "column": "zip_count_4w",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 6306,
+      "cardinality_ratio": 0.006306,
+      "top1_share": 0.000798,
+      "top5_share": 0.00388,
+      "entropy": 11.668705126359859,
+      "effective_categories": 3255.594106291178,
+      "top_values": [
+        {
+          "value": "1020",
+          "count": 798,
+          "share": 0.000798,
+          "positive_rate": 0.016290726817042606
+        },
+        {
+          "value": "1062",
+          "count": 782,
+          "share": 0.000782,
+          "positive_rate": 0.0076726342710997444
+        },
+        {
+          "value": "1042",
+          "count": 770,
+          "share": 0.00077,
+          "positive_rate": 0.00909090909090909
+        },
+        {
+          "value": "969",
+          "count": 767,
+          "share": 0.000767,
+          "positive_rate": 0.00651890482398957
+        },
+        {
+          "value": "1026",
+          "count": 763,
+          "share": 0.000763,
+          "positive_rate": 0.003931847968545216
+        },
+        {
+          "value": "996",
+          "count": 762,
+          "share": 0.000762,
+          "positive_rate": 0.010498687664041995
+        },
+        {
+          "value": "1030",
+          "count": 759,
+          "share": 0.000759,
+          "positive_rate": 0.00922266139657444
+        },
+        {
+          "value": "1033",
+          "count": 755,
+          "share": 0.000755,
+          "positive_rate": 0.010596026490066225
+        }
+      ]
+    },
+    {
+      "column": "velocity_6h",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 998687,
+      "cardinality_ratio": 0.998687,
+      "top1_share": 2e-06,
+      "top5_share": 1e-05,
+      "entropy": 19.928942569559137,
+      "effective_categories": 998181.4512339783,
+      "top_values": [
+        {
+          "value": "6030.172536015922",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "8350.043943570123",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "8510.359921368528",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "7855.1486430829245",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "14037.574188273236",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "8478.84468648881",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4397.876119346264",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4246.766293534085",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "velocity_24h",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 998940,
+      "cardinality_ratio": 0.99894,
+      "top1_share": 3e-06,
+      "top5_share": 1.4e-05,
+      "entropy": 19.92944555000911,
+      "effective_categories": 998529.5173681286,
+      "top_values": [
+        {
+          "value": "6676.201310371049",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4667.86385373611",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "3906.416301617956",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5082.32663160544",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "7122.053750217235",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "2914.068145372085",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4214.177697171192",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "7137.753736936049",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "velocity_4w",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 998318,
+      "cardinality_ratio": 0.998318,
+      "top1_share": 3e-06,
+      "top5_share": 1.2e-05,
+      "entropy": 19.9282030597838,
+      "effective_categories": 997669.9253989995,
+      "top_values": [
+        {
+          "value": "5466.870949122974",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4297.664857621487",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "6003.035555238671",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5459.6573770120585",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "6638.842222036727",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5976.352828557003",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4770.925203568972",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "6806.4158964291",
+          "count": 2,
+          "share": 2e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "bank_branch_count_8w",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2326,
+      "cardinality_ratio": 0.002326,
+      "top1_share": 0.149028,
+      "top5_share": 0.41305,
+      "entropy": 6.252046549390591,
+      "effective_categories": 76.21729751490702,
+      "top_values": [
+        {
+          "value": "1",
+          "count": 149028,
+          "share": 0.149028,
+          "positive_rate": 0.016070805486217355
+        },
+        {
+          "value": "0",
+          "count": 144376,
+          "share": 0.144376,
+          "positive_rate": 0.017766110710921483
+        },
+        {
+          "value": "2",
+          "count": 57792,
+          "share": 0.057792,
+          "positive_rate": 0.012614202657807308
+        },
+        {
+          "value": "11",
+          "count": 31160,
+          "share": 0.03116,
+          "positive_rate": 0.00975609756097561
+        },
+        {
+          "value": "10",
+          "count": 30694,
+          "share": 0.030694,
+          "positive_rate": 0.009871636150387698
+        },
+        {
+          "value": "12",
+          "count": 30537,
+          "share": 0.030537,
+          "positive_rate": 0.009431181844974948
+        },
+        {
+          "value": "9",
+          "count": 29239,
+          "share": 0.029239,
+          "positive_rate": 0.009200041041075276
+        },
+        {
+          "value": "13",
+          "count": 28182,
+          "share": 0.028182,
+          "positive_rate": 0.010751543538428785
+        }
+      ]
+    },
+    {
+      "column": "date_of_birth_distinct_emails_4w",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 40,
+      "cardinality_ratio": 4e-05,
+      "top1_share": 0.083193,
+      "top5_share": 0.395164,
+      "entropy": 4.28092567157087,
+      "effective_categories": 19.43958710663368,
+      "top_values": [
+        {
+          "value": "7",
+          "count": 83193,
+          "share": 0.083193,
+          "positive_rate": 0.011551452646256295
+        },
+        {
+          "value": "5",
+          "count": 80799,
+          "share": 0.080799,
+          "positive_rate": 0.01170806569388235
+        },
+        {
+          "value": "8",
+          "count": 79491,
+          "share": 0.079491,
+          "positive_rate": 0.012957441722962348
+        },
+        {
+          "value": "6",
+          "count": 78225,
+          "share": 0.078225,
+          "positive_rate": 0.01078938958133589
+        },
+        {
+          "value": "11",
+          "count": 73456,
+          "share": 0.073456,
+          "positive_rate": 0.006466456109780004
+        },
+        {
+          "value": "9",
+          "count": 67341,
+          "share": 0.067341,
+          "positive_rate": 0.011226444513743484
+        },
+        {
+          "value": "10",
+          "count": 62681,
+          "share": 0.062681,
+          "positive_rate": 0.008710773599655398
+        },
+        {
+          "value": "4",
+          "count": 62549,
+          "share": 0.062549,
+          "positive_rate": 0.012406273481590433
+        }
+      ]
+    },
+    {
+      "column": "employment_status",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 7,
+      "cardinality_ratio": 7e-06,
+      "top1_share": 0.730252,
+      "top5_share": 0.976854,
+      "entropy": 1.3706303958405894,
+      "effective_categories": 2.5858353135507204,
+      "top_values": [
+        {
+          "value": "CA",
+          "count": 730252,
+          "share": 0.730252,
+          "positive_rate": 0.012186204214435564
+        },
+        {
+          "value": "CB",
+          "count": 138288,
+          "share": 0.138288,
+          "positive_rate": 0.0068914150179335875
+        },
+        {
+          "value": "CF",
+          "count": 44034,
+          "share": 0.044034,
+          "positive_rate": 0.0019303265658354907
+        },
+        {
+          "value": "CC",
+          "count": 37758,
+          "share": 0.037758,
+          "positive_rate": 0.024683510779172625
+        },
+        {
+          "value": "CD",
+          "count": 26522,
+          "share": 0.026522,
+          "positive_rate": 0.0037704547168388508
+        },
+        {
+          "value": "CE",
+          "count": 22693,
+          "share": 0.022693,
+          "positive_rate": 0.002335521967126427
+        },
+        {
+          "value": "CG",
+          "count": 453,
+          "share": 0.000453,
+          "positive_rate": 0.01545253863134658
+        }
+      ]
+    },
+    {
+      "column": "credit_risk_score",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 551,
+      "cardinality_ratio": 0.000551,
+      "top1_share": 0.006791,
+      "top5_share": 0.0338,
+      "entropy": 8.135405109092499,
+      "effective_categories": 281.1907076588107,
+      "top_values": [
+        {
+          "value": "113",
+          "count": 6791,
+          "share": 0.006791,
+          "positive_rate": 0.006331909880724488
+        },
+        {
+          "value": "116",
+          "count": 6784,
+          "share": 0.006784,
+          "positive_rate": 0.0050117924528301884
+        },
+        {
+          "value": "110",
+          "count": 6774,
+          "share": 0.006774,
+          "positive_rate": 0.006790670209625037
+        },
+        {
+          "value": "115",
+          "count": 6734,
+          "share": 0.006734,
+          "positive_rate": 0.006237006237006237
+        },
+        {
+          "value": "117",
+          "count": 6717,
+          "share": 0.006717,
+          "positive_rate": 0.005806163465832961
+        },
+        {
+          "value": "114",
+          "count": 6703,
+          "share": 0.006703,
+          "positive_rate": 0.006713411905117111
+        },
+        {
+          "value": "109",
+          "count": 6676,
+          "share": 0.006676,
+          "positive_rate": 0.007040143798681845
+        },
+        {
+          "value": "105",
+          "count": 6674,
+          "share": 0.006674,
+          "positive_rate": 0.006592747977225052
+        }
+      ]
+    },
+    {
+      "column": "email_is_free",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.529886,
+      "top5_share": 1.0,
+      "entropy": 0.9974213107368006,
+      "effective_categories": 1.9964283705514703,
+      "top_values": [
+        {
+          "value": "1",
+          "count": 529886,
+          "share": 0.529886,
+          "positive_rate": 0.013759563377783146
+        },
+        {
+          "value": "0",
+          "count": 470114,
+          "share": 0.470114,
+          "positive_rate": 0.007951262885172533
+        }
+      ]
+    },
+    {
+      "column": "housing_status",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 7,
+      "cardinality_ratio": 7e-06,
+      "top1_share": 0.372143,
+      "top5_share": 0.998079,
+      "entropy": 2.060241743829352,
+      "effective_categories": 4.17056182106292,
+      "top_values": [
+        {
+          "value": "BC",
+          "count": 372143,
+          "share": 0.372143,
+          "positive_rate": 0.006148174223349626
+        },
+        {
+          "value": "BB",
+          "count": 260965,
+          "share": 0.260965,
+          "positive_rate": 0.0060084685685819934
+        },
+        {
+          "value": "BA",
+          "count": 169675,
+          "share": 0.169675,
+          "positive_rate": 0.0374657433328422
+        },
+        {
+          "value": "BE",
+          "count": 169135,
+          "share": 0.169135,
+          "positive_rate": 0.003441038223903982
+        },
+        {
+          "value": "BD",
+          "count": 26161,
+          "share": 0.026161,
+          "positive_rate": 0.008638813501012959
+        },
+        {
+          "value": "BF",
+          "count": 1669,
+          "share": 0.001669,
+          "positive_rate": 0.004194128220491312
+        },
+        {
+          "value": "BG",
+          "count": 252,
+          "share": 0.000252,
+          "positive_rate": 0.003968253968253968
+        }
+      ]
+    },
+    {
+      "column": "phone_home_valid",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.582923,
+      "top5_share": 1.0,
+      "entropy": 0.9800674438023126,
+      "effective_categories": 1.9725576209046072,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 582923,
+          "share": 0.582923,
+          "positive_rate": 0.01413222672634293
+        },
+        {
+          "value": "1",
+          "count": 417077,
+          "share": 0.417077,
+          "positive_rate": 0.00669180990560496
+        }
+      ]
+    },
+    {
+      "column": "phone_mobile_valid",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.889676,
+      "top5_share": 1.0,
+      "entropy": 0.5008924671313304,
+      "effective_categories": 1.415088681197551,
+      "top_values": [
+        {
+          "value": "1",
+          "count": 889676,
+          "share": 0.889676,
+          "positive_rate": 0.010544288032946826
+        },
+        {
+          "value": "0",
+          "count": 110324,
+          "share": 0.110324,
+          "positive_rate": 0.01493781951343316
+        }
+      ]
+    },
+    {
+      "column": "bank_months_count",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 33,
+      "cardinality_ratio": 3.3e-05,
+      "top1_share": 0.253635,
+      "top5_share": 0.638437,
+      "entropy": 3.6570989713836255,
+      "effective_categories": 12.615268184507613,
+      "top_values": [
+        {
+          "value": "-1",
+          "count": 253635,
+          "share": 0.253635,
+          "positive_rate": 0.01632266840144302
+        },
+        {
+          "value": "1",
+          "count": 194802,
+          "share": 0.194802,
+          "positive_rate": 0.00652970708719623
+        },
+        {
+          "value": "28",
+          "count": 80082,
+          "share": 0.080082,
+          "positive_rate": 0.009740016483104817
+        },
+        {
+          "value": "15",
+          "count": 59141,
+          "share": 0.059141,
+          "positive_rate": 0.0075412996060262765
+        },
+        {
+          "value": "30",
+          "count": 50777,
+          "share": 0.050777,
+          "positive_rate": 0.02144671800224511
+        },
+        {
+          "value": "31",
+          "count": 46084,
+          "share": 0.046084,
+          "positive_rate": 0.011327141741168301
+        },
+        {
+          "value": "25",
+          "count": 40450,
+          "share": 0.04045,
+          "positive_rate": 0.013226205191594561
+        },
+        {
+          "value": "10",
+          "count": 37158,
+          "share": 0.037158,
+          "positive_rate": 0.009096291511922063
+        }
+      ]
+    },
+    {
+      "column": "has_other_cards",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.777012,
+      "top5_share": 1.0,
+      "entropy": 0.7655860933369099,
+      "effective_categories": 1.7000605057940847,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 777012,
+          "share": 0.777012,
+          "positive_rate": 0.012995938286667388
+        },
+        {
+          "value": "1",
+          "count": 222988,
+          "share": 0.222988,
+          "positive_rate": 0.004175112562110965
+        }
+      ]
+    },
+    {
+      "column": "proposed_credit_limit",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 12,
+      "cardinality_ratio": 1.2e-05,
+      "top1_share": 0.613854,
+      "top5_share": 0.984848,
+      "entropy": 1.694556511829351,
+      "effective_categories": 3.236773720665583,
+      "top_values": [
+        {
+          "value": "200",
+          "count": 613854,
+          "share": 0.613854,
+          "positive_rate": 0.0072069254252639875
+        },
+        {
+          "value": "1500",
+          "count": 145735,
+          "share": 0.145735,
+          "positive_rate": 0.0218410127972004
+        },
+        {
+          "value": "500",
+          "count": 135797,
+          "share": 0.135797,
+          "positive_rate": 0.010736614210917766
+        },
+        {
+          "value": "1000",
+          "count": 81882,
+          "share": 0.081882,
+          "positive_rate": 0.01104027747246037
+        },
+        {
+          "value": "990",
+          "count": 7580,
+          "share": 0.00758,
+          "positive_rate": 0.017941952506596307
+        },
+        {
+          "value": "510",
+          "count": 6967,
+          "share": 0.006967,
+          "positive_rate": 0.004593081670733458
+        },
+        {
+          "value": "2000",
+          "count": 6114,
+          "share": 0.006114,
+          "positive_rate": 0.1297023225384364
+        },
+        {
+          "value": "490",
+          "count": 870,
+          "share": 0.00087,
+          "positive_rate": 0.013793103448275862
+        }
+      ]
+    },
+    {
+      "column": "foreign_request",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.974758,
+      "top5_share": 1.0,
+      "entropy": 0.16993827112818435,
+      "effective_categories": 1.1250103476236055,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 974758,
+          "share": 0.974758,
+          "positive_rate": 0.010745231124032837
+        },
+        {
+          "value": "1",
+          "count": 25242,
+          "share": 0.025242,
+          "positive_rate": 0.021987164250059425
+        }
+      ]
+    },
+    {
+      "column": "source",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.992952,
+      "top5_share": 1.0,
+      "entropy": 0.06051532163203564,
+      "effective_categories": 1.042838189591878,
+      "top_values": [
+        {
+          "value": "INTERNET",
+          "count": 992952,
+          "share": 0.992952,
+          "positive_rate": 0.010994489159596839
+        },
+        {
+          "value": "TELEAPP",
+          "count": 7048,
+          "share": 0.007048,
+          "positive_rate": 0.015891032917139614
+        }
+      ]
+    },
+    {
+      "column": "session_length_in_minutes",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 994887,
+      "cardinality_ratio": 0.994887,
+      "top1_share": 0.002015,
+      "top5_share": 0.002027,
+      "entropy": 19.903242224424808,
+      "effective_categories": 980557.1719186824,
+      "top_values": [
+        {
+          "value": "-1",
+          "count": 2015,
+          "share": 0.002015,
+          "positive_rate": 0.008933002481389578
+        },
+        {
+          "value": "4.192391730228868",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5.323466039240103",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "4.638723018902992",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5.10161371654238",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "9.661988782407766",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "5.742535395022787",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "13.152597038690526",
+          "count": 3,
+          "share": 3e-06,
+          "positive_rate": 0.0
+        }
+      ]
+    },
+    {
+      "column": "device_os",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 5,
+      "cardinality_ratio": 5e-06,
+      "top1_share": 0.342728,
+      "top5_share": 1.0,
+      "entropy": 1.8430228712278782,
+      "effective_categories": 3.5876095130269055,
+      "top_values": [
+        {
+          "value": "other",
+          "count": 342728,
+          "share": 0.342728,
+          "positive_rate": 0.005759669475502439
+        },
+        {
+          "value": "linux",
+          "count": 332712,
+          "share": 0.332712,
+          "positive_rate": 0.0051546081896655365
+        },
+        {
+          "value": "windows",
+          "count": 263506,
+          "share": 0.263506,
+          "positive_rate": 0.02469393486296327
+        },
+        {
+          "value": "macintosh",
+          "count": 53826,
+          "share": 0.053826,
+          "positive_rate": 0.013970943410247835
+        },
+        {
+          "value": "x11",
+          "count": 7228,
+          "share": 0.007228,
+          "positive_rate": 0.011206419479800774
+        }
+      ]
+    },
+    {
+      "column": "keep_alive_session",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 2,
+      "cardinality_ratio": 2e-06,
+      "top1_share": 0.576947,
+      "top5_share": 1.0,
+      "entropy": 0.9828479834257905,
+      "effective_categories": 1.9763630429327197,
+      "top_values": [
+        {
+          "value": "1",
+          "count": 576947,
+          "share": 0.576947,
+          "positive_rate": 0.006530929184136498
+        },
+        {
+          "value": "0",
+          "count": 423053,
+          "share": 0.423053,
+          "positive_rate": 0.017163334144894377
+        }
+      ]
+    },
+    {
+      "column": "device_distinct_emails_8w",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 4,
+      "cardinality_ratio": 4e-06,
+      "top1_share": 0.968067,
+      "top5_share": 1.0,
+      "entropy": 0.2295427998335052,
+      "effective_categories": 1.1724633285068822,
+      "top_values": [
+        {
+          "value": "1",
+          "count": 968067,
+          "share": 0.968067,
+          "positive_rate": 0.010163552729304894
+        },
+        {
+          "value": "2",
+          "count": 25302,
+          "share": 0.025302,
+          "positive_rate": 0.0409058572444866
+        },
+        {
+          "value": "0",
+          "count": 6272,
+          "share": 0.006272,
+          "positive_rate": 0.024075255102040817
+        },
+        {
+          "value": "-1",
+          "count": 359,
+          "share": 0.000359,
+          "positive_rate": 0.011142061281337047
+        }
+      ]
+    },
+    {
+      "column": "device_fraud_count",
+      "role": "label_or_leak",
+      "missing_rate": 0.0,
+      "distinct": 1,
+      "cardinality_ratio": 1e-06,
+      "top1_share": 1.0,
+      "top5_share": 1.0,
+      "entropy": 0.0,
+      "effective_categories": 0.0,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 1000000,
+          "share": 1.0,
+          "positive_rate": 0.011029
+        }
+      ]
+    },
+    {
+      "column": "month",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 8,
+      "cardinality_ratio": 8e-06,
+      "top1_share": 0.150936,
+      "top5_share": 0.675666,
+      "entropy": 2.9882987269338965,
+      "effective_categories": 7.935376788667025,
+      "top_values": [
+        {
+          "value": "3",
+          "count": 150936,
+          "share": 0.150936,
+          "positive_rate": 0.009222451900143107
+        },
+        {
+          "value": "2",
+          "count": 136979,
+          "share": 0.136979,
+          "positive_rate": 0.008745866154666044
+        },
+        {
+          "value": "0",
+          "count": 132440,
+          "share": 0.13244,
+          "positive_rate": 0.011325883418906675
+        },
+        {
+          "value": "4",
+          "count": 127691,
+          "share": 0.127691,
+          "positive_rate": 0.011371200789405674
+        },
+        {
+          "value": "1",
+          "count": 127620,
+          "share": 0.12762,
+          "positive_rate": 0.009387243378780755
+        },
+        {
+          "value": "5",
+          "count": 119323,
+          "share": 0.119323,
+          "positive_rate": 0.01182504630289215
+        },
+        {
+          "value": "6",
+          "count": 108168,
+          "share": 0.108168,
+          "positive_rate": 0.013405073589231566
+        },
+        {
+          "value": "7",
+          "count": 96843,
+          "share": 0.096843,
+          "positive_rate": 0.014745515938167962
+        }
+      ]
+    }
+  ],
+  "numeric_profiles": {
+    "intended_balcon_amount": {
+      "count": 1000000,
+      "distinct": 994971,
+      "min": -15.530554840076814,
+      "p01": -1.83127858875054,
+      "p05": -1.5880165078232318,
+      "p25": -1.1814903897411522,
+      "p50": -0.8305067744397778,
+      "p75": 4.984148086857246,
+      "p95": 50.39400181269304,
+      "p99": 100.82652177531033,
+      "max": 112.9569276953714,
+      "mean": 8.66149853717249,
+      "top_values": [
+        {
+          "value": -0.8829498799394292,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.5142802598222749,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.5320825951804882,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -0.5543811020990086,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.4427094962962446,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.1891464374657503,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.3922561733926009,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.1258458994102172,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -1.4333995715704215,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": -0.7659779145110232,
+          "count": 3,
+          "share": 3e-06
+        }
+      ],
+      "top1_share": 3e-06,
+      "top10_share": 3e-05,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 742523
+    },
+    "month": {
+      "count": 1000000,
+      "distinct": 8,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 1.0,
+      "p50": 3.0,
+      "p75": 5.0,
+      "p95": 7.0,
+      "p99": 7.0,
+      "max": 7.0,
+      "mean": 3.288674,
+      "top_values": [
+        {
+          "value": 3.0,
+          "count": 150936,
+          "share": 0.150936
+        },
+        {
+          "value": 2.0,
+          "count": 136979,
+          "share": 0.136979
+        },
+        {
+          "value": 0.0,
+          "count": 132440,
+          "share": 0.13244
+        },
+        {
+          "value": 4.0,
+          "count": 127691,
+          "share": 0.127691
+        },
+        {
+          "value": 1.0,
+          "count": 127620,
+          "share": 0.12762
+        },
+        {
+          "value": 5.0,
+          "count": 119323,
+          "share": 0.119323
+        },
+        {
+          "value": 6.0,
+          "count": 108168,
+          "share": 0.108168
+        },
+        {
+          "value": 7.0,
+          "count": 96843,
+          "share": 0.096843
+        }
+      ],
+      "top1_share": 0.150936,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.13244,
+      "multiple_1000_share": 0.13244,
+      "zero_count": 132440,
+      "negative_count": 0
+    },
+    "prev_address_months_count": {
+      "count": 1000000,
+      "distinct": 374,
+      "min": -1.0,
+      "p01": -1.0,
+      "p05": -1.0,
+      "p25": -1.0,
+      "p50": -1.0,
+      "p75": 12.0,
+      "p95": 98.0,
+      "p99": 231.0,
+      "max": 383.0,
+      "mean": 16.718568,
+      "top_values": [
+        {
+          "value": -1.0,
+          "count": 712920,
+          "share": 0.71292
+        },
+        {
+          "value": 11.0,
+          "count": 11475,
+          "share": 0.011475
+        },
+        {
+          "value": 28.0,
+          "count": 10275,
+          "share": 0.010275
+        },
+        {
+          "value": 29.0,
+          "count": 10150,
+          "share": 0.01015
+        },
+        {
+          "value": 10.0,
+          "count": 10082,
+          "share": 0.010082
+        },
+        {
+          "value": 27.0,
+          "count": 10007,
+          "share": 0.010007
+        },
+        {
+          "value": 30.0,
+          "count": 9362,
+          "share": 0.009362
+        },
+        {
+          "value": 26.0,
+          "count": 9036,
+          "share": 0.009036
+        },
+        {
+          "value": 12.0,
+          "count": 8712,
+          "share": 0.008712
+        },
+        {
+          "value": 31.0,
+          "count": 8526,
+          "share": 0.008526
+        }
+      ],
+      "top1_share": 0.71292,
+      "top10_share": 0.800545,
+      "multiple_100_share": 0.001601,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 712920
+    },
+    "date_of_birth_distinct_emails_4w": {
+      "count": 1000000,
+      "distinct": 40,
+      "min": 0.0,
+      "p01": 1.0,
+      "p05": 2.0,
+      "p25": 6.0,
+      "p50": 9.0,
+      "p75": 13.0,
+      "p95": 19.0,
+      "p99": 23.0,
+      "max": 39.0,
+      "mean": 9.503544,
+      "top_values": [
+        {
+          "value": 7.0,
+          "count": 83193,
+          "share": 0.083193
+        },
+        {
+          "value": 5.0,
+          "count": 80799,
+          "share": 0.080799
+        },
+        {
+          "value": 8.0,
+          "count": 79491,
+          "share": 0.079491
+        },
+        {
+          "value": 6.0,
+          "count": 78225,
+          "share": 0.078225
+        },
+        {
+          "value": 11.0,
+          "count": 73456,
+          "share": 0.073456
+        },
+        {
+          "value": 9.0,
+          "count": 67341,
+          "share": 0.067341
+        },
+        {
+          "value": 10.0,
+          "count": 62681,
+          "share": 0.062681
+        },
+        {
+          "value": 4.0,
+          "count": 62549,
+          "share": 0.062549
+        },
+        {
+          "value": 13.0,
+          "count": 60773,
+          "share": 0.060773
+        },
+        {
+          "value": 12.0,
+          "count": 52409,
+          "share": 0.052409
+        }
+      ],
+      "top1_share": 0.083193,
+      "top10_share": 0.700917,
+      "multiple_100_share": 0.001336,
+      "multiple_1000_share": 0.001336,
+      "zero_count": 1336,
+      "negative_count": 0
+    },
+    "foreign_request": {
+      "count": 1000000,
+      "distinct": 2,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 1.0,
+      "max": 1.0,
+      "mean": 0.025242,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 974758,
+          "share": 0.974758
+        },
+        {
+          "value": 1.0,
+          "count": 25242,
+          "share": 0.025242
+        }
+      ],
+      "top1_share": 0.974758,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.974758,
+      "multiple_1000_share": 0.974758,
+      "zero_count": 974758,
+      "negative_count": 0
+    },
+    "velocity_6h": {
+      "count": 1000000,
+      "distinct": 998687,
+      "min": -170.60307235124628,
+      "p01": 695.5927261881548,
+      "p05": 1273.445055939556,
+      "p25": 3436.3635298204435,
+      "p50": 5319.768901271668,
+      "p75": 7680.715863082421,
+      "p95": 11234.629510859597,
+      "p99": 13932.187316067288,
+      "max": 16715.565404174275,
+      "mean": 5665.2966047952705,
+      "top_values": [
+        {
+          "value": 6030.172536015922,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 8350.043943570123,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 8510.359921368528,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 7855.1486430829245,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 14037.574188273236,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 8478.84468648881,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 4397.876119346264,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 4246.766293534085,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 8373.335430589827,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 5796.875906550311,
+          "count": 2,
+          "share": 2e-06
+        }
+      ],
+      "top1_share": 2e-06,
+      "top10_share": 2e-05,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 44
+    },
+    "bank_branch_count_8w": {
+      "count": 1000000,
+      "distinct": 2326,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 1.0,
+      "p50": 9.0,
+      "p75": 25.0,
+      "p95": 1463.0,
+      "p99": 1974.0,
+      "max": 2385.0,
+      "mean": 184.361849,
+      "top_values": [
+        {
+          "value": 1.0,
+          "count": 149028,
+          "share": 0.149028
+        },
+        {
+          "value": 0.0,
+          "count": 144376,
+          "share": 0.144376
+        },
+        {
+          "value": 2.0,
+          "count": 57792,
+          "share": 0.057792
+        },
+        {
+          "value": 11.0,
+          "count": 31160,
+          "share": 0.03116
+        },
+        {
+          "value": 10.0,
+          "count": 30694,
+          "share": 0.030694
+        },
+        {
+          "value": 12.0,
+          "count": 30537,
+          "share": 0.030537
+        },
+        {
+          "value": 9.0,
+          "count": 29239,
+          "share": 0.029239
+        },
+        {
+          "value": 13.0,
+          "count": 28182,
+          "share": 0.028182
+        },
+        {
+          "value": 8.0,
+          "count": 27015,
+          "share": 0.027015
+        },
+        {
+          "value": 14.0,
+          "count": 25698,
+          "share": 0.025698
+        }
+      ],
+      "top1_share": 0.149028,
+      "top10_share": 0.553721,
+      "multiple_100_share": 0.146119,
+      "multiple_1000_share": 0.144472,
+      "zero_count": 144376,
+      "negative_count": 0
+    },
+    "email_is_free": {
+      "count": 1000000,
+      "distinct": 2,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0,
+      "mean": 0.529886,
+      "top_values": [
+        {
+          "value": 1.0,
+          "count": 529886,
+          "share": 0.529886
+        },
+        {
+          "value": 0.0,
+          "count": 470114,
+          "share": 0.470114
+        }
+      ],
+      "top1_share": 0.529886,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.470114,
+      "multiple_1000_share": 0.470114,
+      "zero_count": 470114,
+      "negative_count": 0
+    },
+    "bank_months_count": {
+      "count": 1000000,
+      "distinct": 33,
+      "min": -1.0,
+      "p01": -1.0,
+      "p05": -1.0,
+      "p25": -1.0,
+      "p50": 5.0,
+      "p75": 25.0,
+      "p95": 30.0,
+      "p99": 31.0,
+      "max": 32.0,
+      "mean": 10.839303,
+      "top_values": [
+        {
+          "value": -1.0,
+          "count": 253635,
+          "share": 0.253635
+        },
+        {
+          "value": 1.0,
+          "count": 194802,
+          "share": 0.194802
+        },
+        {
+          "value": 28.0,
+          "count": 80082,
+          "share": 0.080082
+        },
+        {
+          "value": 15.0,
+          "count": 59141,
+          "share": 0.059141
+        },
+        {
+          "value": 30.0,
+          "count": 50777,
+          "share": 0.050777
+        },
+        {
+          "value": 31.0,
+          "count": 46084,
+          "share": 0.046084
+        },
+        {
+          "value": 25.0,
+          "count": 40450,
+          "share": 0.04045
+        },
+        {
+          "value": 10.0,
+          "count": 37158,
+          "share": 0.037158
+        },
+        {
+          "value": 20.0,
+          "count": 30850,
+          "share": 0.03085
+        },
+        {
+          "value": 21.0,
+          "count": 29098,
+          "share": 0.029098
+        }
+      ],
+      "top1_share": 0.253635,
+      "top10_share": 0.822077,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 253635
+    },
+    "current_address_months_count": {
+      "count": 1000000,
+      "distinct": 423,
+      "min": -1.0,
+      "p01": 0.0,
+      "p05": 3.0,
+      "p25": 19.0,
+      "p50": 52.0,
+      "p75": 130.0,
+      "p95": 277.0,
+      "p99": 370.0,
+      "max": 428.0,
+      "mean": 86.587867,
+      "top_values": [
+        {
+          "value": 6.0,
+          "count": 16376,
+          "share": 0.016376
+        },
+        {
+          "value": 7.0,
+          "count": 16270,
+          "share": 0.01627
+        },
+        {
+          "value": 8.0,
+          "count": 16089,
+          "share": 0.016089
+        },
+        {
+          "value": 5.0,
+          "count": 15896,
+          "share": 0.015896
+        },
+        {
+          "value": 9.0,
+          "count": 15688,
+          "share": 0.015688
+        },
+        {
+          "value": 4.0,
+          "count": 15030,
+          "share": 0.01503
+        },
+        {
+          "value": 10.0,
+          "count": 14739,
+          "share": 0.014739
+        },
+        {
+          "value": 11.0,
+          "count": 13988,
+          "share": 0.013988
+        },
+        {
+          "value": 3.0,
+          "count": 13986,
+          "share": 0.013986
+        },
+        {
+          "value": 12.0,
+          "count": 13063,
+          "share": 0.013063
+        }
+      ],
+      "top1_share": 0.016376,
+      "top10_share": 0.151125,
+      "multiple_100_share": 0.013874,
+      "multiple_1000_share": 0.009609,
+      "zero_count": 9609,
+      "negative_count": 4254
+    },
+    "keep_alive_session": {
+      "count": 1000000,
+      "distinct": 2,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0,
+      "mean": 0.576947,
+      "top_values": [
+        {
+          "value": 1.0,
+          "count": 576947,
+          "share": 0.576947
+        },
+        {
+          "value": 0.0,
+          "count": 423053,
+          "share": 0.423053
+        }
+      ],
+      "top1_share": 0.576947,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.423053,
+      "multiple_1000_share": 0.423053,
+      "zero_count": 423053,
+      "negative_count": 0
+    },
+    "device_distinct_emails_8w": {
+      "count": 1000000,
+      "distinct": 4,
+      "min": -1.0,
+      "p01": 1.0,
+      "p05": 1.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p95": 1.0,
+      "p99": 2.0,
+      "max": 2.0,
+      "mean": 1.018312,
+      "top_values": [
+        {
+          "value": 1.0,
+          "count": 968067,
+          "share": 0.968067
+        },
+        {
+          "value": 2.0,
+          "count": 25302,
+          "share": 0.025302
+        },
+        {
+          "value": 0.0,
+          "count": 6272,
+          "share": 0.006272
+        },
+        {
+          "value": -1.0,
+          "count": 359,
+          "share": 0.000359
+        }
+      ],
+      "top1_share": 0.968067,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.006272,
+      "multiple_1000_share": 0.006272,
+      "zero_count": 6272,
+      "negative_count": 359
+    },
+    "velocity_24h": {
+      "count": 1000000,
+      "distinct": 998940,
+      "min": 1300.3073144849477,
+      "p01": 2021.397018042128,
+      "p05": 2572.497808406524,
+      "p25": 3593.1752880633685,
+      "p50": 4749.918708877145,
+      "p75": 5752.572802966099,
+      "p95": 7348.9900728187795,
+      "p99": 8597.046946518609,
+      "max": 9506.896596111665,
+      "mean": 4769.781964962282,
+      "top_values": [
+        {
+          "value": 6676.201310371049,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 4667.86385373611,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 3906.416301617956,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 5082.32663160544,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 7122.053750217235,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 2914.068145372085,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 4214.177697171192,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 7137.753736936049,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 2488.802003569308,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 7643.804936605782,
+          "count": 2,
+          "share": 2e-06
+        }
+      ],
+      "top1_share": 3e-06,
+      "top10_share": 2.4e-05,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "session_length_in_minutes": {
+      "count": 1000000,
+      "distinct": 994887,
+      "min": -1.0,
+      "p01": 0.6512200226186876,
+      "p05": 1.2538264359600078,
+      "p25": 3.10305089244504,
+      "p50": 5.114319395521462,
+      "p75": 8.866118046400599,
+      "p95": 21.698863574482186,
+      "p99": 44.55282425645125,
+      "max": 85.89914319274027,
+      "mean": 7.5449402012899975,
+      "top_values": [
+        {
+          "value": -1.0,
+          "count": 2015,
+          "share": 0.002015
+        },
+        {
+          "value": 4.192391730228868,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 5.323466039240103,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 4.638723018902992,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 5.10161371654238,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 9.661988782407766,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 5.742535395022787,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 13.152597038690526,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 1.8442205218092096,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 2.4636968204563465,
+          "count": 3,
+          "share": 3e-06
+        }
+      ],
+      "top1_share": 0.002015,
+      "top10_share": 0.002042,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 2015
+    },
+    "name_email_similarity": {
+      "count": 1000000,
+      "distinct": 998861,
+      "min": 1.4345504845275636e-06,
+      "p01": 0.0216705059494481,
+      "p05": 0.068085398808442,
+      "p25": 0.2252159915479636,
+      "p50": 0.492152468160331,
+      "p75": 0.7555672646072478,
+      "p95": 0.9180733748429842,
+      "p99": 0.9974697987872616,
+      "max": 0.9999993177937188,
+      "mean": 0.49369409496312755,
+      "top_values": [
+        {
+          "value": 0.3025535638126539,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.5308693350462508,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.6386435569174944,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.6820961298702716,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.5219805717244557,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.4742022295667471,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.2506920360499026,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.5847416055518588,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.059894278699791,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 0.1095632006726854,
+          "count": 2,
+          "share": 2e-06
+        }
+      ],
+      "top1_share": 2e-06,
+      "top10_share": 2e-05,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "days_since_request": {
+      "count": 1000000,
+      "distinct": 989330,
+      "min": 4.036859788721786e-09,
+      "p01": 0.0002825432671355,
+      "p05": 0.0014230032478479,
+      "p25": 0.0071932460945943,
+      "p50": 0.0151757172075286,
+      "p75": 0.0263306717714143,
+      "p95": 6.682268573682751,
+      "p99": 21.995660877151607,
+      "max": 78.45690383509861,
+      "mean": 1.025705230995808,
+      "top_values": [
+        {
+          "value": 0.0213681793840271,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0168225891609184,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.03107554032689,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0158097953581759,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0316500016669083,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0306988779738536,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0311634053589029,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0293120312863276,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0123878738534499,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 0.0220484211945402,
+          "count": 3,
+          "share": 3e-06
+        }
+      ],
+      "top1_share": 3e-06,
+      "top10_share": 3e-05,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "phone_mobile_valid": {
+      "count": 1000000,
+      "distinct": 2,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 1.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0,
+      "mean": 0.889676,
+      "top_values": [
+        {
+          "value": 1.0,
+          "count": 889676,
+          "share": 0.889676
+        },
+        {
+          "value": 0.0,
+          "count": 110324,
+          "share": 0.110324
+        }
+      ],
+      "top1_share": 0.889676,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.110324,
+      "multiple_1000_share": 0.110324,
+      "zero_count": 110324,
+      "negative_count": 0
+    },
+    "income": {
+      "count": 1000000,
+      "distinct": 9,
+      "min": 0.1,
+      "p01": 0.1,
+      "p05": 0.1,
+      "p25": 0.3,
+      "p50": 0.6000000000000001,
+      "p75": 0.8,
+      "p95": 0.9,
+      "p99": 0.9,
+      "max": 0.9,
+      "mean": 0.5626956,
+      "top_values": [
+        {
+          "value": 0.9,
+          "count": 221419,
+          "share": 0.221419
+        },
+        {
+          "value": 0.1,
+          "count": 157449,
+          "share": 0.157449
+        },
+        {
+          "value": 0.8,
+          "count": 146650,
+          "share": 0.14665
+        },
+        {
+          "value": 0.6000000000000001,
+          "count": 111973,
+          "share": 0.111973
+        },
+        {
+          "value": 0.7000000000000001,
+          "count": 105109,
+          "share": 0.105109
+        },
+        {
+          "value": 0.4,
+          "count": 81364,
+          "share": 0.081364
+        },
+        {
+          "value": 0.2,
+          "count": 69345,
+          "share": 0.069345
+        },
+        {
+          "value": 0.5,
+          "count": 55858,
+          "share": 0.055858
+        },
+        {
+          "value": 0.3,
+          "count": 50833,
+          "share": 0.050833
+        }
+      ],
+      "top1_share": 0.221419,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "credit_risk_score": {
+      "count": 1000000,
+      "distinct": 551,
+      "min": -170.0,
+      "p01": -14.0,
+      "p05": 28.0,
+      "p25": 83.0,
+      "p50": 122.0,
+      "p75": 178.0,
+      "p95": 255.0,
+      "p99": 305.0,
+      "max": 389.0,
+      "mean": 130.989595,
+      "top_values": [
+        {
+          "value": 113.0,
+          "count": 6791,
+          "share": 0.006791
+        },
+        {
+          "value": 116.0,
+          "count": 6784,
+          "share": 0.006784
+        },
+        {
+          "value": 110.0,
+          "count": 6774,
+          "share": 0.006774
+        },
+        {
+          "value": 115.0,
+          "count": 6734,
+          "share": 0.006734
+        },
+        {
+          "value": 117.0,
+          "count": 6717,
+          "share": 0.006717
+        },
+        {
+          "value": 114.0,
+          "count": 6703,
+          "share": 0.006703
+        },
+        {
+          "value": 109.0,
+          "count": 6676,
+          "share": 0.006676
+        },
+        {
+          "value": 105.0,
+          "count": 6674,
+          "share": 0.006674
+        },
+        {
+          "value": 112.0,
+          "count": 6653,
+          "share": 0.006653
+        },
+        {
+          "value": 111.0,
+          "count": 6624,
+          "share": 0.006624
+        }
+      ],
+      "top1_share": 0.006791,
+      "top10_share": 0.06713,
+      "multiple_100_share": 0.010914,
+      "multiple_1000_share": 0.000524,
+      "zero_count": 524,
+      "negative_count": 14445
+    },
+    "has_other_cards": {
+      "count": 1000000,
+      "distinct": 2,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0,
+      "mean": 0.222988,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 777012,
+          "share": 0.777012
+        },
+        {
+          "value": 1.0,
+          "count": 222988,
+          "share": 0.222988
+        }
+      ],
+      "top1_share": 0.777012,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.777012,
+      "multiple_1000_share": 0.777012,
+      "zero_count": 777012,
+      "negative_count": 0
+    },
+    "customer_age": {
+      "count": 1000000,
+      "distinct": 9,
+      "min": 10.0,
+      "p01": 10.0,
+      "p05": 20.0,
+      "p25": 20.0,
+      "p50": 30.0,
+      "p75": 40.0,
+      "p95": 50.0,
+      "p99": 60.0,
+      "max": 90.0,
+      "mean": 33.68908,
+      "top_values": [
+        {
+          "value": 30.0,
+          "count": 311433,
+          "share": 0.311433
+        },
+        {
+          "value": 20.0,
+          "count": 245855,
+          "share": 0.245855
+        },
+        {
+          "value": 40.0,
+          "count": 238712,
+          "share": 0.238712
+        },
+        {
+          "value": 50.0,
+          "count": 140353,
+          "share": 0.140353
+        },
+        {
+          "value": 60.0,
+          "count": 34770,
+          "share": 0.03477
+        },
+        {
+          "value": 10.0,
+          "count": 20987,
+          "share": 0.020987
+        },
+        {
+          "value": 70.0,
+          "count": 6517,
+          "share": 0.006517
+        },
+        {
+          "value": 80.0,
+          "count": 1297,
+          "share": 0.001297
+        },
+        {
+          "value": 90.0,
+          "count": 76,
+          "share": 7.6e-05
+        }
+      ],
+      "top1_share": 0.311433,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "zip_count_4w": {
+      "count": 1000000,
+      "distinct": 6306,
+      "min": 1.0,
+      "p01": 248.0,
+      "p05": 478.0,
+      "p25": 894.0,
+      "p50": 1263.0,
+      "p75": 1944.0,
+      "p95": 3677.0,
+      "p99": 4970.0,
+      "max": 6700.0,
+      "mean": 1572.692049,
+      "top_values": [
+        {
+          "value": 1020.0,
+          "count": 798,
+          "share": 0.000798
+        },
+        {
+          "value": 1062.0,
+          "count": 782,
+          "share": 0.000782
+        },
+        {
+          "value": 1042.0,
+          "count": 770,
+          "share": 0.00077
+        },
+        {
+          "value": 969.0,
+          "count": 767,
+          "share": 0.000767
+        },
+        {
+          "value": 1026.0,
+          "count": 763,
+          "share": 0.000763
+        },
+        {
+          "value": 996.0,
+          "count": 762,
+          "share": 0.000762
+        },
+        {
+          "value": 1030.0,
+          "count": 759,
+          "share": 0.000759
+        },
+        {
+          "value": 1033.0,
+          "count": 755,
+          "share": 0.000755
+        },
+        {
+          "value": 1102.0,
+          "count": 754,
+          "share": 0.000754
+        },
+        {
+          "value": 1112.0,
+          "count": 753,
+          "share": 0.000753
+        }
+      ],
+      "top1_share": 0.000798,
+      "top10_share": 0.007663,
+      "multiple_100_share": 0.010003,
+      "multiple_1000_share": 0.001081,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "velocity_4w": {
+      "count": 1000000,
+      "distinct": 998318,
+      "min": 2825.748405284728,
+      "p01": 3059.832127065677,
+      "p05": 3118.177956894761,
+      "p25": 4268.368321412223,
+      "p50": 4913.435691233537,
+      "p75": 5488.082964596103,
+      "p95": 6458.318913055461,
+      "p99": 6779.328368332543,
+      "max": 6994.764200834217,
+      "mean": 4856.324015811875,
+      "top_values": [
+        {
+          "value": 5466.870949122974,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 4297.664857621487,
+          "count": 3,
+          "share": 3e-06
+        },
+        {
+          "value": 6003.035555238671,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 5459.6573770120585,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 6638.842222036727,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 5976.352828557003,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 4770.925203568972,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 6806.4158964291,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 6274.312240086094,
+          "count": 2,
+          "share": 2e-06
+        },
+        {
+          "value": 5985.040119293158,
+          "count": 2,
+          "share": 2e-06
+        }
+      ],
+      "top1_share": 3e-06,
+      "top10_share": 2.2e-05,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "phone_home_valid": {
+      "count": 1000000,
+      "distinct": 2,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 1.0,
+      "p95": 1.0,
+      "p99": 1.0,
+      "max": 1.0,
+      "mean": 0.417077,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 582923,
+          "share": 0.582923
+        },
+        {
+          "value": 1.0,
+          "count": 417077,
+          "share": 0.417077
+        }
+      ],
+      "top1_share": 0.582923,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.582923,
+      "multiple_1000_share": 0.582923,
+      "zero_count": 582923,
+      "negative_count": 0
+    },
+    "proposed_credit_limit": {
+      "count": 1000000,
+      "distinct": 12,
+      "min": 190.0,
+      "p01": 200.0,
+      "p05": 200.0,
+      "p25": 200.0,
+      "p50": 200.0,
+      "p75": 500.0,
+      "p95": 1500.0,
+      "p99": 1500.0,
+      "max": 2100.0,
+      "mean": 515.85101,
+      "top_values": [
+        {
+          "value": 200.0,
+          "count": 613854,
+          "share": 0.613854
+        },
+        {
+          "value": 1500.0,
+          "count": 145735,
+          "share": 0.145735
+        },
+        {
+          "value": 500.0,
+          "count": 135797,
+          "share": 0.135797
+        },
+        {
+          "value": 1000.0,
+          "count": 81882,
+          "share": 0.081882
+        },
+        {
+          "value": 990.0,
+          "count": 7580,
+          "share": 0.00758
+        },
+        {
+          "value": 510.0,
+          "count": 6967,
+          "share": 0.006967
+        },
+        {
+          "value": 2000.0,
+          "count": 6114,
+          "share": 0.006114
+        },
+        {
+          "value": 490.0,
+          "count": 870,
+          "share": 0.00087
+        },
+        {
+          "value": 210.0,
+          "count": 607,
+          "share": 0.000607
+        },
+        {
+          "value": 1900.0,
+          "count": 390,
+          "share": 0.00039
+        }
+      ],
+      "top1_share": 0.613854,
+      "top10_share": 0.999796,
+      "multiple_100_share": 0.983813,
+      "multiple_1000_share": 0.087996,
+      "zero_count": 0,
+      "negative_count": 0
+    }
+  },
+  "single_feature_rules_top": [
+    {
+      "column": "proposed_credit_limit",
+      "value": "1900",
+      "is_id": false,
+      "count": 390,
+      "share": 0.00039,
+      "positive": 80,
+      "positive_rate": 0.20512820512820512,
+      "recall": 0.007253604134554357,
+      "lift": 18.598984960395786
+    },
+    {
+      "column": "proposed_credit_limit",
+      "value": "2000",
+      "is_id": false,
+      "count": 6114,
+      "share": 0.006114,
+      "positive": 793,
+      "positive_rate": 0.1297023225384364,
+      "recall": 0.07190135098377005,
+      "lift": 11.76011628782631
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "344",
+      "is_id": false,
+      "count": 111,
+      "share": 0.000111,
+      "positive": 14,
+      "positive_rate": 0.12612612612612611,
+      "recall": 0.0012693807235470125,
+      "lift": 11.435862374297407
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "338",
+      "is_id": false,
+      "count": 136,
+      "share": 0.000136,
+      "positive": 16,
+      "positive_rate": 0.11764705882352941,
+      "recall": 0.0014507208269108713,
+      "lift": 10.667064903756406
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "339",
+      "is_id": false,
+      "count": 116,
+      "share": 0.000116,
+      "positive": 11,
+      "positive_rate": 0.09482758620689655,
+      "recall": 0.000997370568501224,
+      "lift": 8.598022142251931
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "325",
+      "is_id": false,
+      "count": 264,
+      "share": 0.000264,
+      "positive": 25,
+      "positive_rate": 0.0946969696969697,
+      "recall": 0.0022667512920482363,
+      "lift": 8.586179136546349
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "320",
+      "is_id": false,
+      "count": 246,
+      "share": 0.000246,
+      "positive": 22,
+      "positive_rate": 0.08943089430894309,
+      "recall": 0.001994741137002448,
+      "lift": 8.10870380895304
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "340",
+      "is_id": false,
+      "count": 129,
+      "share": 0.000129,
+      "positive": 11,
+      "positive_rate": 0.08527131782945736,
+      "recall": 0.000997370568501224,
+      "lift": 7.731554794583132
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "310",
+      "is_id": false,
+      "count": 349,
+      "share": 0.000349,
+      "positive": 29,
+      "positive_rate": 0.0830945558739255,
+      "recall": 0.0026294314987759543,
+      "lift": 7.5341876755758
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "326",
+      "is_id": false,
+      "count": 213,
+      "share": 0.000213,
+      "positive": 17,
+      "positive_rate": 0.07981220657276995,
+      "recall": 0.0015413908785928008,
+      "lift": 7.236576894801881
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "333",
+      "is_id": false,
+      "count": 164,
+      "share": 0.000164,
+      "positive": 13,
+      "positive_rate": 0.07926829268292683,
+      "recall": 0.001178710671865083,
+      "lift": 7.187260194299286
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "341",
+      "is_id": false,
+      "count": 103,
+      "share": 0.000103,
+      "positive": 8,
+      "positive_rate": 0.07766990291262135,
+      "recall": 0.0007253604134554357,
+      "lift": 7.042334111217821
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "315",
+      "is_id": false,
+      "count": 297,
+      "share": 0.000297,
+      "positive": 23,
+      "positive_rate": 0.07744107744107744,
+      "recall": 0.0020854111886843777,
+      "lift": 7.021586493886792
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "329",
+      "is_id": false,
+      "count": 182,
+      "share": 0.000182,
+      "positive": 14,
+      "positive_rate": 0.07692307692307693,
+      "recall": 0.0012693807235470125,
+      "lift": 6.97461936014842
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "308",
+      "is_id": false,
+      "count": 339,
+      "share": 0.000339,
+      "positive": 26,
+      "positive_rate": 0.07669616519174041,
+      "recall": 0.002357421343730166,
+      "lift": 6.954045261740902
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "309",
+      "is_id": false,
+      "count": 330,
+      "share": 0.00033,
+      "positive": 25,
+      "positive_rate": 0.07575757575757576,
+      "recall": 0.0022667512920482363,
+      "lift": 6.86894330923708
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "304",
+      "is_id": false,
+      "count": 392,
+      "share": 0.000392,
+      "positive": 29,
+      "positive_rate": 0.07397959183673469,
+      "recall": 0.0026294314987759543,
+      "lift": 6.707733415244781
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "305",
+      "is_id": false,
+      "count": 369,
+      "share": 0.000369,
+      "positive": 27,
+      "positive_rate": 0.07317073170731707,
+      "recall": 0.0024480913954120953,
+      "lift": 6.634394025507032
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "307",
+      "is_id": false,
+      "count": 377,
+      "share": 0.000377,
+      "positive": 26,
+      "positive_rate": 0.06896551724137931,
+      "recall": 0.002357421343730166,
+      "lift": 6.253107012546859
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "319",
+      "is_id": false,
+      "count": 261,
+      "share": 0.000261,
+      "positive": 18,
+      "positive_rate": 0.06896551724137931,
+      "recall": 0.0016320609302747304,
+      "lift": 6.253107012546859
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "306",
+      "is_id": false,
+      "count": 339,
+      "share": 0.000339,
+      "positive": 23,
+      "positive_rate": 0.06784660766961652,
+      "recall": 0.0020854111886843777,
+      "lift": 6.151655423847721
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "318",
+      "is_id": false,
+      "count": 267,
+      "share": 0.000267,
+      "positive": 18,
+      "positive_rate": 0.06741573033707865,
+      "recall": 0.0016320609302747304,
+      "lift": 6.112587753837941
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "337",
+      "is_id": false,
+      "count": 165,
+      "share": 0.000165,
+      "positive": 11,
+      "positive_rate": 0.06666666666666667,
+      "recall": 0.000997370568501224,
+      "lift": 6.04467011212863
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "322",
+      "is_id": false,
+      "count": 256,
+      "share": 0.000256,
+      "positive": 16,
+      "positive_rate": 0.0625,
+      "recall": 0.0014507208269108713,
+      "lift": 5.666878230120591
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "316",
+      "is_id": false,
+      "count": 294,
+      "share": 0.000294,
+      "positive": 18,
+      "positive_rate": 0.061224489795918366,
+      "recall": 0.0016320609302747304,
+      "lift": 5.551227653995681
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "302",
+      "is_id": false,
+      "count": 464,
+      "share": 0.000464,
+      "positive": 28,
+      "positive_rate": 0.0603448275862069,
+      "recall": 0.002538761447094025,
+      "lift": 5.471468635978502
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "311",
+      "is_id": false,
+      "count": 348,
+      "share": 0.000348,
+      "positive": 21,
+      "positive_rate": 0.0603448275862069,
+      "recall": 0.0019040710853205187,
+      "lift": 5.471468635978502
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "301",
+      "is_id": false,
+      "count": 431,
+      "share": 0.000431,
+      "positive": 26,
+      "positive_rate": 0.060324825986078884,
+      "recall": 0.002357421343730166,
+      "lift": 5.469655089861173
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "295",
+      "is_id": false,
+      "count": 549,
+      "share": 0.000549,
+      "positive": 33,
+      "positive_rate": 0.060109289617486336,
+      "recall": 0.002992111705503672,
+      "lift": 5.450112396181551
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "303",
+      "is_id": false,
+      "count": 424,
+      "share": 0.000424,
+      "positive": 25,
+      "positive_rate": 0.0589622641509434,
+      "recall": 0.0022667512920482363,
+      "lift": 5.346111537849614
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "296",
+      "is_id": false,
+      "count": 526,
+      "share": 0.000526,
+      "positive": 30,
+      "positive_rate": 0.057034220532319393,
+      "recall": 0.0027201015504578836,
+      "lift": 5.171295723303961
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "300",
+      "is_id": false,
+      "count": 456,
+      "share": 0.000456,
+      "positive": 26,
+      "positive_rate": 0.05701754385964912,
+      "recall": 0.002357421343730166,
+      "lift": 5.169783648531065
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "314",
+      "is_id": false,
+      "count": 301,
+      "share": 0.000301,
+      "positive": 17,
+      "positive_rate": 0.05647840531561462,
+      "recall": 0.0015413908785928008,
+      "lift": 5.120899928879737
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "285",
+      "is_id": false,
+      "count": 676,
+      "share": 0.000676,
+      "positive": 38,
+      "positive_rate": 0.05621301775147929,
+      "recall": 0.0034454619639133193,
+      "lift": 5.096837224723846
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "331",
+      "is_id": false,
+      "count": 196,
+      "share": 0.000196,
+      "positive": 11,
+      "positive_rate": 0.05612244897959184,
+      "recall": 0.000997370568501224,
+      "lift": 5.0886253494960405
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "286",
+      "is_id": false,
+      "count": 647,
+      "share": 0.000647,
+      "positive": 36,
+      "positive_rate": 0.05564142194744977,
+      "recall": 0.0032641218605494607,
+      "lift": 5.045010603631314
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "323",
+      "is_id": false,
+      "count": 235,
+      "share": 0.000235,
+      "positive": 13,
+      "positive_rate": 0.05531914893617021,
+      "recall": 0.001178710671865083,
+      "lift": 5.015790093042906
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "334",
+      "is_id": false,
+      "count": 145,
+      "share": 0.000145,
+      "positive": 8,
+      "positive_rate": 0.05517241379310345,
+      "recall": 0.0007253604134554357,
+      "lift": 5.002485610037487
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "321",
+      "is_id": false,
+      "count": 272,
+      "share": 0.000272,
+      "positive": 15,
+      "positive_rate": 0.05514705882352941,
+      "recall": 0.0013600507752289418,
+      "lift": 5.000186673635815
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "327",
+      "is_id": false,
+      "count": 202,
+      "share": 0.000202,
+      "positive": 11,
+      "positive_rate": 0.054455445544554455,
+      "recall": 0.000997370568501224,
+      "lift": 4.937478061887248
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "290",
+      "is_id": false,
+      "count": 591,
+      "share": 0.000591,
+      "positive": 32,
+      "positive_rate": 0.05414551607445008,
+      "recall": 0.0029014416538217427,
+      "lift": 4.909376740815131
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "317",
+      "is_id": false,
+      "count": 303,
+      "share": 0.000303,
+      "positive": 16,
+      "positive_rate": 0.052805280528052806,
+      "recall": 0.0014507208269108713,
+      "lift": 4.787857514557331
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "330",
+      "is_id": false,
+      "count": 191,
+      "share": 0.000191,
+      "positive": 10,
+      "positive_rate": 0.05235602094240838,
+      "recall": 0.0009067005168192946,
+      "lift": 4.747123124708349
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "281",
+      "is_id": false,
+      "count": 774,
+      "share": 0.000774,
+      "positive": 40,
+      "positive_rate": 0.05167958656330749,
+      "recall": 0.0036268020672771783,
+      "lift": 4.685790784595837
+    },
+    {
+      "column": "zip_count_4w",
+      "value": "2622",
+      "is_id": false,
+      "count": 136,
+      "share": 0.000136,
+      "positive": 7,
+      "positive_rate": 0.051470588235294115,
+      "recall": 0.0006346903617735063,
+      "lift": 4.6668408953934275
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "313",
+      "is_id": false,
+      "count": 293,
+      "share": 0.000293,
+      "positive": 15,
+      "positive_rate": 0.051194539249146756,
+      "recall": 0.0013600507752289418,
+      "lift": 4.641811519552702
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "336",
+      "is_id": false,
+      "count": 140,
+      "share": 0.00014,
+      "positive": 7,
+      "positive_rate": 0.05,
+      "recall": 0.0006346903617735063,
+      "lift": 4.533502584096473
+    },
+    {
+      "column": "zip_count_4w",
+      "value": "3022",
+      "is_id": false,
+      "count": 100,
+      "share": 0.0001,
+      "positive": 5,
+      "positive_rate": 0.05,
+      "recall": 0.0004533502584096473,
+      "lift": 4.533502584096473
+    },
+    {
+      "column": "customer_age",
+      "value": "80",
+      "is_id": false,
+      "count": 1297,
+      "share": 0.001297,
+      "positive": 64,
+      "positive_rate": 0.04934464148033924,
+      "recall": 0.005802883307643485,
+      "lift": 4.474081193248639
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "273",
+      "is_id": false,
+      "count": 950,
+      "share": 0.00095,
+      "positive": 46,
+      "positive_rate": 0.04842105263157895,
+      "recall": 0.004170822377368755,
+      "lift": 4.390339344598689
+    }
+  ],
+  "single_feature_rules_top_non_id": [
+    {
+      "column": "proposed_credit_limit",
+      "value": "1900",
+      "is_id": false,
+      "count": 390,
+      "share": 0.00039,
+      "positive": 80,
+      "positive_rate": 0.20512820512820512,
+      "recall": 0.007253604134554357,
+      "lift": 18.598984960395786
+    },
+    {
+      "column": "proposed_credit_limit",
+      "value": "2000",
+      "is_id": false,
+      "count": 6114,
+      "share": 0.006114,
+      "positive": 793,
+      "positive_rate": 0.1297023225384364,
+      "recall": 0.07190135098377005,
+      "lift": 11.76011628782631
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "344",
+      "is_id": false,
+      "count": 111,
+      "share": 0.000111,
+      "positive": 14,
+      "positive_rate": 0.12612612612612611,
+      "recall": 0.0012693807235470125,
+      "lift": 11.435862374297407
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "338",
+      "is_id": false,
+      "count": 136,
+      "share": 0.000136,
+      "positive": 16,
+      "positive_rate": 0.11764705882352941,
+      "recall": 0.0014507208269108713,
+      "lift": 10.667064903756406
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "339",
+      "is_id": false,
+      "count": 116,
+      "share": 0.000116,
+      "positive": 11,
+      "positive_rate": 0.09482758620689655,
+      "recall": 0.000997370568501224,
+      "lift": 8.598022142251931
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "325",
+      "is_id": false,
+      "count": 264,
+      "share": 0.000264,
+      "positive": 25,
+      "positive_rate": 0.0946969696969697,
+      "recall": 0.0022667512920482363,
+      "lift": 8.586179136546349
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "320",
+      "is_id": false,
+      "count": 246,
+      "share": 0.000246,
+      "positive": 22,
+      "positive_rate": 0.08943089430894309,
+      "recall": 0.001994741137002448,
+      "lift": 8.10870380895304
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "340",
+      "is_id": false,
+      "count": 129,
+      "share": 0.000129,
+      "positive": 11,
+      "positive_rate": 0.08527131782945736,
+      "recall": 0.000997370568501224,
+      "lift": 7.731554794583132
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "310",
+      "is_id": false,
+      "count": 349,
+      "share": 0.000349,
+      "positive": 29,
+      "positive_rate": 0.0830945558739255,
+      "recall": 0.0026294314987759543,
+      "lift": 7.5341876755758
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "326",
+      "is_id": false,
+      "count": 213,
+      "share": 0.000213,
+      "positive": 17,
+      "positive_rate": 0.07981220657276995,
+      "recall": 0.0015413908785928008,
+      "lift": 7.236576894801881
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "333",
+      "is_id": false,
+      "count": 164,
+      "share": 0.000164,
+      "positive": 13,
+      "positive_rate": 0.07926829268292683,
+      "recall": 0.001178710671865083,
+      "lift": 7.187260194299286
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "341",
+      "is_id": false,
+      "count": 103,
+      "share": 0.000103,
+      "positive": 8,
+      "positive_rate": 0.07766990291262135,
+      "recall": 0.0007253604134554357,
+      "lift": 7.042334111217821
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "315",
+      "is_id": false,
+      "count": 297,
+      "share": 0.000297,
+      "positive": 23,
+      "positive_rate": 0.07744107744107744,
+      "recall": 0.0020854111886843777,
+      "lift": 7.021586493886792
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "329",
+      "is_id": false,
+      "count": 182,
+      "share": 0.000182,
+      "positive": 14,
+      "positive_rate": 0.07692307692307693,
+      "recall": 0.0012693807235470125,
+      "lift": 6.97461936014842
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "308",
+      "is_id": false,
+      "count": 339,
+      "share": 0.000339,
+      "positive": 26,
+      "positive_rate": 0.07669616519174041,
+      "recall": 0.002357421343730166,
+      "lift": 6.954045261740902
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "309",
+      "is_id": false,
+      "count": 330,
+      "share": 0.00033,
+      "positive": 25,
+      "positive_rate": 0.07575757575757576,
+      "recall": 0.0022667512920482363,
+      "lift": 6.86894330923708
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "304",
+      "is_id": false,
+      "count": 392,
+      "share": 0.000392,
+      "positive": 29,
+      "positive_rate": 0.07397959183673469,
+      "recall": 0.0026294314987759543,
+      "lift": 6.707733415244781
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "305",
+      "is_id": false,
+      "count": 369,
+      "share": 0.000369,
+      "positive": 27,
+      "positive_rate": 0.07317073170731707,
+      "recall": 0.0024480913954120953,
+      "lift": 6.634394025507032
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "307",
+      "is_id": false,
+      "count": 377,
+      "share": 0.000377,
+      "positive": 26,
+      "positive_rate": 0.06896551724137931,
+      "recall": 0.002357421343730166,
+      "lift": 6.253107012546859
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "319",
+      "is_id": false,
+      "count": 261,
+      "share": 0.000261,
+      "positive": 18,
+      "positive_rate": 0.06896551724137931,
+      "recall": 0.0016320609302747304,
+      "lift": 6.253107012546859
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "306",
+      "is_id": false,
+      "count": 339,
+      "share": 0.000339,
+      "positive": 23,
+      "positive_rate": 0.06784660766961652,
+      "recall": 0.0020854111886843777,
+      "lift": 6.151655423847721
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "318",
+      "is_id": false,
+      "count": 267,
+      "share": 0.000267,
+      "positive": 18,
+      "positive_rate": 0.06741573033707865,
+      "recall": 0.0016320609302747304,
+      "lift": 6.112587753837941
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "337",
+      "is_id": false,
+      "count": 165,
+      "share": 0.000165,
+      "positive": 11,
+      "positive_rate": 0.06666666666666667,
+      "recall": 0.000997370568501224,
+      "lift": 6.04467011212863
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "322",
+      "is_id": false,
+      "count": 256,
+      "share": 0.000256,
+      "positive": 16,
+      "positive_rate": 0.0625,
+      "recall": 0.0014507208269108713,
+      "lift": 5.666878230120591
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "316",
+      "is_id": false,
+      "count": 294,
+      "share": 0.000294,
+      "positive": 18,
+      "positive_rate": 0.061224489795918366,
+      "recall": 0.0016320609302747304,
+      "lift": 5.551227653995681
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "302",
+      "is_id": false,
+      "count": 464,
+      "share": 0.000464,
+      "positive": 28,
+      "positive_rate": 0.0603448275862069,
+      "recall": 0.002538761447094025,
+      "lift": 5.471468635978502
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "311",
+      "is_id": false,
+      "count": 348,
+      "share": 0.000348,
+      "positive": 21,
+      "positive_rate": 0.0603448275862069,
+      "recall": 0.0019040710853205187,
+      "lift": 5.471468635978502
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "301",
+      "is_id": false,
+      "count": 431,
+      "share": 0.000431,
+      "positive": 26,
+      "positive_rate": 0.060324825986078884,
+      "recall": 0.002357421343730166,
+      "lift": 5.469655089861173
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "295",
+      "is_id": false,
+      "count": 549,
+      "share": 0.000549,
+      "positive": 33,
+      "positive_rate": 0.060109289617486336,
+      "recall": 0.002992111705503672,
+      "lift": 5.450112396181551
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "303",
+      "is_id": false,
+      "count": 424,
+      "share": 0.000424,
+      "positive": 25,
+      "positive_rate": 0.0589622641509434,
+      "recall": 0.0022667512920482363,
+      "lift": 5.346111537849614
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "296",
+      "is_id": false,
+      "count": 526,
+      "share": 0.000526,
+      "positive": 30,
+      "positive_rate": 0.057034220532319393,
+      "recall": 0.0027201015504578836,
+      "lift": 5.171295723303961
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "300",
+      "is_id": false,
+      "count": 456,
+      "share": 0.000456,
+      "positive": 26,
+      "positive_rate": 0.05701754385964912,
+      "recall": 0.002357421343730166,
+      "lift": 5.169783648531065
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "314",
+      "is_id": false,
+      "count": 301,
+      "share": 0.000301,
+      "positive": 17,
+      "positive_rate": 0.05647840531561462,
+      "recall": 0.0015413908785928008,
+      "lift": 5.120899928879737
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "285",
+      "is_id": false,
+      "count": 676,
+      "share": 0.000676,
+      "positive": 38,
+      "positive_rate": 0.05621301775147929,
+      "recall": 0.0034454619639133193,
+      "lift": 5.096837224723846
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "331",
+      "is_id": false,
+      "count": 196,
+      "share": 0.000196,
+      "positive": 11,
+      "positive_rate": 0.05612244897959184,
+      "recall": 0.000997370568501224,
+      "lift": 5.0886253494960405
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "286",
+      "is_id": false,
+      "count": 647,
+      "share": 0.000647,
+      "positive": 36,
+      "positive_rate": 0.05564142194744977,
+      "recall": 0.0032641218605494607,
+      "lift": 5.045010603631314
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "323",
+      "is_id": false,
+      "count": 235,
+      "share": 0.000235,
+      "positive": 13,
+      "positive_rate": 0.05531914893617021,
+      "recall": 0.001178710671865083,
+      "lift": 5.015790093042906
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "334",
+      "is_id": false,
+      "count": 145,
+      "share": 0.000145,
+      "positive": 8,
+      "positive_rate": 0.05517241379310345,
+      "recall": 0.0007253604134554357,
+      "lift": 5.002485610037487
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "321",
+      "is_id": false,
+      "count": 272,
+      "share": 0.000272,
+      "positive": 15,
+      "positive_rate": 0.05514705882352941,
+      "recall": 0.0013600507752289418,
+      "lift": 5.000186673635815
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "327",
+      "is_id": false,
+      "count": 202,
+      "share": 0.000202,
+      "positive": 11,
+      "positive_rate": 0.054455445544554455,
+      "recall": 0.000997370568501224,
+      "lift": 4.937478061887248
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "290",
+      "is_id": false,
+      "count": 591,
+      "share": 0.000591,
+      "positive": 32,
+      "positive_rate": 0.05414551607445008,
+      "recall": 0.0029014416538217427,
+      "lift": 4.909376740815131
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "317",
+      "is_id": false,
+      "count": 303,
+      "share": 0.000303,
+      "positive": 16,
+      "positive_rate": 0.052805280528052806,
+      "recall": 0.0014507208269108713,
+      "lift": 4.787857514557331
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "330",
+      "is_id": false,
+      "count": 191,
+      "share": 0.000191,
+      "positive": 10,
+      "positive_rate": 0.05235602094240838,
+      "recall": 0.0009067005168192946,
+      "lift": 4.747123124708349
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "281",
+      "is_id": false,
+      "count": 774,
+      "share": 0.000774,
+      "positive": 40,
+      "positive_rate": 0.05167958656330749,
+      "recall": 0.0036268020672771783,
+      "lift": 4.685790784595837
+    },
+    {
+      "column": "zip_count_4w",
+      "value": "2622",
+      "is_id": false,
+      "count": 136,
+      "share": 0.000136,
+      "positive": 7,
+      "positive_rate": 0.051470588235294115,
+      "recall": 0.0006346903617735063,
+      "lift": 4.6668408953934275
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "313",
+      "is_id": false,
+      "count": 293,
+      "share": 0.000293,
+      "positive": 15,
+      "positive_rate": 0.051194539249146756,
+      "recall": 0.0013600507752289418,
+      "lift": 4.641811519552702
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "336",
+      "is_id": false,
+      "count": 140,
+      "share": 0.00014,
+      "positive": 7,
+      "positive_rate": 0.05,
+      "recall": 0.0006346903617735063,
+      "lift": 4.533502584096473
+    },
+    {
+      "column": "zip_count_4w",
+      "value": "3022",
+      "is_id": false,
+      "count": 100,
+      "share": 0.0001,
+      "positive": 5,
+      "positive_rate": 0.05,
+      "recall": 0.0004533502584096473,
+      "lift": 4.533502584096473
+    },
+    {
+      "column": "customer_age",
+      "value": "80",
+      "is_id": false,
+      "count": 1297,
+      "share": 0.001297,
+      "positive": 64,
+      "positive_rate": 0.04934464148033924,
+      "recall": 0.005802883307643485,
+      "lift": 4.474081193248639
+    },
+    {
+      "column": "credit_risk_score",
+      "value": "273",
+      "is_id": false,
+      "count": 950,
+      "share": 0.00095,
+      "positive": 46,
+      "positive_rate": 0.04842105263157895,
+      "recall": 0.004170822377368755,
+      "lift": 4.390339344598689
+    }
+  ],
+  "class_overlap_lowest": [
+    {
+      "column": "application_id",
+      "is_id": true,
+      "overlap": 0.0
+    },
+    {
+      "column": "housing_status",
+      "is_id": false,
+      "overlap": 0.5887498030356546
+    },
+    {
+      "column": "device_os",
+      "is_id": false,
+      "overlap": 0.6552394566217188
+    },
+    {
+      "column": "credit_risk_score",
+      "is_id": false,
+      "overlap": 0.745354566195125
+    },
+    {
+      "column": "current_address_months_count",
+      "is_id": false,
+      "overlap": 0.747932281885487
+    },
+    {
+      "column": "keep_alive_session",
+      "is_id": false,
+      "overlap": 0.7620736651909006
+    },
+    {
+      "column": "customer_age",
+      "is_id": false,
+      "overlap": 0.7698989757087955
+    },
+    {
+      "column": "proposed_credit_limit",
+      "is_id": false,
+      "overlap": 0.776772085703704
+    },
+    {
+      "column": "income",
+      "is_id": false,
+      "overlap": 0.7860557686700873
+    },
+    {
+      "column": "prev_address_months_count",
+      "is_id": false,
+      "overlap": 0.7917731624641439
+    },
+    {
+      "column": "name_email_similarity",
+      "is_id": false,
+      "overlap": 0.8150899105109571
+    },
+    {
+      "column": "date_of_birth_distinct_emails_4w",
+      "is_id": false,
+      "overlap": 0.8236027517606838
+    },
+    {
+      "column": "bank_months_count",
+      "is_id": false,
+      "overlap": 0.8328561059431222
+    },
+    {
+      "column": "bank_branch_count_8w",
+      "is_id": false,
+      "overlap": 0.8335381684412418
+    },
+    {
+      "column": "phone_home_valid",
+      "is_id": false,
+      "overlap": 0.834153998695882
+    },
+    {
+      "column": "intended_balcon_amount",
+      "is_id": false,
+      "overlap": 0.8541745823014606
+    },
+    {
+      "column": "has_other_cards",
+      "is_id": false,
+      "overlap": 0.8598804394829336
+    },
+    {
+      "column": "payment_type",
+      "is_id": false,
+      "overlap": 0.8614633867007172
+    },
+    {
+      "column": "email_is_free",
+      "is_id": false,
+      "overlap": 0.8673476302005341
+    },
+    {
+      "column": "employment_status",
+      "is_id": false,
+      "overlap": 0.8750732140307227
+    },
+    {
+      "column": "device_distinct_emails_8w",
+      "is_id": false,
+      "overlap": 0.9231884842917577
+    },
+    {
+      "column": "event_date",
+      "is_id": false,
+      "overlap": 0.9271193551389766
+    },
+    {
+      "column": "month",
+      "is_id": false,
+      "overlap": 0.9271193551389766
+    },
+    {
+      "column": "velocity_4w",
+      "is_id": false,
+      "overlap": 0.9313433516059848
+    },
+    {
+      "column": "velocity_6h",
+      "is_id": false,
+      "overlap": 0.9322117751285878
+    }
+  ],
+  "amount_rules": {
+    "intended_balcon_amount": {
+      "zero_positive_low_region": {
+        "threshold_lte": -8.251724706870924,
+        "rows": 221,
+        "share": 0.000221
+      },
+      "best_low_threshold": {
+        "rule": "amount <= 0.0538092",
+        "rows": 743209,
+        "precision": 0.013137623467961233,
+        "recall": 0.8853023846223592,
+        "f1": 0.025891031743295885
+      },
+      "best_high_threshold": {
+        "rule": "amount >= -1.57406",
+        "rows": 946105,
+        "precision": 0.011117159300500473,
+        "recall": 0.953667603590534,
+        "f1": 0.021978113827321982
+      }
+    }
+  },
+  "split_drift_top": [
+    {
+      "column": "event_date",
+      "is_id": false,
+      "js_divergence": 1.0
+    },
+    {
+      "column": "month",
+      "is_id": false,
+      "js_divergence": 1.0
+    },
+    {
+      "column": "application_id",
+      "is_id": true,
+      "js_divergence": 0.9999999999965046
+    },
+    {
+      "column": "velocity_24h",
+      "is_id": false,
+      "js_divergence": 0.9993768132023572
+    },
+    {
+      "column": "velocity_4w",
+      "is_id": false,
+      "js_divergence": 0.9993162980921777
+    },
+    {
+      "column": "velocity_6h",
+      "is_id": false,
+      "js_divergence": 0.9992793050704981
+    },
+    {
+      "column": "name_email_similarity",
+      "is_id": false,
+      "js_divergence": 0.9992231761821798
+    },
+    {
+      "column": "intended_balcon_amount",
+      "is_id": false,
+      "js_divergence": 0.9962681082217026
+    },
+    {
+      "column": "session_length_in_minutes",
+      "is_id": false,
+      "js_divergence": 0.9956803844227463
+    },
+    {
+      "column": "days_since_request",
+      "is_id": false,
+      "js_divergence": 0.9919762606905077
+    },
+    {
+      "column": "zip_count_4w",
+      "is_id": false,
+      "js_divergence": 0.08430283448838603
+    },
+    {
+      "column": "date_of_birth_distinct_emails_4w",
+      "is_id": false,
+      "js_divergence": 0.0658416273678058
+    },
+    {
+      "column": "credit_risk_score",
+      "is_id": false,
+      "js_divergence": 0.038556780466384846
+    },
+    {
+      "column": "proposed_credit_limit",
+      "is_id": false,
+      "js_divergence": 0.01381945045764848
+    },
+    {
+      "column": "income",
+      "is_id": false,
+      "js_divergence": 0.012770481949395136
+    },
+    {
+      "column": "bank_branch_count_8w",
+      "is_id": false,
+      "js_divergence": 0.012522780589354368
+    },
+    {
+      "column": "prev_address_months_count",
+      "is_id": false,
+      "js_divergence": 0.00828270459300997
+    },
+    {
+      "column": "current_address_months_count",
+      "is_id": false,
+      "js_divergence": 0.007550863692569657
+    },
+    {
+      "column": "housing_status",
+      "is_id": false,
+      "js_divergence": 0.004637022312886066
+    },
+    {
+      "column": "employment_status",
+      "is_id": false,
+      "js_divergence": 0.003118876502534275
+    },
+    {
+      "column": "bank_months_count",
+      "is_id": false,
+      "js_divergence": 0.0030380312969979888
+    },
+    {
+      "column": "customer_age",
+      "is_id": false,
+      "js_divergence": 0.0027711935669204987
+    },
+    {
+      "column": "phone_home_valid",
+      "is_id": false,
+      "js_divergence": 0.0026176082601618994
+    },
+    {
+      "column": "email_is_free",
+      "is_id": false,
+      "js_divergence": 0.002500233755396413
+    },
+    {
+      "column": "payment_type",
+      "is_id": false,
+      "js_divergence": 0.002473191959390473
+    }
+  ],
+  "baselines": {
+    "provided_split_no_id_nb": {
+      "rows": 205011,
+      "positives": 2878,
+      "prevalence": 0.014038271117159567,
+      "roc_auc": 0.8457618040773744,
+      "average_precision": 0.13561273646968314,
+      "topk": {
+        "top_0.1%": {
+          "k": 205,
+          "hits": 89,
+          "precision": 0.43414634146341463,
+          "recall": 0.03092425295343989,
+          "lift": 30.925912303598366
+        },
+        "top_0.5%": {
+          "k": 1025,
+          "hits": 314,
+          "precision": 0.30634146341463414,
+          "recall": 0.10910354412786658,
+          "lift": 21.821879692876152
+        },
+        "top_1.0%": {
+          "k": 2050,
+          "hits": 479,
+          "precision": 0.23365853658536587,
+          "recall": 0.16643502432244614,
+          "lift": 16.644395498228786
+        },
+        "top_2.0%": {
+          "k": 4100,
+          "hits": 727,
+          "precision": 0.1773170731707317,
+          "recall": 0.2526059763724809,
+          "lift": 12.630976541975288
+        },
+        "top_5.0%": {
+          "k": 10251,
+          "hits": 1172,
+          "precision": 0.11433030923812311,
+          "recall": 0.40722724113968034,
+          "lift": 8.144187292292168
+        }
+      },
+      "train_rows": 794989,
+      "train_positives": 8151,
+      "train_prevalence": 0.010252972053701372
+    },
+    "provided_split_id_only_nb": {
+      "rows": 205011,
+      "positives": 2878,
+      "prevalence": 0.014038271117159567,
+      "roc_auc": 0.5,
+      "average_precision": 0.013827668898302631,
+      "topk": {
+        "top_0.1%": {
+          "k": 205,
+          "hits": 4,
+          "precision": 0.01951219512195122,
+          "recall": 0.001389854065323141,
+          "lift": 1.3899286428583535
+        },
+        "top_0.5%": {
+          "k": 1025,
+          "hits": 14,
+          "precision": 0.013658536585365854,
+          "recall": 0.004864489228630994,
+          "lift": 0.9729500500008476
+        },
+        "top_1.0%": {
+          "k": 2050,
+          "hits": 27,
+          "precision": 0.013170731707317073,
+          "recall": 0.009381514940931202,
+          "lift": 0.9382018339293886
+        },
+        "top_2.0%": {
+          "k": 4100,
+          "hits": 65,
+          "precision": 0.015853658536585366,
+          "recall": 0.022585128561501043,
+          "lift": 1.1293170223224123
+        },
+        "top_5.0%": {
+          "k": 10251,
+          "hits": 144,
+          "precision": 0.014047410008779631,
+          "recall": 0.05003474635163308,
+          "lift": 1.0006509983703686
+        }
+      },
+      "train_rows": 794989,
+      "train_positives": 8151,
+      "train_prevalence": 0.010252972053701372
+    },
+    "provided_split_with_id_nb": {
+      "rows": 205011,
+      "positives": 2878,
+      "prevalence": 0.014038271117159567,
+      "roc_auc": 0.8457618040773744,
+      "average_precision": 0.13561273646968314,
+      "topk": {
+        "top_0.1%": {
+          "k": 205,
+          "hits": 89,
+          "precision": 0.43414634146341463,
+          "recall": 0.03092425295343989,
+          "lift": 30.925912303598366
+        },
+        "top_0.5%": {
+          "k": 1025,
+          "hits": 314,
+          "precision": 0.30634146341463414,
+          "recall": 0.10910354412786658,
+          "lift": 21.821879692876152
+        },
+        "top_1.0%": {
+          "k": 2050,
+          "hits": 479,
+          "precision": 0.23365853658536587,
+          "recall": 0.16643502432244614,
+          "lift": 16.644395498228786
+        },
+        "top_2.0%": {
+          "k": 4100,
+          "hits": 727,
+          "precision": 0.1773170731707317,
+          "recall": 0.2526059763724809,
+          "lift": 12.630976541975288
+        },
+        "top_5.0%": {
+          "k": 10251,
+          "hits": 1172,
+          "precision": 0.11433030923812311,
+          "recall": 0.40722724113968034,
+          "lift": 8.144187292292168
+        }
+      },
+      "train_rows": 794989,
+      "train_positives": 8151,
+      "train_prevalence": 0.010252972053701372
+    },
+    "provided_split_amount_only_nb": {
+      "rows": 205011,
+      "positives": 2878,
+      "prevalence": 0.014038271117159567,
+      "roc_auc": 0.5939244656571576,
+      "average_precision": 0.018122310759610724,
+      "topk": {
+        "top_0.1%": {
+          "k": 205,
+          "hits": 1,
+          "precision": 0.004878048780487805,
+          "recall": 0.00034746351633078526,
+          "lift": 0.3474821607145884
+        },
+        "top_0.5%": {
+          "k": 1025,
+          "hits": 20,
+          "precision": 0.01951219512195122,
+          "recall": 0.006949270326615705,
+          "lift": 1.3899286428583535
+        },
+        "top_1.0%": {
+          "k": 2050,
+          "hits": 46,
+          "precision": 0.0224390243902439,
+          "recall": 0.015983321751216122,
+          "lift": 1.5984179392871065
+        },
+        "top_2.0%": {
+          "k": 4100,
+          "hits": 83,
+          "precision": 0.02024390243902439,
+          "recall": 0.028839471855455177,
+          "lift": 1.442050966965542
+        },
+        "top_5.0%": {
+          "k": 10251,
+          "hits": 201,
+          "precision": 0.0196078431372549,
+          "recall": 0.06984016678248783,
+          "lift": 1.3967420185586397
+        }
+      },
+      "train_rows": 794989,
+      "train_positives": 8151,
+      "train_prevalence": 0.010252972053701372
+    },
+    "temporal_holdout_no_id_nb": {
+      "rows": 96843,
+      "positives": 1428,
+      "prevalence": 0.014745515938167962,
+      "roc_auc": 0.8678601776611709,
+      "average_precision": 0.17297087983340825,
+      "topk": {
+        "top_0.1%": {
+          "k": 97,
+          "hits": 51,
+          "precision": 0.5257731958762887,
+          "recall": 0.03571428571428571,
+          "lift": 35.65648011782032
+        },
+        "top_0.5%": {
+          "k": 484,
+          "hits": 165,
+          "precision": 0.3409090909090909,
+          "recall": 0.11554621848739496,
+          "lift": 23.119509167303285
+        },
+        "top_1.0%": {
+          "k": 968,
+          "hits": 279,
+          "precision": 0.2882231404958678,
+          "recall": 0.1953781512605042,
+          "lift": 19.546494114174596
+        },
+        "top_2.0%": {
+          "k": 1937,
+          "hits": 404,
+          "precision": 0.20856995353639649,
+          "recall": 0.28291316526610644,
+          "lift": 14.1446358615723
+        },
+        "top_5.0%": {
+          "k": 4842,
+          "hits": 660,
+          "precision": 0.13630731102850063,
+          "recall": 0.46218487394957986,
+          "lift": 9.243983838888717
+        }
+      },
+      "date_col": "event_date",
+      "temporal_granularity": "month",
+      "test_period": "202208",
+      "train_rows": 903157,
+      "train_positives": 9601,
+      "train_prevalence": 0.01063048838684747
+    },
+    "temporal_holdout_amount_only_nb": {
+      "rows": 96843,
+      "positives": 1428,
+      "prevalence": 0.014745515938167962,
+      "roc_auc": 0.572968222556014,
+      "average_precision": 0.017680336376739526,
+      "topk": {
+        "top_0.1%": {
+          "k": 97,
+          "hits": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "lift": 0.0
+        },
+        "top_0.5%": {
+          "k": 484,
+          "hits": 3,
+          "precision": 0.006198347107438017,
+          "recall": 0.0021008403361344537,
+          "lift": 0.420354712132787
+        },
+        "top_1.0%": {
+          "k": 968,
+          "hits": 12,
+          "precision": 0.012396694214876033,
+          "recall": 0.008403361344537815,
+          "lift": 0.840709424265574
+        },
+        "top_2.0%": {
+          "k": 1937,
+          "hits": 31,
+          "precision": 0.01600413009808983,
+          "recall": 0.021708683473389355,
+          "lift": 1.08535572205134
+        },
+        "top_5.0%": {
+          "k": 4842,
+          "hits": 81,
+          "precision": 0.016728624535315983,
+          "recall": 0.05672268907563025,
+          "lift": 1.1344889256817967
+        }
+      },
+      "date_col": "event_date",
+      "temporal_granularity": "month",
+      "test_period": "202208",
+      "train_rows": 903157,
+      "train_positives": 9601,
+      "train_prevalence": 0.01063048838684747
+    },
+    "entity_holdout_no_id_nb": {
+      "rows": 199570,
+      "positives": 2241,
+      "prevalence": 0.01122914265671193,
+      "roc_auc": 0.8718833823119633,
+      "average_precision": 0.1408184269031064,
+      "topk": {
+        "top_0.1%": {
+          "k": 200,
+          "hits": 94,
+          "precision": 0.47,
+          "recall": 0.04194556001784917,
+          "lift": 41.8553770638108
+        },
+        "top_0.5%": {
+          "k": 998,
+          "hits": 298,
+          "precision": 0.2985971943887776,
+          "recall": 0.13297634984381973,
+          "lift": 26.591272683698502
+        },
+        "top_1.0%": {
+          "k": 1996,
+          "hits": 429,
+          "precision": 0.21492985971943887,
+          "recall": 0.19143239625167335,
+          "lift": 19.140362384742712
+        },
+        "top_2.0%": {
+          "k": 3991,
+          "hits": 634,
+          "precision": 0.1588574292157354,
+          "recall": 0.2829094154395359,
+          "lift": 14.14688850896221
+        },
+        "top_5.0%": {
+          "k": 9978,
+          "hits": 1035,
+          "precision": 0.1037282020444979,
+          "recall": 0.46184738955823296,
+          "lift": 9.237410656858744
+        }
+      },
+      "entity_col": "application_id",
+      "holdout_share": 0.2,
+      "train_rows": 800430,
+      "train_positives": 8788,
+      "train_prevalence": 0.010979098734430244
+    },
+    "entity_holdout_id_only_nb": {
+      "rows": 199570,
+      "positives": 2241,
+      "prevalence": 0.01122914265671193,
+      "roc_auc": 0.5,
+      "average_precision": 0.010412965570503807,
+      "topk": {
+        "top_0.1%": {
+          "k": 200,
+          "hits": 2,
+          "precision": 0.01,
+          "recall": 0.000892458723784025,
+          "lift": 0.8905399375278894
+        },
+        "top_0.5%": {
+          "k": 998,
+          "hits": 11,
+          "precision": 0.011022044088176353,
+          "recall": 0.0049085229808121375,
+          "lift": 0.9815570453714212
+        },
+        "top_1.0%": {
+          "k": 1996,
+          "hits": 23,
+          "precision": 0.011523046092184368,
+          "recall": 0.010263275323516287,
+          "lift": 1.0261732747064856
+        },
+        "top_2.0%": {
+          "k": 3991,
+          "hits": 42,
+          "precision": 0.010523678276121273,
+          "recall": 0.018741633199464525,
+          "lift": 0.9371755794580645
+        },
+        "top_5.0%": {
+          "k": 9978,
+          "hits": 108,
+          "precision": 0.010823812387251955,
+          "recall": 0.04819277108433735,
+          "lift": 0.9639037207156951
+        }
+      },
+      "entity_col": "application_id",
+      "holdout_share": 0.2,
+      "train_rows": 800430,
+      "train_positives": 8788,
+      "train_prevalence": 0.010979098734430244
+    }
+  },
+  "thresholds": {
+    "version": "0.1",
+    "min_rule_support": 100,
+    "t0_evaluation_integrity": {
+      "fail_if_concat_then_random_resplit": true,
+      "fail_if_type_classification_filters_to_positive_rows": false,
+      "warn_if_no_temporal_holdout_with_dates": true,
+      "warn_if_no_entity_holdout_with_ids": true
+    },
+    "t1_amount_only_baseline": {
+      "fail_if_roc_auc_gte": 0.95,
+      "fail_if_average_precision_ratio_gte": 0.8,
+      "fail_if_best_threshold_f1_gte": 0.7
+    },
+    "t2_single_feature_shortcut": {
+      "fail_if_positive_rate_gte": 0.5,
+      "fail_if_lift_gte": 20.0,
+      "warn_if_recall_gte": 0.2
+    },
+    "t3_distribution_overlap": {
+      "fail_if_overlap_lte": 0.05,
+      "warn_if_overlap_lte": 0.2
+    },
+    "t4_id_memorization": {
+      "fail_if_id_only_ap_ratio_gte": 0.8,
+      "warn_if_id_only_ap_ratio_gte": 0.5,
+      "fail_if_id_only_ap_lift_gte": 3.0,
+      "warn_if_id_only_ap_lift_gte": 1.5,
+      "fail_if_entity_holdout_ap_ratio_lte": 0.5,
+      "warn_if_entity_holdout_ap_ratio_lte": 0.75
+    },
+    "t5_zero_fraud_region": {
+      "fail_if_row_share_gte": 0.9,
+      "warn_if_row_share_gte": 0.5
+    },
+    "t6_duplicate_rows": {
+      "fail_if_duplicate_feature_rows_gte": 0.05,
+      "warn_if_duplicate_feature_rows_gte": 0.01,
+      "fail_if_label_conflict_rows_gte": 0.001,
+      "warn_if_label_conflict_rows_gte": 0.0
+    },
+    "t7_temporal_degradation": {
+      "fail_if_temporal_ap_ratio_lte": 0.5,
+      "warn_if_temporal_ap_ratio_lte": 0.75
+    },
+    "t8_leakage_review": {
+      "fail_on_feature_name_patterns": true,
+      "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)"
+    },
+    "t9_cardinality_sanity": {
+      "fail_if_amount_distinct_lte": 100,
+      "fail_if_amount_top10_share_gte": 0.9,
+      "warn_if_amount_top10_share_gte": 0.7,
+      "warn_if_round_thousand_share_gte": 0.95
+    },
+    "t10_label_noise_plausibility": {
+      "warn_if_no_oracle_label": false,
+      "fail_if_noise_rate_lte": 0.0,
+      "warn_if_noise_rate_lt": 0.01,
+      "warn_if_noise_rate_gt": 0.3,
+      "fail_if_noise_rate_gte": 0.5
+    },
+    "split_drift": {
+      "warn_if_max_non_id_js_lte": null
+    }
+  },
+  "tests": [
+    {
+      "id": "T0",
+      "name": "Evaluation integrity",
+      "status": "INFO",
+      "metric": null,
+      "threshold": null,
+      "details": "No published evaluation metadata was provided in the config."
+    },
+    {
+      "id": "T1.1",
+      "name": "Amount-only ROC-AUC",
+      "status": "PASS",
+      "metric": 0.5939244656571576,
+      "threshold": ">= 0.95",
+      "details": "Amount-only baseline is evaluated on the provided split."
+    },
+    {
+      "id": "T1.2",
+      "name": "Amount-only share of no-ID PR-AUC",
+      "status": "PASS",
+      "metric": 0.13363280788646317,
+      "threshold": ">= 0.8",
+      "details": "Compares amount-only average precision to the no-ID baseline."
+    },
+    {
+      "id": "T1.3",
+      "name": "Best one-sided amount threshold",
+      "status": "PASS",
+      "metric": 0.025891031743295885,
+      "threshold": ">= 0.7",
+      "details": "Best threshold rule: intended_balcon_amount: amount <= 0.0538092."
+    },
+    {
+      "id": "T3",
+      "name": "Class distribution overlap",
+      "status": "PASS",
+      "metric": 0.745354566195125,
+      "threshold": "> 0.2",
+      "details": "Lowest checked overlap is 0.7454 on credit_risk_score."
+    },
+    {
+      "id": "T4.1",
+      "name": "ID-only baseline",
+      "status": "PASS",
+      "metric": {
+        "ap_ratio": 0.1019643822421788,
+        "ap_lift": 0.9849979946177626
+      },
+      "threshold": "ratio/lift below warning pair",
+      "details": "Compares ID-only AP to no-ID AP and fraud prevalence."
+    },
+    {
+      "id": "T4.2",
+      "name": "Entity-holdout degradation",
+      "status": "PASS",
+      "metric": 1.038386441929715,
+      "threshold": "> 0.75",
+      "details": "Compares entity-holdout no-ID average precision to provided-split no-ID average precision."
+    },
+    {
+      "id": "T5",
+      "name": "Zero-fraud low-amount region",
+      "status": "PASS",
+      "metric": 0.000221,
+      "threshold": "< 0.5",
+      "details": "intended_balcon_amount <= -8.252 covers 221 rows with zero positives."
+    },
+    {
+      "id": "T6.1",
+      "name": "Duplicate feature rows",
+      "status": "PASS",
+      "metric": 0.0,
+      "threshold": "< 0.01",
+      "details": "Duplicate rows excluding the label: 0."
+    },
+    {
+      "id": "T6.2",
+      "name": "Label conflicts for identical features",
+      "status": "PASS",
+      "metric": 0.0,
+      "threshold": "= 0.0",
+      "details": "Rows in duplicate feature groups with mixed labels: 0."
+    },
+    {
+      "id": "T7",
+      "name": "Temporal split degradation",
+      "status": "PASS",
+      "metric": 1.2754766575488778,
+      "threshold": "> 0.75",
+      "details": "Compares temporal no-ID average precision to provided-split no-ID average precision."
+    },
+    {
+      "id": "T8.1",
+      "name": "Configured leak-column exclusion",
+      "status": "PASS",
+      "metric": null,
+      "threshold": null,
+      "details": "Configured label/leak columns are excluded from features."
+    },
+    {
+      "id": "T8.2",
+      "name": "Suspicious feature names",
+      "status": "PASS",
+      "metric": null,
+      "threshold": null,
+      "details": "No suspicious label/post-outcome feature names were found."
+    },
+    {
+      "id": "T9.1",
+      "name": "Amount distinct-value count",
+      "status": "PASS",
+      "metric": 994971,
+      "threshold": "<= 100",
+      "details": "intended_balcon_amount has 994,971 distinct amount values."
+    },
+    {
+      "id": "T9.2",
+      "name": "Amount top-10 concentration",
+      "status": "PASS",
+      "metric": 3e-05,
+      "threshold": "< 0.7",
+      "details": "Top 10 intended_balcon_amount values cover 0.00% of rows."
+    },
+    {
+      "id": "T9.3",
+      "name": "Round-amount concentration",
+      "status": "PASS",
+      "metric": 0.0,
+      "threshold": ">= 0.95",
+      "details": "intended_balcon_amount values are multiples of 1,000 for 0.00% of rows."
+    },
+    {
+      "id": "T10",
+      "name": "Label-noise plausibility",
+      "status": "INFO",
+      "metric": null,
+      "threshold": null,
+      "details": "No separate oracle label is configured; label-noise plausibility cannot be measured directly."
+    }
+  ],
+  "red_flags": []
+}

@@ -1,0 +1,47 @@
+{
+  "name": "k_claims_synth",
+  "title": "K-Claims-Synth v0.1",
+  "label_col": "observed_fraud_label",
+  "oracle_label_col": "oracle_fraud_label",
+  "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
+  "leak_cols": ["fraud_type"],
+  "id_cols": ["claim_id", "policy_id", "customer_id", "provider_id"],
+  "entity_holdout_col": "customer_id",
+  "date_cols": ["accident_date", "claim_date"],
+  "amount_cols": ["claim_amount"],
+  "overlap_cols": [
+    "claim_amount",
+    "hospital_days",
+    "policy_age_days",
+    "prior_claim_count_30d",
+    "prior_claim_count_365d",
+    "provider_claim_rate"
+  ],
+  "numeric_cols": [
+    "hospital_days",
+    "claim_amount",
+    "customer_age",
+    "policy_age_days",
+    "prior_claim_count_30d",
+    "prior_claim_count_365d",
+    "provider_claim_rate"
+  ],
+  "splits": [
+    {
+      "name": "train",
+      "paths": ["${K_CLAIMS_SYNTH_ROOT}/train.csv"]
+    },
+    {
+      "name": "valid",
+      "paths": ["${K_CLAIMS_SYNTH_ROOT}/valid.csv"]
+    },
+    {
+      "name": "test_temporal",
+      "paths": ["${K_CLAIMS_SYNTH_ROOT}/test_temporal.csv"]
+    },
+    {
+      "name": "test_entity_holdout",
+      "paths": ["${K_CLAIMS_SYNTH_ROOT}/test_entity_holdout.csv"]
+    }
+  ]
+}

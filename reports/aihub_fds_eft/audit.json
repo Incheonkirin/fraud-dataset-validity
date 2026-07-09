@@ -9,6 +9,7 @@
     "prevalence": 0.0038733850746914935,
     "duplicate_full_rows": 60538,
     "duplicate_rows_excluding_label": 60538,
+    "label_conflict_rows_excluding_label": 0,
     "date_by_year": {
       "2021": {
         "rows": 400340,
@@ -310,6 +311,7 @@
       }
     }
   },
+  "label_alignment": null,
   "columns": [
     {
       "column": "출금계좌일련번호",
@@ -2148,22 +2150,22 @@
     {
       "column": "거래금액",
       "is_id": false,
-      "overlap": 0.006466707313290609
+      "overlap": 0.006466707313290608
     },
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "overlap": 0.1716668137106816
+      "overlap": 0.17166681371068107
     },
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "overlap": 0.2026760065008662
+      "overlap": 0.202676006500866
     },
     {
       "column": "출금금융회사일련번호",
       "is_id": false,
-      "overlap": 0.6865432821157116
+      "overlap": 0.6865432821157117
     },
     {
       "column": "거래시간대",
@@ -2173,7 +2175,7 @@
     {
       "column": "거래일자",
       "is_id": false,
-      "overlap": 0.7736175866085973
+      "overlap": 0.7736175866085963
     },
     {
       "column": "자금구분",
@@ -2183,7 +2185,7 @@
     {
       "column": "매체구분",
       "is_id": false,
-      "overlap": 0.8335158692852224
+      "overlap": 0.8335158692852223
     },
     {
       "column": "입금금융회사일련번호",
@@ -2218,47 +2220,47 @@
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.13265519655197383
+      "js_divergence": 0.13265519655197108
     },
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.01374108021021923
+      "js_divergence": 0.01374108021021919
     },
     {
       "column": "거래일자",
       "is_id": false,
-      "js_divergence": 0.0005200235884660572
+      "js_divergence": 0.0005200235884660589
     },
     {
       "column": "출금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.3392768801892342e-05
+      "js_divergence": 2.339276880189236e-05
     },
     {
       "column": "입금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.1440812899565327e-05
+      "js_divergence": 2.1440812899565313e-05
     },
     {
       "column": "거래금액",
       "is_id": false,
-      "js_divergence": 1.8615140918571825e-05
+      "js_divergence": 1.861514091857184e-05
     },
     {
       "column": "매체구분",
       "is_id": false,
-      "js_divergence": 1.9870982087779492e-06
+      "js_divergence": 1.9870982087779628e-06
     },
     {
       "column": "거래시간대",
       "is_id": false,
-      "js_divergence": 1.384228033035697e-06
+      "js_divergence": 1.3842280330356903e-06
     },
     {
       "column": "자금구분",
       "is_id": false,
-      "js_divergence": 7.784044028480635e-07
+      "js_divergence": 7.784044028480656e-07
     }
   ],
   "baselines": {
@@ -2303,6 +2305,100 @@
           "precision": 0.07745392546886418,
           "recall": 1.0,
           "lift": 19.99991881139888
+        }
+      },
+      "train_rows": 3941428,
+      "train_positives": 15267,
+      "train_prevalence": 0.0038734692096367104
+    },
+    "provided_split_id_only_nb": {
+      "rows": 492678,
+      "positives": 1908,
+      "prevalence": 0.003872711994446677,
+      "roc_auc": 0.8721366264000749,
+      "average_precision": 0.09777294256238392,
+      "topk": {
+        "top_0.1%": {
+          "k": 493,
+          "hits": 156,
+          "precision": 0.31643002028397565,
+          "recall": 0.08176100628930817,
+          "lift": 81.7076045772896
+        },
+        "top_0.5%": {
+          "k": 2463,
+          "hits": 364,
+          "precision": 0.14778725131952902,
+          "recall": 0.19077568134171907,
+          "lift": 38.16117788553613
+        },
+        "top_1.0%": {
+          "k": 4927,
+          "hits": 630,
+          "precision": 0.12786685609904608,
+          "recall": 0.330188679245283,
+          "lift": 33.01739356874519
+        },
+        "top_2.0%": {
+          "k": 9854,
+          "hits": 841,
+          "precision": 0.08534605236452202,
+          "recall": 0.44077568134171907,
+          "lift": 22.03779999310691
+        },
+        "top_5.0%": {
+          "k": 24634,
+          "hits": 1094,
+          "precision": 0.044410164812860274,
+          "recall": 0.5733752620545073,
+          "lift": 11.467458689554704
+        }
+      },
+      "train_rows": 3941428,
+      "train_positives": 15267,
+      "train_prevalence": 0.0038734692096367104
+    },
+    "provided_split_with_id_nb": {
+      "rows": 492678,
+      "positives": 1908,
+      "prevalence": 0.003872711994446677,
+      "roc_auc": 0.9959605694282065,
+      "average_precision": 0.37272517458467,
+      "topk": {
+        "top_0.1%": {
+          "k": 493,
+          "hits": 208,
+          "precision": 0.42190669371196754,
+          "recall": 0.1090146750524109,
+          "lift": 108.94347276971948
+        },
+        "top_0.5%": {
+          "k": 2463,
+          "hits": 924,
+          "precision": 0.3751522533495737,
+          "recall": 0.48427672955974843,
+          "lift": 96.87068232482247
+        },
+        "top_1.0%": {
+          "k": 4927,
+          "hits": 1681,
+          "precision": 0.3411812461944388,
+          "recall": 0.8810272536687631,
+          "lift": 88.0987914112074
+        },
+        "top_2.0%": {
+          "k": 9854,
+          "hits": 1869,
+          "precision": 0.18966916988025168,
+          "recall": 0.9795597484276729,
+          "lift": 48.975800460305365
+        },
+        "top_5.0%": {
+          "k": 24634,
+          "hits": 1901,
+          "precision": 0.07716976536494276,
+          "recall": 0.9963312368972747,
+          "lift": 19.926543847206116
         }
       },
       "train_rows": 3941428,
@@ -2453,6 +2549,104 @@
       "train_rows": 3002406,
       "train_positives": 10539,
       "train_prevalence": 0.0035101848317649247
+    },
+    "entity_holdout_no_id_nb": {
+      "rows": 905832,
+      "positives": 3354,
+      "prevalence": 0.0037026733434014254,
+      "roc_auc": 0.9965622258893004,
+      "average_precision": 0.33681534061655866,
+      "topk": {
+        "top_0.1%": {
+          "k": 906,
+          "hits": 262,
+          "precision": 0.2891832229580574,
+          "recall": 0.07811568276684555,
+          "lift": 78.10119773957753
+        },
+        "top_0.5%": {
+          "k": 4529,
+          "hits": 1597,
+          "precision": 0.3526164716272908,
+          "recall": 0.4761478831246273,
+          "lift": 95.23294088464284
+        },
+        "top_1.0%": {
+          "k": 9058,
+          "hits": 3271,
+          "precision": 0.36111724442481785,
+          "recall": 0.9752534287418009,
+          "lift": 97.52878823846798
+        },
+        "top_2.0%": {
+          "k": 18117,
+          "hits": 3354,
+          "precision": 0.18512998840867692,
+          "recall": 1.0,
+          "lift": 49.99900645802285
+        },
+        "top_5.0%": {
+          "k": 45292,
+          "hits": 3354,
+          "precision": 0.07405281285878301,
+          "recall": 1.0,
+          "lift": 19.999823368365277
+        }
+      },
+      "entity_col": "입금계좌일련번호",
+      "holdout_share": 0.2,
+      "train_rows": 3528274,
+      "train_positives": 13821,
+      "train_prevalence": 0.0039172127788261344
+    },
+    "entity_holdout_id_only_nb": {
+      "rows": 905832,
+      "positives": 3354,
+      "prevalence": 0.0037026733434014254,
+      "roc_auc": 0.8913203834007933,
+      "average_precision": 0.07957268204779457,
+      "topk": {
+        "top_0.1%": {
+          "k": 906,
+          "hits": 206,
+          "precision": 0.22737306843267108,
+          "recall": 0.06141920095408467,
+          "lift": 61.40781196317928
+        },
+        "top_0.5%": {
+          "k": 4529,
+          "hits": 702,
+          "precision": 0.15500110399646722,
+          "recall": 0.20930232558139536,
+          "lift": 41.861943958058404
+        },
+        "top_1.0%": {
+          "k": 9058,
+          "hits": 940,
+          "precision": 0.10377566791786266,
+          "recall": 0.2802623732856291,
+          "lift": 28.02722743630691
+        },
+        "top_2.0%": {
+          "k": 18117,
+          "hits": 1290,
+          "precision": 0.07120384169564498,
+          "recall": 0.38461538461538464,
+          "lift": 19.230387099239557
+        },
+        "top_5.0%": {
+          "k": 45292,
+          "hits": 1908,
+          "precision": 0.042126644882098385,
+          "recall": 0.5688729874776386,
+          "lift": 11.377359268587044
+        }
+      },
+      "entity_col": "입금계좌일련번호",
+      "holdout_share": 0.2,
+      "train_rows": 3528274,
+      "train_positives": 13821,
+      "train_prevalence": 0.0039172127788261344
     }
   },
   "thresholds": {
@@ -2474,9 +2668,35 @@
       "fail_if_lift_gte": 20.0,
       "warn_if_recall_gte": 0.2
     },
+    "t3_distribution_overlap": {
+      "fail_if_overlap_lte": 0.05,
+      "warn_if_overlap_lte": 0.2
+    },
+    "t4_id_memorization": {
+      "fail_if_id_only_ap_ratio_gte": 0.8,
+      "warn_if_id_only_ap_ratio_gte": 0.5,
+      "fail_if_id_only_ap_lift_gte": 3.0,
+      "warn_if_id_only_ap_lift_gte": 1.5,
+      "fail_if_entity_holdout_ap_ratio_lte": 0.5,
+      "warn_if_entity_holdout_ap_ratio_lte": 0.75
+    },
     "t5_zero_fraud_region": {
       "fail_if_row_share_gte": 0.9,
       "warn_if_row_share_gte": 0.5
+    },
+    "t6_duplicate_rows": {
+      "fail_if_duplicate_feature_rows_gte": 0.05,
+      "warn_if_duplicate_feature_rows_gte": 0.01,
+      "fail_if_label_conflict_rows_gte": 0.001,
+      "warn_if_label_conflict_rows_gte": 0.0
+    },
+    "t7_temporal_degradation": {
+      "fail_if_temporal_ap_ratio_lte": 0.5,
+      "warn_if_temporal_ap_ratio_lte": 0.75
+    },
+    "t8_leakage_review": {
+      "fail_on_feature_name_patterns": true,
+      "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)"
     },
     "t9_cardinality_sanity": {
       "fail_if_amount_distinct_lte": 100,
@@ -2484,11 +2704,15 @@
       "warn_if_amount_top10_share_gte": 0.7,
       "warn_if_round_thousand_share_gte": 0.95
     },
-    "duplicates": {
-      "warn_if_duplicate_feature_rows_gte": 0.01
+    "t10_label_noise_plausibility": {
+      "warn_if_no_oracle_label": false,
+      "fail_if_noise_rate_lte": 0.0,
+      "warn_if_noise_rate_lt": 0.01,
+      "warn_if_noise_rate_gt": 0.3,
+      "fail_if_noise_rate_gte": 0.5
     },
     "split_drift": {
-      "warn_if_max_non_id_js_lte": 0.01
+      "warn_if_max_non_id_js_lte": null
     }
   },
   "tests": [
@@ -2549,12 +2773,79 @@
       "details": "Best threshold rule: 거래금액: amount >= 4e+06."
     },
     {
+      "id": "T3",
+      "name": "Class distribution overlap",
+      "status": "FAIL",
+      "metric": 0.006466707313290608,
+      "threshold": "<= 0.05",
+      "details": "Lowest checked overlap is 0.0065 on 거래금액."
+    },
+    {
+      "id": "T4.1",
+      "name": "ID-only baseline",
+      "status": "PASS",
+      "metric": {
+        "ap_ratio": 0.27729183967696464,
+        "ap_lift": 25.24663406485859
+      },
+      "threshold": "ratio/lift below warning pair",
+      "details": "Compares ID-only AP to no-ID AP and fraud prevalence."
+    },
+    {
+      "id": "T4.2",
+      "name": "Entity-holdout degradation",
+      "status": "PASS",
+      "metric": 0.9552350883926574,
+      "threshold": "> 0.75",
+      "details": "Compares entity-holdout no-ID average precision to provided-split no-ID average precision."
+    },
+    {
       "id": "T5",
       "name": "Zero-fraud low-amount region",
       "status": "FAIL",
       "metric": 0.9896849556596076,
       "threshold": ">= 0.9",
       "details": "거래금액 <= 1,000,000 covers 4,388,368 rows with zero positives."
+    },
+    {
+      "id": "T6.1",
+      "name": "Duplicate feature rows",
+      "status": "WARN",
+      "metric": 0.01365280848044679,
+      "threshold": ">= 0.01",
+      "details": "Duplicate rows excluding the label: 60,538."
+    },
+    {
+      "id": "T6.2",
+      "name": "Label conflicts for identical features",
+      "status": "PASS",
+      "metric": 0.0,
+      "threshold": "= 0.0",
+      "details": "Rows in duplicate feature groups with mixed labels: 0."
+    },
+    {
+      "id": "T7",
+      "name": "Temporal split degradation",
+      "status": "PASS",
+      "metric": 1.0265561744323821,
+      "threshold": "> 0.75",
+      "details": "Compares temporal no-ID average precision to provided-split no-ID average precision."
+    },
+    {
+      "id": "T8.1",
+      "name": "Configured leak-column exclusion",
+      "status": "PASS",
+      "metric": null,
+      "threshold": null,
+      "details": "Configured label/leak columns are excluded from features."
+    },
+    {
+      "id": "T8.2",
+      "name": "Suspicious feature names",
+      "status": "PASS",
+      "metric": null,
+      "threshold": null,
+      "details": "No suspicious label/post-outcome feature names were found."
     },
     {
       "id": "T9.1",
@@ -2579,6 +2870,14 @@
       "metric": 0.9990940676655001,
       "threshold": ">= 0.95",
       "details": "거래금액 values are multiples of 1,000 for 99.91% of rows."
+    },
+    {
+      "id": "T10",
+      "name": "Label-noise plausibility",
+      "status": "INFO",
+      "metric": null,
+      "threshold": null,
+      "details": "No separate oracle label is configured; label-noise plausibility cannot be measured directly."
     }
   ],
   "red_flags": [
@@ -2609,8 +2908,18 @@
     },
     {
       "severity": "fail",
+      "gate": "T3",
+      "message": "Lowest checked overlap is 0.0065 on 거래금액."
+    },
+    {
+      "severity": "fail",
       "gate": "T5",
       "message": "거래금액 <= 1,000,000 covers 4,388,368 rows with zero positives."
+    },
+    {
+      "severity": "warn",
+      "gate": "T6.1",
+      "message": "Duplicate rows excluding the label: 60,538."
     },
     {
       "severity": "fail",
@@ -2646,16 +2955,6 @@
       "severity": "fail",
       "gate": "T2",
       "message": "거래금액=90000000 has positive_rate 51.5%, lift 132.9x (n=1,070)."
-    },
-    {
-      "severity": "warn",
-      "gate": "G0",
-      "message": "Duplicate rows excluding label: 60,538 (1.4%)."
-    },
-    {
-      "severity": "warn",
-      "gate": "G4",
-      "message": "Train/validation non-ID distributions are nearly identical."
     }
   ]
 }

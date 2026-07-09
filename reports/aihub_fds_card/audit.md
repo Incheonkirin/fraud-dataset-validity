@@ -8,6 +8,7 @@ Verdict: **FAIL**
 - Positives: 72,008 (3.69%)
 - Duplicate full rows: 0
 - Duplicate rows excluding label: 0
+- Label-conflict rows excluding label: 0
 
 ## Test Verdicts
 
@@ -20,10 +21,19 @@ Verdict: **FAIL**
 | T1.1 Amount-only ROC-AUC | FAIL | 0.9519 | >= 0.95 | Amount-only baseline is evaluated on the provided split. |
 | T1.2 Amount-only share of no-ID PR-AUC | FAIL | 0.8937 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. |
 | T1.3 Best one-sided amount threshold | FAIL | 0.718 | >= 0.7 | Best threshold rule: 통합승인금액: amount >= 318000. |
+| T3 Class distribution overlap | PASS | 0.2104 | > 0.2 | Lowest checked overlap is 0.2104 on 통합승인금액. |
+| T4.1 ID-only baseline | WARN | {'ap_ratio': 0.6761673233398245, 'ap_lift': 13.06720588730982} | ratio >= 0.5 and lift >= 1.5 | Compares ID-only AP to no-ID AP and fraud prevalence. |
+| T4.2 Entity-holdout degradation | PASS | 0.9912 | > 0.75 | Compares entity-holdout no-ID average precision to provided-split no-ID average precision. |
 | T5 Zero-fraud low-amount region | PASS |  |  | No zero-positive low-amount region was found. |
+| T6.1 Duplicate feature rows | PASS | 0 | < 0.01 | Duplicate rows excluding the label: 0. |
+| T6.2 Label conflicts for identical features | PASS | 0 | = 0.0 | Rows in duplicate feature groups with mixed labels: 0. |
+| T7 Temporal split degradation | PASS | 0.9836 | > 0.75 | Compares temporal no-ID average precision to provided-split no-ID average precision. |
+| T8.1 Configured leak-column exclusion | PASS |  |  | Configured label/leak columns are excluded from features. |
+| T8.2 Suspicious feature names | PASS |  |  | No suspicious label/post-outcome feature names were found. |
 | T9.1 Amount distinct-value count | PASS | 1931 | <= 100 | 통합승인금액 has 1,931 distinct amount values. |
 | T9.2 Amount top-10 concentration | WARN | 0.8601 | >= 0.7 | Top 10 통합승인금액 values cover 86.01% of rows. |
 | T9.3 Round-amount concentration | WARN | 1 | >= 0.95 | 통합승인금액 values are multiples of 1,000 for 100.00% of rows. |
+| T10 Label-noise plausibility | INFO |  |  | No separate oracle label is configured; label-noise plausibility cannot be measured directly. |
 
 ## Time Coverage
 
@@ -36,8 +46,8 @@ Verdict: **FAIL**
 
 ## Amount Profiles
 
-- 전월_매출건수: distinct 123,657, p50 338, p95 143,031, p99 1,597,241, max 1,853,135, top10 share 14.26%, round(1000) share 0.53%
 - 카드이용한도금액: distinct 4, p50 5,000,000, p95 10,000,000, p99 10,000,000, max 10,000,000, top10 share 100.00%, round(1000) share 100.00%
+- 전월_매출건수: distinct 123,657, p50 338, p95 143,031, p99 1,597,241, max 1,853,135, top10 share 14.26%, round(1000) share 0.53%
 - 통합승인금액: distinct 1,931, p50 9,000, p95 105,000, p99 1,688,000, max 2,943,000, top10 share 86.01%, round(1000) share 100.00%
 - 전월_매출금액: distinct 339,865, p50 1,871,000, p95 3,815,204,000, p99 51,811,979,000, max 93,263,339,000, top10 share 0.78%, round(1000) share 100.00%
 - 경과일수_최종이용일자: distinct 33, p50 32, p95 35, p99 39, max 62, top10 share 99.16%, round(1000) share 0.00%
@@ -67,9 +77,13 @@ Verdict: **FAIL**
 ## Baselines
 
 - provided_split_no_id_nb: ROC-AUC 0.9751, PR-AUC 0.7126, Top 1% P=95.12%, R=25.80%
+- provided_split_id_only_nb: ROC-AUC 0.9077, PR-AUC 0.4818, Top 1% P=77.00%, R=20.88%
+- provided_split_with_id_nb: ROC-AUC 0.9733, PR-AUC 0.6987, Top 1% P=94.24%, R=25.56%
 - provided_split_amount_only_nb: ROC-AUC 0.9519, PR-AUC 0.6369, Top 1% P=79.31%, R=21.51%
 - temporal_holdout_no_id_nb: ROC-AUC 0.9741, PR-AUC 0.7009, Top 1% P=94.36%, R=27.05%
 - temporal_holdout_amount_only_nb: ROC-AUC 0.9558, PR-AUC 0.6495, Top 1% P=81.63%, R=23.40%
+- entity_holdout_no_id_nb: ROC-AUC 0.9751, PR-AUC 0.7063, Top 1% P=94.00%, R=25.56%
+- entity_holdout_id_only_nb: ROC-AUC 0.9048, PR-AUC 0.4809, Top 1% P=77.20%, R=21.00%
 
 ## Split Drift
 
@@ -94,6 +108,7 @@ Verdict: **FAIL**
 - [FAIL][T1.1] Amount-only baseline is evaluated on the provided split.
 - [FAIL][T1.2] Compares amount-only average precision to the no-ID baseline.
 - [FAIL][T1.3] Best threshold rule: 통합승인금액: amount >= 318000.
+- [WARN][T4.1] Compares ID-only AP to no-ID AP and fraud prevalence.
 - [WARN][T9.2] Top 10 통합승인금액 values cover 86.01% of rows.
 - [WARN][T9.3] 통합승인금액 values are multiples of 1,000 for 100.00% of rows.
 - [FAIL][T2] 일시불할부구분코드=B has positive_rate 97.8%, lift 26.5x (n=24,440).

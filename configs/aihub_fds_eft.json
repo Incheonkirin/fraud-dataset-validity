@@ -1,0 +1,33 @@
+{
+  "name": "aihub_fds_eft",
+  "title": "AI Hub FDS - Electronic Financial Network",
+  "label_col": "이상거래여부",
+  "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
+  "leak_cols": ["이상거래유형", "이상거래설명"],
+  "id_cols": ["출금계좌일련번호", "입금계좌일련번호"],
+  "date_cols": ["거래일자"],
+  "amount_cols": ["거래금액"],
+  "numeric_cols": ["거래금액"],
+  "published_evaluation": {
+    "concatenates_splits_before_random_resplit": true,
+    "uses_temporal_holdout": false,
+    "uses_entity_holdout": false,
+    "uses_amount_only_baseline": false,
+    "uses_single_feature_shortcut_checks": false,
+    "type_classification_filters_to_positive_rows": true
+  },
+  "splits": [
+    {
+      "name": "train",
+      "paths": [
+        "${AIHUB_FDS_ROOT}/Training/02.라벨링데이터/TL_전자금융공동망.zip"
+      ]
+    },
+    {
+      "name": "valid",
+      "paths": [
+        "${AIHUB_FDS_ROOT}/Validation/02.라벨링데이터/VL_전자금융공동망.zip"
+      ]
+    }
+  ]
+}

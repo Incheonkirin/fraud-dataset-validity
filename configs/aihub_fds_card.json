@@ -1,0 +1,39 @@
+{
+  "name": "aihub_fds_card",
+  "title": "AI Hub FDS - Card Transactions",
+  "label_col": "이상거래여부",
+  "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
+  "leak_cols": ["이상거래유형", "이상거래설명"],
+  "id_cols": ["승인SEQ", "카드KEY", "가맹점KEY"],
+  "date_cols": ["기준년월", "승인일자"],
+  "amount_cols": ["통합승인금액"],
+  "numeric_cols": [
+    "통합승인금액",
+    "카드이용한도금액",
+    "전월_매출건수",
+    "전월_매출금액",
+    "경과일수_최종이용일자"
+  ],
+  "published_evaluation": {
+    "concatenates_splits_before_random_resplit": true,
+    "uses_temporal_holdout": false,
+    "uses_entity_holdout": false,
+    "uses_amount_only_baseline": false,
+    "uses_single_feature_shortcut_checks": false,
+    "type_classification_filters_to_positive_rows": true
+  },
+  "splits": [
+    {
+      "name": "train",
+      "paths": [
+        "${AIHUB_FDS_ROOT}/Training/02.라벨링데이터/TL_카드거래.zip"
+      ]
+    },
+    {
+      "name": "valid",
+      "paths": [
+        "${AIHUB_FDS_ROOT}/Validation/02.라벨링데이터/VL_카드거래.zip"
+      ]
+    }
+  ]
+}

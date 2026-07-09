@@ -4,70 +4,71 @@
 
 Public fraud datasets are often validated by training a model and reporting a
 score. That is not enough. A dataset can produce high model scores when the
-label is recoverable from amount buckets, category codes, entity IDs, or weak
-split design.
+label is recoverable from amount buckets, category codes, entity IDs, duplicate
+rows, label leaks, or weak split design.
 
-This project defines a small protocol for testing those failure modes before
-model comparisons begin.
+This project defines and implements a protocol for testing those failure modes
+before model comparisons begin.
 
-## v0.1: Failed Case Study
+## Completed Phase 1: AI Hub Failed Case Study
 
-Status: implemented.
+Implemented tests:
 
-Scope:
-
-- implement `T0`, `T1`, `T2`, `T5`, and `T9`
-- run the protocol on the AI Hub FDS card subset
-- run the protocol on the AI Hub FDS electronic financial network subset
-- publish Markdown and JSON reports
+- `T0` evaluation integrity
+- `T1` amount-only baseline
+- `T2` single-feature shortcuts
+- `T3` class distribution overlap
+- `T4` ID memorization and entity holdout
+- `T5` zero-fraud low-amount region
+- `T6` duplicate rows and label conflicts
+- `T7` temporal degradation
+- `T8` leak-column and post-outcome feature review
+- `T9` amount cardinality sanity
+- `T10` label-noise plausibility
 
 Primary result:
 
-- both subsets fail as fraud-detection benchmarks
+- AI Hub FDS Card: `FAIL`
+- AI Hub FDS Electronic Financial Network: `FAIL`
 
-## v0.2: External Anchors
+## Completed Phase 2: External Anchors
 
-Goal:
+Executed anchors:
 
-- run the same harness on external datasets so the protocol is not tied to one
-  failed case study
+- ULB Credit Card Fraud: `PASS`
+- BAF Base: `PASS`
 
-Targets:
+These anchors show that the protocol does not simply fail every public fraud
+dataset.
 
-- BAF / Bank Account Fraud
-- PaySim
-- IEEE-CIS Fraud Detection
-- ULB Credit Card Fraud
+Access-limited targets:
 
-Output:
+- IEEE-CIS Fraud Detection: Kaggle API returned `403`
+- PaySim: Kaggle API returned `403`
 
-- comparison table across datasets
-- threshold revisions, if needed
-- notes on which tests discriminate cleanly and which are too broad
+## Completed Phase 3: K-Claims-Synth
 
-## v0.3: Insurance Benchmark Design
+Implemented:
 
-Goal:
+- deterministic generator: `k_claims_synth.py`
+- observed investigation label: `observed_fraud_label`
+- held-out scoring label: `oracle_fraud_label`
+- train, validation, temporal, and entity-holdout split files
+- self-application gate through `configs/k_claims_synth.json`
 
-- build `K-Claims-Synth`, an insurance-claim fraud benchmark that passes the
-  protocol before release
+Primary result:
 
-Key requirements:
-
-- noisy observed investigation label
-- held-out oracle label for scoring
-- normal/fraud overlap on single features
-- temporal and entity-holdout splits
-- fraud mechanisms based on combinations of timing, behavior, provider pattern,
-  and claim history
+- K-Claims-Synth v0.1: `PASS`
 
 ## Repository Outputs
 
 - `fdvh.py`: audit runner
 - `thresholds.yaml`: versioned thresholds
 - `configs/`: dataset configs
-- `reports/`: generated case-study reports
+- `reports/`: generated case-study and anchor reports
 - `PROTOCOL.md`: test definitions
-- `RESULT_SUMMARY.md`: case-study summary
+- `RESULT_SUMMARY.md`: AI Hub case-study summary
+- `ANCHOR_COMPARISON.md`: cross-dataset result table
 - `MODEL_PACKAGE_AUDIT.md`: reference-model audit notes
-- `K_CLAIMS_SYNTH_DESIGN.md`: synthetic insurance benchmark design
+- `K_CLAIMS_SYNTH_DESIGN.md`: insurance benchmark design
+- `IMPLEMENTATION_STATUS.md`: requirement-by-requirement completion map

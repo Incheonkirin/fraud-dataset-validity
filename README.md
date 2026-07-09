@@ -1,20 +1,27 @@
 # Fraud Dataset Validity Harness
 
-Small, dependency-free audits for fraud-detection datasets.
+Dependency-free audits for fraud-detection datasets.
 
 The harness checks whether a dataset can support model-validity claims, or
 whether high scores can be explained by exposed shortcuts such as amount
-buckets, single category values, ID artifacts, or weak split design.
+buckets, single category values, ID artifacts, duplicate rows, label leakage, or
+weak split design.
 
-## What v0.1 Implements
+## What Is Implemented
 
 - `T0` evaluation-integrity metadata checks
 - `T1` amount-only baseline checks
 - `T2` single-feature shortcut checks
+- `T3` class distribution overlap checks
+- `T4` ID memorization and entity-holdout checks
 - `T5` zero-fraud low-amount region checks
+- `T6` duplicate and label-conflict checks
+- `T7` temporal degradation checks
+- `T8` leak-column and post-outcome feature review
 - `T9` amount-cardinality sanity checks
-- provided-split and temporal Naive Bayes baselines
+- `T10` observed/oracle label-noise plausibility checks
 - Markdown and JSON audit reports
+- deterministic `K-Claims-Synth` generator with observed and oracle labels
 
 Thresholds are stored in `thresholds.yaml`.
 
@@ -26,19 +33,14 @@ python3 fdvh.py \
   --out reports/aihub_fds_eft
 ```
 
-Configs may use environment variables in file paths. For the AI Hub FDS case
-study:
+Configs may use environment variables in file paths. For local AI Hub data:
 
 ```bash
-export AIHUB_FDS_ROOT="/path/to/3.개방데이터/1.데이터"
+export AIHUB_FDS_ROOT="/absolute/path/to/3.개방데이터/1.데이터"
 
 python3 fdvh.py \
   --config configs/aihub_fds_card.json \
   --out reports/aihub_fds_card
-
-python3 fdvh.py \
-  --config configs/aihub_fds_eft.json \
-  --out reports/aihub_fds_eft
 ```
 
 Each run writes:
@@ -46,33 +48,50 @@ Each run writes:
 - `audit.md`
 - `audit.json`
 
-## Current Case Study
+## K-Claims-Synth
 
-The included reports audit the AI Hub dataset titled:
+Generate the synthetic insurance-claim benchmark:
 
-`이상 판별을 위한 금융거래 정보 및 사용자 패턴 합성데이터`
+```bash
+python3 k_claims_synth.py \
+  --rows 100000 \
+  --out data_generated/k_claims_synth
 
-Both transaction subsets fail the v0.1 protocol:
+export K_CLAIMS_SYNTH_ROOT="$PWD/data_generated/k_claims_synth"
 
-- Card transactions fail amount-only and single-feature shortcut checks.
-- Electronic financial network transactions fail amount-only, zero-fraud
-  region, and amount-cardinality checks.
+python3 fdvh.py \
+  --config configs/k_claims_synth.json \
+  --out reports/k_claims_synth
+```
 
-See `RESULT_SUMMARY.md` and the generated reports under `reports/`.
+The included generated report shows `K-Claims-Synth v0.1` passing its own
+validity gate.
 
-## Adding A Dataset
+## External Anchors
 
-Create a config with:
+Kaggle credentials are required for BAF and ULB downloads.
 
-- label column and positive label values
-- leak columns that should never be used as features
-- ID columns
-- date columns
-- amount columns
-- numeric columns
-- one or more named splits
+```bash
+kaggle datasets download -d mlg-ulb/creditcardfraud \
+  -p data_external/kaggle/ulb_creditcard --unzip
 
-Then run `fdvh.py` with the config path.
+kaggle datasets download -d sgpjesus/bank-account-fraud-dataset-neurips-2022 \
+  -p data_external/kaggle/baf --unzip
+
+python3 scripts/prepare_kaggle_anchors.py
+
+export FDVH_ANCHOR_ROOT="$PWD/data_generated/anchors"
+
+python3 fdvh.py --config configs/ulb_creditcard.json --out reports/ulb_creditcard
+python3 fdvh.py --config configs/baf_base.json --out reports/baf_base
+```
+
+The included reports show both ULB Credit Card Fraud and BAF Base passing the
+same protocol that fails the AI Hub FDS datasets.
+
+## Current Results
+
+See `ANCHOR_COMPARISON.md` and `RESULT_SUMMARY.md`.
 
 ## Scope
 

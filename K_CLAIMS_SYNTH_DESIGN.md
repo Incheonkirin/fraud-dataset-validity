@@ -1,20 +1,21 @@
 # K-Claims-Synth Design Notes
 
-`K-Claims-Synth` is the planned insurance-claim fraud benchmark for this
-protocol. It should ship only after it passes the same validity harness used on
-external datasets.
+`K-Claims-Synth` is a deterministic insurance-claim fraud benchmark produced by
+`k_claims_synth.py`.
 
-## Design Goals
+The benchmark is released only through the generator and audit report. Raw CSV
+outputs are local artifacts and are not committed.
 
-- Normal and fraud distributions should overlap on every single feature.
-- No single amount, code, provider, or customer ID should solve the task.
-- Fraud should arise from mechanisms, not direct label rules.
-- Random split, temporal split, and entity-holdout split should be reported
-  separately.
-- Training labels should be noisy investigation outcomes; scoring labels should
-  use a held-out oracle label.
+## Implemented Design Goals
 
-## Candidate Schema
+- Normal and fraud distributions overlap on checked single features.
+- No single amount, code, provider, or customer ID solves the task.
+- Fraud arises from mechanisms, not direct amount thresholds.
+- Random validation, temporal holdout, and entity-holdout behavior are reported.
+- Training labels are noisy investigation outcomes.
+- Scoring labels use a held-out oracle label.
+
+## Schema
 
 - `claim_id`
 - `policy_id`
@@ -40,34 +41,32 @@ external datasets.
 
 ## Fraud Mechanisms
 
-Examples of mechanisms to implement:
+The generator combines overlapping weak signals:
 
-- false hospitalization: long stays with weak diagnosis/treatment support and
-  provider-level repetition
-- accident-detail manipulation: unusual lag between accident and claim dates,
-  with otherwise ordinary claim amounts
-- collusive provider cluster: multiple customers, same provider, similar claim
-  shape in a short window
-- duplicate or staged claim: repeated claim structure across related policies
-- disclosure-duty violation: fraud signal emerges from policy age, claim timing,
-  and prior-claim history rather than amount alone
+- false hospitalization
+- accident-detail manipulation
+- provider collusion
+- duplicate or staged claim
+- disclosure-duty violation
 
-## Validation Gate
+The oracle label is sampled from a noisy risk function over combinations of
+timing, provider pattern, claim history, policy age, claim lag, and treatment
+shape. The observed label then adds false negatives and false positives.
 
-The dataset should not be released unless:
+## Self-Application Gate
 
-- `T1` amount-only tests pass
-- `T2` single-feature shortcut tests pass
-- `T5` zero-fraud region tests pass
-- `T9` cardinality sanity tests pass
-- temporal holdout does not collapse relative to random split
-- entity-holdout results are reported separately
+The generated 100,000-row v0.1 dataset passes the same protocol used on AI Hub,
+ULB, and BAF.
 
-## v0.1 Target
+Key audit results:
 
-- 50,000 to 100,000 claims
-- 2% to 4% observed fraud rate
-- four to five fraud mechanisms
-- 24 months of claim dates
-- train, validation, temporal test, and entity-holdout test splits
-- generator script, schema document, and audit report
+- Verdict: `PASS`
+- Oracle fraud rate: `2.63%`
+- Observed fraud rate: `4.09%`
+- Observed/oracle label-noise rate: `2.15%`
+- Amount-only ROC-AUC: `0.5119`
+- Largest zero-positive low-amount region: `0.09%` of rows
+- `claim_amount` distinct values: `99,191`
+- Top 10 `claim_amount` share: `0.10%`
+
+Report: `reports/k_claims_synth/audit.md`

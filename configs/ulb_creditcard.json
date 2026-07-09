@@ -1,0 +1,55 @@
+{
+  "name": "ulb_creditcard",
+  "title": "ULB Credit Card Fraud",
+  "label_col": "Class",
+  "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
+  "leak_cols": [],
+  "id_cols": ["transaction_id"],
+  "entity_holdout_col": "transaction_id",
+  "date_cols": ["event_date"],
+  "temporal_granularity": "day",
+  "amount_cols": ["Amount"],
+  "overlap_cols": ["Amount"],
+  "numeric_cols": [
+    "Time",
+    "Amount",
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6",
+    "V7",
+    "V8",
+    "V9",
+    "V10",
+    "V11",
+    "V12",
+    "V13",
+    "V14",
+    "V15",
+    "V16",
+    "V17",
+    "V18",
+    "V19",
+    "V20",
+    "V21",
+    "V22",
+    "V23",
+    "V24",
+    "V25",
+    "V26",
+    "V27",
+    "V28"
+  ],
+  "splits": [
+    {
+      "name": "train",
+      "paths": ["${FDVH_ANCHOR_ROOT}/ulb_creditcard/train.csv"]
+    },
+    {
+      "name": "valid",
+      "paths": ["${FDVH_ANCHOR_ROOT}/ulb_creditcard/valid.csv"]
+    }
+  ]
+}

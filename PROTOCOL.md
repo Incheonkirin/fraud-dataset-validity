@@ -1,109 +1,180 @@
 # Fraud Dataset Validity Protocol
 
-This protocol audits whether a fraud-detection dataset is useful as a
-benchmark. It does not ask whether a model can score well. It asks whether the
-score requires learning fraud behavior.
+This protocol audits whether a fraud-detection dataset can support benchmark
+claims. It does not ask whether a model can score well. It asks whether the
+score requires learning fraud behavior rather than exposed shortcuts.
 
 ## Verdicts
 
-- `PASS`: suitable as a benchmark with stated caveats
-- `WARN`: useful for demos or teaching, weak for model-validity claims
-- `FAIL`: label or split structure is dominated by shortcuts
+- `PASS`: no fail or warning gates fired
+- `WARN`: no fail gates fired, but at least one warning gate fired
+- `FAIL`: at least one fail gate fired
+
+`INFO` tests are recorded for transparency and do not affect the verdict.
 
 ## Required Config Fields
 
-- `label_col`: binary fraud label
+- `label_col`: observed training label
+- `oracle_label_col`: optional scoring label used when available
 - `positive_values`: values treated as positive labels
 - `leak_cols`: label explanations or fields unavailable at decision time
 - `id_cols`: account, card, user, merchant, transaction, or sequence IDs
+- `entity_holdout_col`: optional entity used for deterministic cold-start holdout
 - `date_cols`: event dates or timestamps
-- `amount_cols`: monetary fields
+- `amount_cols`: monetary fields for amount-specific checks
+- `overlap_cols`: optional important columns for distribution-overlap checks
 - `numeric_cols`: amount and other continuous/count fields
 - `splits`: named train, validation, or test file groups
-
-Configs may also include `published_evaluation` metadata for `T0`.
 
 ## Implemented Tests
 
 ### T0. Evaluation Integrity
 
-Checks whether a published model-validation path respects the stated splits and
-uses appropriate holdouts.
+Audits published validation metadata when supplied in the config.
 
-Default fail condition:
+Default fail:
 
 - published model path concatenates supplied splits and performs a new random
   split
 
-Default warning conditions:
+Default warnings:
 
-- event-date columns exist, but no temporal holdout is recorded
-- entity ID columns exist, but no entity holdout is recorded
+- date columns exist but no temporal holdout is recorded
+- entity ID columns exist but no entity holdout is recorded
 
 ### T1. Amount-Only Baseline
 
 Measures whether amount alone explains the label.
 
-Default fail conditions:
+Default fails:
 
-- amount-only ROC-AUC is at least `0.95`
-- amount-only PR-AUC is at least `80%` of the no-ID baseline PR-AUC
-- the best one-sided amount threshold has F1 at least `0.70`
+- amount-only ROC-AUC >= `0.95`
+- amount-only PR-AUC is at least `80%` of no-ID PR-AUC
+- best one-sided amount threshold F1 >= `0.70`
 
 ### T2. Single-Feature Shortcut
 
-Searches for a single non-leak, non-ID feature value that is highly predictive
-of fraud.
+Searches for a single non-leak, non-ID value that is highly predictive.
 
-Default fail condition:
+Default fail:
 
-- value-level positive rate is at least `50%`
-- value-level lift is at least `20x`
-- support is at least `100` rows
+- support >= `100` rows
+- positive rate >= `50%`
+- lift >= `20x`
+
+### T3. Class Distribution Overlap
+
+Computes overlap between positive and negative distributions on configured
+important columns. Numeric columns are binned before overlap is measured.
+
+Default fail:
+
+- lowest checked overlap <= `0.05`
+
+Default warning:
+
+- lowest checked overlap <= `0.20`
+
+### T4. ID Memorization
+
+Compares ID-only performance to no-ID performance and evaluates deterministic
+entity holdout when an entity column exists.
+
+Default fail:
+
+- ID-only PR-AUC ratio >= `0.80` and ID-only lift over prevalence >= `3.0`
+- entity-holdout PR-AUC ratio <= `0.50`
+
+Default warning:
+
+- ID-only PR-AUC ratio >= `0.50` and ID-only lift over prevalence >= `1.5`
+- entity-holdout PR-AUC ratio <= `0.75`
 
 ### T5. Zero-Fraud Low-Amount Region
 
 Finds the largest low-amount prefix with zero positive labels.
 
-Default fail condition:
+Default fail:
 
-- zero-fraud region covers at least `90%` of all rows
+- zero-fraud region covers at least `90%` of rows
 
-Default warning condition:
+Default warning:
 
-- zero-fraud region covers at least `50%` of all rows
+- zero-fraud region covers at least `50%` of rows
+
+### T6. Duplicate Rows
+
+Checks exact duplicate feature rows and duplicate feature groups with mixed
+labels.
+
+Default fail:
+
+- duplicate feature rows >= `5%`
+- label-conflict rows >= `0.1%`
+
+Default warning:
+
+- duplicate feature rows >= `1%`
+- any label-conflict rows
+
+### T7. Temporal Degradation
+
+Compares temporal-holdout no-ID PR-AUC to provided-split no-ID PR-AUC when a
+temporal holdout can be inferred.
+
+Default fail:
+
+- temporal/provided PR-AUC ratio <= `0.50`
+
+Default warning:
+
+- temporal/provided PR-AUC ratio <= `0.75`
+
+### T8. Leakage Review
+
+Checks configured leak-column exclusion and suspicious label/post-outcome feature
+names.
+
+Default fail:
+
+- a configured leak column remains in features
+- a feature name matches the suspicious leakage-name pattern
 
 ### T9. Amount Cardinality Sanity
 
-Checks whether a monetary field is unrealistically discrete or concentrated.
+Checks whether monetary fields are unrealistically discrete or concentrated.
 
-Default fail conditions:
+Default fails:
 
 - amount field has at most `100` distinct values
 - top 10 amount values cover at least `90%` of rows
 
-Default warning conditions:
+Default warnings:
 
 - top 10 amount values cover at least `70%` of rows
 - at least `95%` of values are multiples of 1,000
 
-## Planned Tests
+### T10. Label-Noise Plausibility
 
-The following tests are part of the protocol design but are not yet fully
-implemented in v0.1:
+When both observed and oracle labels exist, measures their mismatch rate.
 
-- `T3` class distribution overlap across important features
-- `T4` ID memorization and entity cold-start evaluation
-- `T6` duplicate and near-duplicate row analysis beyond exact hashes
-- `T7` temporal degradation against random splits
-- `T8` leak-column and post-outcome feature review
-- `T10` label-noise plausibility checks
+Default fail:
+
+- noise rate <= `0%`
+- noise rate >= `50%`
+
+Default warning:
+
+- noise rate < `1%`
+- noise rate > `30%`
+
+Datasets without a separate oracle label receive `INFO`.
 
 ## Output
 
 Each audit writes:
 
-- `audit.json`: machine-readable metrics and tests
+- `audit.json`: machine-readable metrics, thresholds, tests, and red flags
 - `audit.md`: stakeholder-readable report
 
 ## Interpretation

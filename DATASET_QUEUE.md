@@ -1,65 +1,38 @@
 # Dataset Queue
 
-The next step is to run the same protocol on public fraud datasets and build a
-comparison table.
+## Executed Anchors
 
-## Priority 1
+### ULB Credit Card Fraud
 
-### BAF / Bank Account Fraud
+- Source: Kaggle dataset `mlg-ulb/creditcardfraud`
+- Local preparation: `scripts/prepare_kaggle_anchors.py`
+- Config: `configs/ulb_creditcard.json`
+- Report: `reports/ulb_creditcard/audit.md`
+- Verdict: `PASS`
 
-Reason:
+### BAF Base
 
-- Public fraud benchmark.
-- Designed around fairness and realistic tabular fraud patterns.
-- Good contrast against AI Hub FDS because it should not collapse to a raw
-  amount threshold.
+- Source: Kaggle dataset `sgpjesus/bank-account-fraud-dataset-neurips-2022`
+- Local preparation: `scripts/prepare_kaggle_anchors.py`
+- Config: `configs/baf_base.json`
+- Report: `reports/baf_base/audit.md`
+- Verdict: `PASS`
 
-Needed:
-
-- Local data files.
-- Config mapping label, amount, date/time, ID/leak columns.
-
-### PaySim
-
-Reason:
-
-- Common synthetic mobile money fraud dataset.
-- Known simulator-based structure, useful as a sanity comparison.
-
-Needed:
-
-- Local CSV.
-- Config for `isFraud`, `amount`, transaction type, account IDs, step/time.
+## Access-Limited Targets
 
 ### IEEE-CIS Fraud Detection
 
-Reason:
+- Kaggle command attempted: `kaggle competitions download -c ieee-fraud-detection`
+- Result in this environment: `403`
+- Status: not counted as an executed anchor
 
-- Widely used Kaggle fraud dataset.
-- Has realistic messiness: high-cardinality IDs, missingness, transaction
-  amounts, engineered identity fields.
+### PaySim
 
-Needed:
+- Kaggle command attempted: `kaggle datasets download -d ntnu-testimon/paysim1`
+- Result in this environment: `403`
+- Status: not counted as an executed anchor
 
-- Kaggle data download.
-- Config for `isFraud`, `TransactionAmt`, `TransactionDT`, ID/leak fields.
-
-## Priority 2
-
-### Other AI Hub Financial Synthetic Datasets
-
-Reason:
-
-- Same public-data ecosystem.
-- Useful for identifying whether the FDS issue is isolated or systemic.
-
-Needed:
-
-- Dataset list.
-- Local download.
-- Label availability check.
-
-## Comparison Table Columns
+## Future Comparison Columns
 
 - Dataset name
 - Source / year
@@ -73,5 +46,5 @@ Needed:
 - Amount-only PR-AUC
 - No-ID full-feature PR-AUC
 - Temporal holdout PR-AUC
+- Entity-holdout PR-AUC
 - Verdict
-

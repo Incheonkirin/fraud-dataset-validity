@@ -17,13 +17,14 @@ weak split design.
 - `T5` zero-fraud low-amount region checks
 - `T6` duplicate and label-conflict checks
 - `T7` temporal degradation checks
-- `T8` leak-column and post-outcome feature review
+- `T8` leak-column, post-outcome feature, and entity-aggregate review
 - `T9` amount-cardinality sanity checks
 - `T10` observed/oracle label-noise plausibility checks
 - Markdown and JSON audit reports
 - deterministic `K-Claims-Synth` generator with observed and oracle labels
 
 Thresholds are stored in `thresholds.yaml`.
+The stdlib reference model is described in `reference_model.yaml`.
 
 ## Quick Start
 
@@ -64,7 +65,7 @@ python3 fdvh.py \
   --out reports/k_claims_synth
 ```
 
-The included generated report shows `K-Claims-Synth v0.1` passing its own
+The included generated report shows `K-Claims-Synth v0.2` passing its own
 validity gate.
 
 ## External Anchors
@@ -86,8 +87,9 @@ python3 fdvh.py --config configs/ulb_creditcard.json --out reports/ulb_creditcar
 python3 fdvh.py --config configs/baf_base.json --out reports/baf_base
 ```
 
-The included reports show both ULB Credit Card Fraud and BAF Base passing the
-same protocol that fails the AI Hub FDS datasets.
+The included reports show ULB Credit Card Fraud and BAF Base receiving `WARN`
+verdicts, while K-Claims-Synth passes and the AI Hub FDS datasets fail. This
+graded spectrum is summarized in `ANCHOR_COMPARISON.md`.
 
 ## Current Results
 

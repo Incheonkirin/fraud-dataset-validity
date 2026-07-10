@@ -22,7 +22,7 @@ Implemented tests:
 - `T5` zero-fraud low-amount region
 - `T6` duplicate rows and label conflicts
 - `T7` temporal degradation
-- `T8` leak-column and post-outcome feature review
+- `T8` leak-column, post-outcome feature, and entity-aggregate review
 - `T9` amount cardinality sanity
 - `T10` label-noise plausibility
 
@@ -35,11 +35,12 @@ Primary result:
 
 Executed anchors:
 
-- ULB Credit Card Fraud: `PASS`
-- BAF Base: `PASS`
+- ULB Credit Card Fraud: `WARN`
+- BAF Base: `WARN`
 
-These anchors show that the protocol does not simply fail every public fraud
-dataset.
+These anchors show a middle register: the protocol does not simply fail every
+public fraud dataset, but the recall-weighted T2 shortcut check can still flag
+broad single-value effects.
 
 Access-limited targets:
 
@@ -58,12 +59,13 @@ Implemented:
 
 Primary result:
 
-- K-Claims-Synth v0.1: `PASS`
+- K-Claims-Synth v0.2: `PASS`
 
 ## Repository Outputs
 
 - `fdvh.py`: audit runner
 - `thresholds.yaml`: versioned thresholds
+- `reference_model.yaml`: stdlib reference-model parameters
 - `configs/`: dataset configs
 - `reports/`: generated case-study and anchor reports
 - `PROTOCOL.md`: test definitions

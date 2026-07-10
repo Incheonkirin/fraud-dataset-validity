@@ -50,7 +50,8 @@ Default fails:
 
 - amount-only ROC-AUC >= `0.95`
 - amount-only PR-AUC is at least `80%` of no-ID PR-AUC
-- best one-sided amount threshold F1 >= `0.70`
+- best one-sided amount threshold F1 >= `0.70` and at least `80%` of the
+  no-ID baseline's best score-threshold F1
 
 ### T2. Single-Feature Shortcut
 
@@ -61,6 +62,11 @@ Default fail:
 - support >= `100` rows
 - positive rate >= `50%`
 - lift >= `20x`
+- or recall >= `10%` and lift >= `5x`
+
+Default warning:
+
+- recall >= `20%` and lift >= `3x`
 
 ### T3. Class Distribution Overlap
 
@@ -78,21 +84,25 @@ Default warning:
 ### T4. ID Memorization
 
 Compares ID-only performance to no-ID performance and evaluates deterministic
-entity holdout when an entity column exists.
+entity holdout when an entity column exists. Entity-holdout degradation uses
+AP-lift, defined as average precision divided by fraud prevalence, before
+ratio-ing across test sets.
 
 Default fail:
 
 - ID-only PR-AUC ratio >= `0.80` and ID-only lift over prevalence >= `3.0`
-- entity-holdout PR-AUC ratio <= `0.50`
+- entity-holdout AP-lift ratio <= `0.50`
 
 Default warning:
 
 - ID-only PR-AUC ratio >= `0.50` and ID-only lift over prevalence >= `1.5`
-- entity-holdout PR-AUC ratio <= `0.75`
+- entity-holdout AP-lift ratio <= `0.75`
 
 ### T5. Zero-Fraud Low-Amount Region
 
-Finds the largest low-amount prefix with zero positive labels.
+Finds the largest low-amount prefix with zero positive labels on configured
+amount columns. This v0.1 test is intentionally narrower than a full numeric
+quantile-region scan.
 
 Default fail:
 
@@ -119,26 +129,33 @@ Default warning:
 
 ### T7. Temporal Degradation
 
-Compares temporal-holdout no-ID PR-AUC to provided-split no-ID PR-AUC when a
-temporal holdout can be inferred.
+Compares temporal-holdout no-ID AP-lift to provided-split no-ID AP-lift when a
+temporal holdout can be inferred. AP-lift normalization avoids comparing raw
+average precision across splits with different fraud prevalence.
 
 Default fail:
 
-- temporal/provided PR-AUC ratio <= `0.50`
+- temporal/provided AP-lift ratio <= `0.50`
 
 Default warning:
 
-- temporal/provided PR-AUC ratio <= `0.75`
+- temporal/provided AP-lift ratio <= `0.75`
 
 ### T8. Leakage Review
 
 Checks configured leak-column exclusion and suspicious label/post-outcome feature
-names.
+names. It also warns on feature names that look like entity-level aggregate
+rates, risks, or scores because those often represent target-encoded leakage
+unless computed from prior-period data only.
 
 Default fail:
 
 - a configured leak column remains in features
 - a feature name matches the suspicious leakage-name pattern
+
+Default warning:
+
+- a feature name matches the entity aggregate rate/risk/score pattern
 
 ### T9. Amount Cardinality Sanity
 

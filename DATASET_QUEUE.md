@@ -8,7 +8,8 @@
 - Local preparation: `scripts/prepare_kaggle_anchors.py`
 - Config: `configs/ulb_creditcard.json`
 - Report: `reports/ulb_creditcard/audit.md`
-- Verdict: `PASS`
+- Verdict: `WARN`
+- Main warning: broad amount-value shortcut under T2
 
 ### BAF Base
 
@@ -16,7 +17,8 @@
 - Local preparation: `scripts/prepare_kaggle_anchors.py`
 - Config: `configs/baf_base.json`
 - Report: `reports/baf_base/audit.md`
-- Verdict: `PASS`
+- Verdict: `WARN`
+- Main warning: broad `housing_status=BA` shortcut under T2
 
 ## Access-Limited Targets
 
@@ -45,6 +47,6 @@
 - Strongest non-ID single-feature lift
 - Amount-only PR-AUC
 - No-ID full-feature PR-AUC
-- Temporal holdout PR-AUC
-- Entity-holdout PR-AUC
+- Temporal holdout AP-lift ratio
+- Entity-holdout AP-lift ratio
 - Verdict

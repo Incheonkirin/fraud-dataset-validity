@@ -77,6 +77,23 @@ class FraudDatasetValidityHarnessTest(unittest.TestCase):
             self.assertIn(("T5", "FAIL"), statuses)
             self.assertIn(("T9.1", "FAIL"), statuses)
 
+    def test_t2_recall_weighted_shortcut_is_verdict_row(self) -> None:
+        rules = [
+            {
+                "column": "amount_bucket",
+                "value": "high",
+                "is_id": False,
+                "count": 200,
+                "positive_rate": 0.25,
+                "recall": 0.15,
+                "lift": 6.0,
+            }
+        ]
+        tests = fdvh.evaluate_t2(rules, fdvh.load_thresholds(Path("thresholds.yaml")), 100)
+        self.assertEqual(tests[0]["id"], "T2")
+        self.assertEqual(tests[0]["status"], "FAIL")
+        self.assertIn("Recall-weighted shortcut", tests[0]["details"])
+
 
 if __name__ == "__main__":
     unittest.main()

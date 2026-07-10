@@ -1,0 +1,9 @@
+version: "0.1"
+model_type: "evidence_naive_bayes"
+alpha: 1.0
+weight_clip: 4.0
+
+tokenization:
+  categorical: "exact normalized values"
+  numeric: "signed log10 bucket of abs(x)+1 with 8 buckets per order"
+  dates: "month and day tokens"

@@ -24,7 +24,8 @@ FIELDNAMES = [
     "policy_age_days",
     "prior_claim_count_30d",
     "prior_claim_count_365d",
-    "provider_claim_rate",
+    "provider_prior_claim_count_365d",
+    "provider_prior_high_amount_share_365d",
     "region",
     "channel",
     "observed_fraud_label",
@@ -66,42 +67,72 @@ def build_rows(n_rows: int, seed: int) -> list[dict[str, object]]:
     rng = random.Random(seed)
     n_customers = max(1000, n_rows // 18)
     n_providers = max(300, n_rows // 140)
+    provider_ids = [f"provider_{idx:05d}" for idx in range(n_providers)]
+    customer_ids = [f"customer_{idx:06d}" for idx in range(n_customers)]
     provider_risk = {
-        f"provider_{idx:05d}": rng.betavariate(2.0, 8.0)
-        for idx in range(n_providers)
+        provider_id: rng.betavariate(2.0, 8.0)
+        for provider_id in provider_ids
+    }
+    ring_providers = set(rng.sample(provider_ids, max(6, n_providers // 28)))
+    ring_pairs = {
+        provider_id: (rng.choice(DIAGNOSIS_CODES), rng.choice(TREATMENT_CODES))
+        for provider_id in ring_providers
     }
     customer_base = {
-        f"customer_{idx:06d}": {
+        customer_id: {
             "age": clamp(int(rng.gauss(46, 15)), 18, 88),
             "region": rng.choice(REGIONS),
             "claim_tendency": rng.betavariate(2.0, 8.0),
         }
-        for idx in range(n_customers)
+        for customer_id in customer_ids
     }
 
     rows: list[dict[str, object]] = []
     customer_recent: dict[str, list[date]] = {customer: [] for customer in customer_base}
+    provider_recent: dict[str, list[tuple[date, float, int]]] = {
+        provider_id: [] for provider_id in provider_ids
+    }
     start = date(2024, 1, 1)
     end = date(2025, 12, 31)
     span = (end - start).days
 
     for idx in range(n_rows):
-        customer_id = rng.choice(list(customer_base))
+        customer_id = rng.choice(customer_ids)
         customer = customer_base[customer_id]
-        provider_id = rng.choice(list(provider_risk))
+        day_offset = int((span * idx) / max(1, n_rows - 1))
+        day_offset = min(span, day_offset + rng.randrange(0, 3))
+        claim_date = start + timedelta(days=day_offset)
+        is_late_period = claim_date >= date(2025, 7, 1)
+        if is_late_period and rng.random() < 0.03:
+            provider_id = rng.choice(list(ring_providers))
+        else:
+            provider_id = rng.choice(provider_ids)
         provider_score = provider_risk[provider_id]
-        claim_date = start + timedelta(days=rng.randrange(span + 1))
         lag = clamp(int(rng.expovariate(1 / 8)), 0, 60)
         accident_date = claim_date - timedelta(days=lag)
         product_type = rng.choices(PRODUCTS, weights=[0.58, 0.24, 0.10, 0.08])[0]
         channel = rng.choice(CHANNELS)
         diagnosis_code = rng.choice(DIAGNOSIS_CODES)
         treatment_code = rng.choice(TREATMENT_CODES)
+        is_ring_pattern = False
+        ring_probability = 0.23 if is_late_period else 0.20
+        if provider_id in ring_pairs and rng.random() < ring_probability:
+            diagnosis_code, treatment_code = ring_pairs[provider_id]
+            is_ring_pattern = True
         policy_age_days = clamp(int(rng.expovariate(1 / 620)), 1, 3650)
-        prior_365 = min(18, rng.poisson(1.2) if hasattr(rng, "poisson") else int(rng.expovariate(1 / 1.8)))
+        prior_365 = min(18, int(rng.expovariate(1 / 1.8)))
         recent_dates = [d for d in customer_recent[customer_id] if (claim_date - d).days <= 365]
         prior_365 = min(18, max(prior_365, len(recent_dates)))
         prior_30 = sum(1 for d in recent_dates if (claim_date - d).days <= 30)
+        provider_history = [
+            item for item in provider_recent[provider_id] if (claim_date - item[0]).days <= 365
+        ]
+        provider_prior_claim_count_365d = len(provider_history)
+        provider_prior_high_amount_share_365d = (
+            sum(1 for _, amount, _ in provider_history if amount >= 75_000) / len(provider_history)
+            if provider_history
+            else 0.0
+        )
 
         hospital_lambda = 0.8 + 0.12 * prior_365 + (0.5 if product_type == "medical" else 0.0)
         hospital_days = clamp(int(rng.expovariate(1 / hospital_lambda)), 0, 30)
@@ -115,11 +146,13 @@ def build_rows(n_rows: int, seed: int) -> list[dict[str, object]]:
         mechanism_scores = {
             "false_hospitalization": 0.9 * (hospital_days >= 9)
             + 0.4 * (product_type == "medical")
-            + 0.5 * provider_score,
+            + 0.15 * (provider_prior_claim_count_365d >= 85),
             "accident_detail_manipulation": 0.8 * (lag >= 24)
             + 0.25 * (product_type in {"auto", "travel"})
             + 0.25 * (policy_age_days < 180),
-            "provider_collusion": 1.0 * (provider_score > 0.55)
+            "provider_collusion": 0.25 * (provider_prior_claim_count_365d >= 85)
+            + 0.45 * (provider_prior_high_amount_share_365d >= 0.18)
+            + 0.65 * is_ring_pattern
             + 0.4 * (prior_30 >= 2)
             + 0.2 * (channel in {"agent", "branch"}),
             "duplicate_or_staged_claim": 0.7 * (prior_30 >= 2)
@@ -131,13 +164,17 @@ def build_rows(n_rows: int, seed: int) -> list[dict[str, object]]:
         }
         fraud_type = max(mechanism_scores, key=mechanism_scores.get)
         risk = (
-            -4.85
+            -4.90
             + 0.55 * (policy_age_days < 120)
-            + 0.55 * (prior_30 >= 2)
+            + 0.25 * (prior_30 >= 2)
             + 0.32 * (prior_365 >= 5)
             + 0.48 * (lag >= 24)
             + 0.50 * (hospital_days >= 9)
-            + 0.90 * provider_score
+            + 0.34 * provider_score
+            + 0.12 * (provider_prior_claim_count_365d >= 85)
+            + 0.42 * (provider_prior_high_amount_share_365d >= 0.18)
+            + 0.46 * is_ring_pattern
+            + 0.03 * (is_late_period and lag >= 18)
             + 0.20 * (product_type == "medical")
             + 0.18 * customer["claim_tendency"]
             + rng.gauss(0, 0.42)
@@ -150,17 +187,16 @@ def build_rows(n_rows: int, seed: int) -> list[dict[str, object]]:
             elif fraud_type == "accident_detail_manipulation":
                 lag = max(lag, rng.randint(18, 50))
                 accident_date = claim_date - timedelta(days=lag)
-            elif fraud_type == "duplicate_or_staged_claim":
-                prior_30 = max(prior_30, rng.randint(1, 4))
             claim_amount = round(claim_amount * rng.uniform(0.92, 1.35), 2)
         else:
             fraud_type = "none"
 
-        false_negative = oracle and rng.random() < 0.12
-        false_positive = not oracle and rng.random() < 0.018
+        false_negative = oracle and rng.random() < 0.43
+        false_positive = not oracle and rng.random() < 0.003
         observed = int((oracle and not false_negative) or false_positive)
 
         customer_recent[customer_id].append(claim_date)
+        provider_recent[provider_id].append((claim_date, claim_amount, hospital_days))
         rows.append(
             {
                 "claim_id": f"claim_{idx:08d}",
@@ -178,7 +214,10 @@ def build_rows(n_rows: int, seed: int) -> list[dict[str, object]]:
                 "policy_age_days": policy_age_days,
                 "prior_claim_count_30d": prior_30,
                 "prior_claim_count_365d": prior_365,
-                "provider_claim_rate": round(0.02 + provider_score * 0.18 + rng.uniform(-0.01, 0.01), 5),
+                "provider_prior_claim_count_365d": provider_prior_claim_count_365d,
+                "provider_prior_high_amount_share_365d": round(
+                    provider_prior_high_amount_share_365d, 5
+                ),
                 "region": customer["region"],
                 "channel": channel,
                 "observed_fraud_label": observed,
@@ -196,7 +235,7 @@ def split_rows(rows: list[dict[str, object]]) -> dict[str, list[dict[str, object
     entity: list[dict[str, object]] = []
     for row in rows:
         claim_date = date.fromisoformat(str(row["claim_date"]))
-        entity_num = int(str(row["customer_id"]).rsplit("_", 1)[1])
+        entity_num = int(str(row["provider_id"]).rsplit("_", 1)[1])
         if entity_num % 10 == 0:
             entity.append(row)
         elif claim_date >= date(2025, 7, 1):
@@ -214,7 +253,7 @@ def split_rows(rows: list[dict[str, object]]) -> dict[str, list[dict[str, object
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generate K-Claims-Synth v0.1")
+    parser = argparse.ArgumentParser(description="Generate K-Claims-Synth v0.2")
     parser.add_argument("--rows", type=int, default=100_000)
     parser.add_argument("--seed", type=int, default=20260709)
     parser.add_argument("--out", type=Path, default=Path("data_generated/k_claims_synth"))
@@ -229,7 +268,7 @@ def main() -> None:
     metadata.write_text(
         "\n".join(
             [
-                "K-Claims-Synth v0.1",
+                "K-Claims-Synth v0.2",
                 f"rows={len(rows)}",
                 f"seed={args.seed}",
                 "labels=observed_fraud_label, oracle_fraud_label",

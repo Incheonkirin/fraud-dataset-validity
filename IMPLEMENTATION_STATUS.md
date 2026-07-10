@@ -20,6 +20,11 @@ This file maps the Fable design requirements to current repository evidence.
 | External anchors proving the protocol does not fail everything | Done | `reports/ulb_creditcard`, `reports/baf_base`, `ANCHOR_COMPARISON.md` |
 | K-Claims-Synth with observed and oracle labels | Done | `k_claims_synth.py`, `configs/k_claims_synth.json` |
 | K-Claims-Synth self-application gate | Done | `reports/k_claims_synth/audit.md` verdict `PASS` |
+| T2 promoted into verdict table | Done | `fdvh.py`, all regenerated reports |
+| AP-lift normalization for cross-prevalence split ratios | Done | `T4.2`, `T7` in all regenerated reports |
+| Reference model parameters externalized | Done | `reference_model.yaml`, report `Reference Model` section |
+| K-Claims provider-rate quasi-leak removed | Done | `k_claims_synth.py`, `K_CLAIMS_SYNTH_DESIGN.md` |
+| K-Claims provider holdout and label-noise direction fixed | Done | `configs/k_claims_synth.json`, `reports/k_claims_synth/audit.md` |
 | Minimal implementation plan and folder structure | Done | `PROJECT_PLAN.md`, `README.md` |
 | Explanation of why this beats training another model on flawed data | Done | `RESULT_SUMMARY.md`, `MODEL_PACKAGE_AUDIT.md` |
 
@@ -27,4 +32,8 @@ This file maps the Fable design requirements to current repository evidence.
 
 IEEE-CIS and PaySim are not counted as executed anchors because Kaggle API
 returned `403` for those downloads in this environment. The completed external
-anchors are ULB Credit Card Fraud and BAF Base.
+anchors are ULB Credit Card Fraud and BAF Base; both currently produce `WARN`
+verdicts under the recall-weighted T2 shortcut criterion.
+
+Optional sklearn/LightGBM sensitivity analysis is not implemented in this
+dependency-free pass. It remains the next hardening step before public release.

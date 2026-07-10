@@ -30,6 +30,10 @@ The reported validation metrics include:
 
 ## Source-Level Findings
 
+Evidence status: the findings below are recorded from the reviewed model manual
+and extracted-review notes. Exact official source file names and line citations
+are still required before treating `T0.1` as a fully source-cited public claim.
+
 ### Detection models use shortcut-prone fields
 
 The card detection model uses fields including:
@@ -90,3 +94,6 @@ The existence of reference models is not evidence that the dataset is a credible
 fraud-detection benchmark. The model path uses shortcut-bearing fields, relies
 on random split validation, and does not report trivial baselines or shortcut
 ablation checks.
+
+Before public release, add exact model-package file names, line numbers, and a
+short source excerpt for the concat-then-random-resplit path.

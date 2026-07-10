@@ -1,12 +1,13 @@
 {
   "name": "k_claims_synth",
-  "title": "K-Claims-Synth v0.1",
+  "title": "K-Claims-Synth v0.2",
   "label_col": "observed_fraud_label",
   "oracle_label_col": "oracle_fraud_label",
   "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
   "leak_cols": ["fraud_type"],
   "id_cols": ["claim_id", "policy_id", "customer_id", "provider_id"],
-  "entity_holdout_col": "customer_id",
+  "entity_holdout_col": "provider_id",
+  "temporal_granularity": "day",
   "date_cols": ["accident_date", "claim_date"],
   "amount_cols": ["claim_amount"],
   "overlap_cols": [
@@ -15,7 +16,8 @@
     "policy_age_days",
     "prior_claim_count_30d",
     "prior_claim_count_365d",
-    "provider_claim_rate"
+    "provider_prior_claim_count_365d",
+    "provider_prior_high_amount_share_365d"
   ],
   "numeric_cols": [
     "hospital_days",
@@ -24,7 +26,8 @@
     "policy_age_days",
     "prior_claim_count_30d",
     "prior_claim_count_365d",
-    "provider_claim_rate"
+    "provider_prior_claim_count_365d",
+    "provider_prior_high_amount_share_365d"
   ],
   "splits": [
     {

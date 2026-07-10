@@ -2150,22 +2150,22 @@
     {
       "column": "거래금액",
       "is_id": false,
-      "overlap": 0.006466707313290608
+      "overlap": 0.006466707313290607
     },
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "overlap": 0.17166681371068107
+      "overlap": 0.17166681371068154
     },
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "overlap": 0.202676006500866
+      "overlap": 0.20267600650086698
     },
     {
       "column": "출금금융회사일련번호",
       "is_id": false,
-      "overlap": 0.6865432821157117
+      "overlap": 0.6865432821157116
     },
     {
       "column": "거래시간대",
@@ -2175,7 +2175,7 @@
     {
       "column": "거래일자",
       "is_id": false,
-      "overlap": 0.7736175866085963
+      "overlap": 0.7736175866085958
     },
     {
       "column": "자금구분",
@@ -2220,47 +2220,47 @@
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.13265519655197108
+      "js_divergence": 0.13265519655197006
     },
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.01374108021021919
+      "js_divergence": 0.013741080210219334
     },
     {
       "column": "거래일자",
       "is_id": false,
-      "js_divergence": 0.0005200235884660589
+      "js_divergence": 0.0005200235884660594
     },
     {
       "column": "출금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.339276880189236e-05
+      "js_divergence": 2.3392768801892383e-05
     },
     {
       "column": "입금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.1440812899565313e-05
+      "js_divergence": 2.1440812899565256e-05
     },
     {
       "column": "거래금액",
       "is_id": false,
-      "js_divergence": 1.861514091857184e-05
+      "js_divergence": 1.8615140918571853e-05
     },
     {
       "column": "매체구분",
       "is_id": false,
-      "js_divergence": 1.9870982087779628e-06
+      "js_divergence": 1.987098208777939e-06
     },
     {
       "column": "거래시간대",
       "is_id": false,
-      "js_divergence": 1.3842280330356903e-06
+      "js_divergence": 1.3842280330357039e-06
     },
     {
       "column": "자금구분",
       "is_id": false,
-      "js_divergence": 7.784044028480656e-07
+      "js_divergence": 7.784044028480567e-07
     }
   ],
   "baselines": {
@@ -2270,6 +2270,7 @@
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.9966196191335662,
       "average_precision": 0.35259942260214366,
+      "best_f1": 0.5393525393525394,
       "topk": {
         "top_0.1%": {
           "k": 493,
@@ -2317,6 +2318,7 @@
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.8721366264000749,
       "average_precision": 0.09777294256238392,
+      "best_f1": 0.18614974844628587,
       "topk": {
         "top_0.1%": {
           "k": 493,
@@ -2364,6 +2366,7 @@
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.9959605694282065,
       "average_precision": 0.37272517458467,
+      "best_f1": 0.5104872539528881,
       "topk": {
         "top_0.1%": {
           "k": 493,
@@ -2411,6 +2414,7 @@
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.9969484695871532,
       "average_precision": 0.39467825035682724,
+      "best_f1": 0.5590190574678682,
       "topk": {
         "top_0.1%": {
           "k": 493,
@@ -2458,6 +2462,7 @@
       "prevalence": 0.00463504924215967,
       "roc_auc": 0.9961564231657684,
       "average_precision": 0.3619631143735234,
+      "best_f1": 0.5512690801917917,
       "topk": {
         "top_0.1%": {
           "k": 1432,
@@ -2496,7 +2501,8 @@
         }
       },
       "date_col": "거래일자",
-      "test_year": "2024",
+      "temporal_granularity": "year",
+      "test_period": "2024",
       "train_rows": 3002406,
       "train_positives": 10539,
       "train_prevalence": 0.0035101848317649247
@@ -2507,6 +2513,7 @@
       "prevalence": 0.00463504924215967,
       "roc_auc": 0.9965359529831567,
       "average_precision": 0.3939364579814083,
+      "best_f1": 0.5724949008375646,
       "topk": {
         "top_0.1%": {
           "k": 1432,
@@ -2545,7 +2552,8 @@
         }
       },
       "date_col": "거래일자",
-      "test_year": "2024",
+      "temporal_granularity": "year",
+      "test_period": "2024",
       "train_rows": 3002406,
       "train_positives": 10539,
       "train_prevalence": 0.0035101848317649247
@@ -2556,6 +2564,7 @@
       "prevalence": 0.0037026733434014254,
       "roc_auc": 0.9965622258893004,
       "average_precision": 0.33681534061655866,
+      "best_f1": 0.5306456899377253,
       "topk": {
         "top_0.1%": {
           "k": 906,
@@ -2605,6 +2614,7 @@
       "prevalence": 0.0037026733434014254,
       "roc_auc": 0.8913203834007933,
       "average_precision": 0.07957268204779457,
+      "best_f1": 0.19145758661887693,
       "topk": {
         "top_0.1%": {
           "k": 906,
@@ -2661,12 +2671,16 @@
     "t1_amount_only_baseline": {
       "fail_if_roc_auc_gte": 0.95,
       "fail_if_average_precision_ratio_gte": 0.8,
-      "fail_if_best_threshold_f1_gte": 0.7
+      "fail_if_best_threshold_f1_gte": 0.7,
+      "fail_if_best_threshold_f1_ratio_gte": 0.8
     },
     "t2_single_feature_shortcut": {
       "fail_if_positive_rate_gte": 0.5,
       "fail_if_lift_gte": 20.0,
-      "warn_if_recall_gte": 0.2
+      "fail_if_recall_gte_with_lift": 0.1,
+      "fail_if_recall_lift_gte": 5.0,
+      "warn_if_recall_gte": 0.2,
+      "warn_if_recall_lift_gte": 3.0
     },
     "t3_distribution_overlap": {
       "fail_if_overlap_lte": 0.05,
@@ -2677,8 +2691,8 @@
       "warn_if_id_only_ap_ratio_gte": 0.5,
       "fail_if_id_only_ap_lift_gte": 3.0,
       "warn_if_id_only_ap_lift_gte": 1.5,
-      "fail_if_entity_holdout_ap_ratio_lte": 0.5,
-      "warn_if_entity_holdout_ap_ratio_lte": 0.75
+      "fail_if_entity_holdout_ap_lift_ratio_lte": 0.5,
+      "warn_if_entity_holdout_ap_lift_ratio_lte": 0.75
     },
     "t5_zero_fraud_region": {
       "fail_if_row_share_gte": 0.9,
@@ -2691,12 +2705,14 @@
       "warn_if_label_conflict_rows_gte": 0.0
     },
     "t7_temporal_degradation": {
-      "fail_if_temporal_ap_ratio_lte": 0.5,
-      "warn_if_temporal_ap_ratio_lte": 0.75
+      "fail_if_temporal_ap_lift_ratio_lte": 0.5,
+      "warn_if_temporal_ap_lift_ratio_lte": 0.75
     },
     "t8_leakage_review": {
       "fail_on_feature_name_patterns": true,
-      "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)"
+      "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)",
+      "warn_on_entity_aggregate_names": true,
+      "entity_aggregate_name_pattern": "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)"
     },
     "t9_cardinality_sanity": {
       "fail_if_amount_distinct_lte": 100,
@@ -2713,6 +2729,17 @@
     },
     "split_drift": {
       "warn_if_max_non_id_js_lte": null
+    }
+  },
+  "reference_model": {
+    "version": "0.1",
+    "model_type": "evidence_naive_bayes",
+    "alpha": 1.0,
+    "weight_clip": 4.0,
+    "tokenization": {
+      "categorical": "exact normalized values",
+      "numeric": "signed log10 bucket of abs(x)+1 with 8 buckets per order",
+      "dates": "month and day tokens"
     }
   },
   "tests": [
@@ -2768,15 +2795,33 @@
       "id": "T1.3",
       "name": "Best one-sided amount threshold",
       "status": "PASS",
-      "metric": 0.5588418737484817,
-      "threshold": ">= 0.7",
-      "details": "Best threshold rule: 거래금액: amount >= 4e+06."
+      "metric": {
+        "f1": 0.5588418737484817,
+        "f1_ratio": 1.0361346855237543
+      },
+      "threshold": "F1 >= 0.7 and ratio >= 0.8",
+      "details": "Best threshold rule: 거래금액: amount >= 4e+06; ratio compares against the no-ID baseline's best score-threshold F1."
+    },
+    {
+      "id": "T2",
+      "name": "Single-feature shortcut",
+      "status": "FAIL",
+      "metric": {
+        "column": "거래금액",
+        "value": "4000000",
+        "count": 15119,
+        "positive_rate": 0.3413585554600172,
+        "recall": 0.3004949053857351,
+        "lift": 88.12925874332431
+      },
+      "threshold": "recall >= 0.1 and lift >= 5.0",
+      "details": "Recall-weighted shortcut: 거래금액=4000000 has positive_rate 34.1%, lift 88.1x, recall 30.0% (n=15,119)."
     },
     {
       "id": "T3",
       "name": "Class distribution overlap",
       "status": "FAIL",
-      "metric": 0.006466707313290608,
+      "metric": 0.006466707313290607,
       "threshold": "<= 0.05",
       "details": "Lowest checked overlap is 0.0065 on 거래금액."
     },
@@ -2795,9 +2840,14 @@
       "id": "T4.2",
       "name": "Entity-holdout degradation",
       "status": "PASS",
-      "metric": 0.9552350883926574,
+      "metric": {
+        "ap_lift_ratio": 0.9991025513841852,
+        "raw_ap_ratio": 0.9552350883926574,
+        "provided_prevalence": 0.003872711994446677,
+        "holdout_prevalence": 0.0037026733434014254
+      },
       "threshold": "> 0.75",
-      "details": "Compares entity-holdout no-ID average precision to provided-split no-ID average precision."
+      "details": "Compares prevalence-normalized AP-lift on entity holdout against the provided split."
     },
     {
       "id": "T5",
@@ -2827,9 +2877,14 @@
       "id": "T7",
       "name": "Temporal split degradation",
       "status": "PASS",
-      "metric": 1.0265561744323821,
+      "metric": {
+        "ap_lift_ratio": 0.8577161108746274,
+        "raw_ap_ratio": 1.0265561744323821,
+        "provided_prevalence": 0.003872711994446677,
+        "temporal_prevalence": 0.00463504924215967
+      },
       "threshold": "> 0.75",
-      "details": "Compares temporal no-ID average precision to provided-split no-ID average precision."
+      "details": "Compares prevalence-normalized AP-lift on temporal holdout against the provided split."
     },
     {
       "id": "T8.1",
@@ -2846,6 +2901,14 @@
       "metric": null,
       "threshold": null,
       "details": "No suspicious label/post-outcome feature names were found."
+    },
+    {
+      "id": "T8.3",
+      "name": "Entity aggregate feature names",
+      "status": "PASS",
+      "metric": null,
+      "threshold": null,
+      "details": "No entity-level aggregate rate/risk/score feature names were found."
     },
     {
       "id": "T9.1",
@@ -2908,6 +2971,11 @@
     },
     {
       "severity": "fail",
+      "gate": "T2",
+      "message": "Recall-weighted shortcut: 거래금액=4000000 has positive_rate 34.1%, lift 88.1x, recall 30.0% (n=15,119)."
+    },
+    {
+      "severity": "fail",
       "gate": "T3",
       "message": "Lowest checked overlap is 0.0065 on 거래금액."
     },
@@ -2935,26 +3003,6 @@
       "severity": "warn",
       "gate": "T9.3",
       "message": "거래금액 values are multiples of 1,000 for 99.91% of rows."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "거래금액=500000000 has positive_rate 69.3%, lift 178.9x (n=378)."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "거래금액=400000000 has positive_rate 61.3%, lift 158.1x (n=462)."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "거래금액=300000000 has positive_rate 52.6%, lift 135.9x (n=739)."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "거래금액=90000000 has positive_rate 51.5%, lift 132.9x (n=1,070)."
     }
   ]
 }

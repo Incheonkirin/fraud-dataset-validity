@@ -30,11 +30,15 @@ DEFAULT_THRESHOLDS = {
         "fail_if_roc_auc_gte": 0.95,
         "fail_if_average_precision_ratio_gte": 0.80,
         "fail_if_best_threshold_f1_gte": 0.70,
+        "fail_if_best_threshold_f1_ratio_gte": 0.80,
     },
     "t2_single_feature_shortcut": {
         "fail_if_positive_rate_gte": 0.50,
         "fail_if_lift_gte": 20.0,
+        "fail_if_recall_gte_with_lift": 0.10,
+        "fail_if_recall_lift_gte": 5.0,
         "warn_if_recall_gte": 0.20,
+        "warn_if_recall_lift_gte": 3.0,
     },
     "t3_distribution_overlap": {
         "fail_if_overlap_lte": 0.05,
@@ -45,8 +49,8 @@ DEFAULT_THRESHOLDS = {
         "warn_if_id_only_ap_ratio_gte": 0.50,
         "fail_if_id_only_ap_lift_gte": 3.0,
         "warn_if_id_only_ap_lift_gte": 1.5,
-        "fail_if_entity_holdout_ap_ratio_lte": 0.50,
-        "warn_if_entity_holdout_ap_ratio_lte": 0.75,
+        "fail_if_entity_holdout_ap_lift_ratio_lte": 0.50,
+        "warn_if_entity_holdout_ap_lift_ratio_lte": 0.75,
     },
     "t5_zero_fraud_region": {
         "fail_if_row_share_gte": 0.90,
@@ -59,12 +63,14 @@ DEFAULT_THRESHOLDS = {
         "warn_if_label_conflict_rows_gte": 0.0,
     },
     "t7_temporal_degradation": {
-        "fail_if_temporal_ap_ratio_lte": 0.50,
-        "warn_if_temporal_ap_ratio_lte": 0.75,
+        "fail_if_temporal_ap_lift_ratio_lte": 0.50,
+        "warn_if_temporal_ap_lift_ratio_lte": 0.75,
     },
     "t8_leakage_review": {
         "fail_on_feature_name_patterns": True,
         "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)",
+        "warn_on_entity_aggregate_names": True,
+        "entity_aggregate_name_pattern": "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)",
     },
     "t9_cardinality_sanity": {
         "fail_if_amount_distinct_lte": 100,
@@ -82,6 +88,12 @@ DEFAULT_THRESHOLDS = {
     "split_drift": {
         "warn_if_max_non_id_js_lte": None,
     },
+}
+DEFAULT_REFERENCE_MODEL = {
+    "version": "0.1",
+    "model_type": "evidence_naive_bayes",
+    "alpha": 1.0,
+    "weight_clip": 4.0,
 }
 
 
@@ -163,6 +175,15 @@ def load_thresholds(path: Path | None) -> dict[str, object]:
     if path is None:
         return deepcopy(DEFAULT_THRESHOLDS)
     return deep_merge(DEFAULT_THRESHOLDS, load_simple_yaml(path))
+
+
+def load_reference_model(path: Path | None) -> dict[str, object]:
+    if path is None:
+        default_path = Path("reference_model.yaml")
+        path = default_path if default_path.exists() else None
+    if path is None:
+        return deepcopy(DEFAULT_REFERENCE_MODEL)
+    return deep_merge(DEFAULT_REFERENCE_MODEL, load_simple_yaml(path))
 
 
 def parse_float(value: object) -> float | None:
@@ -464,6 +485,32 @@ def average_precision(y: list[int], scores: list[float]) -> float | None:
     return total_precision / pos
 
 
+def best_score_f1(y: list[int], scores: list[float]) -> float | None:
+    positives = sum(y)
+    if positives == 0 or positives == len(y):
+        return None
+    order = sorted(range(len(y)), key=lambda index: scores[index], reverse=True)
+    tp = 0
+    fp = 0
+    best = 0.0
+    start = 0
+    while start < len(order):
+        end = start + 1
+        while end < len(order) and scores[order[end]] == scores[order[start]]:
+            end += 1
+        for index in order[start:end]:
+            if y[index]:
+                tp += 1
+            else:
+                fp += 1
+        fn = positives - tp
+        denom = 2 * tp + fp + fn
+        if denom:
+            best = max(best, (2 * tp) / denom)
+        start = end
+    return best
+
+
 def topk(y: list[int], scores: list[float]) -> dict[str, object]:
     total = len(y)
     positives = sum(y)
@@ -491,8 +538,19 @@ def evaluate_scores(y: list[int], scores: list[float]) -> dict[str, object]:
         "prevalence": sum(y) / len(y) if y else None,
         "roc_auc": roc_auc(y, scores),
         "average_precision": average_precision(y, scores),
+        "best_f1": best_score_f1(y, scores),
         "topk": topk(y, scores),
     }
+
+
+def average_precision_lift(metric: dict[str, object]) -> float | None:
+    ap = metric.get("average_precision")
+    prevalence = metric.get("prevalence")
+    if not isinstance(ap, (int, float)) or not isinstance(prevalence, (int, float)):
+        return None
+    if prevalence <= 0:
+        return None
+    return ap / prevalence
 
 
 def run_nb_baseline(
@@ -500,10 +558,14 @@ def run_nb_baseline(
     train_paths: list[Path],
     test_paths: list[Path],
     feature_cols: list[str],
+    reference_model: dict[str, object],
 ) -> dict[str, object]:
     date_cols = set(config.get("date_cols", []))
     numeric_cols = set(config.get("numeric_cols", []))
-    model = EvidenceNB()
+    model = EvidenceNB(
+        alpha=float(reference_model.get("alpha", 1.0)),
+        weight_clip=float(reference_model.get("weight_clip", 4.0)),
+    )
     train_rows = 0
     train_pos = 0
     for row in iter_rows(train_paths):
@@ -530,6 +592,7 @@ def run_temporal_baseline(
     all_paths: list[Path],
     header: list[str],
     feature_cols: list[str],
+    reference_model: dict[str, object],
 ) -> dict[str, object] | None:
     date_cols = list(config.get("date_cols", []))
     if not date_cols:
@@ -546,7 +609,10 @@ def run_temporal_baseline(
         return None
     test_period = sorted(periods)[-1]
 
-    model = EvidenceNB()
+    model = EvidenceNB(
+        alpha=float(reference_model.get("alpha", 1.0)),
+        weight_clip=float(reference_model.get("weight_clip", 4.0)),
+    )
     train_rows = 0
     train_pos = 0
     date_set = set(config.get("date_cols", []))
@@ -593,6 +659,7 @@ def run_entity_holdout_baseline(
     all_paths: list[Path],
     entity_col: str,
     feature_cols: list[str],
+    reference_model: dict[str, object],
     holdout_share: float = 0.20,
 ) -> dict[str, object] | None:
     if not entity_col:
@@ -600,7 +667,10 @@ def run_entity_holdout_baseline(
     threshold = max(1, min(99, round(holdout_share * 100)))
     date_cols = set(config.get("date_cols", []))
     numeric_cols = set(config.get("numeric_cols", []))
-    model = EvidenceNB()
+    model = EvidenceNB(
+        alpha=float(reference_model.get("alpha", 1.0)),
+        weight_clip=float(reference_model.get("weight_clip", 4.0)),
+    )
     train_rows = 0
     train_pos = 0
     test_rows = 0
@@ -850,6 +920,7 @@ def evaluate_t1(
         )
 
     f1_threshold = t1.get("fail_if_best_threshold_f1_gte", 0.70)
+    f1_ratio_threshold = t1.get("fail_if_best_threshold_f1_ratio_gte", 0.80)
     best_f1 = None
     best_rule = None
     for col, rules in amount_rules.items():
@@ -862,14 +933,156 @@ def evaluate_t1(
                     best_f1 = rule["f1"]
                     best_rule = f"{col}: {rule.get('rule')}"
     if best_f1 is not None:
+        no_id_best_f1 = no_id_metric.get("best_f1") if isinstance(no_id_metric, dict) else None
+        f1_ratio = None
+        if isinstance(no_id_best_f1, (int, float)) and no_id_best_f1:
+            f1_ratio = best_f1 / no_id_best_f1
+            status = (
+                "FAIL"
+                if best_f1 >= f1_threshold and f1_ratio >= f1_ratio_threshold
+                else "PASS"
+            )
+            metric: object = {"f1": best_f1, "f1_ratio": f1_ratio}
+            threshold = f"F1 >= {f1_threshold} and ratio >= {f1_ratio_threshold}"
+            details = (
+                f"Best threshold rule: {best_rule}; ratio compares against the "
+                "no-ID baseline's best score-threshold F1."
+            )
+        else:
+            status = "FAIL" if best_f1 >= f1_threshold else "PASS"
+            metric = best_f1
+            threshold = f">= {f1_threshold}"
+            details = f"Best threshold rule: {best_rule}."
         add_test(
             tests,
             "T1.3",
             "Best one-sided amount threshold",
-            "FAIL" if best_f1 >= f1_threshold else "PASS",
-            f"Best threshold rule: {best_rule}.",
-            metric=best_f1,
-            threshold=f">= {f1_threshold}",
+            status,
+            details,
+            metric=metric,
+            threshold=threshold,
+        )
+    return tests
+
+
+def shortcut_metric(item: dict[str, object]) -> dict[str, object]:
+    return {
+        "column": item.get("column"),
+        "value": item.get("value"),
+        "count": item.get("count"),
+        "positive_rate": item.get("positive_rate"),
+        "recall": item.get("recall"),
+        "lift": item.get("lift"),
+    }
+
+
+def shortcut_details(item: dict[str, object], reason: str) -> str:
+    return (
+        f"{reason}: {item['column']}={item['value']} has positive_rate "
+        f"{item['positive_rate']:.1%}, lift {item['lift']:.1f}x, "
+        f"recall {item['recall']:.1%} (n={item['count']:,})."
+    )
+
+
+def evaluate_t2(
+    single_feature_rules: list[dict[str, object]],
+    thresholds: dict[str, object],
+    min_support: int,
+) -> list[dict[str, object]]:
+    tests: list[dict[str, object]] = []
+    t2 = threshold_group(thresholds, "t2_single_feature_shortcut")
+    candidates = [
+        item
+        for item in single_feature_rules
+        if not item.get("is_id")
+        and isinstance(item.get("count"), int)
+        and item["count"] >= min_support
+        and isinstance(item.get("positive_rate"), (int, float))
+        and isinstance(item.get("lift"), (int, float))
+        and isinstance(item.get("recall"), (int, float))
+    ]
+    if not candidates:
+        add_test(
+            tests,
+            "T2",
+            "Single-feature shortcut",
+            "INFO",
+            "No non-ID single-feature shortcut candidates met the minimum support.",
+        )
+        return tests
+
+    fail_rate = t2.get("fail_if_positive_rate_gte", 0.50)
+    fail_lift = t2.get("fail_if_lift_gte", 20.0)
+    fail_recall = t2.get("fail_if_recall_gte_with_lift", 0.10)
+    fail_recall_lift = t2.get("fail_if_recall_lift_gte", 5.0)
+    warn_recall = t2.get("warn_if_recall_gte", 0.20)
+    warn_recall_lift = t2.get("warn_if_recall_lift_gte", 3.0)
+
+    fail_matches: list[tuple[dict[str, object], str, str]] = []
+    warn_matches: list[tuple[dict[str, object], str, str]] = []
+    for item in candidates:
+        if item["positive_rate"] >= fail_rate and item["lift"] >= fail_lift:
+            fail_matches.append(
+                (
+                    item,
+                    "High-purity shortcut",
+                    f"positive_rate >= {fail_rate} and lift >= {fail_lift}",
+                )
+            )
+        elif item["recall"] >= fail_recall and item["lift"] >= fail_recall_lift:
+            fail_matches.append(
+                (
+                    item,
+                    "Recall-weighted shortcut",
+                    f"recall >= {fail_recall} and lift >= {fail_recall_lift}",
+                )
+            )
+        elif item["recall"] >= warn_recall and item["lift"] >= warn_recall_lift:
+            warn_matches.append(
+                (
+                    item,
+                    "Broad shortcut warning",
+                    f"recall >= {warn_recall} and lift >= {warn_recall_lift}",
+                )
+            )
+
+    key = lambda match: (
+        float(match[0].get("recall") or 0.0),
+        float(match[0].get("lift") or 0.0),
+        float(match[0].get("positive_rate") or 0.0),
+    )
+    if fail_matches:
+        item, reason, threshold = max(fail_matches, key=key)
+        add_test(
+            tests,
+            "T2",
+            "Single-feature shortcut",
+            "FAIL",
+            shortcut_details(item, reason),
+            metric=shortcut_metric(item),
+            threshold=threshold,
+        )
+    elif warn_matches:
+        item, reason, threshold = max(warn_matches, key=key)
+        add_test(
+            tests,
+            "T2",
+            "Single-feature shortcut",
+            "WARN",
+            shortcut_details(item, reason),
+            metric=shortcut_metric(item),
+            threshold=threshold,
+        )
+    else:
+        item = candidates[0]
+        add_test(
+            tests,
+            "T2",
+            "Single-feature shortcut",
+            "PASS",
+            shortcut_details(item, "Strongest checked non-ID value"),
+            metric=shortcut_metric(item),
+            threshold="below warning gates",
         )
     return tests
 
@@ -978,12 +1191,27 @@ def evaluate_t4(
 
     entity_metric = baselines.get("entity_holdout_no_id_nb")
     if isinstance(no_id, dict) and isinstance(entity_metric, dict):
+        provided_lift = average_precision_lift(no_id)
+        entity_lift = average_precision_lift(entity_metric)
         provided_ap = no_id.get("average_precision")
         entity_ap = entity_metric.get("average_precision")
-        if isinstance(provided_ap, (int, float)) and isinstance(entity_ap, (int, float)) and provided_ap:
-            ratio = entity_ap / provided_ap
-            fail = t4.get("fail_if_entity_holdout_ap_ratio_lte", 0.50)
-            warn = t4.get("warn_if_entity_holdout_ap_ratio_lte", 0.75)
+        raw_ratio = (
+            entity_ap / provided_ap
+            if isinstance(provided_ap, (int, float))
+            and isinstance(entity_ap, (int, float))
+            and provided_ap
+            else None
+        )
+        if isinstance(provided_lift, (int, float)) and isinstance(entity_lift, (int, float)) and provided_lift:
+            ratio = entity_lift / provided_lift
+            fail = t4.get(
+                "fail_if_entity_holdout_ap_lift_ratio_lte",
+                t4.get("fail_if_entity_holdout_ap_ratio_lte", 0.50),
+            )
+            warn = t4.get(
+                "warn_if_entity_holdout_ap_lift_ratio_lte",
+                t4.get("warn_if_entity_holdout_ap_ratio_lte", 0.75),
+            )
             if ratio <= fail:
                 status = "FAIL"
                 threshold = f"<= {fail}"
@@ -998,8 +1226,13 @@ def evaluate_t4(
                 "T4.2",
                 "Entity-holdout degradation",
                 status,
-                "Compares entity-holdout no-ID average precision to provided-split no-ID average precision.",
-                metric=ratio,
+                "Compares prevalence-normalized AP-lift on entity holdout against the provided split.",
+                metric={
+                    "ap_lift_ratio": ratio,
+                    "raw_ap_ratio": raw_ratio,
+                    "provided_prevalence": no_id.get("prevalence"),
+                    "holdout_prevalence": entity_metric.get("prevalence"),
+                },
                 threshold=threshold,
             )
     else:
@@ -1131,13 +1364,32 @@ def evaluate_t7(
             "No comparable temporal holdout baseline was available.",
         )
         return tests
+    provided_lift = average_precision_lift(provided)
+    temporal_lift = average_precision_lift(temporal)
     provided_ap = provided.get("average_precision")
     temporal_ap = temporal.get("average_precision")
-    if not isinstance(provided_ap, (int, float)) or not isinstance(temporal_ap, (int, float)) or not provided_ap:
+    if (
+        not isinstance(provided_lift, (int, float))
+        or not isinstance(temporal_lift, (int, float))
+        or not provided_lift
+    ):
         return tests
-    ratio = temporal_ap / provided_ap
-    fail = t7.get("fail_if_temporal_ap_ratio_lte", 0.50)
-    warn = t7.get("warn_if_temporal_ap_ratio_lte", 0.75)
+    ratio = temporal_lift / provided_lift
+    raw_ratio = (
+        temporal_ap / provided_ap
+        if isinstance(provided_ap, (int, float))
+        and isinstance(temporal_ap, (int, float))
+        and provided_ap
+        else None
+    )
+    fail = t7.get(
+        "fail_if_temporal_ap_lift_ratio_lte",
+        t7.get("fail_if_temporal_ap_ratio_lte", 0.50),
+    )
+    warn = t7.get(
+        "warn_if_temporal_ap_lift_ratio_lte",
+        t7.get("warn_if_temporal_ap_ratio_lte", 0.75),
+    )
     if ratio <= fail:
         status = "FAIL"
         threshold = f"<= {fail}"
@@ -1152,8 +1404,13 @@ def evaluate_t7(
         "T7",
         "Temporal split degradation",
         status,
-        "Compares temporal no-ID average precision to provided-split no-ID average precision.",
-        metric=ratio,
+        "Compares prevalence-normalized AP-lift on temporal holdout against the provided split.",
+        metric={
+            "ap_lift_ratio": ratio,
+            "raw_ap_ratio": raw_ratio,
+            "provided_prevalence": provided.get("prevalence"),
+            "temporal_prevalence": temporal.get("prevalence"),
+        },
         threshold=threshold,
     )
     return tests
@@ -1207,6 +1464,32 @@ def evaluate_t8(
             "Suspicious feature names",
             "PASS",
             "No suspicious label/post-outcome feature names were found.",
+        )
+
+    aggregate_pattern = str(t8.get("entity_aggregate_name_pattern", ""))
+    aggregate_suspicious = []
+    if aggregate_pattern and t8.get("warn_on_entity_aggregate_names", True):
+        aggregate_regex = re.compile(aggregate_pattern, re.I)
+        aggregate_suspicious = [col for col in feature_cols if aggregate_regex.search(col)]
+    if aggregate_suspicious:
+        add_test(
+            tests,
+            "T8.3",
+            "Entity aggregate feature names",
+            "WARN",
+            "Feature names look like entity-level aggregate rates or scores: "
+            + ", ".join(aggregate_suspicious[:8])
+            + ". Verify they are computed from prior-period data only.",
+            metric=len(aggregate_suspicious),
+            threshold="0 suspicious aggregate names",
+        )
+    else:
+        add_test(
+            tests,
+            "T8.3",
+            "Entity aggregate feature names",
+            "PASS",
+            "No entity-level aggregate rate/risk/score feature names were found.",
         )
     return tests
 
@@ -1317,7 +1600,13 @@ def evaluate_t10(
     return tests
 
 
-def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str, object]:
+def audit(
+    config: dict[str, object],
+    thresholds: dict[str, object],
+    reference_model: dict[str, object] | None = None,
+) -> dict[str, object]:
+    if reference_model is None:
+        reference_model = deepcopy(DEFAULT_REFERENCE_MODEL)
     paths_by_split = split_paths(config)
     split_names = list(paths_by_split)
     all_paths = [path for paths in paths_by_split.values() for path in paths]
@@ -1566,28 +1855,30 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
         train_paths = paths_by_split[split_names[0]]
         test_paths = paths_by_split[split_names[1]]
         baselines["provided_split_no_id_nb"] = run_nb_baseline(
-            config, train_paths, test_paths, no_id_feature_cols
+            config, train_paths, test_paths, no_id_feature_cols, reference_model
         )
         if id_feature_cols:
             baselines["provided_split_id_only_nb"] = run_nb_baseline(
-                config, train_paths, test_paths, id_feature_cols
+                config, train_paths, test_paths, id_feature_cols, reference_model
             )
             baselines["provided_split_with_id_nb"] = run_nb_baseline(
-                config, train_paths, test_paths, feature_cols
+                config, train_paths, test_paths, feature_cols, reference_model
             )
         amount_feature_cols = [col for col in no_id_feature_cols if col in amount_cols]
         if amount_feature_cols:
             baselines["provided_split_amount_only_nb"] = run_nb_baseline(
-                config, train_paths, test_paths, amount_feature_cols
+                config, train_paths, test_paths, amount_feature_cols, reference_model
             )
 
-    temporal = run_temporal_baseline(config, all_paths, header, no_id_feature_cols)
+    temporal = run_temporal_baseline(
+        config, all_paths, header, no_id_feature_cols, reference_model
+    )
     if temporal:
         baselines["temporal_holdout_no_id_nb"] = temporal
     amount_temporal_cols = [col for col in no_id_feature_cols if col in amount_cols]
     if amount_temporal_cols:
         amount_temporal = run_temporal_baseline(
-            config, all_paths, header, amount_temporal_cols
+            config, all_paths, header, amount_temporal_cols, reference_model
         )
         if amount_temporal:
             baselines["temporal_holdout_amount_only_nb"] = amount_temporal
@@ -1595,13 +1886,13 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
     entity_col = str(config.get("entity_holdout_col") or (list(id_cols)[0] if id_cols else ""))
     if entity_col:
         entity_no_id = run_entity_holdout_baseline(
-            config, all_paths, entity_col, no_id_feature_cols
+            config, all_paths, entity_col, no_id_feature_cols, reference_model
         )
         if entity_no_id:
             baselines["entity_holdout_no_id_nb"] = entity_no_id
         if id_feature_cols:
             entity_id_only = run_entity_holdout_baseline(
-                config, all_paths, entity_col, id_feature_cols
+                config, all_paths, entity_col, id_feature_cols, reference_model
             )
             if entity_id_only:
                 baselines["entity_holdout_id_only_nb"] = entity_id_only
@@ -1609,6 +1900,7 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
     tests: list[dict[str, object]] = []
     tests.extend(evaluate_t0(config, thresholds))
     tests.extend(evaluate_t1(baselines, amount_rules, thresholds))
+    tests.extend(evaluate_t2(single_feature_rules, thresholds, min_support))
     tests.extend(evaluate_t3(overlap_by_col, config, thresholds))
     tests.extend(evaluate_t4(baselines, thresholds))
     tests.extend(evaluate_t5(amount_rules, thresholds))
@@ -1629,32 +1921,7 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
                 }
             )
 
-    t2 = threshold_group(thresholds, "t2_single_feature_shortcut")
     split_thresholds = threshold_group(thresholds, "split_drift")
-
-    for item in single_feature_rules:
-        if item["is_id"]:
-            continue
-        if item["count"] < min_support:
-            continue
-        if (
-            item["positive_rate"] >= t2.get("fail_if_positive_rate_gte", 0.5)
-            and item["lift"]
-            and item["lift"] >= t2.get("fail_if_lift_gte", 20.0)
-        ):
-            red_flags.append(
-                {
-                    "severity": "fail",
-                    "gate": "T2",
-                    "message": (
-                        f"{item['column']}={item['value']} has positive_rate "
-                        f"{item['positive_rate']:.1%}, lift {item['lift']:.1f}x "
-                        f"(n={item['count']:,})."
-                    ),
-                }
-            )
-            if len([flag for flag in red_flags if flag["gate"] == "T2"]) >= 10:
-                break
 
     if split_drift:
         non_id_js = [item["js_divergence"] for item in split_drift if not item["is_id"]]
@@ -1716,6 +1983,7 @@ def audit(config: dict[str, object], thresholds: dict[str, object]) -> dict[str,
         "split_drift_top": split_drift[:25],
         "baselines": baselines,
         "thresholds": thresholds,
+        "reference_model": reference_model,
         "tests": tests,
         "red_flags": red_flags,
     }
@@ -1744,6 +2012,7 @@ def metric_line(name: str, metric: dict[str, object]) -> str:
     return (
         f"- {name}: ROC-AUC {number(metric.get('roc_auc'))}, "
         f"PR-AUC {number(metric.get('average_precision'))}, "
+        f"Best F1 {number(metric.get('best_f1'))}, "
         f"Top 1% P={pct(top1.get('precision'))}, R={pct(top1.get('recall'))}"
     )
 
@@ -1764,6 +2033,18 @@ def render_markdown(result: dict[str, object]) -> str:
         f"- Label-conflict rows excluding label: {profile['label_conflict_rows_excluding_label']:,}",
         "",
     ]
+    if result.get("reference_model"):
+        model = result["reference_model"]
+        lines.extend(
+            [
+                "## Reference Model",
+                "",
+                f"- Type: `{model.get('model_type')}`",
+                f"- Alpha: {number(model.get('alpha'))}",
+                f"- Weight clip: {number(model.get('weight_clip'))}",
+                "",
+            ]
+        )
     if result.get("label_alignment"):
         alignment = result["label_alignment"]
         lines.extend(
@@ -1871,12 +2152,14 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Fraud dataset validity harness")
     parser.add_argument("--config", required=True, type=Path)
     parser.add_argument("--thresholds", type=Path, default=None)
+    parser.add_argument("--reference-model", type=Path, default=None)
     parser.add_argument("--out", required=True, type=Path)
     args = parser.parse_args()
 
     config = load_config(args.config)
     thresholds = load_thresholds(args.thresholds)
-    result = audit(config, thresholds)
+    reference_model = load_reference_model(args.reference_model)
+    result = audit(config, thresholds, reference_model)
     args.out.mkdir(parents=True, exist_ok=True)
     (args.out / "audit.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2),

@@ -1963,120 +1963,6 @@
     }
   ],
   "numeric_profiles": {
-    "카드이용한도금액": {
-      "count": 1952711,
-      "distinct": 4,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 0.0,
-      "p25": 1000000.0,
-      "p50": 5000000.0,
-      "p75": 10000000.0,
-      "p95": 10000000.0,
-      "p99": 10000000.0,
-      "max": 10000000.0,
-      "mean": 4496294.638581951,
-      "top_values": [
-        {
-          "value": 5000000.0,
-          "count": 561772,
-          "share": 0.28768824470185295
-        },
-        {
-          "value": 10000000.0,
-          "count": 557681,
-          "share": 0.28559320862124504
-        },
-        {
-          "value": 0.0,
-          "count": 438964,
-          "share": 0.22479721781666617
-        },
-        {
-          "value": 1000000.0,
-          "count": 394294,
-          "share": 0.20192132886023584
-        }
-      ],
-      "top1_share": 0.28768824470185295,
-      "top10_share": 1.0,
-      "multiple_100_share": 1.0,
-      "multiple_1000_share": 1.0,
-      "zero_count": 438964,
-      "negative_count": 0
-    },
-    "전월_매출건수": {
-      "count": 1937551,
-      "distinct": 123657,
-      "min": -3078.0,
-      "p01": 19.0,
-      "p05": 37.0,
-      "p25": 57.0,
-      "p50": 338.0,
-      "p75": 1368.0,
-      "p95": 143031.0,
-      "p99": 1597241.0,
-      "max": 1853135.0,
-      "mean": 50184.403486669515,
-      "top_values": [
-        {
-          "value": 57.0,
-          "count": 28916,
-          "share": 0.01492399425873177
-        },
-        {
-          "value": 55.0,
-          "count": 28869,
-          "share": 0.014899736832733693
-        },
-        {
-          "value": 56.0,
-          "count": 28767,
-          "share": 0.014847093057163398
-        },
-        {
-          "value": 58.0,
-          "count": 28487,
-          "share": 0.014702580732068472
-        },
-        {
-          "value": 54.0,
-          "count": 28392,
-          "share": 0.01465354976462555
-        },
-        {
-          "value": 59.0,
-          "count": 27490,
-          "share": 0.01418801363164118
-        },
-        {
-          "value": 53.0,
-          "count": 27323,
-          "share": 0.014101822352030991
-        },
-        {
-          "value": 60.0,
-          "count": 26515,
-          "share": 0.013684801071042776
-        },
-        {
-          "value": 52.0,
-          "count": 26338,
-          "share": 0.01359344863696491
-        },
-        {
-          "value": 51.0,
-          "count": 25102,
-          "share": 0.012955529944760165
-        }
-      ],
-      "top1_share": 0.01492399425873177,
-      "top10_share": 0.1425505702817629,
-      "multiple_100_share": 0.010153539184258892,
-      "multiple_1000_share": 0.005321150256173902,
-      "zero_count": 9862,
-      "negative_count": 493
-    },
     "통합승인금액": {
       "count": 1952871,
       "distinct": 1931,
@@ -2147,6 +2033,48 @@
       "multiple_100_share": 1.0,
       "multiple_1000_share": 1.0,
       "zero_count": 2870,
+      "negative_count": 0
+    },
+    "카드이용한도금액": {
+      "count": 1952711,
+      "distinct": 4,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 1000000.0,
+      "p50": 5000000.0,
+      "p75": 10000000.0,
+      "p95": 10000000.0,
+      "p99": 10000000.0,
+      "max": 10000000.0,
+      "mean": 4496294.638581951,
+      "top_values": [
+        {
+          "value": 5000000.0,
+          "count": 561772,
+          "share": 0.28768824470185295
+        },
+        {
+          "value": 10000000.0,
+          "count": 557681,
+          "share": 0.28559320862124504
+        },
+        {
+          "value": 0.0,
+          "count": 438964,
+          "share": 0.22479721781666617
+        },
+        {
+          "value": 1000000.0,
+          "count": 394294,
+          "share": 0.20192132886023584
+        }
+      ],
+      "top1_share": 0.28768824470185295,
+      "top10_share": 1.0,
+      "multiple_100_share": 1.0,
+      "multiple_1000_share": 1.0,
+      "zero_count": 438964,
       "negative_count": 0
     },
     "전월_매출금액": {
@@ -2220,6 +2148,78 @@
       "multiple_1000_share": 1.0,
       "zero_count": 9,
       "negative_count": 1054
+    },
+    "전월_매출건수": {
+      "count": 1937551,
+      "distinct": 123657,
+      "min": -3078.0,
+      "p01": 19.0,
+      "p05": 37.0,
+      "p25": 57.0,
+      "p50": 338.0,
+      "p75": 1368.0,
+      "p95": 143031.0,
+      "p99": 1597241.0,
+      "max": 1853135.0,
+      "mean": 50184.403486669515,
+      "top_values": [
+        {
+          "value": 57.0,
+          "count": 28916,
+          "share": 0.01492399425873177
+        },
+        {
+          "value": 55.0,
+          "count": 28869,
+          "share": 0.014899736832733693
+        },
+        {
+          "value": 56.0,
+          "count": 28767,
+          "share": 0.014847093057163398
+        },
+        {
+          "value": 58.0,
+          "count": 28487,
+          "share": 0.014702580732068472
+        },
+        {
+          "value": 54.0,
+          "count": 28392,
+          "share": 0.01465354976462555
+        },
+        {
+          "value": 59.0,
+          "count": 27490,
+          "share": 0.01418801363164118
+        },
+        {
+          "value": 53.0,
+          "count": 27323,
+          "share": 0.014101822352030991
+        },
+        {
+          "value": 60.0,
+          "count": 26515,
+          "share": 0.013684801071042776
+        },
+        {
+          "value": 52.0,
+          "count": 26338,
+          "share": 0.01359344863696491
+        },
+        {
+          "value": 51.0,
+          "count": 25102,
+          "share": 0.012955529944760165
+        }
+      ],
+      "top1_share": 0.01492399425873177,
+      "top10_share": 0.1425505702817629,
+      "multiple_100_share": 0.010153539184258892,
+      "multiple_1000_share": 0.005321150256173902,
+      "zero_count": 9862,
+      "negative_count": 493
     },
     "경과일수_최종이용일자": {
       "count": 1952683,
@@ -3402,17 +3402,17 @@
     {
       "column": "통합승인금액",
       "is_id": false,
-      "overlap": 0.21035464949233365
+      "overlap": 0.21035464949233362
     },
     {
       "column": "가맹점KEY",
       "is_id": true,
-      "overlap": 0.360902285738227
+      "overlap": 0.3609022857382269
     },
     {
       "column": "가맹점승인업종코드",
       "is_id": false,
-      "overlap": 0.46328121694966873
+      "overlap": 0.46328121694966856
     },
     {
       "column": "가맹점누적매출금액_구간화",
@@ -3427,12 +3427,12 @@
     {
       "column": "카드KEY",
       "is_id": true,
-      "overlap": 0.5196851094421351
+      "overlap": 0.5196851094421354
     },
     {
       "column": "전월_매출금액",
       "is_id": false,
-      "overlap": 0.5962321571782714
+      "overlap": 0.5962321571782715
     },
     {
       "column": "개인법인구분코드_가맹점",
@@ -3442,12 +3442,12 @@
     {
       "column": "일시불할부구분코드",
       "is_id": false,
-      "overlap": 0.668466050524491
+      "overlap": 0.6684660505244912
     },
     {
       "column": "가맹점광역시도코드",
       "is_id": false,
-      "overlap": 0.6839812416628762
+      "overlap": 0.6839812416628763
     },
     {
       "column": "승인거래코드",
@@ -3462,7 +3462,7 @@
     {
       "column": "승인시간대",
       "is_id": false,
-      "overlap": 0.792145101873877
+      "overlap": 0.7921451018738771
     },
     {
       "column": "남녀구분코드",
@@ -3472,22 +3472,22 @@
     {
       "column": "승인SEQ",
       "is_id": true,
-      "overlap": 0.8515041884010864
+      "overlap": 0.8515041884010867
     },
     {
       "column": "연령",
       "is_id": false,
-      "overlap": 0.8651754910323028
+      "overlap": 0.8651754910323026
     },
     {
       "column": "승인일자",
       "is_id": false,
-      "overlap": 0.9107907509818506
+      "overlap": 0.9107907509818499
     },
     {
       "column": "할부가능개월수",
       "is_id": false,
-      "overlap": 0.9278511152736669
+      "overlap": 0.9278511152736668
     },
     {
       "column": "카드구분코드",
@@ -3502,7 +3502,7 @@
     {
       "column": "기준년월",
       "is_id": false,
-      "overlap": 0.9417691872357521
+      "overlap": 0.9417691872357523
     },
     {
       "column": "가맹점형태구분코드",
@@ -3548,67 +3548,67 @@
     {
       "column": "전월_매출금액",
       "is_id": false,
-      "js_divergence": 0.20486219574926515
+      "js_divergence": 0.20486219574926803
     },
     {
       "column": "전월_매출건수",
       "is_id": false,
-      "js_divergence": 0.08100747249410326
+      "js_divergence": 0.08100747249410334
     },
     {
       "column": "가맹점KEY",
       "is_id": true,
-      "js_divergence": 0.00944155644755994
+      "js_divergence": 0.009441556447559911
     },
     {
       "column": "카드KEY",
       "is_id": true,
-      "js_divergence": 0.0026447665531539304
+      "js_divergence": 0.0026447665531539348
     },
     {
       "column": "통합승인금액",
       "is_id": false,
-      "js_divergence": 0.0018859648568841645
+      "js_divergence": 0.001885964856884165
     },
     {
       "column": "승인일자",
       "is_id": false,
-      "js_divergence": 0.0013981879338489421
+      "js_divergence": 0.0013981879338489404
     },
     {
       "column": "가맹점승인업종코드",
       "is_id": false,
-      "js_divergence": 0.0005135659725774059
+      "js_divergence": 0.0005135659725774057
     },
     {
       "column": "승인SEQ",
       "is_id": true,
-      "js_divergence": 0.0003315204288770257
+      "js_divergence": 0.0003315204288770254
     },
     {
       "column": "경과일수_최종이용일자",
       "is_id": false,
-      "js_divergence": 4.073436276496988e-05
+      "js_divergence": 4.073436276496989e-05
     },
     {
       "column": "기준년월",
       "is_id": false,
-      "js_divergence": 3.7456889445277225e-05
+      "js_divergence": 3.745688944527724e-05
     },
     {
       "column": "가맹점광역시도코드",
       "is_id": false,
-      "js_divergence": 1.8523296222184476e-05
+      "js_divergence": 1.852329622218452e-05
     },
     {
       "column": "승인시간대",
       "is_id": false,
-      "js_divergence": 1.5029169540314792e-05
+      "js_divergence": 1.5029169540314887e-05
     },
     {
       "column": "할부가능개월수",
       "is_id": false,
-      "js_divergence": 1.2746413444718999e-05
+      "js_divergence": 1.2746413444719027e-05
     },
     {
       "column": "연령",
@@ -3628,7 +3628,7 @@
     {
       "column": "가맹점형태구분코드",
       "is_id": false,
-      "js_divergence": 2.2379080623368167e-06
+      "js_divergence": 2.2379080623367896e-06
     },
     {
       "column": "승인발생경로코드",
@@ -3638,22 +3638,22 @@
     {
       "column": "승인거래코드",
       "is_id": false,
-      "js_divergence": 1.3985089303171997e-06
+      "js_divergence": 1.3985089303171895e-06
     },
     {
       "column": "카드이용한도금액",
       "is_id": false,
-      "js_divergence": 1.0283803853914297e-06
+      "js_divergence": 1.0283803853914161e-06
     },
     {
       "column": "개인법인구분코드_가맹점",
       "is_id": false,
-      "js_divergence": 8.695550219520984e-07
+      "js_divergence": 8.695550219521119e-07
     },
     {
       "column": "카드구분코드",
       "is_id": false,
-      "js_divergence": 7.738897731045565e-07
+      "js_divergence": 7.738897731045548e-07
     },
     {
       "column": "국내해외여부",
@@ -3678,6 +3678,7 @@
       "prevalence": 0.03687334666752694,
       "roc_auc": 0.9750543718820084,
       "average_precision": 0.712592277128671,
+      "best_f1": 0.6385057091941126,
       "topk": {
         "top_0.1%": {
           "k": 217,
@@ -3725,6 +3726,7 @@
       "prevalence": 0.03687334666752694,
       "roc_auc": 0.9076832666294969,
       "average_precision": 0.48183161265872393,
+      "best_f1": 0.4990022615405082,
       "topk": {
         "top_0.1%": {
           "k": 217,
@@ -3772,6 +3774,7 @@
       "prevalence": 0.03687334666752694,
       "roc_auc": 0.9732740695017497,
       "average_precision": 0.6986526896350136,
+      "best_f1": 0.6253838921968035,
       "topk": {
         "top_0.1%": {
           "k": 217,
@@ -3819,6 +3822,7 @@
       "prevalence": 0.03687334666752694,
       "roc_auc": 0.9518920983143729,
       "average_precision": 0.6368664755662958,
+      "best_f1": 0.7202980543673244,
       "topk": {
         "top_0.1%": {
           "k": 217,
@@ -3866,6 +3870,7 @@
       "prevalence": 0.034888125609169575,
       "roc_auc": 0.9740878845510028,
       "average_precision": 0.7009403957589,
+      "best_f1": 0.6285858553981127,
       "topk": {
         "top_0.1%": {
           "k": 470,
@@ -3904,7 +3909,8 @@
         }
       },
       "date_col": "승인일자",
-      "test_year": "2024",
+      "temporal_granularity": "year",
+      "test_period": "2024",
       "train_rows": 1482969,
       "train_positives": 55614,
       "train_prevalence": 0.03750179538479901
@@ -3915,6 +3921,7 @@
       "prevalence": 0.034888125609169575,
       "roc_auc": 0.9558220428249073,
       "average_precision": 0.6494610174421134,
+      "best_f1": 0.7197760939313264,
       "topk": {
         "top_0.1%": {
           "k": 470,
@@ -3953,7 +3960,8 @@
         }
       },
       "date_col": "승인일자",
-      "test_year": "2024",
+      "temporal_granularity": "year",
+      "test_period": "2024",
       "train_rows": 1482969,
       "train_positives": 55614,
       "train_prevalence": 0.03750179538479901
@@ -3964,6 +3972,7 @@
       "prevalence": 0.036770303775432986,
       "roc_auc": 0.975061061901663,
       "average_precision": 0.706346124563845,
+      "best_f1": 0.6327728584220476,
       "topk": {
         "top_0.1%": {
           "k": 440,
@@ -4013,6 +4022,7 @@
       "prevalence": 0.036770303775432986,
       "roc_auc": 0.9048271765983689,
       "average_precision": 0.4808724459180713,
+      "best_f1": 0.49926086528037844,
       "topk": {
         "top_0.1%": {
           "k": 440,
@@ -4069,12 +4079,16 @@
     "t1_amount_only_baseline": {
       "fail_if_roc_auc_gte": 0.95,
       "fail_if_average_precision_ratio_gte": 0.8,
-      "fail_if_best_threshold_f1_gte": 0.7
+      "fail_if_best_threshold_f1_gte": 0.7,
+      "fail_if_best_threshold_f1_ratio_gte": 0.8
     },
     "t2_single_feature_shortcut": {
       "fail_if_positive_rate_gte": 0.5,
       "fail_if_lift_gte": 20.0,
-      "warn_if_recall_gte": 0.2
+      "fail_if_recall_gte_with_lift": 0.1,
+      "fail_if_recall_lift_gte": 5.0,
+      "warn_if_recall_gte": 0.2,
+      "warn_if_recall_lift_gte": 3.0
     },
     "t3_distribution_overlap": {
       "fail_if_overlap_lte": 0.05,
@@ -4085,8 +4099,8 @@
       "warn_if_id_only_ap_ratio_gte": 0.5,
       "fail_if_id_only_ap_lift_gte": 3.0,
       "warn_if_id_only_ap_lift_gte": 1.5,
-      "fail_if_entity_holdout_ap_ratio_lte": 0.5,
-      "warn_if_entity_holdout_ap_ratio_lte": 0.75
+      "fail_if_entity_holdout_ap_lift_ratio_lte": 0.5,
+      "warn_if_entity_holdout_ap_lift_ratio_lte": 0.75
     },
     "t5_zero_fraud_region": {
       "fail_if_row_share_gte": 0.9,
@@ -4099,12 +4113,14 @@
       "warn_if_label_conflict_rows_gte": 0.0
     },
     "t7_temporal_degradation": {
-      "fail_if_temporal_ap_ratio_lte": 0.5,
-      "warn_if_temporal_ap_ratio_lte": 0.75
+      "fail_if_temporal_ap_lift_ratio_lte": 0.5,
+      "warn_if_temporal_ap_lift_ratio_lte": 0.75
     },
     "t8_leakage_review": {
       "fail_on_feature_name_patterns": true,
-      "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)"
+      "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)",
+      "warn_on_entity_aggregate_names": true,
+      "entity_aggregate_name_pattern": "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)"
     },
     "t9_cardinality_sanity": {
       "fail_if_amount_distinct_lte": 100,
@@ -4121,6 +4137,17 @@
     },
     "split_drift": {
       "warn_if_max_non_id_js_lte": null
+    }
+  },
+  "reference_model": {
+    "version": "0.1",
+    "model_type": "evidence_naive_bayes",
+    "alpha": 1.0,
+    "weight_clip": 4.0,
+    "tokenization": {
+      "categorical": "exact normalized values",
+      "numeric": "signed log10 bucket of abs(x)+1 with 8 buckets per order",
+      "dates": "month and day tokens"
     }
   },
   "tests": [
@@ -4176,15 +4203,33 @@
       "id": "T1.3",
       "name": "Best one-sided amount threshold",
       "status": "FAIL",
-      "metric": 0.7180452282922632,
-      "threshold": ">= 0.7",
-      "details": "Best threshold rule: 통합승인금액: amount >= 318000."
+      "metric": {
+        "f1": 0.7180452282922632,
+        "f1_ratio": 1.1245713514426379
+      },
+      "threshold": "F1 >= 0.7 and ratio >= 0.8",
+      "details": "Best threshold rule: 통합승인금액: amount >= 318000; ratio compares against the no-ID baseline's best score-threshold F1."
+    },
+    {
+      "id": "T2",
+      "name": "Single-feature shortcut",
+      "status": "FAIL",
+      "metric": {
+        "column": "가맹점누적매출금액_구간화",
+        "value": "3",
+        "count": 182758,
+        "positive_rate": 0.22922115584543495,
+        "recall": 0.5817686923675147,
+        "lift": 6.2165224396876795
+      },
+      "threshold": "recall >= 0.1 and lift >= 5.0",
+      "details": "Recall-weighted shortcut: 가맹점누적매출금액_구간화=3 has positive_rate 22.9%, lift 6.2x, recall 58.2% (n=182,758)."
     },
     {
       "id": "T3",
       "name": "Class distribution overlap",
       "status": "PASS",
-      "metric": 0.21035464949233365,
+      "metric": 0.21035464949233362,
       "threshold": "> 0.2",
       "details": "Lowest checked overlap is 0.2104 on 통합승인금액."
     },
@@ -4203,9 +4248,14 @@
       "id": "T4.2",
       "name": "Entity-holdout degradation",
       "status": "PASS",
-      "metric": 0.9912346053061446,
+      "metric": {
+        "ap_lift_ratio": 0.9940123816633417,
+        "raw_ap_ratio": 0.9912346053061446,
+        "provided_prevalence": 0.03687334666752694,
+        "holdout_prevalence": 0.036770303775432986
+      },
       "threshold": "> 0.75",
-      "details": "Compares entity-holdout no-ID average precision to provided-split no-ID average precision."
+      "details": "Compares prevalence-normalized AP-lift on entity holdout against the provided split."
     },
     {
       "id": "T5",
@@ -4235,9 +4285,14 @@
       "id": "T7",
       "name": "Temporal split degradation",
       "status": "PASS",
-      "metric": 0.9836485999866273,
+      "metric": {
+        "ap_lift_ratio": 1.0396206500930953,
+        "raw_ap_ratio": 0.9836485999866273,
+        "provided_prevalence": 0.03687334666752694,
+        "temporal_prevalence": 0.034888125609169575
+      },
       "threshold": "> 0.75",
-      "details": "Compares temporal no-ID average precision to provided-split no-ID average precision."
+      "details": "Compares prevalence-normalized AP-lift on temporal holdout against the provided split."
     },
     {
       "id": "T8.1",
@@ -4254,6 +4309,14 @@
       "metric": null,
       "threshold": null,
       "details": "No suspicious label/post-outcome feature names were found."
+    },
+    {
+      "id": "T8.3",
+      "name": "Entity aggregate feature names",
+      "status": "PASS",
+      "metric": null,
+      "threshold": null,
+      "details": "No entity-level aggregate rate/risk/score feature names were found."
     },
     {
       "id": "T9.1",
@@ -4317,7 +4380,12 @@
     {
       "severity": "fail",
       "gate": "T1.3",
-      "message": "Best threshold rule: 통합승인금액: amount >= 318000."
+      "message": "Best threshold rule: 통합승인금액: amount >= 318000; ratio compares against the no-ID baseline's best score-threshold F1."
+    },
+    {
+      "severity": "fail",
+      "gate": "T2",
+      "message": "Recall-weighted shortcut: 가맹점누적매출금액_구간화=3 has positive_rate 22.9%, lift 6.2x, recall 58.2% (n=182,758)."
     },
     {
       "severity": "warn",
@@ -4333,26 +4401,6 @@
       "severity": "warn",
       "gate": "T9.3",
       "message": "통합승인금액 values are multiples of 1,000 for 100.00% of rows."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "일시불할부구분코드=B has positive_rate 97.8%, lift 26.5x (n=24,440)."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "승인거래코드=1 has positive_rate 90.8%, lift 24.6x (n=18,239)."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "통합승인금액=1546000 has positive_rate 84.6%, lift 22.9x (n=104)."
-    },
-    {
-      "severity": "fail",
-      "gate": "T2",
-      "message": "통합승인금액=1478000 has positive_rate 79.0%, lift 21.4x (n=100)."
     }
   ]
 }

@@ -5,6 +5,7 @@
   "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
   "leak_cols": ["이상거래유형", "이상거래설명"],
   "id_cols": ["승인SEQ", "카드KEY", "가맹점KEY"],
+  "entity_holdout_col": "카드KEY",
   "date_cols": ["기준년월", "승인일자"],
   "amount_cols": ["통합승인금액"],
   "numeric_cols": [

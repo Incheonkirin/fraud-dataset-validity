@@ -19,7 +19,8 @@ score requires learning fraud behavior rather than exposed shortcuts.
 - `positive_values`: values treated as positive labels
 - `leak_cols`: label explanations or fields unavailable at decision time
 - `id_cols`: account, card, user, merchant, transaction, or sequence IDs
-- `entity_holdout_col`: optional entity used for deterministic cold-start holdout
+- `entity_holdout_col`: optional, explicitly selected repeated entity used for
+  deterministic cold-start holdout; row or transaction identifiers are invalid
 - `date_cols`: event dates or timestamps
 - `amount_cols`: monetary fields for amount-specific checks
 - `overlap_cols`: optional important columns for distribution-overlap checks
@@ -93,8 +94,9 @@ Default warning:
 ### T4. ID Memorization
 
 Compares ID-only performance to no-ID performance and evaluates deterministic
-entity holdout when an entity column exists. Entity-holdout degradation uses
-AP-lift, defined as average precision divided by fraud prevalence, before
+entity holdout only when an explicit repeated entity column exists. Unique row
+identifiers do not produce an entity-holdout result. Entity-holdout degradation
+uses AP-lift, defined as average precision divided by fraud prevalence, before
 ratio-ing across test sets.
 
 Default fail:

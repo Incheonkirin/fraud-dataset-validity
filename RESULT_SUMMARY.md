@@ -26,7 +26,7 @@ Key failures and warnings:
 - `T1.1`: amount-only ROC-AUC is `0.9519`. This is marginal against the `0.95`
   threshold; the card verdict does not depend on this gate alone.
 - `T1.2` sensitivity: the stdlib screening threshold is crossed, but the
-  LightGBM amount/no-ID PR-AUC ratio is `0.6683` and passes. Do not use T1.2 as
+  LightGBM amount/no-ID PR-AUC ratio is `0.6631` and passes. Do not use T1.2 as
   public evidence.
 - `T1.3` sensitivity: the training-selected `통합승인금액 >= 318000` rule
   reaches validation F1 `0.7204`, but only `0.7498x` the LightGBM best F1 and
@@ -48,14 +48,17 @@ Key failures:
 - `T0.1`: source-cited distributed scripts concatenate supplied splits and
   perform a new random stratified split.
 - `T1.1`: amount-only ROC-AUC is `0.9969`.
-- `T1.2` sensitivity: the LightGBM amount/no-ID PR-AUC ratio is `0.7466` and
+- `T1.2` sensitivity: the LightGBM amount/no-ID PR-AUC ratio is `0.7195` and
   passes. The stdlib ratio is not used as public evidence.
 - `T2`: `거래금액=4000000` alone captures `30.05%` of fraud rows with `88.13x`
   lift.
 - `T3`: `거래금액` class-distribution overlap is only `0.0065`.
 - `T5`: `거래금액 <= 1,000,000` covers `4,388,368` rows, or `98.97%`
   of the dataset, with zero positives.
-- `T6.1`: duplicate feature rows excluding label account for `1.365%` of rows.
+- `T6.1`: duplicate feature rows excluding labels and configured IDs account for
+  `52.30%` of rows (`2,319,072` rows).
+- `T6.2`: `1,399` rows belong to identical non-ID feature groups with mixed
+  labels.
 - `T9.1`: `거래금액` has only `48` distinct values.
 - `T9.2`: the top 10 `거래금액` values cover `98.05%` of rows.
 - `T9.3`: `거래금액` is rounded to 1,000-unit multiples for `99.91%` of rows.
@@ -64,7 +67,7 @@ Key failures:
 
 The same protocol yields a graded comparison:
 
-- `K-Claims-Synth v0.2`: `PASS`
+- `K-Claims-Synth v0.3` test fixture: wiring checks `PASS`; external realism untested
 - ULB Credit Card Fraud: `WARN`
 - BAF Base: `WARN`
 - AI Hub Card: `FAIL`

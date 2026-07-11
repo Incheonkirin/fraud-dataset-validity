@@ -1,215 +1,215 @@
 {
   "name": "k_claims_synth",
-  "title": "K-Claims-Synth v0.2",
+  "title": "K-Claims-Synth v0.3",
   "config_path": "configs/k_claims_synth.json",
   "verdict": "PASS",
   "row_profile": {
     "rows": 100000,
-    "positives": 1753,
-    "prevalence": 0.01753,
+    "positives": 3274,
+    "prevalence": 0.03274,
     "duplicate_full_rows": 0,
-    "duplicate_rows_excluding_label": 0,
-    "label_conflict_rows_excluding_label": 0,
+    "duplicate_rows_excluding_label_and_ids": 0,
+    "label_conflict_rows_excluding_label_and_ids": 0,
     "date_by_year": {
       "2024": {
-        "rows": 49998,
-        "positives": 846,
-        "prevalence": 0.016920676827073083
+        "rows": 49997,
+        "positives": 1376,
+        "prevalence": 0.027521651299077944
       },
       "2025": {
-        "rows": 50002,
-        "positives": 907,
-        "prevalence": 0.01813927442902284
+        "rows": 50003,
+        "positives": 1898,
+        "prevalence": 0.0379577225366478
       }
     },
     "date_by_month": {
       "202401": {
-        "rows": 4129,
-        "positives": 76,
-        "prevalence": 0.018406393799951563
+        "rows": 4122,
+        "positives": 49,
+        "prevalence": 0.011887433284813197
       },
       "202402": {
-        "rows": 3939,
-        "positives": 53,
-        "prevalence": 0.013455191673013456
+        "rows": 3968,
+        "positives": 69,
+        "prevalence": 0.017389112903225805
       },
       "202403": {
-        "rows": 4258,
-        "positives": 60,
-        "prevalence": 0.014091122592766557
+        "rows": 4244,
+        "positives": 70,
+        "prevalence": 0.01649387370405278
       },
       "202404": {
-        "rows": 4108,
-        "positives": 68,
-        "prevalence": 0.016553067185978577
+        "rows": 4105,
+        "positives": 87,
+        "prevalence": 0.021193666260657735
       },
       "202405": {
-        "rows": 4246,
-        "positives": 62,
-        "prevalence": 0.01460197833254828
+        "rows": 4255,
+        "positives": 128,
+        "prevalence": 0.03008225616921269
       },
       "202406": {
-        "rows": 4113,
-        "positives": 75,
-        "prevalence": 0.01823486506199854
+        "rows": 4110,
+        "positives": 119,
+        "prevalence": 0.028953771289537713
       },
       "202407": {
-        "rows": 4257,
-        "positives": 67,
-        "prevalence": 0.015738783180643645
+        "rows": 4250,
+        "positives": 123,
+        "prevalence": 0.028941176470588234
       },
       "202408": {
-        "rows": 4246,
-        "positives": 71,
-        "prevalence": 0.016721620348563355
+        "rows": 4227,
+        "positives": 137,
+        "prevalence": 0.032410693162999764
       },
       "202409": {
-        "rows": 4118,
-        "positives": 73,
-        "prevalence": 0.017727051966974258
+        "rows": 4116,
+        "positives": 130,
+        "prevalence": 0.03158406219630709
       },
       "202410": {
-        "rows": 4241,
-        "positives": 83,
-        "prevalence": 0.01957085593020514
+        "rows": 4246,
+        "positives": 151,
+        "prevalence": 0.03556288271314178
       },
       "202411": {
-        "rows": 4100,
-        "positives": 78,
-        "prevalence": 0.01902439024390244
+        "rows": 4109,
+        "positives": 159,
+        "prevalence": 0.03869554636164517
       },
       "202412": {
-        "rows": 4243,
-        "positives": 80,
-        "prevalence": 0.018854584020740042
+        "rows": 4245,
+        "positives": 154,
+        "prevalence": 0.036277974087161366
       },
       "202501": {
-        "rows": 4242,
-        "positives": 75,
-        "prevalence": 0.01768033946251768
+        "rows": 4252,
+        "positives": 145,
+        "prevalence": 0.03410159924741298
       },
       "202502": {
-        "rows": 3846,
-        "positives": 52,
-        "prevalence": 0.013520540821632865
+        "rows": 3828,
+        "positives": 156,
+        "prevalence": 0.04075235109717868
       },
       "202503": {
-        "rows": 4254,
-        "positives": 80,
-        "prevalence": 0.018805829807240243
+        "rows": 4263,
+        "positives": 155,
+        "prevalence": 0.03635937133474079
       },
       "202504": {
-        "rows": 4096,
-        "positives": 78,
-        "prevalence": 0.01904296875
+        "rows": 4101,
+        "positives": 162,
+        "prevalence": 0.03950256035113387
       },
       "202505": {
         "rows": 4253,
-        "positives": 65,
-        "prevalence": 0.01528332941453092
+        "positives": 167,
+        "prevalence": 0.03926640018810251
       },
       "202506": {
-        "rows": 4093,
-        "positives": 84,
-        "prevalence": 0.02052284387979477
+        "rows": 4084,
+        "positives": 134,
+        "prevalence": 0.03281096963761019
       },
       "202507": {
-        "rows": 4282,
-        "positives": 66,
-        "prevalence": 0.015413358243811303
+        "rows": 4264,
+        "positives": 171,
+        "prevalence": 0.040103189493433396
       },
       "202508": {
-        "rows": 4223,
-        "positives": 94,
-        "prevalence": 0.02225905754203173
+        "rows": 4249,
+        "positives": 162,
+        "prevalence": 0.03812661802777124
       },
       "202509": {
-        "rows": 4109,
-        "positives": 68,
-        "prevalence": 0.016549038695546362
+        "rows": 4118,
+        "positives": 185,
+        "prevalence": 0.044924720738222436
       },
       "202510": {
-        "rows": 4238,
-        "positives": 84,
-        "prevalence": 0.019820670127418595
+        "rows": 4232,
+        "positives": 152,
+        "prevalence": 0.035916824196597356
       },
       "202511": {
-        "rows": 4125,
-        "positives": 89,
-        "prevalence": 0.021575757575757575
+        "rows": 4110,
+        "positives": 153,
+        "prevalence": 0.03722627737226277
       },
       "202512": {
-        "rows": 4241,
-        "positives": 72,
-        "prevalence": 0.016977128035840602
+        "rows": 4249,
+        "positives": 156,
+        "prevalence": 0.03671452106377971
       }
     }
   },
   "split_stats": {
     "train": {
-      "rows": 52231,
-      "positives": 916,
-      "prevalence": 0.017537477743102756,
+      "rows": 52150,
+      "positives": 1593,
+      "prevalence": 0.030546500479386385,
       "missing_rate_top": [],
       "by_year": {
         "2024": {
-          "rows": 34893,
-          "positives": 609,
-          "prevalence": 0.017453357406929756
+          "rows": 34850,
+          "positives": 952,
+          "prevalence": 0.027317073170731707
         },
         "2025": {
-          "rows": 17338,
-          "positives": 307,
-          "prevalence": 0.017706771253893184
+          "rows": 17300,
+          "positives": 641,
+          "prevalence": 0.037052023121387286
         }
       }
     },
     "valid": {
-      "rows": 15071,
-      "positives": 226,
-      "prevalence": 0.014995687081149227,
+      "rows": 15038,
+      "positives": 469,
+      "prevalence": 0.0311876579332358,
       "missing_rate_top": [],
       "by_year": {
         "2024": {
-          "rows": 10030,
-          "positives": 142,
-          "prevalence": 0.01415752741774676
+          "rows": 10035,
+          "positives": 278,
+          "prevalence": 0.027703039362232187
         },
         "2025": {
-          "rows": 5041,
-          "positives": 84,
-          "prevalence": 0.01666336044435628
+          "rows": 5003,
+          "positives": 191,
+          "prevalence": 0.03817709374375375
         }
       }
     },
     "test_temporal": {
-      "rows": 22675,
-      "positives": 429,
-      "prevalence": 0.018919514884233737,
+      "rows": 22651,
+      "positives": 886,
+      "prevalence": 0.03911527084896914,
       "missing_rate_top": [],
       "by_year": {
         "2025": {
-          "rows": 22675,
-          "positives": 429,
-          "prevalence": 0.018919514884233737
+          "rows": 22651,
+          "positives": 886,
+          "prevalence": 0.03911527084896914
         }
       }
     },
     "test_entity_holdout": {
-      "rows": 10023,
-      "positives": 182,
-      "prevalence": 0.018158236057068743,
+      "rows": 10161,
+      "positives": 326,
+      "prevalence": 0.03208345635272119,
       "missing_rate_top": [],
       "by_year": {
         "2024": {
-          "rows": 5075,
-          "positives": 95,
-          "prevalence": 0.0187192118226601
+          "rows": 5112,
+          "positives": 146,
+          "prevalence": 0.028560250391236306
         },
         "2025": {
-          "rows": 4948,
-          "positives": 87,
-          "prevalence": 0.017582861762328213
+          "rows": 5049,
+          "positives": 180,
+          "prevalence": 0.035650623885918005
         }
       }
     }
@@ -217,17 +217,17 @@
   "label_alignment": {
     "observed_label_col": "observed_fraud_label",
     "oracle_label_col": "oracle_fraud_label",
-    "noise_rate": 0.01047,
-    "mismatches": 1047,
-    "observed_positives": 1328,
-    "oracle_positives": 1753,
-    "observed_prevalence": 0.01328,
-    "oracle_prevalence": 0.01753,
+    "noise_rate": 0.01486,
+    "mismatches": 1486,
+    "observed_positives": 2220,
+    "oracle_positives": 3274,
+    "observed_prevalence": 0.0222,
+    "oracle_prevalence": 0.03274,
     "confusion": {
-      "observed_0_oracle_0": 97936,
-      "observed_0_oracle_1": 736,
-      "observed_1_oracle_0": 311,
-      "observed_1_oracle_1": 1017
+      "observed_0_oracle_0": 96510,
+      "observed_0_oracle_1": 1270,
+      "observed_1_oracle_0": 216,
+      "observed_1_oracle_1": 2004
     }
   },
   "columns": [
@@ -243,25 +243,7 @@
       "effective_categories": 99999.99999869734,
       "top_values": [
         {
-          "value": "claim_00000000",
-          "count": 1,
-          "share": 1e-05,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "claim_00000001",
-          "count": 1,
-          "share": 1e-05,
-          "positive_rate": 0.0
-        },
-        {
           "value": "claim_00000002",
-          "count": 1,
-          "share": 1e-05,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "claim_00000003",
           "count": 1,
           "share": 1e-05,
           "positive_rate": 0.0
@@ -279,6 +261,12 @@
           "positive_rate": 0.0
         },
         {
+          "value": "claim_00000006",
+          "count": 1,
+          "share": 1e-05,
+          "positive_rate": 0.0
+        },
+        {
           "value": "claim_00000007",
           "count": 1,
           "share": 1e-05,
@@ -286,6 +274,18 @@
         },
         {
           "value": "claim_00000009",
+          "count": 1,
+          "share": 1e-05,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "claim_00000010",
+          "count": 1,
+          "share": 1e-05,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "claim_00000012",
           "count": 1,
           "share": 1e-05,
           "positive_rate": 0.0
@@ -298,58 +298,58 @@
       "missing_rate": 0.0,
       "distinct": 11110,
       "cardinality_ratio": 0.1111,
-      "top1_share": 0.00023,
-      "top5_share": 0.00106,
-      "entropy": 13.357134214687141,
-      "effective_categories": 10492.960904343272,
+      "top1_share": 0.00022,
+      "top5_share": 0.0011,
+      "entropy": 13.3564807990797,
+      "effective_categories": 10488.20958003911,
       "top_values": [
         {
-          "value": "policy_0010929",
-          "count": 23,
-          "share": 0.00023,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "policy_0003438",
+          "value": "policy_0000681",
           "count": 22,
           "share": 0.00022,
           "positive_rate": 0.0
         },
         {
-          "value": "policy_0010402",
+          "value": "policy_0007469",
+          "count": 22,
+          "share": 0.00022,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "policy_0000062",
+          "count": 22,
+          "share": 0.00022,
+          "positive_rate": 0.09090909090909091
+        },
+        {
+          "value": "policy_0006980",
+          "count": 22,
+          "share": 0.00022,
+          "positive_rate": 0.0
+        },
+        {
+          "value": "policy_0007186",
+          "count": 22,
+          "share": 0.00022,
+          "positive_rate": 0.045454545454545456
+        },
+        {
+          "value": "policy_0000997",
+          "count": 22,
+          "share": 0.00022,
+          "positive_rate": 0.045454545454545456
+        },
+        {
+          "value": "policy_0003601",
           "count": 21,
           "share": 0.00021,
-          "positive_rate": 0.0
+          "positive_rate": 0.047619047619047616
         },
         {
-          "value": "policy_0010839",
-          "count": 20,
-          "share": 0.0002,
-          "positive_rate": 0.05
-        },
-        {
-          "value": "policy_0003985",
-          "count": 20,
-          "share": 0.0002,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "policy_0009330",
-          "count": 20,
-          "share": 0.0002,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "policy_0000048",
-          "count": 20,
-          "share": 0.0002,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "policy_0007571",
-          "count": 20,
-          "share": 0.0002,
-          "positive_rate": 0.0
+          "value": "policy_0011026",
+          "count": 21,
+          "share": 0.00021,
+          "positive_rate": 0.047619047619047616
         }
       ]
     },
@@ -359,58 +359,58 @@
       "missing_rate": 0.0,
       "distinct": 5555,
       "cardinality_ratio": 0.05555,
-      "top1_share": 0.00035,
-      "top5_share": 0.00169,
-      "entropy": 12.400342642024665,
-      "effective_categories": 5405.988179579124,
+      "top1_share": 0.00033,
+      "top5_share": 0.00164,
+      "entropy": 12.400277121250548,
+      "effective_categories": 5405.742669282576,
       "top_values": [
         {
-          "value": "customer_002844",
-          "count": 35,
-          "share": 0.00035,
-          "positive_rate": 0.11428571428571428
+          "value": "customer_002954",
+          "count": 33,
+          "share": 0.00033,
+          "positive_rate": 0.06060606060606061
         },
         {
-          "value": "customer_003614",
-          "count": 35,
-          "share": 0.00035,
-          "positive_rate": 0.0
+          "value": "customer_003558",
+          "count": 33,
+          "share": 0.00033,
+          "positive_rate": 0.06060606060606061
         },
         {
-          "value": "customer_004154",
-          "count": 34,
-          "share": 0.00034,
-          "positive_rate": 0.0
+          "value": "customer_003306",
+          "count": 33,
+          "share": 0.00033,
+          "positive_rate": 0.06060606060606061
         },
         {
-          "value": "customer_004276",
+          "value": "customer_003129",
           "count": 33,
           "share": 0.00033,
           "positive_rate": 0.0
         },
         {
-          "value": "customer_005502",
-          "count": 32,
-          "share": 0.00032,
-          "positive_rate": 0.0
-        },
-        {
-          "value": "customer_000491",
-          "count": 32,
-          "share": 0.00032,
-          "positive_rate": 0.0625
-        },
-        {
-          "value": "customer_003755",
-          "count": 32,
-          "share": 0.00032,
-          "positive_rate": 0.0625
-        },
-        {
-          "value": "customer_003830",
+          "value": "customer_004921",
           "count": 32,
           "share": 0.00032,
           "positive_rate": 0.03125
+        },
+        {
+          "value": "customer_004079",
+          "count": 32,
+          "share": 0.00032,
+          "positive_rate": 0.09375
+        },
+        {
+          "value": "customer_001559",
+          "count": 31,
+          "share": 0.00031,
+          "positive_rate": 0.06451612903225806
+        },
+        {
+          "value": "customer_002061",
+          "count": 31,
+          "share": 0.00031,
+          "positive_rate": 0.22580645161290322
         }
       ]
     },
@@ -420,58 +420,58 @@
       "missing_rate": 0.0,
       "distinct": 714,
       "cardinality_ratio": 0.00714,
-      "top1_share": 0.00188,
-      "top5_share": 0.00908,
-      "entropy": 9.47384618106855,
-      "effective_categories": 711.0692118688896,
+      "top1_share": 0.00181,
+      "top5_share": 0.00876,
+      "entropy": 9.474330084108926,
+      "effective_categories": 711.307755883146,
       "top_values": [
         {
-          "value": "provider_00666",
-          "count": 188,
-          "share": 0.00188,
-          "positive_rate": 0.015957446808510637
-        },
-        {
-          "value": "provider_00123",
-          "count": 183,
-          "share": 0.00183,
-          "positive_rate": 0.02185792349726776
-        },
-        {
-          "value": "provider_00476",
+          "value": "provider_00365",
           "count": 181,
           "share": 0.00181,
-          "positive_rate": 0.049723756906077346
+          "positive_rate": 0.022099447513812154
         },
         {
-          "value": "provider_00566",
-          "count": 179,
-          "share": 0.00179,
-          "positive_rate": 0.00558659217877095
+          "value": "provider_00212",
+          "count": 175,
+          "share": 0.00175,
+          "positive_rate": 0.02857142857142857
         },
         {
-          "value": "provider_00119",
-          "count": 177,
-          "share": 0.00177,
-          "positive_rate": 0.011299435028248588
+          "value": "provider_00340",
+          "count": 174,
+          "share": 0.00174,
+          "positive_rate": 0.04597701149425287
+        },
+        {
+          "value": "provider_00363",
+          "count": 173,
+          "share": 0.00173,
+          "positive_rate": 0.011560693641618497
+        },
+        {
+          "value": "provider_00602",
+          "count": 173,
+          "share": 0.00173,
+          "positive_rate": 0.028901734104046242
+        },
+        {
+          "value": "provider_00419",
+          "count": 170,
+          "share": 0.0017,
+          "positive_rate": 0.041176470588235294
         },
         {
           "value": "provider_00189",
-          "count": 177,
-          "share": 0.00177,
-          "positive_rate": 0.011299435028248588
+          "count": 169,
+          "share": 0.00169,
+          "positive_rate": 0.023668639053254437
         },
         {
-          "value": "provider_00646",
-          "count": 174,
-          "share": 0.00174,
-          "positive_rate": 0.034482758620689655
-        },
-        {
-          "value": "provider_00210",
-          "count": 174,
-          "share": 0.00174,
-          "positive_rate": 0.028735632183908046
+          "value": "provider_00256",
+          "count": 169,
+          "share": 0.00169,
+          "positive_rate": 0.011834319526627219
         }
       ]
     },
@@ -481,58 +481,58 @@
       "missing_rate": 0.0,
       "distinct": 731,
       "cardinality_ratio": 0.00731,
-      "top1_share": 0.00168,
+      "top1_share": 0.00169,
       "top5_share": 0.0082,
-      "entropy": 9.50961939424895,
-      "effective_categories": 728.9213737997202,
+      "entropy": 9.509251171926532,
+      "effective_categories": 728.7353532869957,
       "top_values": [
         {
-          "value": "2024-12-08",
-          "count": 168,
-          "share": 0.00168,
-          "positive_rate": 0.011904761904761904
+          "value": "2025-10-28",
+          "count": 169,
+          "share": 0.00169,
+          "positive_rate": 0.03550295857988166
         },
         {
-          "value": "2024-07-19",
+          "value": "2025-04-18",
           "count": 164,
           "share": 0.00164,
-          "positive_rate": 0.006097560975609756
+          "positive_rate": 0.042682926829268296
         },
         {
-          "value": "2025-04-04",
-          "count": 164,
-          "share": 0.00164,
-          "positive_rate": 0.018292682926829267
-        },
-        {
-          "value": "2024-09-07",
+          "value": "2025-09-30",
           "count": 163,
           "share": 0.00163,
           "positive_rate": 0.024539877300613498
         },
         {
-          "value": "2024-04-20",
-          "count": 161,
-          "share": 0.00161,
-          "positive_rate": 0.006211180124223602
+          "value": "2024-10-12",
+          "count": 162,
+          "share": 0.00162,
+          "positive_rate": 0.043209876543209874
         },
         {
-          "value": "2024-05-22",
-          "count": 161,
-          "share": 0.00161,
-          "positive_rate": 0.006211180124223602
+          "value": "2025-06-02",
+          "count": 162,
+          "share": 0.00162,
+          "positive_rate": 0.012345679012345678
         },
         {
-          "value": "2025-05-07",
-          "count": 161,
-          "share": 0.00161,
-          "positive_rate": 0.012422360248447204
+          "value": "2024-10-24",
+          "count": 160,
+          "share": 0.0016,
+          "positive_rate": 0.01875
         },
         {
-          "value": "2025-12-06",
-          "count": 161,
-          "share": 0.00161,
-          "positive_rate": 0.049689440993788817
+          "value": "2025-01-05",
+          "count": 160,
+          "share": 0.0016,
+          "positive_rate": 0.025
+        },
+        {
+          "value": "2025-07-03",
+          "count": 160,
+          "share": 0.0016,
+          "positive_rate": 0.05
         }
       ]
     },
@@ -542,58 +542,119 @@
       "missing_rate": 0.0,
       "distinct": 776,
       "cardinality_ratio": 0.00776,
-      "top1_share": 0.00178,
-      "top5_share": 0.00874,
-      "entropy": 9.532258372678136,
-      "effective_categories": 740.4499303290414,
+      "top1_share": 0.00172,
+      "top5_share": 0.00843,
+      "entropy": 9.53204524106554,
+      "effective_categories": 740.3405505732393,
       "top_values": [
         {
-          "value": "2024-03-04",
-          "count": 178,
-          "share": 0.00178,
-          "positive_rate": 0.0056179775280898875
+          "value": "2024-04-30",
+          "count": 172,
+          "share": 0.00172,
+          "positive_rate": 0.046511627906976744
         },
         {
-          "value": "2025-09-29",
-          "count": 178,
-          "share": 0.00178,
-          "positive_rate": 0.028089887640449437
+          "value": "2024-01-31",
+          "count": 168,
+          "share": 0.00168,
+          "positive_rate": 0.017857142857142856
         },
         {
-          "value": "2024-05-11",
-          "count": 174,
-          "share": 0.00174,
-          "positive_rate": 0.0
+          "value": "2025-08-15",
+          "count": 168,
+          "share": 0.00168,
+          "positive_rate": 0.02976190476190476
         },
         {
-          "value": "2025-06-29",
-          "count": 173,
-          "share": 0.00173,
-          "positive_rate": 0.005780346820809248
+          "value": "2025-11-15",
+          "count": 168,
+          "share": 0.00168,
+          "positive_rate": 0.02976190476190476
         },
         {
-          "value": "2024-06-12",
-          "count": 171,
-          "share": 0.00171,
-          "positive_rate": 0.023391812865497075
+          "value": "2024-03-19",
+          "count": 167,
+          "share": 0.00167,
+          "positive_rate": 0.029940119760479042
         },
         {
-          "value": "2024-07-19",
-          "count": 171,
-          "share": 0.00171,
-          "positive_rate": 0.017543859649122806
+          "value": "2025-07-18",
+          "count": 167,
+          "share": 0.00167,
+          "positive_rate": 0.023952095808383235
         },
         {
-          "value": "2024-08-12",
-          "count": 171,
-          "share": 0.00171,
-          "positive_rate": 0.04093567251461988
+          "value": "2024-02-11",
+          "count": 166,
+          "share": 0.00166,
+          "positive_rate": 0.024096385542168676
         },
         {
-          "value": "2024-08-30",
-          "count": 171,
-          "share": 0.00171,
-          "positive_rate": 0.011695906432748537
+          "value": "2024-04-08",
+          "count": 166,
+          "share": 0.00166,
+          "positive_rate": 0.012048192771084338
+        }
+      ]
+    },
+    {
+      "column": "claim_lag_days",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 61,
+      "cardinality_ratio": 0.00061,
+      "top1_share": 0.11805,
+      "top5_share": 0.46682,
+      "entropy": 4.436437747320335,
+      "effective_categories": 21.65214046455942,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 11805,
+          "share": 0.11805,
+          "positive_rate": 0.024735281660313427
+        },
+        {
+          "value": "1",
+          "count": 10226,
+          "share": 0.10226,
+          "positive_rate": 0.027478975161353413
+        },
+        {
+          "value": "2",
+          "count": 9377,
+          "share": 0.09377,
+          "positive_rate": 0.023461661512210727
+        },
+        {
+          "value": "3",
+          "count": 8277,
+          "share": 0.08277,
+          "positive_rate": 0.026338045185453667
+        },
+        {
+          "value": "4",
+          "count": 6997,
+          "share": 0.06997,
+          "positive_rate": 0.027154494783478634
+        },
+        {
+          "value": "5",
+          "count": 6132,
+          "share": 0.06132,
+          "positive_rate": 0.026908023483365948
+        },
+        {
+          "value": "6",
+          "count": 5471,
+          "share": 0.05471,
+          "positive_rate": 0.03107292999451654
+        },
+        {
+          "value": "7",
+          "count": 5037,
+          "share": 0.05037,
+          "positive_rate": 0.027794322017073655
         }
       ]
     },
@@ -603,34 +664,34 @@
       "missing_rate": 0.0,
       "distinct": 4,
       "cardinality_ratio": 4e-05,
-      "top1_share": 0.57974,
+      "top1_share": 0.57951,
       "top5_share": 1.0,
-      "entropy": 1.5759467865454881,
-      "effective_categories": 2.981310806648249,
+      "entropy": 1.573859222386603,
+      "effective_categories": 2.977000001672784,
       "top_values": [
         {
           "value": "medical",
-          "count": 57974,
-          "share": 0.57974,
-          "positive_rate": 0.019146513954531343
+          "count": 57951,
+          "share": 0.57951,
+          "positive_rate": 0.03408051629825197
         },
         {
           "value": "auto",
-          "count": 23887,
-          "share": 0.23887,
-          "positive_rate": 0.014652321346339012
+          "count": 24107,
+          "share": 0.24107,
+          "positive_rate": 0.0352179864769569
         },
         {
           "value": "life",
-          "count": 10068,
-          "share": 0.10068,
-          "positive_rate": 0.015097338100913786
+          "count": 9830,
+          "share": 0.0983,
+          "positive_rate": 0.017293997965412006
         },
         {
           "value": "travel",
-          "count": 8071,
-          "share": 0.08071,
-          "positive_rate": 0.017469954156857887
+          "count": 8112,
+          "share": 0.08112,
+          "positive_rate": 0.03451676528599606
         }
       ]
     },
@@ -640,58 +701,58 @@
       "missing_rate": 0.0,
       "distinct": 60,
       "cardinality_ratio": 0.0006,
-      "top1_share": 0.01779,
-      "top5_share": 0.0877,
-      "entropy": 5.906286289981342,
-      "effective_categories": 59.974872898395915,
+      "top1_share": 0.01783,
+      "top5_share": 0.08774,
+      "entropy": 5.906391196028527,
+      "effective_categories": 59.97923414968321,
       "top_values": [
         {
+          "value": "D053",
+          "count": 1783,
+          "share": 0.01783,
+          "positive_rate": 0.03701626472237801
+        },
+        {
           "value": "D038",
-          "count": 1779,
-          "share": 0.01779,
-          "positive_rate": 0.015739179314221474
-        },
-        {
-          "value": "D004",
-          "count": 1758,
-          "share": 0.01758,
-          "positive_rate": 0.020477815699658702
-        },
-        {
-          "value": "D001",
-          "count": 1758,
-          "share": 0.01758,
-          "positive_rate": 0.02104664391353811
-        },
-        {
-          "value": "D018",
-          "count": 1738,
-          "share": 0.01738,
-          "positive_rate": 0.019562715765247412
+          "count": 1769,
+          "share": 0.01769,
+          "positive_rate": 0.03730921424533635
         },
         {
           "value": "D055",
-          "count": 1737,
-          "share": 0.01737,
-          "positive_rate": 0.017846862406447898
+          "count": 1748,
+          "share": 0.01748,
+          "positive_rate": 0.036041189931350116
         },
         {
-          "value": "D013",
-          "count": 1735,
-          "share": 0.01735,
-          "positive_rate": 0.02132564841498559
+          "value": "D001",
+          "count": 1740,
+          "share": 0.0174,
+          "positive_rate": 0.03735632183908046
+        },
+        {
+          "value": "D007",
+          "count": 1734,
+          "share": 0.01734,
+          "positive_rate": 0.03575547866205306
         },
         {
           "value": "D024",
-          "count": 1729,
-          "share": 0.01729,
-          "positive_rate": 0.019086176980913822
+          "count": 1719,
+          "share": 0.01719,
+          "positive_rate": 0.03374054682955206
         },
         {
-          "value": "D048",
-          "count": 1728,
-          "share": 0.01728,
-          "positive_rate": 0.016203703703703703
+          "value": "D004",
+          "count": 1717,
+          "share": 0.01717,
+          "positive_rate": 0.039603960396039604
+        },
+        {
+          "value": "D036",
+          "count": 1710,
+          "share": 0.0171,
+          "positive_rate": 0.026900584795321637
         }
       ]
     },
@@ -701,58 +762,58 @@
       "missing_rate": 0.0,
       "distinct": 80,
       "cardinality_ratio": 0.0008,
-      "top1_share": 0.01404,
-      "top5_share": 0.06742,
-      "entropy": 6.32104928530192,
-      "effective_categories": 79.95128328835024,
+      "top1_share": 0.01316,
+      "top5_share": 0.06509,
+      "entropy": 6.321461851615955,
+      "effective_categories": 79.97415016051613,
       "top_values": [
         {
-          "value": "T020",
-          "count": 1404,
-          "share": 0.01404,
-          "positive_rate": 0.017806267806267807
+          "value": "T077",
+          "count": 1316,
+          "share": 0.01316,
+          "positive_rate": 0.04331306990881459
         },
         {
-          "value": "T063",
-          "count": 1365,
-          "share": 0.01365,
-          "positive_rate": 0.014652014652014652
+          "value": "T010",
+          "count": 1302,
+          "share": 0.01302,
+          "positive_rate": 0.0314900153609831
+        },
+        {
+          "value": "T020",
+          "count": 1300,
+          "share": 0.013,
+          "positive_rate": 0.031538461538461536
+        },
+        {
+          "value": "T026",
+          "count": 1296,
+          "share": 0.01296,
+          "positive_rate": 0.04089506172839506
+        },
+        {
+          "value": "T014",
+          "count": 1295,
+          "share": 0.01295,
+          "positive_rate": 0.02702702702702703
+        },
+        {
+          "value": "T072",
+          "count": 1295,
+          "share": 0.01295,
+          "positive_rate": 0.03166023166023166
         },
         {
           "value": "T013",
-          "count": 1327,
-          "share": 0.01327,
-          "positive_rate": 0.016578749058025623
+          "count": 1292,
+          "share": 0.01292,
+          "positive_rate": 0.039473684210526314
         },
         {
-          "value": "T064",
-          "count": 1323,
-          "share": 0.01323,
-          "positive_rate": 0.01436130007558579
-        },
-        {
-          "value": "T046",
-          "count": 1323,
-          "share": 0.01323,
-          "positive_rate": 0.015873015873015872
-        },
-        {
-          "value": "T080",
-          "count": 1319,
-          "share": 0.01319,
-          "positive_rate": 0.018953752843062926
-        },
-        {
-          "value": "T001",
-          "count": 1318,
-          "share": 0.01318,
-          "positive_rate": 0.018209408194233688
-        },
-        {
-          "value": "T044",
-          "count": 1315,
-          "share": 0.01315,
-          "positive_rate": 0.012167300380228136
+          "value": "T071",
+          "count": 1289,
+          "share": 0.01289,
+          "positive_rate": 0.04266873545384019
         }
       ]
     },
@@ -760,60 +821,60 @@
       "column": "hospital_days",
       "role": "feature",
       "missing_rate": 0.0,
-      "distinct": 25,
-      "cardinality_ratio": 0.00025,
-      "top1_share": 0.42179,
-      "top5_share": 0.91976,
-      "entropy": 2.4140510554811763,
-      "effective_categories": 5.329687909158043,
+      "distinct": 27,
+      "cardinality_ratio": 0.00027,
+      "top1_share": 0.42334,
+      "top5_share": 0.9213,
+      "entropy": 2.400195681091477,
+      "effective_categories": 5.278747581671619,
       "top_values": [
         {
           "value": "0",
-          "count": 42179,
-          "share": 0.42179,
-          "positive_rate": 0.015623888664975463
+          "count": 42334,
+          "share": 0.42334,
+          "positive_rate": 0.022251618084754572
         },
         {
           "value": "1",
-          "count": 23446,
-          "share": 0.23446,
-          "positive_rate": 0.015354431459524013
+          "count": 23456,
+          "share": 0.23456,
+          "positive_rate": 0.024982946793997273
         },
         {
           "value": "2",
-          "count": 13553,
-          "share": 0.13553,
-          "positive_rate": 0.01682284365085221
+          "count": 13568,
+          "share": 0.13568,
+          "positive_rate": 0.020857900943396228
         },
         {
           "value": "3",
-          "count": 7979,
-          "share": 0.07979,
-          "positive_rate": 0.01654342649454819
+          "count": 7991,
+          "share": 0.07991,
+          "positive_rate": 0.025653860593167314
         },
         {
           "value": "4",
-          "count": 4819,
-          "share": 0.04819,
-          "positive_rate": 0.017223490350695165
+          "count": 4781,
+          "share": 0.04781,
+          "positive_rate": 0.08868437565362895
         },
         {
           "value": "5",
-          "count": 2949,
-          "share": 0.02949,
-          "positive_rate": 0.021363173957273652
+          "count": 2969,
+          "share": 0.02969,
+          "positive_rate": 0.09902324014819805
         },
         {
           "value": "6",
-          "count": 1862,
-          "share": 0.01862,
-          "positive_rate": 0.017722878625134265
+          "count": 1811,
+          "share": 0.01811,
+          "positive_rate": 0.10767531750414136
         },
         {
           "value": "7",
-          "count": 1087,
-          "share": 0.01087,
-          "positive_rate": 0.03219871205151794
+          "count": 1112,
+          "share": 0.01112,
+          "positive_rate": 0.09982014388489209
         }
       ]
     },
@@ -821,27 +882,27 @@
       "column": "claim_amount",
       "role": "feature",
       "missing_rate": 0.0,
-      "distinct": 99227,
-      "cardinality_ratio": 0.99227,
-      "top1_share": 0.0009,
-      "top5_share": 0.00102,
-      "entropy": 16.590072513381187,
-      "effective_categories": 98652.80924518994,
+      "distinct": 99236,
+      "cardinality_ratio": 0.99236,
+      "top1_share": 0.00085,
+      "top5_share": 0.00097,
+      "entropy": 16.590517003372145,
+      "effective_categories": 98683.20856091172,
       "top_values": [
         {
           "value": "1200",
-          "count": 90,
-          "share": 0.0009,
-          "positive_rate": 0.0
+          "count": 85,
+          "share": 0.00085,
+          "positive_rate": 0.023529411764705882
         },
         {
-          "value": "6721.87",
+          "value": "10518.96",
           "count": 3,
           "share": 3e-05,
           "positive_rate": 0.0
         },
         {
-          "value": "19506.95",
+          "value": "10892.59",
           "count": 3,
           "share": 3e-05,
           "positive_rate": 0.0
@@ -859,21 +920,21 @@
           "positive_rate": 0.0
         },
         {
-          "value": "18824.32",
+          "value": "18962.1",
           "count": 3,
           "share": 3e-05,
           "positive_rate": 0.0
         },
         {
-          "value": "12031.86",
+          "value": "12387.29",
           "count": 3,
           "share": 3e-05,
-          "positive_rate": 0.3333333333333333
+          "positive_rate": 0.0
         },
         {
-          "value": "17827.13",
-          "count": 2,
-          "share": 2e-05,
+          "value": "31554.27",
+          "count": 3,
+          "share": 3e-05,
           "positive_rate": 0.0
         }
       ]
@@ -884,58 +945,58 @@
       "missing_rate": 0.0,
       "distinct": 71,
       "cardinality_ratio": 0.00071,
-      "top1_share": 0.03691,
-      "top5_share": 0.1521,
-      "entropy": 5.795763455729983,
-      "effective_categories": 55.55186553619775,
+      "top1_share": 0.03706,
+      "top5_share": 0.15219,
+      "entropy": 5.7930856654075,
+      "effective_categories": 55.448851194534654,
       "top_values": [
         {
           "value": "18",
-          "count": 3691,
-          "share": 0.03691,
-          "positive_rate": 0.01625575724735844
+          "count": 3706,
+          "share": 0.03706,
+          "positive_rate": 0.019697787371829464
         },
         {
           "value": "44",
-          "count": 2951,
-          "share": 0.02951,
-          "positive_rate": 0.01626567265333785
-        },
-        {
-          "value": "42",
-          "count": 2942,
-          "share": 0.02942,
-          "positive_rate": 0.01937457511896669
+          "count": 2971,
+          "share": 0.02971,
+          "positive_rate": 0.01952204644900707
         },
         {
           "value": "47",
-          "count": 2827,
-          "share": 0.02827,
-          "positive_rate": 0.013088079235939158
+          "count": 2865,
+          "share": 0.02865,
+          "positive_rate": 0.02582897033158813
+        },
+        {
+          "value": "42",
+          "count": 2849,
+          "share": 0.02849,
+          "positive_rate": 0.026676026676026678
         },
         {
           "value": "45",
-          "count": 2799,
-          "share": 0.02799,
-          "positive_rate": 0.015719899964272956
+          "count": 2828,
+          "share": 0.02828,
+          "positive_rate": 0.02616690240452617
         },
         {
           "value": "43",
-          "count": 2784,
-          "share": 0.02784,
-          "positive_rate": 0.014727011494252873
+          "count": 2802,
+          "share": 0.02802,
+          "positive_rate": 0.02069950035688794
         },
         {
           "value": "50",
-          "count": 2762,
-          "share": 0.02762,
-          "positive_rate": 0.01774076755973932
+          "count": 2792,
+          "share": 0.02792,
+          "positive_rate": 0.02005730659025788
         },
         {
           "value": "51",
-          "count": 2690,
-          "share": 0.0269,
-          "positive_rate": 0.020446096654275093
+          "count": 2692,
+          "share": 0.02692,
+          "positive_rate": 0.02600297176820208
         }
       ]
     },
@@ -943,60 +1004,60 @@
       "column": "policy_age_days",
       "role": "feature",
       "missing_rate": 0.0,
-      "distinct": 3254,
-      "cardinality_ratio": 0.03254,
-      "top1_share": 0.00349,
-      "top5_share": 0.01139,
-      "entropy": 10.658270938408696,
-      "effective_categories": 1616.0665991901724,
+      "distinct": 3262,
+      "cardinality_ratio": 0.03262,
+      "top1_share": 0.0036,
+      "top5_share": 0.01154,
+      "entropy": 10.65378251452711,
+      "effective_categories": 1611.0466053999905,
       "top_values": [
         {
           "value": "1",
-          "count": 349,
-          "share": 0.00349,
-          "positive_rate": 0.03151862464183381
+          "count": 360,
+          "share": 0.0036,
+          "positive_rate": 0.03333333333333333
         },
         {
           "value": "3650",
-          "count": 264,
-          "share": 0.00264,
-          "positive_rate": 0.01893939393939394
+          "count": 263,
+          "share": 0.00263,
+          "positive_rate": 0.015209125475285171
         },
         {
-          "value": "22",
+          "value": "78",
+          "count": 178,
+          "share": 0.00178,
+          "positive_rate": 0.07865168539325842
+        },
+        {
+          "value": "37",
           "count": 177,
           "share": 0.00177,
-          "positive_rate": 0.03954802259887006
+          "positive_rate": 0.07909604519774012
+        },
+        {
+          "value": "47",
+          "count": 176,
+          "share": 0.00176,
+          "positive_rate": 0.022727272727272728
+        },
+        {
+          "value": "17",
+          "count": 176,
+          "share": 0.00176,
+          "positive_rate": 0.07386363636363637
         },
         {
           "value": "11",
           "count": 175,
           "share": 0.00175,
-          "positive_rate": 0.03428571428571429
+          "positive_rate": 0.08
         },
         {
-          "value": "52",
-          "count": 174,
-          "share": 0.00174,
-          "positive_rate": 0.017241379310344827
-        },
-        {
-          "value": "37",
-          "count": 172,
-          "share": 0.00172,
-          "positive_rate": 0.03488372093023256
-        },
-        {
-          "value": "17",
+          "value": "13",
           "count": 171,
           "share": 0.00171,
-          "positive_rate": 0.05263157894736842
-        },
-        {
-          "value": "28",
-          "count": 170,
-          "share": 0.0017,
-          "positive_rate": 0.01764705882352941
+          "positive_rate": 0.04678362573099415
         }
       ]
     },
@@ -1006,58 +1067,58 @@
       "missing_rate": 0.0,
       "distinct": 8,
       "cardinality_ratio": 8e-05,
-      "top1_share": 0.48198,
-      "top5_share": 0.99874,
-      "entropy": 1.636103891261273,
-      "effective_categories": 3.1082528983823017,
+      "top1_share": 0.48012,
+      "top5_share": 0.99887,
+      "entropy": 1.642798869949911,
+      "effective_categories": 3.1227105944817337,
       "top_values": [
         {
           "value": "0",
-          "count": 48198,
-          "share": 0.48198,
-          "positive_rate": 0.016515208099921158
+          "count": 48012,
+          "share": 0.48012,
+          "positive_rate": 0.021994501374656337
         },
         {
           "value": "1",
-          "count": 34936,
-          "share": 0.34936,
-          "positive_rate": 0.017145637737577286
+          "count": 34911,
+          "share": 0.34911,
+          "positive_rate": 0.02503508922689124
         },
         {
           "value": "2",
-          "count": 12902,
-          "share": 0.12902,
-          "positive_rate": 0.020306929158270037
+          "count": 12985,
+          "share": 0.12985,
+          "positive_rate": 0.07762803234501348
         },
         {
           "value": "3",
-          "count": 3238,
-          "share": 0.03238,
-          "positive_rate": 0.02625077208153181
+          "count": 3340,
+          "share": 0.0334,
+          "positive_rate": 0.081437125748503
         },
         {
           "value": "4",
-          "count": 600,
-          "share": 0.006,
-          "positive_rate": 0.016666666666666666
+          "count": 639,
+          "share": 0.00639,
+          "positive_rate": 0.081377151799687
         },
         {
           "value": "5",
-          "count": 111,
-          "share": 0.00111,
-          "positive_rate": 0.009009009009009009
+          "count": 100,
+          "share": 0.001,
+          "positive_rate": 0.08
         },
         {
           "value": "6",
-          "count": 14,
-          "share": 0.00014,
-          "positive_rate": 0.0
+          "count": 10,
+          "share": 0.0001,
+          "positive_rate": 0.3
         },
         {
           "value": "7",
-          "count": 1,
-          "share": 1e-05,
-          "positive_rate": 0.0
+          "count": 3,
+          "share": 3e-05,
+          "positive_rate": 0.3333333333333333
         }
       ]
     },
@@ -1067,58 +1128,58 @@
       "missing_rate": 0.0,
       "distinct": 19,
       "cardinality_ratio": 0.00019,
-      "top1_share": 0.09898,
-      "top5_share": 0.46698,
-      "entropy": 3.885090302091096,
-      "effective_categories": 14.775041751594815,
+      "top1_share": 0.09831,
+      "top5_share": 0.46508,
+      "entropy": 3.8854241656528976,
+      "effective_categories": 14.778461336982296,
       "top_values": [
         {
           "value": "8",
-          "count": 9898,
-          "share": 0.09898,
-          "positive_rate": 0.01737724792887452
+          "count": 9831,
+          "share": 0.09831,
+          "positive_rate": 0.036110263452344624
         },
         {
           "value": "7",
-          "count": 9841,
-          "share": 0.09841,
-          "positive_rate": 0.017884361345391727
+          "count": 9812,
+          "share": 0.09812,
+          "positive_rate": 0.033020790868324504
         },
         {
           "value": "6",
-          "count": 9278,
-          "share": 0.09278,
-          "positive_rate": 0.017891787023065316
+          "count": 9359,
+          "share": 0.09359,
+          "positive_rate": 0.03280264985575382
         },
         {
           "value": "9",
-          "count": 9205,
-          "share": 0.09205,
-          "positive_rate": 0.02129277566539924
+          "count": 9073,
+          "share": 0.09073,
+          "positive_rate": 0.03747382343216136
         },
         {
           "value": "5",
-          "count": 8476,
-          "share": 0.08476,
-          "positive_rate": 0.019112789051439358
+          "count": 8433,
+          "share": 0.08433,
+          "positive_rate": 0.02928969524487134
         },
         {
           "value": "10",
-          "count": 7877,
-          "share": 0.07877,
-          "positive_rate": 0.01942363844103085
+          "count": 7794,
+          "share": 0.07794,
+          "positive_rate": 0.041185527328714396
         },
         {
           "value": "4",
-          "count": 7486,
-          "share": 0.07486,
-          "positive_rate": 0.014827678332888058
+          "count": 7538,
+          "share": 0.07538,
+          "positive_rate": 0.018307243300610242
         },
         {
           "value": "3",
-          "count": 6914,
-          "share": 0.06914,
-          "positive_rate": 0.015041943881978595
+          "count": 6837,
+          "share": 0.06837,
+          "positive_rate": 0.020038028375018283
         }
       ]
     },
@@ -1126,60 +1187,60 @@
       "column": "provider_prior_claim_count_365d",
       "role": "feature",
       "missing_rate": 0.0,
-      "distinct": 111,
-      "cardinality_ratio": 0.00111,
-      "top1_share": 0.02813,
-      "top5_share": 0.13617,
-      "entropy": 6.308221264354947,
-      "effective_categories": 79.24353116407488,
+      "distinct": 73,
+      "cardinality_ratio": 0.00073,
+      "top1_share": 0.04513,
+      "top5_share": 0.22144,
+      "entropy": 5.152110969799985,
+      "effective_categories": 35.558214292868676,
       "top_values": [
         {
           "value": "68",
-          "count": 2813,
-          "share": 0.02813,
-          "positive_rate": 0.020974049057945254
-        },
-        {
-          "value": "69",
-          "count": 2747,
-          "share": 0.02747,
-          "positive_rate": 0.01892974153622133
-        },
-        {
-          "value": "70",
-          "count": 2721,
-          "share": 0.02721,
-          "positive_rate": 0.016538037486218304
-        },
-        {
-          "value": "67",
-          "count": 2713,
-          "share": 0.02713,
-          "positive_rate": 0.014375230372281608
-        },
-        {
-          "value": "66",
-          "count": 2623,
-          "share": 0.02623,
-          "positive_rate": 0.017918414029736943
+          "count": 4513,
+          "share": 0.04513,
+          "positive_rate": 0.037225792155993795
         },
         {
           "value": "71",
-          "count": 2532,
-          "share": 0.02532,
-          "positive_rate": 0.018167456556082148
+          "count": 4479,
+          "share": 0.04479,
+          "positive_rate": 0.028577807546327307
+        },
+        {
+          "value": "69",
+          "count": 4396,
+          "share": 0.04396,
+          "positive_rate": 0.03753412192902639
+        },
+        {
+          "value": "70",
+          "count": 4381,
+          "share": 0.04381,
+          "positive_rate": 0.03515179182834969
+        },
+        {
+          "value": "67",
+          "count": 4375,
+          "share": 0.04375,
+          "positive_rate": 0.03314285714285714
         },
         {
           "value": "72",
-          "count": 2462,
-          "share": 0.02462,
-          "positive_rate": 0.020714865962632008
+          "count": 4338,
+          "share": 0.04338,
+          "positive_rate": 0.03342554172429691
         },
         {
-          "value": "65",
-          "count": 2420,
-          "share": 0.0242,
-          "positive_rate": 0.017355371900826446
+          "value": "73",
+          "count": 4280,
+          "share": 0.0428,
+          "positive_rate": 0.03177570093457944
+        },
+        {
+          "value": "66",
+          "count": 4204,
+          "share": 0.04204,
+          "positive_rate": 0.03306374881065652
         }
       ]
     },
@@ -1187,60 +1248,152 @@
       "column": "provider_prior_high_amount_share_365d",
       "role": "feature",
       "missing_rate": 0.0,
-      "distinct": 829,
-      "cardinality_ratio": 0.00829,
-      "top1_share": 0.05441,
-      "top5_share": 0.13949,
-      "entropy": 8.131853590920498,
-      "effective_categories": 280.4993448397367,
+      "distinct": 759,
+      "cardinality_ratio": 0.00759,
+      "top1_share": 0.01789,
+      "top5_share": 0.07436,
+      "entropy": 8.283812165873831,
+      "effective_categories": 311.6563215131122,
       "top_values": [
         {
-          "value": "0",
-          "count": 5441,
-          "share": 0.05441,
-          "positive_rate": 0.014703179562580408
+          "value": "0.125",
+          "count": 1789,
+          "share": 0.01789,
+          "positive_rate": 0.03353828954723309
         },
         {
           "value": "0.14286",
-          "count": 2357,
-          "share": 0.02357,
-          "positive_rate": 0.018667798048366567
-        },
-        {
-          "value": "0.125",
-          "count": 2170,
-          "share": 0.0217,
-          "positive_rate": 0.014285714285714285
-        },
-        {
-          "value": "0.16667",
-          "count": 2009,
-          "share": 0.02009,
-          "positive_rate": 0.015928322548531607
+          "count": 1672,
+          "share": 0.01672,
+          "positive_rate": 0.03409090909090909
         },
         {
           "value": "0.11111",
-          "count": 1972,
-          "share": 0.01972,
-          "positive_rate": 0.013691683569979716
+          "count": 1515,
+          "share": 0.01515,
+          "positive_rate": 0.033663366336633666
         },
         {
           "value": "0.1",
-          "count": 1635,
-          "share": 0.01635,
-          "positive_rate": 0.01712538226299694
+          "count": 1236,
+          "share": 0.01236,
+          "positive_rate": 0.04288025889967637
         },
         {
-          "value": "0.2",
-          "count": 1368,
-          "share": 0.01368,
-          "positive_rate": 0.02850877192982456
+          "value": "0.16667",
+          "count": 1224,
+          "share": 0.01224,
+          "positive_rate": 0.04084967320261438
         },
         {
           "value": "0.09091",
-          "count": 1343,
-          "share": 0.01343,
-          "positive_rate": 0.018615040953090096
+          "count": 1011,
+          "share": 0.01011,
+          "positive_rate": 0.021760633036597428
+        },
+        {
+          "value": "0.13333",
+          "count": 1008,
+          "share": 0.01008,
+          "positive_rate": 0.030753968253968252
+        },
+        {
+          "value": "0.11765",
+          "count": 834,
+          "share": 0.00834,
+          "positive_rate": 0.03357314148681055
+        }
+      ]
+    },
+    {
+      "column": "provider_prior_same_pair_count_365d",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 23,
+      "cardinality_ratio": 0.00023,
+      "top1_share": 0.97853,
+      "top5_share": 0.99508,
+      "entropy": 0.19807712918355538,
+      "effective_categories": 1.1471683523591352,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 97853,
+          "share": 0.97853,
+          "positive_rate": 0.030474282852850705
+        },
+        {
+          "value": "1",
+          "count": 1416,
+          "share": 0.01416,
+          "positive_rate": 0.1370056497175141
+        },
+        {
+          "value": "13",
+          "count": 84,
+          "share": 0.00084,
+          "positive_rate": 0.15476190476190477
+        },
+        {
+          "value": "15",
+          "count": 78,
+          "share": 0.00078,
+          "positive_rate": 0.14102564102564102
+        },
+        {
+          "value": "14",
+          "count": 77,
+          "share": 0.00077,
+          "positive_rate": 0.1038961038961039
+        },
+        {
+          "value": "12",
+          "count": 77,
+          "share": 0.00077,
+          "positive_rate": 0.14285714285714285
+        },
+        {
+          "value": "11",
+          "count": 69,
+          "share": 0.00069,
+          "positive_rate": 0.08695652173913043
+        },
+        {
+          "value": "16",
+          "count": 64,
+          "share": 0.00064,
+          "positive_rate": 0.21875
+        }
+      ]
+    },
+    {
+      "column": "customer_prior_same_provider_count_365d",
+      "role": "feature",
+      "missing_rate": 0.0,
+      "distinct": 3,
+      "cardinality_ratio": 3e-05,
+      "top1_share": 0.99021,
+      "top5_share": 1.0,
+      "entropy": 0.07992504328420465,
+      "effective_categories": 1.0569631235204306,
+      "top_values": [
+        {
+          "value": "0",
+          "count": 99021,
+          "share": 0.99021,
+          "positive_rate": 0.03256884903202351
+        },
+        {
+          "value": "1",
+          "count": 973,
+          "share": 0.00973,
+          "positive_rate": 0.050359712230215826
+        },
+        {
+          "value": "2",
+          "count": 6,
+          "share": 6e-05,
+          "positive_rate": 0.0
         }
       ]
     },
@@ -1250,40 +1403,40 @@
       "missing_rate": 0.0,
       "distinct": 5,
       "cardinality_ratio": 5e-05,
-      "top1_share": 0.20992,
+      "top1_share": 0.20918,
       "top5_share": 1.0,
-      "entropy": 2.3213813312427245,
-      "effective_categories": 4.9981054206402264,
+      "entropy": 2.3213056223871433,
+      "effective_categories": 4.997843140045799,
       "top_values": [
         {
           "value": "central",
-          "count": 20992,
-          "share": 0.20992,
-          "positive_rate": 0.018816692073170733
+          "count": 20918,
+          "share": 0.20918,
+          "positive_rate": 0.03136055072186634
         },
         {
           "value": "west",
-          "count": 20081,
-          "share": 0.20081,
-          "positive_rate": 0.017080822668193815
+          "count": 20139,
+          "share": 0.20139,
+          "positive_rate": 0.031133621331744375
         },
         {
           "value": "metro",
-          "count": 19831,
-          "share": 0.19831,
-          "positive_rate": 0.01729615248852806
+          "count": 19985,
+          "share": 0.19985,
+          "positive_rate": 0.03372529397047786
         },
         {
           "value": "south",
-          "count": 19770,
-          "share": 0.1977,
-          "positive_rate": 0.016439049064238747
+          "count": 19879,
+          "share": 0.19879,
+          "positive_rate": 0.03169173499673022
         },
         {
           "value": "east",
-          "count": 19326,
-          "share": 0.19326,
-          "positive_rate": 0.017955086412087342
+          "count": 19079,
+          "share": 0.19079,
+          "positive_rate": 0.0360081765291682
         }
       ]
     },
@@ -1293,34 +1446,34 @@
       "missing_rate": 0.0,
       "distinct": 4,
       "cardinality_ratio": 4e-05,
-      "top1_share": 0.25332,
+      "top1_share": 0.25308,
       "top5_share": 1.0,
-      "entropy": 1.9999567162691818,
-      "effective_categories": 3.9998799938162986,
+      "entropy": 1.9999425849876702,
+      "effective_categories": 3.999840814951896,
       "top_values": [
         {
           "value": "web",
-          "count": 25332,
-          "share": 0.25332,
-          "positive_rate": 0.01705352913311227
-        },
-        {
-          "value": "branch",
-          "count": 24920,
-          "share": 0.2492,
-          "positive_rate": 0.017335473515248796
+          "count": 25308,
+          "share": 0.25308,
+          "positive_rate": 0.039987355776829464
         },
         {
           "value": "mobile",
-          "count": 24906,
-          "share": 0.24906,
-          "positive_rate": 0.017987633501967398
+          "count": 25080,
+          "share": 0.2508,
+          "positive_rate": 0.040590111642743225
+        },
+        {
+          "value": "branch",
+          "count": 24912,
+          "share": 0.24912,
+          "positive_rate": 0.02508831085420681
         },
         {
           "value": "agent",
-          "count": 24842,
-          "share": 0.24842,
-          "positive_rate": 0.017752193865228243
+          "count": 24700,
+          "share": 0.247,
+          "positive_rate": 0.02506072874493927
         }
       ]
     },
@@ -1330,22 +1483,22 @@
       "missing_rate": 0.0,
       "distinct": 2,
       "cardinality_ratio": 2e-05,
-      "top1_share": 0.98672,
+      "top1_share": 0.9778,
       "top5_share": 1.0,
-      "entropy": 0.10182670938989485,
-      "effective_categories": 1.0731313785126653,
+      "entropy": 0.1536208432265204,
+      "effective_categories": 1.1123577418168653,
       "top_values": [
         {
           "value": "0",
-          "count": 98672,
-          "share": 0.98672,
-          "positive_rate": 0.0074590562672287985
+          "count": 97780,
+          "share": 0.9778,
+          "positive_rate": 0.012988341174064225
         },
         {
           "value": "1",
-          "count": 1328,
-          "share": 0.01328,
-          "positive_rate": 0.7658132530120482
+          "count": 2220,
+          "share": 0.0222,
+          "positive_rate": 0.9027027027027027
         }
       ]
     },
@@ -1355,21 +1508,21 @@
       "missing_rate": 0.0,
       "distinct": 2,
       "cardinality_ratio": 2e-05,
-      "top1_share": 0.98247,
+      "top1_share": 0.96726,
       "top5_share": 1.0,
-      "entropy": 0.12733801584956694,
-      "effective_categories": 1.092276430383011,
+      "entropy": 0.20795197161127643,
+      "effective_categories": 1.1550473315305447,
       "top_values": [
         {
           "value": "0",
-          "count": 98247,
-          "share": 0.98247,
+          "count": 96726,
+          "share": 0.96726,
           "positive_rate": 0.0
         },
         {
           "value": "1",
-          "count": 1753,
-          "share": 0.01753,
+          "count": 3274,
+          "share": 0.03274,
           "positive_rate": 1.0
         }
       ]
@@ -1378,195 +1531,129 @@
       "column": "fraud_type",
       "role": "label_or_leak",
       "missing_rate": 0.0,
-      "distinct": 6,
-      "cardinality_ratio": 6e-05,
-      "top1_share": 0.98247,
-      "top5_share": 0.99848,
-      "entropy": 0.16139547014944436,
-      "effective_categories": 1.1183683749938362,
+      "distinct": 7,
+      "cardinality_ratio": 7e-05,
+      "top1_share": 0.96726,
+      "top5_share": 0.9941,
+      "entropy": 0.2879392190169047,
+      "effective_categories": 1.2208950750721241,
       "top_values": [
         {
           "value": "none",
-          "count": 98247,
-          "share": 0.98247,
+          "count": 96726,
+          "share": 0.96726,
           "positive_rate": 0.0
         },
         {
-          "value": "duplicate_or_staged_claim",
-          "count": 851,
-          "share": 0.00851,
-          "positive_rate": 1.0
-        },
-        {
-          "value": "disclosure_duty_violation",
-          "count": 426,
-          "share": 0.00426,
-          "positive_rate": 1.0
-        },
-        {
-          "value": "provider_collusion",
-          "count": 168,
-          "share": 0.00168,
-          "positive_rate": 1.0
-        },
-        {
           "value": "false_hospitalization",
-          "count": 156,
-          "share": 0.00156,
+          "count": 1038,
+          "share": 0.01038,
           "positive_rate": 1.0
         },
         {
           "value": "accident_detail_manipulation",
-          "count": 152,
-          "share": 0.00152,
+          "count": 615,
+          "share": 0.00615,
+          "positive_rate": 1.0
+        },
+        {
+          "value": "other",
+          "count": 540,
+          "share": 0.0054,
+          "positive_rate": 1.0
+        },
+        {
+          "value": "duplicate_or_staged_claim",
+          "count": 491,
+          "share": 0.00491,
+          "positive_rate": 1.0
+        },
+        {
+          "value": "disclosure_duty_violation",
+          "count": 314,
+          "share": 0.00314,
+          "positive_rate": 1.0
+        },
+        {
+          "value": "provider_collusion",
+          "count": 276,
+          "share": 0.00276,
           "positive_rate": 1.0
         }
       ]
     }
   ],
   "numeric_profiles": {
-    "provider_prior_high_amount_share_365d": {
+    "policy_age_days": {
       "count": 100000,
-      "distinct": 829,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 0.0,
-      "p25": 0.09211,
-      "p50": 0.125,
-      "p75": 0.15873,
-      "p95": 0.22222,
-      "p99": 0.33333,
-      "max": 1.0,
-      "mean": 0.1273401533,
+      "distinct": 3262,
+      "min": 1.0,
+      "p01": 6.0,
+      "p05": 32.0,
+      "p25": 178.0,
+      "p50": 427.0,
+      "p75": 856.0,
+      "p95": 1852.0,
+      "p99": 2845.0,
+      "max": 3650.0,
+      "mean": 615.04816,
       "top_values": [
         {
-          "value": 0.0,
-          "count": 5441,
-          "share": 0.05441
+          "value": 1.0,
+          "count": 360,
+          "share": 0.0036
         },
         {
-          "value": 0.14286,
-          "count": 2357,
-          "share": 0.02357
+          "value": 3650.0,
+          "count": 263,
+          "share": 0.00263
         },
         {
-          "value": 0.125,
-          "count": 2170,
-          "share": 0.0217
+          "value": 78.0,
+          "count": 178,
+          "share": 0.00178
         },
         {
-          "value": 0.16667,
-          "count": 2009,
-          "share": 0.02009
+          "value": 37.0,
+          "count": 177,
+          "share": 0.00177
         },
         {
-          "value": 0.11111,
-          "count": 1972,
-          "share": 0.01972
+          "value": 47.0,
+          "count": 176,
+          "share": 0.00176
         },
         {
-          "value": 0.1,
-          "count": 1635,
-          "share": 0.01635
+          "value": 17.0,
+          "count": 176,
+          "share": 0.00176
         },
         {
-          "value": 0.2,
-          "count": 1368,
-          "share": 0.01368
+          "value": 11.0,
+          "count": 175,
+          "share": 0.00175
         },
         {
-          "value": 0.09091,
-          "count": 1343,
-          "share": 0.01343
+          "value": 13.0,
+          "count": 171,
+          "share": 0.00171
         },
         {
-          "value": 0.08333,
-          "count": 1085,
-          "share": 0.01085
+          "value": 18.0,
+          "count": 171,
+          "share": 0.00171
         },
         {
-          "value": 0.13333,
-          "count": 1037,
-          "share": 0.01037
+          "value": 3.0,
+          "count": 170,
+          "share": 0.0017
         }
       ],
-      "top1_share": 0.05441,
-      "top10_share": 0.20417,
-      "multiple_100_share": 0.05441,
-      "multiple_1000_share": 0.05441,
-      "zero_count": 5441,
-      "negative_count": 0
-    },
-    "provider_prior_claim_count_365d": {
-      "count": 100000,
-      "distinct": 111,
-      "min": 0.0,
-      "p01": 1.0,
-      "p05": 7.0,
-      "p25": 35.0,
-      "p50": 61.0,
-      "p75": 71.0,
-      "p95": 82.0,
-      "p99": 89.0,
-      "max": 110.0,
-      "mean": 52.6711,
-      "top_values": [
-        {
-          "value": 68.0,
-          "count": 2813,
-          "share": 0.02813
-        },
-        {
-          "value": 69.0,
-          "count": 2747,
-          "share": 0.02747
-        },
-        {
-          "value": 70.0,
-          "count": 2721,
-          "share": 0.02721
-        },
-        {
-          "value": 67.0,
-          "count": 2713,
-          "share": 0.02713
-        },
-        {
-          "value": 66.0,
-          "count": 2623,
-          "share": 0.02623
-        },
-        {
-          "value": 71.0,
-          "count": 2532,
-          "share": 0.02532
-        },
-        {
-          "value": 72.0,
-          "count": 2462,
-          "share": 0.02462
-        },
-        {
-          "value": 65.0,
-          "count": 2420,
-          "share": 0.0242
-        },
-        {
-          "value": 64.0,
-          "count": 2382,
-          "share": 0.02382
-        },
-        {
-          "value": 73.0,
-          "count": 2334,
-          "share": 0.02334
-        }
-      ],
-      "top1_share": 0.02813,
-      "top10_share": 0.25747,
-      "multiple_100_share": 0.00729,
-      "multiple_1000_share": 0.00714,
-      "zero_count": 714,
+      "top1_share": 0.0036,
+      "top10_share": 0.02017,
+      "multiple_100_share": 0.00925,
+      "multiple_1000_share": 0.0003,
+      "zero_count": 0,
       "negative_count": 0
     },
     "prior_claim_count_30d": {
@@ -1581,82 +1668,82 @@
       "p95": 2.0,
       "p99": 3.0,
       "max": 7.0,
-      "mean": 0.735,
+      "mean": 0.74038,
       "top_values": [
         {
           "value": 0.0,
-          "count": 48198,
-          "share": 0.48198
+          "count": 48012,
+          "share": 0.48012
         },
         {
           "value": 1.0,
-          "count": 34936,
-          "share": 0.34936
+          "count": 34911,
+          "share": 0.34911
         },
         {
           "value": 2.0,
-          "count": 12902,
-          "share": 0.12902
+          "count": 12985,
+          "share": 0.12985
         },
         {
           "value": 3.0,
-          "count": 3238,
-          "share": 0.03238
+          "count": 3340,
+          "share": 0.0334
         },
         {
           "value": 4.0,
-          "count": 600,
-          "share": 0.006
+          "count": 639,
+          "share": 0.00639
         },
         {
           "value": 5.0,
-          "count": 111,
-          "share": 0.00111
+          "count": 100,
+          "share": 0.001
         },
         {
           "value": 6.0,
-          "count": 14,
-          "share": 0.00014
+          "count": 10,
+          "share": 0.0001
         },
         {
           "value": 7.0,
-          "count": 1,
-          "share": 1e-05
+          "count": 3,
+          "share": 3e-05
         }
       ],
-      "top1_share": 0.48198,
+      "top1_share": 0.48012,
       "top10_share": 1.0,
-      "multiple_100_share": 0.48198,
-      "multiple_1000_share": 0.48198,
-      "zero_count": 48198,
+      "multiple_100_share": 0.48012,
+      "multiple_1000_share": 0.48012,
+      "zero_count": 48012,
       "negative_count": 0
     },
     "claim_amount": {
       "count": 100000,
-      "distinct": 99227,
-      "min": 1192.58,
-      "p01": 2661.31,
-      "p05": 5165.05,
-      "p25": 13102.67,
-      "p50": 25085.79,
-      "p75": 48088.38,
-      "p95": 123086.63,
-      "p99": 238911.81,
+      "distinct": 99236,
+      "min": 1200.0,
+      "p01": 2682.44,
+      "p05": 5188.33,
+      "p25": 13178.28,
+      "p50": 25213.35,
+      "p75": 48520.2,
+      "p95": 124335.32,
+      "p99": 241567.81,
       "max": 1591567.6,
-      "mean": 39966.0914311,
+      "mean": 40366.5249876,
       "top_values": [
         {
           "value": 1200.0,
-          "count": 90,
-          "share": 0.0009
+          "count": 85,
+          "share": 0.00085
         },
         {
-          "value": 6721.87,
+          "value": 10518.96,
           "count": 3,
           "share": 3e-05
         },
         {
-          "value": 19506.95,
+          "value": 10892.59,
           "count": 3,
           "share": 3e-05
         },
@@ -1671,108 +1758,73 @@
           "share": 3e-05
         },
         {
-          "value": 18824.32,
+          "value": 18962.1,
           "count": 3,
           "share": 3e-05
         },
         {
-          "value": 12031.86,
+          "value": 12387.29,
           "count": 3,
           "share": 3e-05
         },
         {
-          "value": 17827.13,
-          "count": 2,
-          "share": 2e-05
+          "value": 31554.27,
+          "count": 3,
+          "share": 3e-05
         },
         {
-          "value": 37768.47,
-          "count": 2,
-          "share": 2e-05
+          "value": 6592.9,
+          "count": 3,
+          "share": 3e-05
         },
         {
-          "value": 12169.46,
-          "count": 2,
-          "share": 2e-05
+          "value": 17892.72,
+          "count": 3,
+          "share": 3e-05
         }
       ],
-      "top1_share": 0.0009,
-      "top10_share": 0.00114,
-      "multiple_100_share": 0.00104,
+      "top1_share": 0.00085,
+      "top10_share": 0.00112,
+      "multiple_100_share": 0.00102,
       "multiple_1000_share": 0.0,
       "zero_count": 0,
       "negative_count": 0
     },
-    "policy_age_days": {
+    "customer_prior_same_provider_count_365d": {
       "count": 100000,
-      "distinct": 3254,
-      "min": 1.0,
-      "p01": 5.0,
-      "p05": 31.0,
-      "p25": 178.0,
-      "p50": 430.0,
-      "p75": 858.0,
-      "p95": 1871.0,
-      "p99": 2826.0,
-      "max": 3650.0,
-      "mean": 617.16535,
+      "distinct": 3,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 2.0,
+      "mean": 0.00985,
       "top_values": [
         {
+          "value": 0.0,
+          "count": 99021,
+          "share": 0.99021
+        },
+        {
           "value": 1.0,
-          "count": 349,
-          "share": 0.00349
+          "count": 973,
+          "share": 0.00973
         },
         {
-          "value": 3650.0,
-          "count": 264,
-          "share": 0.00264
-        },
-        {
-          "value": 22.0,
-          "count": 177,
-          "share": 0.00177
-        },
-        {
-          "value": 11.0,
-          "count": 175,
-          "share": 0.00175
-        },
-        {
-          "value": 52.0,
-          "count": 174,
-          "share": 0.00174
-        },
-        {
-          "value": 37.0,
-          "count": 172,
-          "share": 0.00172
-        },
-        {
-          "value": 17.0,
-          "count": 171,
-          "share": 0.00171
-        },
-        {
-          "value": 28.0,
-          "count": 170,
-          "share": 0.0017
-        },
-        {
-          "value": 4.0,
-          "count": 170,
-          "share": 0.0017
-        },
-        {
-          "value": 20.0,
-          "count": 168,
-          "share": 0.00168
+          "value": 2.0,
+          "count": 6,
+          "share": 6e-05
         }
       ],
-      "top1_share": 0.00349,
-      "top10_share": 0.0199,
-      "multiple_100_share": 0.0089,
-      "multiple_1000_share": 0.00032,
-      "zero_count": 0,
+      "top1_share": 0.99021,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.99021,
+      "multiple_1000_share": 0.99021,
+      "zero_count": 99021,
       "negative_count": 0
     },
     "customer_age": {
@@ -1787,136 +1839,208 @@
       "p95": 70.0,
       "p99": 80.0,
       "max": 88.0,
-      "mean": 45.81035,
+      "mean": 45.75514,
       "top_values": [
         {
           "value": 18.0,
-          "count": 3691,
-          "share": 0.03691
+          "count": 3706,
+          "share": 0.03706
         },
         {
           "value": 44.0,
-          "count": 2951,
-          "share": 0.02951
-        },
-        {
-          "value": 42.0,
-          "count": 2942,
-          "share": 0.02942
+          "count": 2971,
+          "share": 0.02971
         },
         {
           "value": 47.0,
-          "count": 2827,
-          "share": 0.02827
+          "count": 2865,
+          "share": 0.02865
+        },
+        {
+          "value": 42.0,
+          "count": 2849,
+          "share": 0.02849
         },
         {
           "value": 45.0,
-          "count": 2799,
-          "share": 0.02799
+          "count": 2828,
+          "share": 0.02828
         },
         {
           "value": 43.0,
-          "count": 2784,
-          "share": 0.02784
+          "count": 2802,
+          "share": 0.02802
         },
         {
           "value": 50.0,
-          "count": 2762,
-          "share": 0.02762
+          "count": 2792,
+          "share": 0.02792
         },
         {
           "value": 51.0,
-          "count": 2690,
-          "share": 0.0269
+          "count": 2692,
+          "share": 0.02692
         },
         {
           "value": 40.0,
-          "count": 2639,
-          "share": 0.02639
+          "count": 2622,
+          "share": 0.02622
         },
         {
           "value": 41.0,
-          "count": 2510,
-          "share": 0.0251
+          "count": 2516,
+          "share": 0.02516
         }
       ],
-      "top1_share": 0.03691,
-      "top10_share": 0.28595,
+      "top1_share": 0.03706,
+      "top10_share": 0.28643,
       "multiple_100_share": 0.0,
       "multiple_1000_share": 0.0,
       "zero_count": 0,
       "negative_count": 0
     },
-    "hospital_days": {
+    "provider_prior_same_pair_count_365d": {
       "count": 100000,
-      "distinct": 25,
+      "distinct": 23,
       "min": 0.0,
       "p01": 0.0,
       "p05": 0.0,
       "p25": 0.0,
-      "p50": 1.0,
-      "p75": 2.0,
-      "p95": 6.0,
-      "p99": 9.0,
-      "max": 24.0,
-      "mean": 1.48758,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 1.0,
+      "max": 23.0,
+      "mean": 0.11248,
       "top_values": [
         {
           "value": 0.0,
-          "count": 42179,
-          "share": 0.42179
+          "count": 97853,
+          "share": 0.97853
         },
         {
           "value": 1.0,
-          "count": 23446,
-          "share": 0.23446
+          "count": 1416,
+          "share": 0.01416
+        },
+        {
+          "value": 13.0,
+          "count": 84,
+          "share": 0.00084
+        },
+        {
+          "value": 15.0,
+          "count": 78,
+          "share": 0.00078
+        },
+        {
+          "value": 14.0,
+          "count": 77,
+          "share": 0.00077
+        },
+        {
+          "value": 12.0,
+          "count": 77,
+          "share": 0.00077
+        },
+        {
+          "value": 11.0,
+          "count": 69,
+          "share": 0.00069
+        },
+        {
+          "value": 16.0,
+          "count": 64,
+          "share": 0.00064
+        },
+        {
+          "value": 17.0,
+          "count": 47,
+          "share": 0.00047
+        },
+        {
+          "value": 10.0,
+          "count": 45,
+          "share": 0.00045
+        }
+      ],
+      "top1_share": 0.97853,
+      "top10_share": 0.9981,
+      "multiple_100_share": 0.97853,
+      "multiple_1000_share": 0.97853,
+      "zero_count": 97853,
+      "negative_count": 0
+    },
+    "claim_lag_days": {
+      "count": 100000,
+      "distinct": 61,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 2.0,
+      "p50": 5.0,
+      "p75": 11.0,
+      "p95": 23.0,
+      "p99": 36.0,
+      "max": 60.0,
+      "mean": 7.48223,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 11805,
+          "share": 0.11805
+        },
+        {
+          "value": 1.0,
+          "count": 10226,
+          "share": 0.10226
         },
         {
           "value": 2.0,
-          "count": 13553,
-          "share": 0.13553
+          "count": 9377,
+          "share": 0.09377
         },
         {
           "value": 3.0,
-          "count": 7979,
-          "share": 0.07979
+          "count": 8277,
+          "share": 0.08277
         },
         {
           "value": 4.0,
-          "count": 4819,
-          "share": 0.04819
+          "count": 6997,
+          "share": 0.06997
         },
         {
           "value": 5.0,
-          "count": 2949,
-          "share": 0.02949
+          "count": 6132,
+          "share": 0.06132
         },
         {
           "value": 6.0,
-          "count": 1862,
-          "share": 0.01862
+          "count": 5471,
+          "share": 0.05471
         },
         {
           "value": 7.0,
-          "count": 1087,
-          "share": 0.01087
+          "count": 5037,
+          "share": 0.05037
         },
         {
           "value": 8.0,
-          "count": 731,
-          "share": 0.00731
+          "count": 4246,
+          "share": 0.04246
         },
         {
           "value": 9.0,
-          "count": 441,
-          "share": 0.00441
+          "count": 3791,
+          "share": 0.03791
         }
       ],
-      "top1_share": 0.42179,
-      "top10_share": 0.99046,
-      "multiple_100_share": 0.42179,
-      "multiple_1000_share": 0.42179,
-      "zero_count": 42179,
+      "top1_share": 0.11805,
+      "top10_share": 0.71359,
+      "multiple_100_share": 0.11805,
+      "multiple_1000_share": 0.11805,
+      "zero_count": 11805,
       "negative_count": 0
     },
     "prior_claim_count_365d": {
@@ -1931,64 +2055,280 @@
       "p95": 13.0,
       "p99": 16.0,
       "max": 18.0,
-      "mean": 6.92525,
+      "mean": 6.92464,
       "top_values": [
         {
           "value": 8.0,
-          "count": 9898,
-          "share": 0.09898
+          "count": 9831,
+          "share": 0.09831
         },
         {
           "value": 7.0,
-          "count": 9841,
-          "share": 0.09841
+          "count": 9812,
+          "share": 0.09812
         },
         {
           "value": 6.0,
-          "count": 9278,
-          "share": 0.09278
+          "count": 9359,
+          "share": 0.09359
         },
         {
           "value": 9.0,
-          "count": 9205,
-          "share": 0.09205
+          "count": 9073,
+          "share": 0.09073
         },
         {
           "value": 5.0,
-          "count": 8476,
-          "share": 0.08476
+          "count": 8433,
+          "share": 0.08433
         },
         {
           "value": 10.0,
-          "count": 7877,
-          "share": 0.07877
+          "count": 7794,
+          "share": 0.07794
         },
         {
           "value": 4.0,
-          "count": 7486,
-          "share": 0.07486
+          "count": 7538,
+          "share": 0.07538
         },
         {
           "value": 3.0,
-          "count": 6914,
-          "share": 0.06914
+          "count": 6837,
+          "share": 0.06837
         },
         {
           "value": 2.0,
-          "count": 6263,
-          "share": 0.06263
+          "count": 6285,
+          "share": 0.06285
         },
         {
           "value": 11.0,
-          "count": 6044,
-          "share": 0.06044
+          "count": 6085,
+          "share": 0.06085
         }
       ],
-      "top1_share": 0.09898,
-      "top10_share": 0.81282,
-      "multiple_100_share": 0.02415,
-      "multiple_1000_share": 0.02415,
-      "zero_count": 2415,
+      "top1_share": 0.09831,
+      "top10_share": 0.81047,
+      "multiple_100_share": 0.02348,
+      "multiple_1000_share": 0.02348,
+      "zero_count": 2348,
+      "negative_count": 0
+    },
+    "provider_prior_high_amount_share_365d": {
+      "count": 100000,
+      "distinct": 759,
+      "min": 0.0122,
+      "p01": 0.0375,
+      "p05": 0.06154,
+      "p25": 0.09524,
+      "p50": 0.12162,
+      "p75": 0.15,
+      "p95": 0.19355,
+      "p99": 0.22581,
+      "max": 0.30612,
+      "mean": 0.1237778152,
+      "top_values": [
+        {
+          "value": 0.125,
+          "count": 1789,
+          "share": 0.01789
+        },
+        {
+          "value": 0.14286,
+          "count": 1672,
+          "share": 0.01672
+        },
+        {
+          "value": 0.11111,
+          "count": 1515,
+          "share": 0.01515
+        },
+        {
+          "value": 0.1,
+          "count": 1236,
+          "share": 0.01236
+        },
+        {
+          "value": 0.16667,
+          "count": 1224,
+          "share": 0.01224
+        },
+        {
+          "value": 0.09091,
+          "count": 1011,
+          "share": 0.01011
+        },
+        {
+          "value": 0.13333,
+          "count": 1008,
+          "share": 0.01008
+        },
+        {
+          "value": 0.11765,
+          "count": 834,
+          "share": 0.00834
+        },
+        {
+          "value": 0.08333,
+          "count": 820,
+          "share": 0.0082
+        },
+        {
+          "value": 0.15385,
+          "count": 814,
+          "share": 0.00814
+        }
+      ],
+      "top1_share": 0.01789,
+      "top10_share": 0.11923,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "hospital_days": {
+      "count": 100000,
+      "distinct": 27,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 1.0,
+      "p75": 2.0,
+      "p95": 5.0,
+      "p99": 9.0,
+      "max": 26.0,
+      "mean": 1.46716,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 42334,
+          "share": 0.42334
+        },
+        {
+          "value": 1.0,
+          "count": 23456,
+          "share": 0.23456
+        },
+        {
+          "value": 2.0,
+          "count": 13568,
+          "share": 0.13568
+        },
+        {
+          "value": 3.0,
+          "count": 7991,
+          "share": 0.07991
+        },
+        {
+          "value": 4.0,
+          "count": 4781,
+          "share": 0.04781
+        },
+        {
+          "value": 5.0,
+          "count": 2969,
+          "share": 0.02969
+        },
+        {
+          "value": 6.0,
+          "count": 1811,
+          "share": 0.01811
+        },
+        {
+          "value": 7.0,
+          "count": 1112,
+          "share": 0.01112
+        },
+        {
+          "value": 8.0,
+          "count": 717,
+          "share": 0.00717
+        },
+        {
+          "value": 9.0,
+          "count": 424,
+          "share": 0.00424
+        }
+      ],
+      "top1_share": 0.42334,
+      "top10_share": 0.99163,
+      "multiple_100_share": 0.42334,
+      "multiple_1000_share": 0.42334,
+      "zero_count": 42334,
+      "negative_count": 0
+    },
+    "provider_prior_claim_count_365d": {
+      "count": 100000,
+      "distinct": 73,
+      "min": 36.0,
+      "p01": 51.0,
+      "p05": 56.0,
+      "p25": 64.0,
+      "p50": 70.0,
+      "p75": 76.0,
+      "p95": 84.0,
+      "p99": 91.0,
+      "max": 108.0,
+      "mean": 69.94861,
+      "top_values": [
+        {
+          "value": 68.0,
+          "count": 4513,
+          "share": 0.04513
+        },
+        {
+          "value": 71.0,
+          "count": 4479,
+          "share": 0.04479
+        },
+        {
+          "value": 69.0,
+          "count": 4396,
+          "share": 0.04396
+        },
+        {
+          "value": 70.0,
+          "count": 4381,
+          "share": 0.04381
+        },
+        {
+          "value": 67.0,
+          "count": 4375,
+          "share": 0.04375
+        },
+        {
+          "value": 72.0,
+          "count": 4338,
+          "share": 0.04338
+        },
+        {
+          "value": 73.0,
+          "count": 4280,
+          "share": 0.0428
+        },
+        {
+          "value": 66.0,
+          "count": 4204,
+          "share": 0.04204
+        },
+        {
+          "value": 74.0,
+          "count": 4187,
+          "share": 0.04187
+        },
+        {
+          "value": 65.0,
+          "count": 3979,
+          "share": 0.03979
+        }
+      ],
+      "top1_share": 0.04513,
+      "top10_share": 0.43132,
+      "multiple_100_share": 0.00042,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
       "negative_count": 0
     }
   },
@@ -1997,551 +2337,551 @@
       "column": "hospital_days",
       "value": "12",
       "is_id": false,
-      "count": 123,
-      "share": 0.00123,
-      "positive": 12,
-      "positive_rate": 0.0975609756097561,
-      "recall": 0.0068454078722190535,
-      "lift": 5.565372253836628
+      "count": 131,
+      "share": 0.00131,
+      "positive": 20,
+      "positive_rate": 0.15267175572519084,
+      "recall": 0.006108735491753207,
+      "lift": 4.663156863933747
     },
     {
-      "column": "hospital_days",
-      "value": "11",
+      "column": "provider_prior_same_pair_count_365d",
+      "value": "1",
       "is_id": false,
-      "count": 193,
-      "share": 0.00193,
-      "positive": 17,
-      "positive_rate": 0.08808290155440414,
-      "recall": 0.009697661152310326,
-      "lift": 5.024694897570116
-    },
-    {
-      "column": "policy_age_days",
-      "value": "7",
-      "is_id": false,
-      "count": 153,
-      "share": 0.00153,
-      "positive": 10,
-      "positive_rate": 0.06535947712418301,
-      "recall": 0.005704506560182544,
-      "lift": 3.728435660250029
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-11-04",
-      "is_id": false,
-      "count": 124,
-      "share": 0.00124,
-      "positive": 8,
-      "positive_rate": 0.06451612903225806,
-      "recall": 0.004563605248146035,
-      "lift": 3.6803268130209963
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-01-06",
-      "is_id": false,
-      "count": 126,
-      "share": 0.00126,
-      "positive": 8,
-      "positive_rate": 0.06349206349206349,
-      "recall": 0.004563605248146035,
-      "lift": 3.6219089271000278
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-04-25",
-      "is_id": false,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 8,
-      "positive_rate": 0.06201550387596899,
-      "recall": 0.004563605248146035,
-      "lift": 3.537678486934911
-    },
-    {
-      "column": "policy_age_days",
-      "value": "74",
-      "is_id": false,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 8,
-      "positive_rate": 0.06201550387596899,
-      "recall": 0.004563605248146035,
-      "lift": 3.537678486934911
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-02-09",
-      "is_id": false,
-      "count": 113,
-      "share": 0.00113,
-      "positive": 7,
-      "positive_rate": 0.061946902654867256,
-      "recall": 0.003993154592127781,
-      "lift": 3.5337651257767972
-    },
-    {
-      "column": "policy_age_days",
-      "value": "97",
-      "is_id": false,
-      "count": 133,
-      "share": 0.00133,
-      "positive": 8,
-      "positive_rate": 0.06015037593984962,
-      "recall": 0.004563605248146035,
-      "lift": 3.431282141463184
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-08-21",
-      "is_id": false,
-      "count": 150,
-      "share": 0.0015,
-      "positive": 9,
-      "positive_rate": 0.06,
-      "recall": 0.00513405590416429,
-      "lift": 3.422703936109526
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-11-21",
-      "is_id": false,
-      "count": 121,
-      "share": 0.00121,
-      "positive": 7,
-      "positive_rate": 0.05785123966942149,
-      "recall": 0.003993154592127781,
-      "lift": 3.300127762089075
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-03-29",
-      "is_id": false,
-      "count": 125,
-      "share": 0.00125,
-      "positive": 7,
-      "positive_rate": 0.056,
-      "recall": 0.003993154592127781,
-      "lift": 3.194523673702225
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-06-03",
-      "is_id": false,
-      "count": 143,
-      "share": 0.00143,
-      "positive": 8,
-      "positive_rate": 0.055944055944055944,
-      "recall": 0.004563605248146035,
-      "lift": 3.1913323413608636
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00009",
-      "is_id": true,
-      "count": 127,
-      "share": 0.00127,
-      "positive": 7,
-      "positive_rate": 0.05511811023622047,
-      "recall": 0.003993154592127781,
-      "lift": 3.1442162142738432
+      "count": 1416,
+      "share": 0.01416,
+      "positive": 194,
+      "positive_rate": 0.1370056497175141,
+      "recall": 0.05925473427000611,
+      "lift": 4.184656375000431
     },
     {
       "column": "hospital_days",
       "value": "10",
       "is_id": false,
-      "count": 310,
-      "share": 0.0031,
-      "positive": 17,
-      "positive_rate": 0.054838709677419356,
-      "recall": 0.009697661152310326,
-      "lift": 3.128277791067847
+      "count": 287,
+      "share": 0.00287,
+      "positive": 39,
+      "positive_rate": 0.13588850174216027,
+      "recall": 0.011912034208918754,
+      "lift": 4.15053456756751
     },
     {
       "column": "policy_age_days",
-      "value": "45",
+      "value": "293",
       "is_id": false,
-      "count": 146,
-      "share": 0.00146,
-      "positive": 8,
-      "positive_rate": 0.0547945205479452,
-      "recall": 0.004563605248146035,
-      "lift": 3.1257570192781063
+      "count": 100,
+      "share": 0.001,
+      "positive": 13,
+      "positive_rate": 0.13,
+      "recall": 0.003970678069639585,
+      "lift": 3.970678069639585
+    },
+    {
+      "column": "policy_age_days",
+      "value": "277",
+      "is_id": false,
+      "count": 110,
+      "share": 0.0011,
+      "positive": 13,
+      "positive_rate": 0.11818181818181818,
+      "recall": 0.003970678069639585,
+      "lift": 3.609707336035986
+    },
+    {
+      "column": "hospital_days",
+      "value": "8",
+      "is_id": false,
+      "count": 717,
+      "share": 0.00717,
+      "positive": 82,
+      "positive_rate": 0.11436541143654114,
+      "recall": 0.02504581551618815,
+      "lift": 3.493140239356785
+    },
+    {
+      "column": "hospital_days",
+      "value": "6",
+      "is_id": false,
+      "count": 1811,
+      "share": 0.01811,
+      "positive": 195,
+      "positive_rate": 0.10767531750414136,
+      "recall": 0.05956017104459377,
+      "lift": 3.2888001681167185
+    },
+    {
+      "column": "hospital_days",
+      "value": "9",
+      "is_id": false,
+      "count": 424,
+      "share": 0.00424,
+      "positive": 45,
+      "positive_rate": 0.10613207547169812,
+      "recall": 0.013744654856444716,
+      "lift": 3.2416638812369616
     },
     {
       "column": "accident_date",
-      "value": "2024-10-08",
-      "is_id": false,
-      "count": 165,
-      "share": 0.00165,
-      "positive": 9,
-      "positive_rate": 0.05454545454545454,
-      "recall": 0.00513405590416429,
-      "lift": 3.1115490328268423
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00713",
-      "is_id": true,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 7,
-      "positive_rate": 0.05426356589147287,
-      "recall": 0.003993154592127781,
-      "lift": 3.095468676068047
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-04-08",
-      "is_id": false,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 7,
-      "positive_rate": 0.05426356589147287,
-      "recall": 0.003993154592127781,
-      "lift": 3.095468676068047
-    },
-    {
-      "column": "policy_age_days",
-      "value": "227",
-      "is_id": false,
-      "count": 111,
-      "share": 0.00111,
-      "positive": 6,
-      "positive_rate": 0.05405405405405406,
-      "recall": 0.0034227039361095267,
-      "lift": 3.0835170595581323
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-11-02",
-      "is_id": false,
-      "count": 130,
-      "share": 0.0013,
-      "positive": 7,
-      "positive_rate": 0.05384615384615385,
-      "recall": 0.003993154592127781,
-      "lift": 3.0716573785598316
-    },
-    {
-      "column": "policy_age_days",
-      "value": "63",
-      "is_id": false,
-      "count": 130,
-      "share": 0.0013,
-      "positive": 7,
-      "positive_rate": 0.05384615384615385,
-      "recall": 0.003993154592127781,
-      "lift": 3.0716573785598316
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-10-04",
-      "is_id": false,
-      "count": 150,
-      "share": 0.0015,
-      "positive": 8,
-      "positive_rate": 0.05333333333333334,
-      "recall": 0.004563605248146035,
-      "lift": 3.0424034987640236
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00645",
-      "is_id": true,
-      "count": 132,
-      "share": 0.00132,
-      "positive": 7,
-      "positive_rate": 0.05303030303030303,
-      "recall": 0.003993154592127781,
-      "lift": 3.0251171152483187
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-04-09",
+      "value": "2025-09-08",
       "is_id": false,
       "count": 132,
       "share": 0.00132,
-      "positive": 7,
-      "positive_rate": 0.05303030303030303,
-      "recall": 0.003993154592127781,
-      "lift": 3.0251171152483187
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00109",
-      "is_id": true,
-      "count": 151,
-      "share": 0.00151,
-      "positive": 8,
-      "positive_rate": 0.052980132450331126,
-      "recall": 0.004563605248146035,
-      "lift": 3.02225513122254
+      "positive": 14,
+      "positive_rate": 0.10606060606060606,
+      "recall": 0.004276114844227245,
+      "lift": 3.2394809425963977
     },
     {
       "column": "policy_age_days",
-      "value": "17",
-      "is_id": false,
-      "count": 171,
-      "share": 0.00171,
-      "positive": 9,
-      "positive_rate": 0.05263157894736842,
-      "recall": 0.00513405590416429,
-      "lift": 3.002371873780286
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00309",
-      "is_id": true,
-      "count": 133,
-      "share": 0.00133,
-      "positive": 7,
-      "positive_rate": 0.05263157894736842,
-      "recall": 0.003993154592127781,
-      "lift": 3.002371873780286
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-10-10",
-      "is_id": false,
-      "count": 133,
-      "share": 0.00133,
-      "positive": 7,
-      "positive_rate": 0.05263157894736842,
-      "recall": 0.003993154592127781,
-      "lift": 3.002371873780286
-    },
-    {
-      "column": "policy_age_days",
-      "value": "41",
-      "is_id": false,
-      "count": 153,
-      "share": 0.00153,
-      "positive": 8,
-      "positive_rate": 0.05228758169934641,
-      "recall": 0.004563605248146035,
-      "lift": 2.9827485282000232
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-01-07",
-      "is_id": false,
-      "count": 134,
-      "share": 0.00134,
-      "positive": 7,
-      "positive_rate": 0.05223880597014925,
-      "recall": 0.003993154592127781,
-      "lift": 2.9799661135281945
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-05-21",
-      "is_id": false,
-      "count": 134,
-      "share": 0.00134,
-      "positive": 7,
-      "positive_rate": 0.05223880597014925,
-      "recall": 0.003993154592127781,
-      "lift": 2.9799661135281945
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-04-08",
-      "is_id": false,
-      "count": 135,
-      "share": 0.00135,
-      "positive": 7,
-      "positive_rate": 0.05185185185185185,
-      "recall": 0.003993154592127781,
-      "lift": 2.957892290465023
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-04-02",
-      "is_id": false,
-      "count": 136,
-      "share": 0.00136,
-      "positive": 7,
-      "positive_rate": 0.051470588235294115,
-      "recall": 0.003993154592127781,
-      "lift": 2.9361430824468977
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-08-19",
-      "is_id": false,
-      "count": 137,
-      "share": 0.00137,
-      "positive": 7,
-      "positive_rate": 0.051094890510948905,
-      "recall": 0.003993154592127781,
-      "lift": 2.9147113811151684
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-04-15",
-      "is_id": false,
-      "count": 118,
-      "share": 0.00118,
-      "positive": 6,
-      "positive_rate": 0.05084745762711865,
-      "recall": 0.0034227039361095267,
-      "lift": 2.9005965560250226
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00655",
-      "is_id": true,
-      "count": 138,
-      "share": 0.00138,
-      "positive": 7,
-      "positive_rate": 0.050724637681159424,
-      "recall": 0.003993154592127781,
-      "lift": 2.893590284150566
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00394",
-      "is_id": true,
-      "count": 158,
-      "share": 0.00158,
-      "positive": 8,
-      "positive_rate": 0.05063291139240506,
-      "recall": 0.004563605248146035,
-      "lift": 2.8883577519911614
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00466",
-      "is_id": true,
-      "count": 139,
-      "share": 0.00139,
-      "positive": 7,
-      "positive_rate": 0.050359712230215826,
-      "recall": 0.003993154592127781,
-      "lift": 2.8727730878617126
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00220",
-      "is_id": true,
-      "count": 139,
-      "share": 0.00139,
-      "positive": 7,
-      "positive_rate": 0.050359712230215826,
-      "recall": 0.003993154592127781,
-      "lift": 2.8727730878617126
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00026",
-      "is_id": true,
-      "count": 140,
-      "share": 0.0014,
-      "positive": 7,
-      "positive_rate": 0.05,
-      "recall": 0.003993154592127781,
-      "lift": 2.852253280091272
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-02-14",
-      "is_id": false,
-      "count": 140,
-      "share": 0.0014,
-      "positive": 7,
-      "positive_rate": 0.05,
-      "recall": 0.003993154592127781,
-      "lift": 2.852253280091272
-    },
-    {
-      "column": "provider_id",
-      "value": "provider_00476",
-      "is_id": true,
-      "count": 181,
-      "share": 0.00181,
-      "positive": 9,
-      "positive_rate": 0.049723756906077346,
-      "recall": 0.00513405590416429,
-      "lift": 2.836494974676403
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-12-06",
-      "is_id": false,
-      "count": 161,
-      "share": 0.00161,
-      "positive": 8,
-      "positive_rate": 0.049689440993788817,
-      "recall": 0.004563605248146035,
-      "lift": 2.8345374212087173
-    },
-    {
-      "column": "policy_age_days",
-      "value": "72",
-      "is_id": false,
-      "count": 142,
-      "share": 0.00142,
-      "positive": 7,
-      "positive_rate": 0.04929577464788732,
-      "recall": 0.003993154592127781,
-      "lift": 2.8120806986815357
-    },
-    {
-      "column": "provider_prior_high_amount_share_365d",
-      "value": "0.19444",
-      "is_id": false,
-      "count": 143,
-      "share": 0.00143,
-      "positive": 7,
-      "positive_rate": 0.04895104895104895,
-      "recall": 0.003993154592127781,
-      "lift": 2.792415798690756
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-11-23",
+      "value": "203",
       "is_id": false,
       "count": 123,
       "share": 0.00123,
-      "positive": 6,
-      "positive_rate": 0.04878048780487805,
-      "recall": 0.0034227039361095267,
-      "lift": 2.782686126918314
+      "positive": 13,
+      "positive_rate": 0.10569105691056911,
+      "recall": 0.003970678069639585,
+      "lift": 3.2281935525525083
+    },
+    {
+      "column": "provider_id",
+      "value": "provider_00366",
+      "is_id": true,
+      "count": 140,
+      "share": 0.0014,
+      "positive": 14,
+      "positive_rate": 0.1,
+      "recall": 0.004276114844227245,
+      "lift": 3.054367745876604
     },
     {
       "column": "policy_age_days",
-      "value": "69",
+      "value": "229",
       "is_id": false,
-      "count": 144,
-      "share": 0.00144,
-      "positive": 7,
-      "positive_rate": 0.04861111111111111,
-      "recall": 0.003993154592127781,
-      "lift": 2.773024022310959
+      "count": 110,
+      "share": 0.0011,
+      "positive": 11,
+      "positive_rate": 0.1,
+      "recall": 0.003359804520464264,
+      "lift": 3.054367745876604
+    },
+    {
+      "column": "hospital_days",
+      "value": "7",
+      "is_id": false,
+      "count": 1112,
+      "share": 0.01112,
+      "positive": 111,
+      "positive_rate": 0.09982014388489209,
+      "recall": 0.0339034819792303,
+      "lift": 3.048874278707761
+    },
+    {
+      "column": "claim_date",
+      "value": "2024-12-06",
+      "is_id": false,
+      "count": 111,
+      "share": 0.00111,
+      "positive": 11,
+      "positive_rate": 0.0990990990990991,
+      "recall": 0.003359804520464264,
+      "lift": 3.026850919337175
+    },
+    {
+      "column": "hospital_days",
+      "value": "5",
+      "is_id": false,
+      "count": 2969,
+      "share": 0.02969,
+      "positive": 294,
+      "positive_rate": 0.09902324014819805,
+      "recall": 0.08979841172877215,
+      "lift": 3.0245339080084928
     },
     {
       "column": "policy_age_days",
-      "value": "320",
+      "value": "271",
       "is_id": false,
       "count": 103,
       "share": 0.00103,
-      "positive": 5,
-      "positive_rate": 0.04854368932038835,
-      "recall": 0.002852253280091272,
-      "lift": 2.7691779418361864
+      "positive": 10,
+      "positive_rate": 0.0970873786407767,
+      "recall": 0.0030543677458766036,
+      "lift": 2.9654055785209743
+    },
+    {
+      "column": "provider_id",
+      "value": "provider_00652",
+      "is_id": true,
+      "count": 140,
+      "share": 0.0014,
+      "positive": 13,
+      "positive_rate": 0.09285714285714286,
+      "recall": 0.003970678069639585,
+      "lift": 2.8361986211711323
     },
     {
       "column": "accident_date",
-      "value": "2025-11-12",
+      "value": "2025-05-18",
       "is_id": false,
-      "count": 124,
-      "share": 0.00124,
-      "positive": 6,
-      "positive_rate": 0.04838709677419355,
-      "recall": 0.0034227039361095267,
-      "lift": 2.760245109765747
+      "count": 143,
+      "share": 0.00143,
+      "positive": 13,
+      "positive_rate": 0.09090909090909091,
+      "recall": 0.003970678069639585,
+      "lift": 2.7766979507969127
+    },
+    {
+      "column": "policy_age_days",
+      "value": "46",
+      "is_id": false,
+      "count": 166,
+      "share": 0.00166,
+      "positive": 15,
+      "positive_rate": 0.09036144578313253,
+      "recall": 0.004581551618814905,
+      "lift": 2.7599708547077744
+    },
+    {
+      "column": "policy_age_days",
+      "value": "104",
+      "is_id": false,
+      "count": 133,
+      "share": 0.00133,
+      "positive": 12,
+      "positive_rate": 0.09022556390977443,
+      "recall": 0.0036652412950519244,
+      "lift": 2.7558205225954318
+    },
+    {
+      "column": "policy_age_days",
+      "value": "245",
+      "is_id": false,
+      "count": 112,
+      "share": 0.00112,
+      "positive": 10,
+      "positive_rate": 0.08928571428571429,
+      "recall": 0.0030543677458766036,
+      "lift": 2.727114058818396
+    },
+    {
+      "column": "hospital_days",
+      "value": "4",
+      "is_id": false,
+      "count": 4781,
+      "share": 0.04781,
+      "positive": 424,
+      "positive_rate": 0.08868437565362895,
+      "recall": 0.129505192425168,
+      "lift": 2.708746965596486
+    },
+    {
+      "column": "customer_age",
+      "value": "78",
+      "is_id": false,
+      "count": 227,
+      "share": 0.00227,
+      "positive": 20,
+      "positive_rate": 0.0881057268722467,
+      "recall": 0.006108735491753207,
+      "lift": 2.6910729038560386
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-09-26",
+      "is_id": false,
+      "count": 127,
+      "share": 0.00127,
+      "positive": 11,
+      "positive_rate": 0.08661417322834646,
+      "recall": 0.003359804520464264,
+      "lift": 2.6455153704443024
+    },
+    {
+      "column": "provider_id",
+      "value": "provider_00687",
+      "is_id": true,
+      "count": 151,
+      "share": 0.00151,
+      "positive": 13,
+      "positive_rate": 0.08609271523178808,
+      "recall": 0.003970678069639585,
+      "lift": 2.629588125589129
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-09-15",
+      "is_id": false,
+      "count": 128,
+      "share": 0.00128,
+      "positive": 11,
+      "positive_rate": 0.0859375,
+      "recall": 0.003359804520464264,
+      "lift": 2.6248472816127064
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-11-10",
+      "is_id": false,
+      "count": 142,
+      "share": 0.00142,
+      "positive": 12,
+      "positive_rate": 0.08450704225352113,
+      "recall": 0.0036652412950519244,
+      "lift": 2.581155841585862
+    },
+    {
+      "column": "hospital_days",
+      "value": "11",
+      "is_id": false,
+      "count": 178,
+      "share": 0.00178,
+      "positive": 15,
+      "positive_rate": 0.08426966292134831,
+      "recall": 0.004581551618814905,
+      "lift": 2.5739054038285984
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-12-20",
+      "is_id": false,
+      "count": 119,
+      "share": 0.00119,
+      "positive": 10,
+      "positive_rate": 0.08403361344537816,
+      "recall": 0.0030543677458766036,
+      "lift": 2.5666955847702555
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-11-24",
+      "is_id": false,
+      "count": 119,
+      "share": 0.00119,
+      "positive": 10,
+      "positive_rate": 0.08403361344537816,
+      "recall": 0.0030543677458766036,
+      "lift": 2.5666955847702555
+    },
+    {
+      "column": "policy_age_days",
+      "value": "77",
+      "is_id": false,
+      "count": 120,
+      "share": 0.0012,
+      "positive": 10,
+      "positive_rate": 0.08333333333333333,
+      "recall": 0.0030543677458766036,
+      "lift": 2.54530645489717
+    },
+    {
+      "column": "policy_age_days",
+      "value": "238",
+      "is_id": false,
+      "count": 108,
+      "share": 0.00108,
+      "positive": 9,
+      "positive_rate": 0.08333333333333333,
+      "recall": 0.002748930971288943,
+      "lift": 2.54530645489717
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-08-11",
+      "is_id": false,
+      "count": 145,
+      "share": 0.00145,
+      "positive": 12,
+      "positive_rate": 0.08275862068965517,
+      "recall": 0.0036652412950519244,
+      "lift": 2.5277526172771894
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-03-13",
+      "is_id": false,
+      "count": 133,
+      "share": 0.00133,
+      "positive": 11,
+      "positive_rate": 0.08270676691729323,
+      "recall": 0.003359804520464264,
+      "lift": 2.526168812379146
+    },
+    {
+      "column": "customer_age",
+      "value": "68",
+      "is_id": false,
+      "count": 896,
+      "share": 0.00896,
+      "positive": 74,
+      "positive_rate": 0.08258928571428571,
+      "recall": 0.022602321319486866,
+      "lift": 2.522580504407016
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-04-10",
+      "is_id": false,
+      "count": 134,
+      "share": 0.00134,
+      "positive": 11,
+      "positive_rate": 0.08208955223880597,
+      "recall": 0.003359804520464264,
+      "lift": 2.507316806316615
+    },
+    {
+      "column": "provider_id",
+      "value": "provider_00040",
+      "is_id": true,
+      "count": 159,
+      "share": 0.00159,
+      "positive": 13,
+      "positive_rate": 0.08176100628930817,
+      "recall": 0.003970678069639585,
+      "lift": 2.49728180480477
+    },
+    {
+      "column": "customer_age",
+      "value": "80",
+      "is_id": false,
+      "count": 196,
+      "share": 0.00196,
+      "positive": 16,
+      "positive_rate": 0.08163265306122448,
+      "recall": 0.004886988393402566,
+      "lift": 2.4933614252053906
+    },
+    {
+      "column": "prior_claim_count_30d",
+      "value": "3",
+      "is_id": false,
+      "count": 3340,
+      "share": 0.0334,
+      "positive": 272,
+      "positive_rate": 0.081437125748503,
+      "recall": 0.08307880268784362,
+      "lift": 2.487389302031246
+    },
+    {
+      "column": "prior_claim_count_30d",
+      "value": "4",
+      "is_id": false,
+      "count": 639,
+      "share": 0.00639,
+      "positive": 52,
+      "positive_rate": 0.081377151799687,
+      "recall": 0.01588271227855834,
+      "lift": 2.4855574770826823
+    },
+    {
+      "column": "policy_age_days",
+      "value": "26",
+      "is_id": false,
+      "count": 148,
+      "share": 0.00148,
+      "positive": 12,
+      "positive_rate": 0.08108108108108109,
+      "recall": 0.0036652412950519244,
+      "lift": 2.4765143885485976
+    },
+    {
+      "column": "policy_age_days",
+      "value": "292",
+      "is_id": false,
+      "count": 111,
+      "share": 0.00111,
+      "positive": 9,
+      "positive_rate": 0.08108108108108109,
+      "recall": 0.002748930971288943,
+      "lift": 2.4765143885485976
+    },
+    {
+      "column": "policy_age_days",
+      "value": "164",
+      "is_id": false,
+      "count": 111,
+      "share": 0.00111,
+      "positive": 9,
+      "positive_rate": 0.08108108108108109,
+      "recall": 0.002748930971288943,
+      "lift": 2.4765143885485976
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-09-12",
+      "is_id": false,
+      "count": 149,
+      "share": 0.00149,
+      "positive": 12,
+      "positive_rate": 0.08053691275167785,
+      "recall": 0.0036652412950519244,
+      "lift": 2.45989348661203
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-10-24",
+      "is_id": false,
+      "count": 149,
+      "share": 0.00149,
+      "positive": 12,
+      "positive_rate": 0.08053691275167785,
+      "recall": 0.0036652412950519244,
+      "lift": 2.45989348661203
+    },
+    {
+      "column": "policy_age_days",
+      "value": "174",
+      "is_id": false,
+      "count": 112,
+      "share": 0.00112,
+      "positive": 9,
+      "positive_rate": 0.08035714285714286,
+      "recall": 0.002748930971288943,
+      "lift": 2.454402652936557
+    },
+    {
+      "column": "claim_date",
+      "value": "2024-11-27",
+      "is_id": false,
+      "count": 137,
+      "share": 0.00137,
+      "positive": 11,
+      "positive_rate": 0.08029197080291971,
+      "recall": 0.003359804520464264,
+      "lift": 2.4524120587330396
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-08-21",
+      "is_id": false,
+      "count": 137,
+      "share": 0.00137,
+      "positive": 11,
+      "positive_rate": 0.08029197080291971,
+      "recall": 0.003359804520464264,
+      "lift": 2.4524120587330396
+    },
+    {
+      "column": "policy_age_days",
+      "value": "11",
+      "is_id": false,
+      "count": 175,
+      "share": 0.00175,
+      "positive": 14,
+      "positive_rate": 0.08,
+      "recall": 0.004276114844227245,
+      "lift": 2.443494196701283
+    },
+    {
+      "column": "policy_age_days",
+      "value": "108",
+      "is_id": false,
+      "count": 150,
+      "share": 0.0015,
+      "positive": 12,
+      "positive_rate": 0.08,
+      "recall": 0.0036652412950519244,
+      "lift": 2.443494196701283
     }
   ],
   "single_feature_rules_top_non_id": [
@@ -2549,551 +2889,551 @@
       "column": "hospital_days",
       "value": "12",
       "is_id": false,
-      "count": 123,
-      "share": 0.00123,
-      "positive": 12,
-      "positive_rate": 0.0975609756097561,
-      "recall": 0.0068454078722190535,
-      "lift": 5.565372253836628
+      "count": 131,
+      "share": 0.00131,
+      "positive": 20,
+      "positive_rate": 0.15267175572519084,
+      "recall": 0.006108735491753207,
+      "lift": 4.663156863933747
     },
     {
-      "column": "hospital_days",
-      "value": "11",
+      "column": "provider_prior_same_pair_count_365d",
+      "value": "1",
       "is_id": false,
-      "count": 193,
-      "share": 0.00193,
-      "positive": 17,
-      "positive_rate": 0.08808290155440414,
-      "recall": 0.009697661152310326,
-      "lift": 5.024694897570116
-    },
-    {
-      "column": "policy_age_days",
-      "value": "7",
-      "is_id": false,
-      "count": 153,
-      "share": 0.00153,
-      "positive": 10,
-      "positive_rate": 0.06535947712418301,
-      "recall": 0.005704506560182544,
-      "lift": 3.728435660250029
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-11-04",
-      "is_id": false,
-      "count": 124,
-      "share": 0.00124,
-      "positive": 8,
-      "positive_rate": 0.06451612903225806,
-      "recall": 0.004563605248146035,
-      "lift": 3.6803268130209963
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-01-06",
-      "is_id": false,
-      "count": 126,
-      "share": 0.00126,
-      "positive": 8,
-      "positive_rate": 0.06349206349206349,
-      "recall": 0.004563605248146035,
-      "lift": 3.6219089271000278
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-04-25",
-      "is_id": false,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 8,
-      "positive_rate": 0.06201550387596899,
-      "recall": 0.004563605248146035,
-      "lift": 3.537678486934911
-    },
-    {
-      "column": "policy_age_days",
-      "value": "74",
-      "is_id": false,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 8,
-      "positive_rate": 0.06201550387596899,
-      "recall": 0.004563605248146035,
-      "lift": 3.537678486934911
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-02-09",
-      "is_id": false,
-      "count": 113,
-      "share": 0.00113,
-      "positive": 7,
-      "positive_rate": 0.061946902654867256,
-      "recall": 0.003993154592127781,
-      "lift": 3.5337651257767972
-    },
-    {
-      "column": "policy_age_days",
-      "value": "97",
-      "is_id": false,
-      "count": 133,
-      "share": 0.00133,
-      "positive": 8,
-      "positive_rate": 0.06015037593984962,
-      "recall": 0.004563605248146035,
-      "lift": 3.431282141463184
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-08-21",
-      "is_id": false,
-      "count": 150,
-      "share": 0.0015,
-      "positive": 9,
-      "positive_rate": 0.06,
-      "recall": 0.00513405590416429,
-      "lift": 3.422703936109526
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-11-21",
-      "is_id": false,
-      "count": 121,
-      "share": 0.00121,
-      "positive": 7,
-      "positive_rate": 0.05785123966942149,
-      "recall": 0.003993154592127781,
-      "lift": 3.300127762089075
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-03-29",
-      "is_id": false,
-      "count": 125,
-      "share": 0.00125,
-      "positive": 7,
-      "positive_rate": 0.056,
-      "recall": 0.003993154592127781,
-      "lift": 3.194523673702225
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-06-03",
-      "is_id": false,
-      "count": 143,
-      "share": 0.00143,
-      "positive": 8,
-      "positive_rate": 0.055944055944055944,
-      "recall": 0.004563605248146035,
-      "lift": 3.1913323413608636
+      "count": 1416,
+      "share": 0.01416,
+      "positive": 194,
+      "positive_rate": 0.1370056497175141,
+      "recall": 0.05925473427000611,
+      "lift": 4.184656375000431
     },
     {
       "column": "hospital_days",
       "value": "10",
       "is_id": false,
-      "count": 310,
-      "share": 0.0031,
-      "positive": 17,
-      "positive_rate": 0.054838709677419356,
-      "recall": 0.009697661152310326,
-      "lift": 3.128277791067847
-    },
-    {
-      "column": "policy_age_days",
-      "value": "45",
-      "is_id": false,
-      "count": 146,
-      "share": 0.00146,
-      "positive": 8,
-      "positive_rate": 0.0547945205479452,
-      "recall": 0.004563605248146035,
-      "lift": 3.1257570192781063
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-10-08",
-      "is_id": false,
-      "count": 165,
-      "share": 0.00165,
-      "positive": 9,
-      "positive_rate": 0.05454545454545454,
-      "recall": 0.00513405590416429,
-      "lift": 3.1115490328268423
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-04-08",
-      "is_id": false,
-      "count": 129,
-      "share": 0.00129,
-      "positive": 7,
-      "positive_rate": 0.05426356589147287,
-      "recall": 0.003993154592127781,
-      "lift": 3.095468676068047
-    },
-    {
-      "column": "policy_age_days",
-      "value": "227",
-      "is_id": false,
-      "count": 111,
-      "share": 0.00111,
-      "positive": 6,
-      "positive_rate": 0.05405405405405406,
-      "recall": 0.0034227039361095267,
-      "lift": 3.0835170595581323
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-11-02",
-      "is_id": false,
-      "count": 130,
-      "share": 0.0013,
-      "positive": 7,
-      "positive_rate": 0.05384615384615385,
-      "recall": 0.003993154592127781,
-      "lift": 3.0716573785598316
-    },
-    {
-      "column": "policy_age_days",
-      "value": "63",
-      "is_id": false,
-      "count": 130,
-      "share": 0.0013,
-      "positive": 7,
-      "positive_rate": 0.05384615384615385,
-      "recall": 0.003993154592127781,
-      "lift": 3.0716573785598316
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-10-04",
-      "is_id": false,
-      "count": 150,
-      "share": 0.0015,
-      "positive": 8,
-      "positive_rate": 0.05333333333333334,
-      "recall": 0.004563605248146035,
-      "lift": 3.0424034987640236
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-04-09",
-      "is_id": false,
-      "count": 132,
-      "share": 0.00132,
-      "positive": 7,
-      "positive_rate": 0.05303030303030303,
-      "recall": 0.003993154592127781,
-      "lift": 3.0251171152483187
-    },
-    {
-      "column": "policy_age_days",
-      "value": "17",
-      "is_id": false,
-      "count": 171,
-      "share": 0.00171,
-      "positive": 9,
-      "positive_rate": 0.05263157894736842,
-      "recall": 0.00513405590416429,
-      "lift": 3.002371873780286
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-10-10",
-      "is_id": false,
-      "count": 133,
-      "share": 0.00133,
-      "positive": 7,
-      "positive_rate": 0.05263157894736842,
-      "recall": 0.003993154592127781,
-      "lift": 3.002371873780286
-    },
-    {
-      "column": "policy_age_days",
-      "value": "41",
-      "is_id": false,
-      "count": 153,
-      "share": 0.00153,
-      "positive": 8,
-      "positive_rate": 0.05228758169934641,
-      "recall": 0.004563605248146035,
-      "lift": 2.9827485282000232
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-01-07",
-      "is_id": false,
-      "count": 134,
-      "share": 0.00134,
-      "positive": 7,
-      "positive_rate": 0.05223880597014925,
-      "recall": 0.003993154592127781,
-      "lift": 2.9799661135281945
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-05-21",
-      "is_id": false,
-      "count": 134,
-      "share": 0.00134,
-      "positive": 7,
-      "positive_rate": 0.05223880597014925,
-      "recall": 0.003993154592127781,
-      "lift": 2.9799661135281945
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-04-08",
-      "is_id": false,
-      "count": 135,
-      "share": 0.00135,
-      "positive": 7,
-      "positive_rate": 0.05185185185185185,
-      "recall": 0.003993154592127781,
-      "lift": 2.957892290465023
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-04-02",
-      "is_id": false,
-      "count": 136,
-      "share": 0.00136,
-      "positive": 7,
-      "positive_rate": 0.051470588235294115,
-      "recall": 0.003993154592127781,
-      "lift": 2.9361430824468977
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-08-19",
-      "is_id": false,
-      "count": 137,
-      "share": 0.00137,
-      "positive": 7,
-      "positive_rate": 0.051094890510948905,
-      "recall": 0.003993154592127781,
-      "lift": 2.9147113811151684
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-04-15",
-      "is_id": false,
-      "count": 118,
-      "share": 0.00118,
-      "positive": 6,
-      "positive_rate": 0.05084745762711865,
-      "recall": 0.0034227039361095267,
-      "lift": 2.9005965560250226
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-02-14",
-      "is_id": false,
-      "count": 140,
-      "share": 0.0014,
-      "positive": 7,
-      "positive_rate": 0.05,
-      "recall": 0.003993154592127781,
-      "lift": 2.852253280091272
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-12-06",
-      "is_id": false,
-      "count": 161,
-      "share": 0.00161,
-      "positive": 8,
-      "positive_rate": 0.049689440993788817,
-      "recall": 0.004563605248146035,
-      "lift": 2.8345374212087173
-    },
-    {
-      "column": "policy_age_days",
-      "value": "72",
-      "is_id": false,
-      "count": 142,
-      "share": 0.00142,
-      "positive": 7,
-      "positive_rate": 0.04929577464788732,
-      "recall": 0.003993154592127781,
-      "lift": 2.8120806986815357
-    },
-    {
-      "column": "provider_prior_high_amount_share_365d",
-      "value": "0.19444",
-      "is_id": false,
-      "count": 143,
-      "share": 0.00143,
-      "positive": 7,
-      "positive_rate": 0.04895104895104895,
-      "recall": 0.003993154592127781,
-      "lift": 2.792415798690756
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-11-23",
-      "is_id": false,
-      "count": 123,
-      "share": 0.00123,
-      "positive": 6,
-      "positive_rate": 0.04878048780487805,
-      "recall": 0.0034227039361095267,
-      "lift": 2.782686126918314
-    },
-    {
-      "column": "policy_age_days",
-      "value": "69",
-      "is_id": false,
-      "count": 144,
-      "share": 0.00144,
-      "positive": 7,
-      "positive_rate": 0.04861111111111111,
-      "recall": 0.003993154592127781,
-      "lift": 2.773024022310959
-    },
-    {
-      "column": "policy_age_days",
-      "value": "320",
-      "is_id": false,
-      "count": 103,
-      "share": 0.00103,
-      "positive": 5,
-      "positive_rate": 0.04854368932038835,
-      "recall": 0.002852253280091272,
-      "lift": 2.7691779418361864
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-11-12",
-      "is_id": false,
-      "count": 124,
-      "share": 0.00124,
-      "positive": 6,
-      "positive_rate": 0.04838709677419355,
-      "recall": 0.0034227039361095267,
-      "lift": 2.760245109765747
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-01-03",
-      "is_id": false,
-      "count": 145,
-      "share": 0.00145,
-      "positive": 7,
-      "positive_rate": 0.04827586206896552,
-      "recall": 0.003993154592127781,
-      "lift": 2.7538997187088143
-    },
-    {
-      "column": "claim_date",
-      "value": "2024-03-29",
-      "is_id": false,
-      "count": 125,
-      "share": 0.00125,
-      "positive": 6,
-      "positive_rate": 0.048,
-      "recall": 0.0034227039361095267,
-      "lift": 2.738163148887621
-    },
-    {
-      "column": "policy_age_days",
-      "value": "18",
-      "is_id": false,
-      "count": 168,
-      "share": 0.00168,
-      "positive": 8,
-      "positive_rate": 0.047619047619047616,
-      "recall": 0.004563605248146035,
-      "lift": 2.7164316953250207
+      "count": 287,
+      "share": 0.00287,
+      "positive": 39,
+      "positive_rate": 0.13588850174216027,
+      "recall": 0.011912034208918754,
+      "lift": 4.15053456756751
     },
     {
       "column": "policy_age_days",
       "value": "293",
       "is_id": false,
-      "count": 105,
-      "share": 0.00105,
-      "positive": 5,
-      "positive_rate": 0.047619047619047616,
-      "recall": 0.002852253280091272,
-      "lift": 2.7164316953250207
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-10-28",
-      "is_id": false,
-      "count": 127,
-      "share": 0.00127,
-      "positive": 6,
-      "positive_rate": 0.047244094488188976,
-      "recall": 0.0034227039361095267,
-      "lift": 2.69504246937758
-    },
-    {
-      "column": "accident_date",
-      "value": "2025-07-30",
-      "is_id": false,
-      "count": 149,
-      "share": 0.00149,
-      "positive": 7,
-      "positive_rate": 0.04697986577181208,
-      "recall": 0.003993154592127781,
-      "lift": 2.679969524917974
-    },
-    {
-      "column": "claim_date",
-      "value": "2025-06-26",
-      "is_id": false,
-      "count": 128,
-      "share": 0.00128,
-      "positive": 6,
-      "positive_rate": 0.046875,
-      "recall": 0.0034227039361095267,
-      "lift": 2.6739874500855674
-    },
-    {
-      "column": "accident_date",
-      "value": "2024-04-07",
-      "is_id": false,
-      "count": 150,
-      "share": 0.0015,
-      "positive": 7,
-      "positive_rate": 0.04666666666666667,
-      "recall": 0.003993154592127781,
-      "lift": 2.6621030614185206
+      "count": 100,
+      "share": 0.001,
+      "positive": 13,
+      "positive_rate": 0.13,
+      "recall": 0.003970678069639585,
+      "lift": 3.970678069639585
     },
     {
       "column": "policy_age_days",
-      "value": "61",
+      "value": "277",
       "is_id": false,
-      "count": 150,
-      "share": 0.0015,
-      "positive": 7,
-      "positive_rate": 0.04666666666666667,
-      "recall": 0.003993154592127781,
-      "lift": 2.6621030614185206
+      "count": 110,
+      "share": 0.0011,
+      "positive": 13,
+      "positive_rate": 0.11818181818181818,
+      "recall": 0.003970678069639585,
+      "lift": 3.609707336035986
     },
     {
-      "column": "provider_prior_high_amount_share_365d",
-      "value": "0.07317",
+      "column": "hospital_days",
+      "value": "8",
+      "is_id": false,
+      "count": 717,
+      "share": 0.00717,
+      "positive": 82,
+      "positive_rate": 0.11436541143654114,
+      "recall": 0.02504581551618815,
+      "lift": 3.493140239356785
+    },
+    {
+      "column": "hospital_days",
+      "value": "6",
+      "is_id": false,
+      "count": 1811,
+      "share": 0.01811,
+      "positive": 195,
+      "positive_rate": 0.10767531750414136,
+      "recall": 0.05956017104459377,
+      "lift": 3.2888001681167185
+    },
+    {
+      "column": "hospital_days",
+      "value": "9",
+      "is_id": false,
+      "count": 424,
+      "share": 0.00424,
+      "positive": 45,
+      "positive_rate": 0.10613207547169812,
+      "recall": 0.013744654856444716,
+      "lift": 3.2416638812369616
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-09-08",
+      "is_id": false,
+      "count": 132,
+      "share": 0.00132,
+      "positive": 14,
+      "positive_rate": 0.10606060606060606,
+      "recall": 0.004276114844227245,
+      "lift": 3.2394809425963977
+    },
+    {
+      "column": "policy_age_days",
+      "value": "203",
+      "is_id": false,
+      "count": 123,
+      "share": 0.00123,
+      "positive": 13,
+      "positive_rate": 0.10569105691056911,
+      "recall": 0.003970678069639585,
+      "lift": 3.2281935525525083
+    },
+    {
+      "column": "policy_age_days",
+      "value": "229",
+      "is_id": false,
+      "count": 110,
+      "share": 0.0011,
+      "positive": 11,
+      "positive_rate": 0.1,
+      "recall": 0.003359804520464264,
+      "lift": 3.054367745876604
+    },
+    {
+      "column": "hospital_days",
+      "value": "7",
+      "is_id": false,
+      "count": 1112,
+      "share": 0.01112,
+      "positive": 111,
+      "positive_rate": 0.09982014388489209,
+      "recall": 0.0339034819792303,
+      "lift": 3.048874278707761
+    },
+    {
+      "column": "claim_date",
+      "value": "2024-12-06",
+      "is_id": false,
+      "count": 111,
+      "share": 0.00111,
+      "positive": 11,
+      "positive_rate": 0.0990990990990991,
+      "recall": 0.003359804520464264,
+      "lift": 3.026850919337175
+    },
+    {
+      "column": "hospital_days",
+      "value": "5",
+      "is_id": false,
+      "count": 2969,
+      "share": 0.02969,
+      "positive": 294,
+      "positive_rate": 0.09902324014819805,
+      "recall": 0.08979841172877215,
+      "lift": 3.0245339080084928
+    },
+    {
+      "column": "policy_age_days",
+      "value": "271",
+      "is_id": false,
+      "count": 103,
+      "share": 0.00103,
+      "positive": 10,
+      "positive_rate": 0.0970873786407767,
+      "recall": 0.0030543677458766036,
+      "lift": 2.9654055785209743
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-05-18",
+      "is_id": false,
+      "count": 143,
+      "share": 0.00143,
+      "positive": 13,
+      "positive_rate": 0.09090909090909091,
+      "recall": 0.003970678069639585,
+      "lift": 2.7766979507969127
+    },
+    {
+      "column": "policy_age_days",
+      "value": "46",
+      "is_id": false,
+      "count": 166,
+      "share": 0.00166,
+      "positive": 15,
+      "positive_rate": 0.09036144578313253,
+      "recall": 0.004581551618814905,
+      "lift": 2.7599708547077744
+    },
+    {
+      "column": "policy_age_days",
+      "value": "104",
+      "is_id": false,
+      "count": 133,
+      "share": 0.00133,
+      "positive": 12,
+      "positive_rate": 0.09022556390977443,
+      "recall": 0.0036652412950519244,
+      "lift": 2.7558205225954318
+    },
+    {
+      "column": "policy_age_days",
+      "value": "245",
+      "is_id": false,
+      "count": 112,
+      "share": 0.00112,
+      "positive": 10,
+      "positive_rate": 0.08928571428571429,
+      "recall": 0.0030543677458766036,
+      "lift": 2.727114058818396
+    },
+    {
+      "column": "hospital_days",
+      "value": "4",
+      "is_id": false,
+      "count": 4781,
+      "share": 0.04781,
+      "positive": 424,
+      "positive_rate": 0.08868437565362895,
+      "recall": 0.129505192425168,
+      "lift": 2.708746965596486
+    },
+    {
+      "column": "customer_age",
+      "value": "78",
+      "is_id": false,
+      "count": 227,
+      "share": 0.00227,
+      "positive": 20,
+      "positive_rate": 0.0881057268722467,
+      "recall": 0.006108735491753207,
+      "lift": 2.6910729038560386
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-09-26",
+      "is_id": false,
+      "count": 127,
+      "share": 0.00127,
+      "positive": 11,
+      "positive_rate": 0.08661417322834646,
+      "recall": 0.003359804520464264,
+      "lift": 2.6455153704443024
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-09-15",
+      "is_id": false,
+      "count": 128,
+      "share": 0.00128,
+      "positive": 11,
+      "positive_rate": 0.0859375,
+      "recall": 0.003359804520464264,
+      "lift": 2.6248472816127064
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-11-10",
+      "is_id": false,
+      "count": 142,
+      "share": 0.00142,
+      "positive": 12,
+      "positive_rate": 0.08450704225352113,
+      "recall": 0.0036652412950519244,
+      "lift": 2.581155841585862
+    },
+    {
+      "column": "hospital_days",
+      "value": "11",
+      "is_id": false,
+      "count": 178,
+      "share": 0.00178,
+      "positive": 15,
+      "positive_rate": 0.08426966292134831,
+      "recall": 0.004581551618814905,
+      "lift": 2.5739054038285984
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-12-20",
+      "is_id": false,
+      "count": 119,
+      "share": 0.00119,
+      "positive": 10,
+      "positive_rate": 0.08403361344537816,
+      "recall": 0.0030543677458766036,
+      "lift": 2.5666955847702555
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-11-24",
+      "is_id": false,
+      "count": 119,
+      "share": 0.00119,
+      "positive": 10,
+      "positive_rate": 0.08403361344537816,
+      "recall": 0.0030543677458766036,
+      "lift": 2.5666955847702555
+    },
+    {
+      "column": "policy_age_days",
+      "value": "77",
+      "is_id": false,
+      "count": 120,
+      "share": 0.0012,
+      "positive": 10,
+      "positive_rate": 0.08333333333333333,
+      "recall": 0.0030543677458766036,
+      "lift": 2.54530645489717
+    },
+    {
+      "column": "policy_age_days",
+      "value": "238",
       "is_id": false,
       "count": 108,
       "share": 0.00108,
-      "positive": 5,
-      "positive_rate": 0.046296296296296294,
-      "recall": 0.002852253280091272,
-      "lift": 2.64097525934377
+      "positive": 9,
+      "positive_rate": 0.08333333333333333,
+      "recall": 0.002748930971288943,
+      "lift": 2.54530645489717
     },
     {
-      "column": "provider_prior_high_amount_share_365d",
-      "value": "0.19118",
+      "column": "accident_date",
+      "value": "2025-08-11",
       "is_id": false,
-      "count": 130,
-      "share": 0.0013,
-      "positive": 6,
-      "positive_rate": 0.046153846153846156,
-      "recall": 0.0034227039361095267,
-      "lift": 2.6328491816227126
+      "count": 145,
+      "share": 0.00145,
+      "positive": 12,
+      "positive_rate": 0.08275862068965517,
+      "recall": 0.0036652412950519244,
+      "lift": 2.5277526172771894
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-03-13",
+      "is_id": false,
+      "count": 133,
+      "share": 0.00133,
+      "positive": 11,
+      "positive_rate": 0.08270676691729323,
+      "recall": 0.003359804520464264,
+      "lift": 2.526168812379146
+    },
+    {
+      "column": "customer_age",
+      "value": "68",
+      "is_id": false,
+      "count": 896,
+      "share": 0.00896,
+      "positive": 74,
+      "positive_rate": 0.08258928571428571,
+      "recall": 0.022602321319486866,
+      "lift": 2.522580504407016
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-04-10",
+      "is_id": false,
+      "count": 134,
+      "share": 0.00134,
+      "positive": 11,
+      "positive_rate": 0.08208955223880597,
+      "recall": 0.003359804520464264,
+      "lift": 2.507316806316615
+    },
+    {
+      "column": "customer_age",
+      "value": "80",
+      "is_id": false,
+      "count": 196,
+      "share": 0.00196,
+      "positive": 16,
+      "positive_rate": 0.08163265306122448,
+      "recall": 0.004886988393402566,
+      "lift": 2.4933614252053906
+    },
+    {
+      "column": "prior_claim_count_30d",
+      "value": "3",
+      "is_id": false,
+      "count": 3340,
+      "share": 0.0334,
+      "positive": 272,
+      "positive_rate": 0.081437125748503,
+      "recall": 0.08307880268784362,
+      "lift": 2.487389302031246
+    },
+    {
+      "column": "prior_claim_count_30d",
+      "value": "4",
+      "is_id": false,
+      "count": 639,
+      "share": 0.00639,
+      "positive": 52,
+      "positive_rate": 0.081377151799687,
+      "recall": 0.01588271227855834,
+      "lift": 2.4855574770826823
+    },
+    {
+      "column": "policy_age_days",
+      "value": "26",
+      "is_id": false,
+      "count": 148,
+      "share": 0.00148,
+      "positive": 12,
+      "positive_rate": 0.08108108108108109,
+      "recall": 0.0036652412950519244,
+      "lift": 2.4765143885485976
+    },
+    {
+      "column": "policy_age_days",
+      "value": "292",
+      "is_id": false,
+      "count": 111,
+      "share": 0.00111,
+      "positive": 9,
+      "positive_rate": 0.08108108108108109,
+      "recall": 0.002748930971288943,
+      "lift": 2.4765143885485976
+    },
+    {
+      "column": "policy_age_days",
+      "value": "164",
+      "is_id": false,
+      "count": 111,
+      "share": 0.00111,
+      "positive": 9,
+      "positive_rate": 0.08108108108108109,
+      "recall": 0.002748930971288943,
+      "lift": 2.4765143885485976
+    },
+    {
+      "column": "claim_date",
+      "value": "2025-09-12",
+      "is_id": false,
+      "count": 149,
+      "share": 0.00149,
+      "positive": 12,
+      "positive_rate": 0.08053691275167785,
+      "recall": 0.0036652412950519244,
+      "lift": 2.45989348661203
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-10-24",
+      "is_id": false,
+      "count": 149,
+      "share": 0.00149,
+      "positive": 12,
+      "positive_rate": 0.08053691275167785,
+      "recall": 0.0036652412950519244,
+      "lift": 2.45989348661203
+    },
+    {
+      "column": "policy_age_days",
+      "value": "174",
+      "is_id": false,
+      "count": 112,
+      "share": 0.00112,
+      "positive": 9,
+      "positive_rate": 0.08035714285714286,
+      "recall": 0.002748930971288943,
+      "lift": 2.454402652936557
+    },
+    {
+      "column": "claim_date",
+      "value": "2024-11-27",
+      "is_id": false,
+      "count": 137,
+      "share": 0.00137,
+      "positive": 11,
+      "positive_rate": 0.08029197080291971,
+      "recall": 0.003359804520464264,
+      "lift": 2.4524120587330396
+    },
+    {
+      "column": "accident_date",
+      "value": "2025-08-21",
+      "is_id": false,
+      "count": 137,
+      "share": 0.00137,
+      "positive": 11,
+      "positive_rate": 0.08029197080291971,
+      "recall": 0.003359804520464264,
+      "lift": 2.4524120587330396
+    },
+    {
+      "column": "policy_age_days",
+      "value": "11",
+      "is_id": false,
+      "count": 175,
+      "share": 0.00175,
+      "positive": 14,
+      "positive_rate": 0.08,
+      "recall": 0.004276114844227245,
+      "lift": 2.443494196701283
+    },
+    {
+      "column": "policy_age_days",
+      "value": "108",
+      "is_id": false,
+      "count": 150,
+      "share": 0.0015,
+      "positive": 12,
+      "positive_rate": 0.08,
+      "recall": 0.0036652412950519244,
+      "lift": 2.443494196701283
+    },
+    {
+      "column": "policy_age_days",
+      "value": "351",
+      "is_id": false,
+      "count": 100,
+      "share": 0.001,
+      "positive": 8,
+      "positive_rate": 0.08,
+      "recall": 0.002443494196701283,
+      "lift": 2.443494196701283
+    },
+    {
+      "column": "prior_claim_count_30d",
+      "value": "5",
+      "is_id": false,
+      "count": 100,
+      "share": 0.001,
+      "positive": 8,
+      "positive_rate": 0.08,
+      "recall": 0.002443494196701283,
+      "lift": 2.443494196701283
+    },
+    {
+      "column": "prior_claim_count_365d",
+      "value": "17",
+      "is_id": false,
+      "count": 288,
+      "share": 0.00288,
+      "positive": 23,
+      "positive_rate": 0.0798611111111111,
+      "recall": 0.007025045815516188,
+      "lift": 2.439252019276454
+    },
+    {
+      "column": "policy_age_days",
+      "value": "15",
+      "is_id": false,
+      "count": 138,
+      "share": 0.00138,
+      "positive": 11,
+      "positive_rate": 0.07971014492753623,
+      "recall": 0.003359804520464264,
+      "lift": 2.434640956858162
     }
   ],
   "class_overlap_lowest": [
@@ -3105,487 +3445,517 @@
     {
       "column": "policy_id",
       "is_id": true,
-      "overlap": 0.1440247539365069
+      "overlap": 0.2597750346339157
     },
     {
       "column": "customer_id",
       "is_id": true,
-      "overlap": 0.2724866917055993
-    },
-    {
-      "column": "accident_date",
-      "is_id": false,
-      "overlap": 0.7266937329236615
-    },
-    {
-      "column": "provider_id",
-      "is_id": true,
-      "overlap": 0.7372852609379894
-    },
-    {
-      "column": "claim_date",
-      "is_id": false,
-      "overlap": 0.7436846527731529
-    },
-    {
-      "column": "policy_age_days",
-      "is_id": false,
-      "overlap": 0.8957096800233827
+      "overlap": 0.41568676867950444
     },
     {
       "column": "hospital_days",
       "is_id": false,
-      "overlap": 0.912688284730005
-    },
-    {
-      "column": "treatment_code",
-      "is_id": false,
-      "overlap": 0.9241564813728879
-    },
-    {
-      "column": "diagnosis_code",
-      "is_id": false,
-      "overlap": 0.9274804783647413
-    },
-    {
-      "column": "claim_amount",
-      "is_id": false,
-      "overlap": 0.9385121058057622
-    },
-    {
-      "column": "product_type",
-      "is_id": false,
-      "overlap": 0.9455858925155349
-    },
-    {
-      "column": "prior_claim_count_365d",
-      "is_id": false,
-      "overlap": 0.9496350255576376
-    },
-    {
-      "column": "provider_prior_claim_count_365d",
-      "is_id": false,
-      "overlap": 0.9619400248361767
+      "overlap": 0.7334848309334856
     },
     {
       "column": "prior_claim_count_30d",
       "is_id": false,
-      "overlap": 0.9628015332393516
-    },
-    {
-      "column": "region",
-      "is_id": false,
-      "overlap": 0.9795470734317132
+      "overlap": 0.7521483106446917
     },
     {
       "column": "customer_age",
       "is_id": false,
-      "overlap": 0.9894069739626351
+      "overlap": 0.7772263794455772
+    },
+    {
+      "column": "policy_age_days",
+      "is_id": false,
+      "overlap": 0.7796486914380737
+    },
+    {
+      "column": "accident_date",
+      "is_id": false,
+      "overlap": 0.7837792591510807
+    },
+    {
+      "column": "claim_date",
+      "is_id": false,
+      "overlap": 0.7871016190416312
+    },
+    {
+      "column": "provider_id",
+      "is_id": true,
+      "overlap": 0.801174490699666
+    },
+    {
+      "column": "prior_claim_count_365d",
+      "is_id": false,
+      "overlap": 0.8491764789722541
+    },
+    {
+      "column": "claim_lag_days",
+      "is_id": false,
+      "overlap": 0.8704764673479354
     },
     {
       "column": "channel",
       "is_id": false,
-      "overlap": 0.9901771726360824
+      "overlap": 0.8799116551775629
+    },
+    {
+      "column": "treatment_code",
+      "is_id": false,
+      "overlap": 0.9259388481511434
+    },
+    {
+      "column": "provider_prior_same_pair_count_365d",
+      "is_id": false,
+      "overlap": 0.9299696687761339
+    },
+    {
+      "column": "diagnosis_code",
+      "is_id": false,
+      "overlap": 0.9416261650164949
+    },
+    {
+      "column": "product_type",
+      "is_id": false,
+      "overlap": 0.9520545165518084
+    },
+    {
+      "column": "claim_amount",
+      "is_id": false,
+      "overlap": 0.9716892451659005
+    },
+    {
+      "column": "region",
+      "is_id": false,
+      "overlap": 0.9740923327607823
+    },
+    {
+      "column": "customer_prior_same_provider_count_365d",
+      "is_id": false,
+      "overlap": 0.9945863553183266
+    },
+    {
+      "column": "provider_prior_claim_count_365d",
+      "is_id": false,
+      "overlap": 0.9962668417627832
     },
     {
       "column": "provider_prior_high_amount_share_365d",
       "is_id": false,
-      "overlap": 0.9985376043642311
+      "overlap": 1.0
     }
   ],
   "amount_rules": {
     "claim_amount": {
       "zero_positive_low_region": null,
       "best_low_threshold": {
-        "rule": "amount <= 639822",
+        "rule": "amount <= 338377",
         "direction": "low",
-        "threshold": 639822.2,
-        "rows": 99973,
-        "precision": 0.017534734378282135,
-        "recall": 1.0,
-        "f1": 0.03446513182470558
+        "threshold": 338376.78,
+        "rows": 99629,
+        "precision": 0.03276154533318612,
+        "recall": 0.9969456322541234,
+        "f1": 0.06343838372059124
       },
       "best_high_threshold": {
-        "rule": "amount >= 53006.1",
+        "rule": "amount >= 17012.1",
         "direction": "high",
-        "threshold": 53006.14,
-        "rows": 21936,
-        "precision": 0.02147155361050328,
-        "recall": 0.26868225898459785,
-        "f1": 0.03976529190763645
+        "threshold": 17012.12,
+        "rows": 65964,
+        "precision": 0.03344248377903099,
+        "recall": 0.6737935247403788,
+        "f1": 0.06372223345561685
       }
     }
   },
   "split_drift_top": [
     {
-      "column": "provider_id",
-      "is_id": true,
-      "js_divergence": 1.0000000000000013
-    },
-    {
       "column": "claim_id",
       "is_id": true,
-      "js_divergence": 0.9999999999989659
+      "js_divergence": 1.0000000000000102
+    },
+    {
+      "column": "provider_id",
+      "is_id": true,
+      "js_divergence": 1.0000000000000007
     },
     {
       "column": "claim_amount",
       "is_id": false,
-      "js_divergence": 0.995182248793203
+      "js_divergence": 0.9956327253169963
     },
     {
       "column": "policy_id",
       "is_id": true,
-      "js_divergence": 0.21619677900930034
+      "js_divergence": 0.21488089656191645
     },
     {
       "column": "customer_id",
       "is_id": true,
-      "js_divergence": 0.09722993482767867
+      "js_divergence": 0.09688690149030098
     },
     {
       "column": "policy_age_days",
       "is_id": false,
-      "js_divergence": 0.0536481067096003
+      "js_divergence": 0.052577572167494764
     },
     {
       "column": "provider_prior_high_amount_share_365d",
       "is_id": false,
-      "js_divergence": 0.023313422729240574
+      "js_divergence": 0.02579145081501267
     },
     {
       "column": "accident_date",
       "is_id": false,
-      "js_divergence": 0.00946009028937939
+      "js_divergence": 0.008957422803044606
     },
     {
       "column": "claim_date",
       "is_id": false,
-      "js_divergence": 0.009248618957825822
+      "js_divergence": 0.008287921346079972
     },
     {
       "column": "provider_prior_claim_count_365d",
       "is_id": false,
-      "js_divergence": 0.0014056316288822582
+      "js_divergence": 0.003919262310864675
     },
     {
       "column": "treatment_code",
       "is_id": false,
-      "js_divergence": 0.0013701428803853163
+      "js_divergence": 0.0013340624929934941
     },
     {
-      "column": "diagnosis_code",
+      "column": "claim_lag_days",
       "is_id": false,
-      "js_divergence": 0.001084414196259472
+      "js_divergence": 0.000985568877911945
     },
     {
       "column": "customer_age",
       "is_id": false,
-      "js_divergence": 0.000868430492315699
+      "js_divergence": 0.0009533950297298008
+    },
+    {
+      "column": "diagnosis_code",
+      "is_id": false,
+      "js_divergence": 0.0009091743348111472
+    },
+    {
+      "column": "provider_prior_same_pair_count_365d",
+      "is_id": false,
+      "js_divergence": 0.0008964243352778793
     },
     {
       "column": "hospital_days",
       "is_id": false,
-      "js_divergence": 0.00033664360258088295
+      "js_divergence": 0.0002634740773381467
     },
     {
       "column": "prior_claim_count_365d",
       "is_id": false,
-      "js_divergence": 0.0001760096031201726
-    },
-    {
-      "column": "region",
-      "is_id": false,
-      "js_divergence": 7.106498013386342e-05
-    },
-    {
-      "column": "product_type",
-      "is_id": false,
-      "js_divergence": 5.995412654256557e-05
+      "js_divergence": 0.0002355030888395971
     },
     {
       "column": "prior_claim_count_30d",
       "is_id": false,
-      "js_divergence": 5.083742131360308e-05
+      "js_divergence": 0.00010231526744927655
     },
     {
       "column": "channel",
       "is_id": false,
-      "js_divergence": 4.578931814812879e-05
+      "js_divergence": 9.451868468481929e-05
+    },
+    {
+      "column": "region",
+      "is_id": false,
+      "js_divergence": 7.350136003016306e-05
+    },
+    {
+      "column": "product_type",
+      "is_id": false,
+      "js_divergence": 2.2586368099845476e-05
+    },
+    {
+      "column": "customer_prior_same_provider_count_365d",
+      "is_id": false,
+      "js_divergence": 2.1010540663897445e-05
     }
   ],
   "baselines": {
     "provided_split_no_id_nb": {
-      "rows": 15071,
-      "positives": 226,
-      "prevalence": 0.014995687081149227,
-      "roc_auc": 0.5502159482797163,
-      "average_precision": 0.027683285706696193,
-      "best_f1": 0.06516290726817042,
+      "rows": 15038,
+      "positives": 469,
+      "prevalence": 0.0311876579332358,
+      "roc_auc": 0.7858838340191612,
+      "average_precision": 0.18835246317970722,
+      "best_f1": 0.26195426195426197,
       "topk": {
         "top_0.1%": {
           "k": 15,
-          "hits": 5,
-          "precision": 0.3333333333333333,
-          "recall": 0.022123893805309734,
-          "lift": 22.22861356932153
+          "hits": 11,
+          "precision": 0.7333333333333333,
+          "recall": 0.023454157782515993,
+          "lift": 23.5135749822317
         },
         "top_0.5%": {
           "k": 75,
-          "hits": 8,
-          "precision": 0.10666666666666667,
-          "recall": 0.035398230088495575,
-          "lift": 7.113156342182892
+          "hits": 33,
+          "precision": 0.44,
+          "recall": 0.07036247334754797,
+          "lift": 14.108144989339019
         },
         "top_1.0%": {
-          "k": 151,
-          "hits": 10,
-          "precision": 0.06622516556291391,
-          "recall": 0.04424778761061947,
-          "lift": 4.41628084158706
+          "k": 150,
+          "hits": 53,
+          "precision": 0.35333333333333333,
+          "recall": 0.11300639658848614,
+          "lift": 11.329267945984364
         },
         "top_2.0%": {
           "k": 301,
-          "hits": 15,
-          "precision": 0.04983388704318937,
-          "recall": 0.06637168141592921,
-          "lift": 3.3232146532208273
+          "hits": 77,
+          "precision": 0.2558139534883721,
+          "recall": 0.16417910447761194,
+          "lift": 8.202409877522687
         },
         "top_5.0%": {
-          "k": 754,
-          "hits": 26,
-          "precision": 0.034482758620689655,
-          "recall": 0.11504424778761062,
-          "lift": 2.2995117485505037
+          "k": 752,
+          "hits": 153,
+          "precision": 0.20345744680851063,
+          "recall": 0.326226012793177,
+          "lift": 6.52365263348909
         }
       },
-      "train_rows": 52231,
-      "train_positives": 677,
-      "train_prevalence": 0.012961651126725508
+      "train_rows": 52150,
+      "train_positives": 1079,
+      "train_prevalence": 0.020690316395014383
     },
     "provided_split_id_only_nb": {
-      "rows": 15071,
-      "positives": 226,
-      "prevalence": 0.014995687081149227,
-      "roc_auc": 0.49376253736993175,
-      "average_precision": 0.014970705788386014,
-      "best_f1": 0.02979942693409742,
+      "rows": 15038,
+      "positives": 469,
+      "prevalence": 0.0311876579332358,
+      "roc_auc": 0.48183864709087454,
+      "average_precision": 0.030486545670555823,
+      "best_f1": 0.060546619589381456,
       "topk": {
         "top_0.1%": {
           "k": 15,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
-        },
-        "top_0.5%": {
-          "k": 75,
-          "hits": 2,
-          "precision": 0.02666666666666667,
-          "recall": 0.008849557522123894,
-          "lift": 1.778289085545723
-        },
-        "top_1.0%": {
-          "k": 151,
-          "hits": 3,
-          "precision": 0.019867549668874173,
-          "recall": 0.01327433628318584,
-          "lift": 1.324884252476118
-        },
-        "top_2.0%": {
-          "k": 301,
-          "hits": 4,
-          "precision": 0.013289036544850499,
-          "recall": 0.017699115044247787,
-          "lift": 0.8861905741922207
-        },
-        "top_5.0%": {
-          "k": 754,
-          "hits": 11,
-          "precision": 0.014588859416445624,
-          "recall": 0.048672566371681415,
-          "lift": 0.9728703551559823
-        }
-      },
-      "train_rows": 52231,
-      "train_positives": 677,
-      "train_prevalence": 0.012961651126725508
-    },
-    "provided_split_with_id_nb": {
-      "rows": 15071,
-      "positives": 226,
-      "prevalence": 0.014995687081149227,
-      "roc_auc": 0.5385529527834824,
-      "average_precision": 0.025232202218530505,
-      "best_f1": 0.0673076923076923,
-      "topk": {
-        "top_0.1%": {
-          "k": 15,
-          "hits": 3,
-          "precision": 0.2,
-          "recall": 0.01327433628318584,
-          "lift": 13.33716814159292
-        },
-        "top_0.5%": {
-          "k": 75,
-          "hits": 6,
-          "precision": 0.08,
-          "recall": 0.02654867256637168,
-          "lift": 5.334867256637168
-        },
-        "top_1.0%": {
-          "k": 151,
-          "hits": 9,
-          "precision": 0.059602649006622516,
-          "recall": 0.03982300884955752,
-          "lift": 3.9746527574283537
-        },
-        "top_2.0%": {
-          "k": 301,
-          "hits": 16,
-          "precision": 0.053156146179401995,
-          "recall": 0.07079646017699115,
-          "lift": 3.5447622967688828
-        },
-        "top_5.0%": {
-          "k": 754,
-          "hits": 27,
-          "precision": 0.03580901856763926,
-          "recall": 0.11946902654867257,
-          "lift": 2.3879545081101385
-        }
-      },
-      "train_rows": 52231,
-      "train_positives": 677,
-      "train_prevalence": 0.012961651126725508
-    },
-    "provided_split_amount_only_nb": {
-      "rows": 15071,
-      "positives": 226,
-      "prevalence": 0.014995687081149227,
-      "roc_auc": 0.5387346235584819,
-      "average_precision": 0.016398689215055356,
-      "best_f1": 0.03489376403523925,
-      "topk": {
-        "top_0.1%": {
-          "k": 15,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 1,
+          "precision": 0.06666666666666667,
+          "recall": 0.0021321961620469083,
+          "lift": 2.137597725657427
         },
         "top_0.5%": {
           "k": 75,
           "hits": 1,
           "precision": 0.013333333333333334,
-          "recall": 0.004424778761061947,
-          "lift": 0.8891445427728615
+          "recall": 0.0021321961620469083,
+          "lift": 0.4275195451314855
         },
         "top_1.0%": {
-          "k": 151,
+          "k": 150,
           "hits": 1,
-          "precision": 0.006622516556291391,
-          "recall": 0.004424778761061947,
-          "lift": 0.44162808415870597
+          "precision": 0.006666666666666667,
+          "recall": 0.0021321961620469083,
+          "lift": 0.21375977256574274
         },
         "top_2.0%": {
           "k": 301,
-          "hits": 4,
-          "precision": 0.013289036544850499,
-          "recall": 0.017699115044247787,
-          "lift": 0.8861905741922207
+          "hits": 5,
+          "precision": 0.016611295681063124,
+          "recall": 0.010660980810234541,
+          "lift": 0.5326240180209537
         },
         "top_5.0%": {
-          "k": 754,
-          "hits": 10,
-          "precision": 0.013262599469496022,
-          "recall": 0.04424778761061947,
-          "lift": 0.8844275955963475
+          "k": 752,
+          "hits": 22,
+          "precision": 0.02925531914893617,
+          "recall": 0.046908315565031986,
+          "lift": 0.9380415551422221
         }
       },
-      "train_rows": 52231,
-      "train_positives": 677,
-      "train_prevalence": 0.012961651126725508
+      "train_rows": 52150,
+      "train_positives": 1079,
+      "train_prevalence": 0.020690316395014383
+    },
+    "provided_split_with_id_nb": {
+      "rows": 15038,
+      "positives": 469,
+      "prevalence": 0.0311876579332358,
+      "roc_auc": 0.7630813798202539,
+      "average_precision": 0.141525120887493,
+      "best_f1": 0.22956521739130434,
+      "topk": {
+        "top_0.1%": {
+          "k": 15,
+          "hits": 7,
+          "precision": 0.4666666666666667,
+          "recall": 0.014925373134328358,
+          "lift": 14.96318407960199
+        },
+        "top_0.5%": {
+          "k": 75,
+          "hits": 25,
+          "precision": 0.3333333333333333,
+          "recall": 0.053304904051172705,
+          "lift": 10.687988628287135
+        },
+        "top_1.0%": {
+          "k": 150,
+          "hits": 43,
+          "precision": 0.2866666666666667,
+          "recall": 0.09168443496801706,
+          "lift": 9.191670220326937
+        },
+        "top_2.0%": {
+          "k": 301,
+          "hits": 73,
+          "precision": 0.2425249169435216,
+          "recall": 0.15565031982942432,
+          "lift": 7.776310663105924
+        },
+        "top_5.0%": {
+          "k": 752,
+          "hits": 133,
+          "precision": 0.1768617021276596,
+          "recall": 0.2835820895522388,
+          "lift": 5.670887583359797
+        }
+      },
+      "train_rows": 52150,
+      "train_positives": 1079,
+      "train_prevalence": 0.020690316395014383
+    },
+    "provided_split_amount_only_nb": {
+      "rows": 15038,
+      "positives": 469,
+      "prevalence": 0.0311876579332358,
+      "roc_auc": 0.4940474422061271,
+      "average_precision": 0.0311589052651825,
+      "best_f1": 0.06048881150448185,
+      "topk": {
+        "top_0.1%": {
+          "k": 15,
+          "hits": 1,
+          "precision": 0.06666666666666667,
+          "recall": 0.0021321961620469083,
+          "lift": 2.137597725657427
+        },
+        "top_0.5%": {
+          "k": 75,
+          "hits": 2,
+          "precision": 0.02666666666666667,
+          "recall": 0.0042643923240938165,
+          "lift": 0.855039090262971
+        },
+        "top_1.0%": {
+          "k": 150,
+          "hits": 2,
+          "precision": 0.013333333333333334,
+          "recall": 0.0042643923240938165,
+          "lift": 0.4275195451314855
+        },
+        "top_2.0%": {
+          "k": 301,
+          "hits": 5,
+          "precision": 0.016611295681063124,
+          "recall": 0.010660980810234541,
+          "lift": 0.5326240180209537
+        },
+        "top_5.0%": {
+          "k": 752,
+          "hits": 16,
+          "precision": 0.02127659574468085,
+          "recall": 0.03411513859275053,
+          "lift": 0.6822120401034342
+        }
+      },
+      "train_rows": 52150,
+      "train_positives": 1079,
+      "train_prevalence": 0.020690316395014383
     },
     "provided_split_amount_threshold": {
       "column": "claim_amount",
-      "rule": "amount >= 97457.7",
+      "rule": "amount >= 42000.8",
       "direction": "high",
-      "threshold": 97457.71,
+      "threshold": 42000.79,
       "train_metrics": {
-        "rule": "amount >= 97457.7",
+        "rule": "amount >= 42000.8",
         "direction": "high",
-        "threshold": 97457.71,
-        "rows": 4219,
-        "precision": 0.0173026783598009,
-        "recall": 0.10782865583456426,
-        "f1": 0.02982026143790849
+        "threshold": 42000.79,
+        "rows": 15546,
+        "precision": 0.023221407435996398,
+        "recall": 0.3345690454124189,
+        "f1": 0.04342857142857143
       },
-      "eval_rows": 15071,
+      "eval_rows": 15038,
       "eval_metrics": {
-        "rows": 1144,
-        "precision": 0.015734265734265736,
-        "recall": 0.07964601769911504,
-        "f1": 0.02627737226277372
+        "rows": 4390,
+        "precision": 0.03280182232346242,
+        "recall": 0.3070362473347548,
+        "f1": 0.059271455031899574
       }
     },
     "temporal_holdout_no_id_nb": {
-      "rows": 143,
-      "positives": 2,
-      "prevalence": 0.013986013986013986,
-      "roc_auc": 0.6170212765957447,
-      "average_precision": 0.026263297872340427,
-      "best_f1": 0.06060606060606061,
+      "rows": 141,
+      "positives": 6,
+      "prevalence": 0.0425531914893617,
+      "roc_auc": 0.8506172839506173,
+      "average_precision": 0.34984126984126984,
+      "best_f1": 0.36363636363636365,
       "topk": {
         "top_0.1%": {
           "k": 1,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 1,
+          "precision": 1.0,
+          "recall": 0.16666666666666666,
+          "lift": 23.5
         },
         "top_0.5%": {
           "k": 1,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 1,
+          "precision": 1.0,
+          "recall": 0.16666666666666666,
+          "lift": 23.5
         },
         "top_1.0%": {
           "k": 1,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 1,
+          "precision": 1.0,
+          "recall": 0.16666666666666666,
+          "lift": 23.5
         },
         "top_2.0%": {
           "k": 3,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 1,
+          "precision": 0.3333333333333333,
+          "recall": 0.16666666666666666,
+          "lift": 7.833333333333333
         },
         "top_5.0%": {
           "k": 7,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 2,
+          "precision": 0.2857142857142857,
+          "recall": 0.3333333333333333,
+          "lift": 6.714285714285714
         }
       },
       "date_col": "claim_date",
       "temporal_granularity": "day",
       "test_period": "20251231",
-      "train_rows": 99857,
-      "train_positives": 1326,
-      "train_prevalence": 0.013278988954204513
+      "train_rows": 99859,
+      "train_positives": 2216,
+      "train_prevalence": 0.02219128971850309
     },
     "temporal_holdout_amount_only_nb": {
-      "rows": 143,
-      "positives": 2,
-      "prevalence": 0.013986013986013986,
-      "roc_auc": 0.4574468085106383,
-      "average_precision": 0.019647306881349434,
-      "best_f1": 0.04081632653061224,
+      "rows": 141,
+      "positives": 6,
+      "prevalence": 0.0425531914893617,
+      "roc_auc": 0.5561728395061728,
+      "average_precision": 0.05161723197437482,
+      "best_f1": 0.1111111111111111,
       "topk": {
         "top_0.1%": {
           "k": 1,
@@ -3626,109 +3996,115 @@
       "date_col": "claim_date",
       "temporal_granularity": "day",
       "test_period": "20251231",
-      "train_rows": 99857,
-      "train_positives": 1326,
-      "train_prevalence": 0.013278988954204513
+      "train_rows": 99859,
+      "train_positives": 2216,
+      "train_prevalence": 0.02219128971850309
     },
     "entity_holdout_no_id_nb": {
-      "rows": 18158,
-      "positives": 329,
-      "prevalence": 0.018118735543562067,
-      "roc_auc": 0.5892414956609915,
-      "average_precision": 0.038809001517047345,
-      "best_f1": 0.08490566037735849,
+      "rows": 18101,
+      "positives": 581,
+      "prevalence": 0.03209767416164853,
+      "roc_auc": 0.8022115860703086,
+      "average_precision": 0.16915940185685646,
+      "best_f1": 0.25602202339986235,
       "topk": {
         "top_0.1%": {
           "k": 18,
-          "hits": 5,
-          "precision": 0.2777777777777778,
-          "recall": 0.015197568389057751,
-          "lift": 15.33096926713948
+          "hits": 9,
+          "precision": 0.5,
+          "recall": 0.01549053356282272,
+          "lift": 15.577452667814114
         },
         "top_0.5%": {
           "k": 91,
-          "hits": 14,
-          "precision": 0.15384615384615385,
-          "recall": 0.0425531914893617,
-          "lift": 8.49099836333879
+          "hits": 35,
+          "precision": 0.38461538461538464,
+          "recall": 0.060240963855421686,
+          "lift": 11.98265589831855
         },
         "top_1.0%": {
-          "k": 182,
-          "hits": 17,
-          "precision": 0.09340659340659341,
-          "recall": 0.05167173252279635,
-          "lift": 5.155249006312836
+          "k": 181,
+          "hits": 56,
+          "precision": 0.30939226519337015,
+          "recall": 0.0963855421686747,
+          "lift": 9.63908673367503
         },
         "top_2.0%": {
-          "k": 363,
-          "hits": 27,
-          "precision": 0.0743801652892562,
-          "recall": 0.08206686930091185,
-          "lift": 4.105152101283629
+          "k": 362,
+          "hits": 92,
+          "precision": 0.2541436464088398,
+          "recall": 0.15834767641996558,
+          "lift": 7.917821245518777
         },
         "top_5.0%": {
-          "k": 908,
-          "hits": 44,
-          "precision": 0.048458149779735685,
-          "recall": 0.1337386018237082,
-          "lift": 2.6744774580560504
+          "k": 905,
+          "hits": 188,
+          "precision": 0.20773480662983426,
+          "recall": 0.32358003442340794,
+          "lift": 6.471958235467522
         }
       },
       "entity_col": "provider_id",
+      "entity_count": 714,
+      "repeated_entity_count": 714,
+      "rows_in_repeated_entities": 100000,
       "holdout_share": 0.2,
-      "train_rows": 81842,
-      "train_positives": 1081,
-      "train_prevalence": 0.013208377116883751
+      "train_rows": 81899,
+      "train_positives": 1806,
+      "train_prevalence": 0.022051551300992685
     },
     "entity_holdout_id_only_nb": {
-      "rows": 18158,
-      "positives": 329,
-      "prevalence": 0.018118735543562067,
-      "roc_auc": 0.5143277720581253,
-      "average_precision": 0.019762601861096424,
-      "best_f1": 0.04081632653061224,
+      "rows": 18101,
+      "positives": 581,
+      "prevalence": 0.03209767416164853,
+      "roc_auc": 0.5284436179158906,
+      "average_precision": 0.03537903284002682,
+      "best_f1": 0.06967572304995617,
       "topk": {
         "top_0.1%": {
           "k": 18,
-          "hits": 0,
-          "precision": 0.0,
-          "recall": 0.0,
-          "lift": 0.0
+          "hits": 1,
+          "precision": 0.05555555555555555,
+          "recall": 0.0017211703958691911,
+          "lift": 1.730828074201568
         },
         "top_0.5%": {
           "k": 91,
-          "hits": 2,
-          "precision": 0.02197802197802198,
-          "recall": 0.0060790273556231,
-          "lift": 1.2129997661912555
+          "hits": 3,
+          "precision": 0.03296703296703297,
+          "recall": 0.0051635111876075735,
+          "lift": 1.0270847912844472
         },
         "top_1.0%": {
-          "k": 182,
-          "hits": 5,
-          "precision": 0.027472527472527472,
-          "recall": 0.015197568389057751,
-          "lift": 1.5162497077390693
+          "k": 181,
+          "hits": 7,
+          "precision": 0.03867403314917127,
+          "recall": 0.012048192771084338,
+          "lift": 1.2048858417093788
         },
         "top_2.0%": {
-          "k": 363,
-          "hits": 10,
-          "precision": 0.027548209366391185,
-          "recall": 0.030395136778115502,
-          "lift": 1.520426704179122
+          "k": 362,
+          "hits": 11,
+          "precision": 0.03038674033149171,
+          "recall": 0.0189328743545611,
+          "lift": 0.9466960184859405
         },
         "top_5.0%": {
-          "k": 908,
-          "hits": 22,
-          "precision": 0.024229074889867842,
-          "recall": 0.0668693009118541,
-          "lift": 1.3372387290280252
+          "k": 905,
+          "hits": 32,
+          "precision": 0.03535911602209945,
+          "recall": 0.055077452667814115,
+          "lift": 1.1016099124200036
         }
       },
       "entity_col": "provider_id",
+      "entity_count": 714,
+      "repeated_entity_count": 714,
+      "rows_in_repeated_entities": 100000,
       "holdout_share": 0.2,
-      "train_rows": 81842,
-      "train_positives": 1081,
-      "train_prevalence": 0.013208377116883751
+      "train_rows": 81899,
+      "train_positives": 1806,
+      "train_prevalence": 0.022051551300992685
     }
   },
   "thresholds": {
@@ -3828,7 +4204,7 @@
       "id": "T1.1",
       "name": "Amount-only ROC-AUC",
       "status": "PASS",
-      "metric": 0.5387346235584819,
+      "metric": 0.4940474422061271,
       "threshold": ">= 0.95",
       "details": "Amount-only baseline is evaluated on the provided split."
     },
@@ -3836,7 +4212,7 @@
       "id": "T1.2",
       "name": "Amount-only share of no-ID PR-AUC",
       "status": "PASS",
-      "metric": 0.5923678781774356,
+      "metric": 0.16542871135937187,
       "threshold": ">= 0.8",
       "details": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
@@ -3845,11 +4221,11 @@
       "name": "Best one-sided amount threshold",
       "status": "PASS",
       "metric": {
-        "f1": 0.02627737226277372,
-        "f1_ratio": 0.40325659741718134
+        "f1": 0.059271455031899574,
+        "f1_ratio": 0.22626642754241028
       },
       "threshold": "F1 >= 0.7 and ratio >= 0.8",
-      "details": "Training-selected threshold rule: claim_amount: amount >= 97457.7; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
+      "details": "Training-selected threshold rule: claim_amount: amount >= 42000.8; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T2",
@@ -3858,29 +4234,29 @@
       "metric": {
         "column": "hospital_days",
         "value": "12",
-        "count": 123,
-        "positive_rate": 0.0975609756097561,
-        "recall": 0.0068454078722190535,
-        "lift": 5.565372253836628
+        "count": 131,
+        "positive_rate": 0.15267175572519084,
+        "recall": 0.006108735491753207,
+        "lift": 4.663156863933747
       },
       "threshold": "below warning gates",
-      "details": "Strongest checked non-ID value: hospital_days=12 has positive_rate 9.8%, lift 5.6x, recall 0.7% (n=123)."
+      "details": "Strongest checked non-ID value: hospital_days=12 has positive_rate 15.3%, lift 4.7x, recall 0.6% (n=131)."
     },
     {
       "id": "T3",
       "name": "Class distribution overlap",
       "status": "PASS",
-      "metric": 0.8957096800233827,
+      "metric": 0.7334848309334856,
       "threshold": "> 0.2",
-      "details": "Lowest checked overlap is 0.8957 on policy_age_days."
+      "details": "Lowest checked overlap is 0.7335 on hospital_days."
     },
     {
       "id": "T4.1",
       "name": "ID-only baseline",
       "status": "PASS",
       "metric": {
-        "ap_ratio": 0.5407850046053172,
-        "ap_lift": 0.9983341014901134
+        "ap_ratio": 0.1618590230034241,
+        "ap_lift": 0.9775195603279712
       },
       "threshold": "ratio/lift below warning pair",
       "details": "Compares ID-only AP to no-ID AP and fraud prevalence."
@@ -3890,10 +4266,10 @@
       "name": "Entity-holdout degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 1.160254649690694,
-        "raw_ap_ratio": 1.401892894081572,
-        "provided_prevalence": 0.014995687081149227,
-        "holdout_prevalence": 0.018118735543562067
+        "ap_lift_ratio": 0.87263782733809,
+        "raw_ap_ratio": 0.8981002902811064,
+        "provided_prevalence": 0.0311876579332358,
+        "holdout_prevalence": 0.03209767416164853
       },
       "threshold": "> 0.75",
       "details": "Compares prevalence-normalized AP-lift on entity holdout against the provided split."
@@ -3912,7 +4288,7 @@
       "status": "PASS",
       "metric": 0.0,
       "threshold": "< 0.01",
-      "details": "Duplicate rows excluding the label: 0."
+      "details": "Duplicate rows excluding labels and configured IDs: 0."
     },
     {
       "id": "T6.2",
@@ -3920,17 +4296,17 @@
       "status": "PASS",
       "metric": 0.0,
       "threshold": "= 0.0",
-      "details": "Rows in duplicate feature groups with mixed labels: 0."
+      "details": "Rows in identical non-ID feature groups with mixed labels: 0."
     },
     {
       "id": "T7",
       "name": "Temporal split degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 1.0171945756782643,
-        "raw_ap_ratio": 0.948705950247362,
-        "provided_prevalence": 0.014995687081149227,
-        "temporal_prevalence": 0.013986013986013986
+        "ap_lift_ratio": 1.3612890814266554,
+        "raw_ap_ratio": 1.8573756028212174,
+        "provided_prevalence": 0.0311876579332358,
+        "temporal_prevalence": 0.0425531914893617
       },
       "threshold": "> 0.75",
       "details": "Compares prevalence-normalized AP-lift on temporal holdout against the provided split."
@@ -3963,15 +4339,15 @@
       "id": "T9.1",
       "name": "Amount distinct-value count",
       "status": "PASS",
-      "metric": 99227,
+      "metric": 99236,
       "threshold": "<= 100",
-      "details": "claim_amount has 99,227 distinct amount values."
+      "details": "claim_amount has 99,236 distinct amount values."
     },
     {
       "id": "T9.2",
       "name": "Amount top-10 concentration",
       "status": "PASS",
-      "metric": 0.00114,
+      "metric": 0.00112,
       "threshold": "< 0.7",
       "details": "Top 10 claim_amount values cover 0.11% of rows."
     },
@@ -3987,7 +4363,7 @@
       "id": "T10",
       "name": "Label-noise plausibility",
       "status": "PASS",
-      "metric": 0.01047,
+      "metric": 0.01486,
       "threshold": "0.01..0.3",
       "details": "Compares observed investigation labels against oracle labels."
     }

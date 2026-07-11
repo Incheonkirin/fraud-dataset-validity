@@ -103,8 +103,8 @@ denominator:
 
 | dataset | LightGBM no-ID PR-AUC | amount-only PR-AUC | amount/no-ID ratio |
 |---|---:|---:|---:|
-| Card | 0.9935 | 0.6640 | 0.6683 |
-| Electronic financial network | 0.6161 | 0.4600 | 0.7466 |
+| Card | 0.9935 | 0.6588 | 0.6631 |
+| Electronic financial network | 0.6161 | 0.4433 | 0.7195 |
 
 The stdlib T1.2 screening threshold is crossed, but T1.2 passes under LightGBM
 for both datasets. This confirms that `T1.2` and `T1.3` should not carry the

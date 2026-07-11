@@ -43,9 +43,8 @@ def sample_columns(
     return columns, labels, total
 
 
-def prepare_frames(
+def prepare_train_frame(
     train_data: dict[str, list[str]],
-    eval_data: dict[str, list[str]],
     feature_cols: list[str],
     numeric_cols: set[str],
     date_cols: set[str],
@@ -58,29 +57,48 @@ def prepare_frames(
         ) from exc
 
     train = pd.DataFrame(train_data, columns=feature_cols)
-    evaluation = pd.DataFrame(eval_data, columns=feature_cols)
+    category_levels = {}
     for col in feature_cols:
         if col in date_cols:
             train[col] = pd.to_numeric(
                 train[col].str.replace(r"\D", "", regex=True), errors="coerce"
             )
+        elif col in numeric_cols:
+            train[col] = pd.to_numeric(train[col], errors="coerce")
+        else:
+            train_values = train[col].fillna(fdvh.NA).astype(str)
+            categories = pd.Index(train_values.unique())
+            category_levels[col] = categories
+            train[col] = pd.Categorical(train_values, categories=categories)
+    return train, category_levels
+
+
+def prepare_eval_frame(
+    eval_data: dict[str, list[str]],
+    feature_cols: list[str],
+    numeric_cols: set[str],
+    date_cols: set[str],
+    category_levels,
+):
+    import pandas as pd
+
+    evaluation = pd.DataFrame(eval_data, columns=feature_cols)
+    for col in feature_cols:
+        if col in date_cols:
             evaluation[col] = pd.to_numeric(
                 evaluation[col].str.replace(r"\D", "", regex=True), errors="coerce"
             )
         elif col in numeric_cols:
-            train[col] = pd.to_numeric(train[col], errors="coerce")
             evaluation[col] = pd.to_numeric(evaluation[col], errors="coerce")
         else:
-            train_values = train[col].fillna(fdvh.NA).astype(str)
-            categories = pd.Index(train_values.unique())
-            train[col] = pd.Categorical(train_values, categories=categories)
             evaluation[col] = pd.Categorical(
-                evaluation[col].fillna(fdvh.NA).astype(str), categories=categories
+                evaluation[col].fillna(fdvh.NA).astype(str),
+                categories=category_levels[col],
             )
-    return train, evaluation
+    return evaluation
 
 
-def train_model(train, y_train: list[int], evaluation, params: dict[str, object]):
+def fit_model(train, y_train: list[int], params: dict[str, object]):
     try:
         import lightgbm as lgb
     except ImportError as exc:
@@ -96,6 +114,10 @@ def train_model(train, y_train: list[int], evaluation, params: dict[str, object]
         model_params["scale_pos_weight"] = negatives / positives
     model = lgb.LGBMClassifier(**model_params)
     model.fit(train, y_train, categorical_feature="auto")
+    return model
+
+
+def score_model(model, evaluation) -> list[float]:
     return model.predict_proba(evaluation)[:, 1].tolist()
 
 
@@ -144,7 +166,6 @@ def run(
     if len(split_names) < 2:
         raise ValueError("A provided train/evaluation split is required.")
     train_paths = paths_by_split[split_names[0]]
-    eval_paths = paths_by_split[split_names[1]]
     header = fdvh.read_header(train_paths[0])
     excluded = {
         fdvh.label_column(config, "train"),
@@ -167,27 +188,50 @@ def run(
         "train",
         int(sampling["max_train_rows"]),
     )
-    eval_data, y_eval, eval_total = sample_columns(
-        config,
-        eval_paths,
-        feature_cols,
-        "eval",
-        int(sampling["max_eval_rows"]),
-    )
-    train_frame, eval_frame = prepare_frames(
+    numeric_cols = set(config.get("numeric_cols", []))
+    date_cols = set(config.get("date_cols", []))
+    train_frame, category_levels = prepare_train_frame(
         train_data,
-        eval_data,
         feature_cols,
-        set(config.get("numeric_cols", [])),
-        set(config.get("date_cols", [])),
+        numeric_cols,
+        date_cols,
     )
     model_params = settings["model"]
-    no_id_scores = train_model(train_frame, y_train, eval_frame, model_params)
-    amount_scores = train_model(
-        train_frame[amount_cols], y_train, eval_frame[amount_cols], model_params
-    )
-    no_id = fdvh.evaluate_scores(y_eval, no_id_scores)
-    amount_only = fdvh.evaluate_scores(y_eval, amount_scores)
+    no_id_model = fit_model(train_frame, y_train, model_params)
+    amount_model = fit_model(train_frame[amount_cols], y_train, model_params)
+
+    split_metrics = {}
+    for split_name in split_names[1:]:
+        eval_data, y_eval, eval_total = sample_columns(
+            config,
+            paths_by_split[split_name],
+            feature_cols,
+            "eval",
+            int(sampling["max_eval_rows"]),
+        )
+        eval_frame = prepare_eval_frame(
+            eval_data,
+            feature_cols,
+            numeric_cols,
+            date_cols,
+            category_levels,
+        )
+        no_id_scores = score_model(no_id_model, eval_frame)
+        amount_scores = score_model(amount_model, eval_frame[amount_cols])
+        split_metrics[split_name] = {
+            "sample": {
+                "rows_total": eval_total,
+                "rows_used": len(y_eval),
+                "positives_used": sum(y_eval),
+            },
+            "lightgbm_no_id": fdvh.evaluate_scores(y_eval, no_id_scores),
+            "lightgbm_amount_only": fdvh.evaluate_scores(y_eval, amount_scores),
+        }
+
+    primary_split = split_names[1]
+    primary = split_metrics[primary_split]
+    no_id = primary["lightgbm_no_id"]
+    amount_only = primary["lightgbm_amount_only"]
     ap_ratio = amount_only["average_precision"] / no_id["average_precision"]
     fixed_rule_f1 = amount_rule_f1(audit)
     f1_ratio = (
@@ -224,10 +268,12 @@ def run(
             "train_rows_total": train_total,
             "train_rows_used": len(y_train),
             "train_positives_used": sum(y_train),
-            "eval_rows_total": eval_total,
-            "eval_rows_used": len(y_eval),
-            "eval_positives_used": sum(y_eval),
+            "primary_eval_split": primary_split,
+            "eval_rows_total": primary["sample"]["rows_total"],
+            "eval_rows_used": primary["sample"]["rows_used"],
+            "eval_positives_used": primary["sample"]["positives_used"],
         },
+        "split_metrics": split_metrics,
         "metrics": {
             "lightgbm_no_id": no_id,
             "lightgbm_amount_only": amount_only,
@@ -256,8 +302,7 @@ def render(result: dict[str, object]) -> str:
     verdict = result["sensitivity_verdict"]
     no_id = metrics["lightgbm_no_id"]
     amount = metrics["lightgbm_amount_only"]
-    return "\n".join(
-        [
+    lines = [
             f"# {result['title']} LightGBM Sensitivity",
             "",
             "This analysis replaces the stdlib reference denominator with a frozen LightGBM model.",
@@ -278,6 +323,26 @@ def render(result: dict[str, object]) -> str:
             f"| T1.2 amount/no-ID AP ratio |  | {metric(metrics['amount_only_ap_ratio'])} |  | {verdict['t1_2']} |",
             f"| T1.3 fixed amount rule/no-ID F1 ratio |  |  | {metric(metrics['fixed_amount_rule_to_lightgbm_f1_ratio'])} | {verdict['t1_3']} |",
             "",
+            "## Split Robustness",
+            "",
+            "| split | rows | prevalence | no-ID ROC-AUC | no-ID PR-AUC | AP lift |",
+            "|---|---:|---:|---:|---:|---:|",
+        ]
+    for split_name, split in result["split_metrics"].items():
+        split_metric = split["lightgbm_no_id"]
+        split_lift = (
+            split_metric["average_precision"] / split_metric["prevalence"]
+            if split_metric.get("prevalence")
+            else None
+        )
+        lines.append(
+            f"| {split_name} | {split['sample']['rows_used']:,} | "
+            f"{metric(split_metric['prevalence'])} | {metric(split_metric['roc_auc'])} | "
+            f"{metric(split_metric['average_precision'])} | {metric(split_lift)} |"
+        )
+    lines.extend(
+        [
+            "",
             "## Robustness",
             "",
             f"- Independent full-audit FAIL gates: {', '.join(verdict['independent_fail_gates']) or 'none'}",
@@ -285,6 +350,7 @@ def render(result: dict[str, object]) -> str:
             "",
         ]
     )
+    return "\n".join(lines)
 
 
 def main() -> None:

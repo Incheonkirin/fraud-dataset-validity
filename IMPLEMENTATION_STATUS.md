@@ -1,4 +1,4 @@
-# Implementation Status
+# Evidence Status
 
 This file maps the project design requirements to current repository evidence.
 
@@ -21,12 +21,14 @@ This file maps the project design requirements to current repository evidence.
 | External anchors proving the protocol does not fail everything | Done | `reports/ulb_creditcard`, `reports/baf_base`, `ANCHOR_COMPARISON.md` |
 | K-Claims-Synth with observed and oracle labels | Done | `k_claims_synth.py`, `configs/k_claims_synth.json` |
 | K-Claims-Synth self-application gate | Done | `reports/k_claims_synth/audit.md` verdict `PASS` |
+| K-Claims fixture learnability and holdout gate | Implemented, not externally validated | `k_claims_fixture_acceptance.json`, `scripts/check_fixture_acceptance.py`, `reports/k_claims_synth/fixture_acceptance.md` |
+| K-Claims pre-observation history warmup | Done | `k_claims_synth.py` |
 | T2 promoted into verdict table | Done | `fdvh.py`, all regenerated reports |
 | AP-lift normalization for cross-prevalence split ratios | Done | `T4.2`, `T7` in all regenerated reports |
 | Reference model parameters externalized | Done | `reference_model.yaml`, report `Reference Model` section |
 | Frozen LightGBM sensitivity analysis | Done | `scripts/lightgbm_sensitivity.py`, `lightgbm_sensitivity.json`, all report directories |
 | Exact official model source citations and hashes | Done | `AIHUB_MODEL_SOURCE_EVIDENCE.md`, `MODEL_PACKAGE_AUDIT.md` |
-| Deterministic default entity selection | Done | `fdvh.py`, `tests/test_fdvh.py` |
+| Explicit repeated-entity holdout selection | Done | `fdvh.py`, `tests/test_fdvh.py`; unique row IDs are rejected |
 | EFT-led public case study | Done | `CASE_STUDY.md` |
 | Dependency-free CI checks | Done | `.github/workflows/tests.yml` |
 | K-Claims provider-rate quasi-leak removed | Done | `k_claims_synth.py`, `K_CLAIMS_SYNTH_DESIGN.md` |

@@ -7,8 +7,8 @@ Verdict: **FAIL**
 - Rows: 4,434,106
 - Positives: 17,175 (0.39%)
 - Duplicate full rows: 60,538
-- Duplicate rows excluding label: 60,538
-- Label-conflict rows excluding label: 0
+- Duplicate rows excluding label and IDs: 2,319,072
+- Label-conflict rows excluding label and IDs: 1,399
 
 ## Reference Model
 
@@ -26,16 +26,16 @@ Verdict: **FAIL**
 | T0.3 Entity holdout | WARN |  |  | Entity ID columns exist, but the published evaluation metadata does not record an entity holdout. |
 | T0.4 Type-classification scope | INFO |  |  | Type classification is recorded as a fraud-only task, so it is not evidence of detection validity. |
 | T1.1 Amount-only ROC-AUC | FAIL | 0.9969 | >= 0.95 | Amount-only baseline is evaluated on the provided split. |
-| T1.2 Amount-only share of no-ID PR-AUC | WARN | 1.119 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
+| T1.2 Amount-only share of no-ID PR-AUC | WARN | 1.104 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
 | T1.3 Best one-sided amount threshold | PASS | {'f1': 0.5591016548463357, 'f1_ratio': 1.0366163391341476} | F1 >= 0.7 and ratio >= 0.8 | Training-selected threshold rule: 거래금액: amount >= 4e+06; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
 | T2 Single-feature shortcut | FAIL | {'column': '거래금액', 'value': '4000000', 'count': 15119, 'positive_rate': 0.3413585554600172, 'recall': 0.3004949053857351, 'lift': 88.12925874332431} | recall >= 0.1 and lift >= 5.0 | Recall-weighted shortcut: 거래금액=4000000 has positive_rate 34.1%, lift 88.1x, recall 30.0% (n=15,119). |
 | T3 Class distribution overlap | FAIL | 0.006467 | <= 0.05 | Lowest checked overlap is 0.0065 on 거래금액. |
-| T4.1 ID-only baseline | PASS | {'ap_ratio': 0.27729183967696464, 'ap_lift': 25.24663406485859} | ratio/lift below warning pair | Compares ID-only AP to no-ID AP and fraud prevalence. |
-| T4.2 Entity-holdout degradation | PASS | {'ap_lift_ratio': 0.8208173959901078, 'raw_ap_ratio': 0.8266777746095231, 'provided_prevalence': 0.003872711994446677, 'holdout_prevalence': 0.003900361942757083} | > 0.75 | Compares prevalence-normalized AP-lift on entity holdout against the provided split. |
+| T4.1 ID-only baseline | PASS | {'ap_ratio': 0.27963602350315053, 'ap_lift': 25.463071205032172} | ratio/lift below warning pair | Compares ID-only AP to no-ID AP and fraud prevalence. |
+| T4.2 Entity-holdout degradation | PASS | {'ap_lift_ratio': 0.820960242290752, 'raw_ap_ratio': 0.8268216407879262, 'provided_prevalence': 0.003872711994446677, 'holdout_prevalence': 0.003900361942757083} | > 0.75 | Compares prevalence-normalized AP-lift on entity holdout against the provided split. |
 | T5 Zero-fraud low-amount region | FAIL | 0.9897 | >= 0.9 | 거래금액 <= 1,000,000 covers 4,388,368 rows with zero positives. |
-| T6.1 Duplicate feature rows | WARN | 0.01365 | >= 0.01 | Duplicate rows excluding the label: 60,538. |
-| T6.2 Label conflicts for identical features | PASS | 0 | = 0.0 | Rows in duplicate feature groups with mixed labels: 0. |
-| T7 Temporal split degradation | PASS | {'ap_lift_ratio': 0.8577161108746274, 'raw_ap_ratio': 1.0265561744323821, 'provided_prevalence': 0.003872711994446677, 'temporal_prevalence': 0.00463504924215967} | > 0.75 | Compares prevalence-normalized AP-lift on temporal holdout against the provided split. |
+| T6.1 Duplicate feature rows | FAIL | 0.523 | >= 0.05 | Duplicate rows excluding labels and configured IDs: 2,319,072. |
+| T6.2 Label conflicts for identical features | WARN | 0.0003155 | > 0.0 | Rows in identical non-ID feature groups with mixed labels: 1,399. |
+| T7 Temporal split degradation | PASS | {'ap_lift_ratio': 0.8578618986095456, 'raw_ap_ratio': 1.0267306602529693, 'provided_prevalence': 0.003872711994446677, 'temporal_prevalence': 0.00463504924215967} | > 0.75 | Compares prevalence-normalized AP-lift on temporal holdout against the provided split. |
 | T8.1 Configured leak-column exclusion | PASS |  |  | Configured label/leak columns are excluded from features. |
 | T8.2 Suspicious feature names | PASS |  |  | No suspicious label/post-outcome feature names were found. |
 | T8.3 Entity aggregate feature names | PASS |  |  | No entity-level aggregate rate/risk/score feature names were found. |
@@ -83,14 +83,14 @@ Verdict: **FAIL**
 ## Baselines
 
 - provided_split_no_id_nb: ROC-AUC 0.9966, PR-AUC 0.3526, Best F1 0.5394, Top 1% P=37.37%, R=96.49%
-- provided_split_id_only_nb: ROC-AUC 0.8721, PR-AUC 0.09777, Best F1 0.1861, Top 1% P=12.79%, R=33.02%
-- provided_split_with_id_nb: ROC-AUC 0.996, PR-AUC 0.3727, Best F1 0.5105, Top 1% P=34.12%, R=88.10%
-- provided_split_amount_only_nb: ROC-AUC 0.9969, PR-AUC 0.3947, Best F1 0.559, Top 1% P=38.50%, R=99.42%
+- provided_split_id_only_nb: ROC-AUC 0.8721, PR-AUC 0.09861, Best F1 0.1861, Top 1% P=12.79%, R=33.02%
+- provided_split_with_id_nb: ROC-AUC 0.996, PR-AUC 0.3728, Best F1 0.5105, Top 1% P=34.12%, R=88.10%
+- provided_split_amount_only_nb: ROC-AUC 0.9969, PR-AUC 0.3891, Best F1 0.559, Top 1% P=38.50%, R=99.42%
 - provided_split_amount_threshold: `거래금액` amount >= 4e+06, train F1 0.5588, validation F1 0.5591
-- temporal_holdout_no_id_nb: ROC-AUC 0.9962, PR-AUC 0.362, Best F1 0.5513, Top 1% P=39.18%, R=84.54%
-- temporal_holdout_amount_only_nb: ROC-AUC 0.9965, PR-AUC 0.3939, Best F1 0.5725, Top 1% P=40.28%, R=86.90%
-- entity_holdout_no_id_nb: ROC-AUC 0.9957, PR-AUC 0.2915, Best F1 0.494, Top 1% P=33.81%, R=86.69%
-- entity_holdout_id_only_nb: ROC-AUC 0.7208, PR-AUC 0.008703, Best F1 0.02001, Top 1% P=1.37%, R=3.50%
+- temporal_holdout_no_id_nb: ROC-AUC 0.9962, PR-AUC 0.3621, Best F1 0.5513, Top 1% P=39.18%, R=84.54%
+- temporal_holdout_amount_only_nb: ROC-AUC 0.9965, PR-AUC 0.402, Best F1 0.5725, Top 1% P=40.28%, R=86.90%
+- entity_holdout_no_id_nb: ROC-AUC 0.9957, PR-AUC 0.2916, Best F1 0.494, Top 1% P=33.81%, R=86.69%
+- entity_holdout_id_only_nb: ROC-AUC 0.7208, PR-AUC 0.008376, Best F1 0.02001, Top 1% P=1.37%, R=3.50%
 
 ## Split Drift
 
@@ -116,7 +116,8 @@ Verdict: **FAIL**
 - [FAIL][T2] Recall-weighted shortcut: 거래금액=4000000 has positive_rate 34.1%, lift 88.1x, recall 30.0% (n=15,119).
 - [FAIL][T3] Lowest checked overlap is 0.0065 on 거래금액.
 - [FAIL][T5] 거래금액 <= 1,000,000 covers 4,388,368 rows with zero positives.
-- [WARN][T6.1] Duplicate rows excluding the label: 60,538.
+- [FAIL][T6.1] Duplicate rows excluding labels and configured IDs: 2,319,072.
+- [WARN][T6.2] Rows in identical non-ID feature groups with mixed labels: 1,399.
 - [FAIL][T9.1] 거래금액 has 48 distinct amount values.
 - [FAIL][T9.2] Top 10 거래금액 values cover 98.05% of rows.
 - [WARN][T9.3] 거래금액 values are multiples of 1,000 for 99.91% of rows.

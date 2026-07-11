@@ -8,8 +8,8 @@
     "positives": 17175,
     "prevalence": 0.0038733850746914935,
     "duplicate_full_rows": 60538,
-    "duplicate_rows_excluding_label": 60538,
-    "label_conflict_rows_excluding_label": 0,
+    "duplicate_rows_excluding_label_and_ids": 2319072,
+    "label_conflict_rows_excluding_label_and_ids": 1399,
     "date_by_year": {
       "2021": {
         "rows": 400340,
@@ -2155,12 +2155,12 @@
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "overlap": 0.17166681371068096
+      "overlap": 0.17166681371068154
     },
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "overlap": 0.2026760065008654
+      "overlap": 0.20267600650086534
     },
     {
       "column": "출금금융회사일련번호",
@@ -2175,7 +2175,7 @@
     {
       "column": "거래일자",
       "is_id": false,
-      "overlap": 0.7736175866085968
+      "overlap": 0.7736175866085954
     },
     {
       "column": "자금구분",
@@ -2190,7 +2190,7 @@
     {
       "column": "입금금융회사일련번호",
       "is_id": false,
-      "overlap": 0.853835191764252
+      "overlap": 0.8538351917642517
     }
   ],
   "amount_rules": {
@@ -2224,47 +2224,47 @@
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.13265519655197303
+      "js_divergence": 0.1326551965519704
     },
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.01374108021021937
+      "js_divergence": 0.013741080210219308
     },
     {
       "column": "거래일자",
       "is_id": false,
-      "js_divergence": 0.0005200235884660592
+      "js_divergence": 0.0005200235884660579
     },
     {
       "column": "출금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.3392768801892335e-05
+      "js_divergence": 2.3392768801892356e-05
     },
     {
       "column": "입금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.1440812899565334e-05
+      "js_divergence": 2.1440812899565327e-05
     },
     {
       "column": "거래금액",
       "is_id": false,
-      "js_divergence": 1.8615140918571825e-05
+      "js_divergence": 1.8615140918571785e-05
     },
     {
       "column": "매체구분",
       "is_id": false,
-      "js_divergence": 1.9870982087779492e-06
+      "js_divergence": 1.987098208777922e-06
     },
     {
       "column": "거래시간대",
       "is_id": false,
-      "js_divergence": 1.3842280330357174e-06
+      "js_divergence": 1.3842280330357039e-06
     },
     {
       "column": "자금구분",
       "is_id": false,
-      "js_divergence": 7.784044028480622e-07
+      "js_divergence": 7.784044028480588e-07
     }
   ],
   "baselines": {
@@ -2273,7 +2273,7 @@
       "positives": 1908,
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.9966196191335662,
-      "average_precision": 0.35259942260214366,
+      "average_precision": 0.35264105116294825,
       "best_f1": 0.5393525393525394,
       "topk": {
         "top_0.1%": {
@@ -2321,7 +2321,7 @@
       "positives": 1908,
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.8721366264000749,
-      "average_precision": 0.09777294256238392,
+      "average_precision": 0.0986111412711779,
       "best_f1": 0.18614974844628587,
       "topk": {
         "top_0.1%": {
@@ -2369,7 +2369,7 @@
       "positives": 1908,
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.9959605694282065,
-      "average_precision": 0.37272517458467,
+      "average_precision": 0.3727633474089054,
       "best_f1": 0.5104872539528881,
       "topk": {
         "top_0.1%": {
@@ -2417,7 +2417,7 @@
       "positives": 1908,
       "prevalence": 0.003872711994446677,
       "roc_auc": 0.9969484695871532,
-      "average_precision": 0.39467825035682724,
+      "average_precision": 0.3891448032153606,
       "best_f1": 0.5590190574678682,
       "topk": {
         "top_0.1%": {
@@ -2487,7 +2487,7 @@
       "positives": 6636,
       "prevalence": 0.00463504924215967,
       "roc_auc": 0.9961564231657684,
-      "average_precision": 0.3619631143735234,
+      "average_precision": 0.362067379292835,
       "best_f1": 0.5512690801917917,
       "topk": {
         "top_0.1%": {
@@ -2538,7 +2538,7 @@
       "positives": 6636,
       "prevalence": 0.00463504924215967,
       "roc_auc": 0.9965359529831567,
-      "average_precision": 0.3939364579814083,
+      "average_precision": 0.40197244284612743,
       "best_f1": 0.5724949008375646,
       "topk": {
         "top_0.1%": {
@@ -2589,7 +2589,7 @@
       "positives": 3457,
       "prevalence": 0.003900361942757083,
       "roc_auc": 0.9956549418526082,
-      "average_precision": 0.2914861060053429,
+      "average_precision": 0.2915712525317279,
       "best_f1": 0.49403932497290604,
       "topk": {
         "top_0.1%": {
@@ -2629,6 +2629,9 @@
         }
       },
       "entity_col": "출금계좌일련번호",
+      "entity_count": 30526,
+      "repeated_entity_count": 30526,
+      "rows_in_repeated_entities": 4434106,
       "holdout_share": 0.2,
       "train_rows": 3547778,
       "train_positives": 13718,
@@ -2639,7 +2642,7 @@
       "positives": 3457,
       "prevalence": 0.003900361942757083,
       "roc_auc": 0.7208111181772059,
-      "average_precision": 0.008703489856935007,
+      "average_precision": 0.008376227731635412,
       "best_f1": 0.020005936104778563,
       "topk": {
         "top_0.1%": {
@@ -2679,6 +2682,9 @@
         }
       },
       "entity_col": "출금계좌일련번호",
+      "entity_count": 30526,
+      "repeated_entity_count": 30526,
+      "rows_in_repeated_entities": 4434106,
       "holdout_share": 0.2,
       "train_rows": 3547778,
       "train_positives": 13718,
@@ -2814,7 +2820,7 @@
       "id": "T1.2",
       "name": "Amount-only share of no-ID PR-AUC",
       "status": "WARN",
-      "metric": 1.119338901476771,
+      "metric": 1.1035153222576595,
       "threshold": ">= 0.8",
       "details": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
@@ -2857,8 +2863,8 @@
       "name": "ID-only baseline",
       "status": "PASS",
       "metric": {
-        "ap_ratio": 0.27729183967696464,
-        "ap_lift": 25.24663406485859
+        "ap_ratio": 0.27963602350315053,
+        "ap_lift": 25.463071205032172
       },
       "threshold": "ratio/lift below warning pair",
       "details": "Compares ID-only AP to no-ID AP and fraud prevalence."
@@ -2868,8 +2874,8 @@
       "name": "Entity-holdout degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 0.8208173959901078,
-        "raw_ap_ratio": 0.8266777746095231,
+        "ap_lift_ratio": 0.820960242290752,
+        "raw_ap_ratio": 0.8268216407879262,
         "provided_prevalence": 0.003872711994446677,
         "holdout_prevalence": 0.003900361942757083
       },
@@ -2887,26 +2893,26 @@
     {
       "id": "T6.1",
       "name": "Duplicate feature rows",
-      "status": "WARN",
-      "metric": 0.01365280848044679,
-      "threshold": ">= 0.01",
-      "details": "Duplicate rows excluding the label: 60,538."
+      "status": "FAIL",
+      "metric": 0.5230077945813655,
+      "threshold": ">= 0.05",
+      "details": "Duplicate rows excluding labels and configured IDs: 2,319,072."
     },
     {
       "id": "T6.2",
       "name": "Label conflicts for identical features",
-      "status": "PASS",
-      "metric": 0.0,
-      "threshold": "= 0.0",
-      "details": "Rows in duplicate feature groups with mixed labels: 0."
+      "status": "WARN",
+      "metric": 0.0003155089210767627,
+      "threshold": "> 0.0",
+      "details": "Rows in identical non-ID feature groups with mixed labels: 1,399."
     },
     {
       "id": "T7",
       "name": "Temporal split degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 0.8577161108746274,
-        "raw_ap_ratio": 1.0265561744323821,
+        "ap_lift_ratio": 0.8578618986095456,
+        "raw_ap_ratio": 1.0267306602529693,
         "provided_prevalence": 0.003872711994446677,
         "temporal_prevalence": 0.00463504924215967
       },
@@ -3012,9 +3018,14 @@
       "message": "거래금액 <= 1,000,000 covers 4,388,368 rows with zero positives."
     },
     {
-      "severity": "warn",
+      "severity": "fail",
       "gate": "T6.1",
-      "message": "Duplicate rows excluding the label: 60,538."
+      "message": "Duplicate rows excluding labels and configured IDs: 2,319,072."
+    },
+    {
+      "severity": "warn",
+      "gate": "T6.2",
+      "message": "Rows in identical non-ID feature groups with mixed labels: 1,399."
     },
     {
       "severity": "fail",

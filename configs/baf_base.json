@@ -5,7 +5,6 @@
   "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
   "leak_cols": ["device_fraud_count"],
   "id_cols": ["application_id"],
-  "entity_holdout_col": "application_id",
   "date_cols": ["event_date"],
   "temporal_granularity": "month",
   "amount_cols": ["intended_balcon_amount"],

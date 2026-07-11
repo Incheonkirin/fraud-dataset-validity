@@ -51,7 +51,7 @@ t8_leakage_review:
   fail_on_feature_name_patterns: true
   suspicious_name_pattern: "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)"
   warn_on_entity_aggregate_names: true
-  entity_aggregate_name_pattern: "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)"
+  entity_aggregate_name_pattern: "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)|(?:가맹점|계좌|고객|카드|사용자|기관).*(?:누적|매출|비율|위험|점수|건수)"
 
 t9_cardinality_sanity:
   fail_if_amount_distinct_lte: 100

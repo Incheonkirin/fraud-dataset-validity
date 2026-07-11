@@ -70,7 +70,7 @@ DEFAULT_THRESHOLDS = {
         "fail_on_feature_name_patterns": True,
         "suspicious_name_pattern": "(fraud|label|target|oracle|outcome|post_|after_|chargeback|is_fraud|fraud_bool|class|이상거래유형|이상거래설명)",
         "warn_on_entity_aggregate_names": True,
-        "entity_aggregate_name_pattern": "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)",
+        "entity_aggregate_name_pattern": "(provider|merchant|account|customer|user|card|entity).*(rate|risk|score)|(?:rate|risk|score).*(provider|merchant|account|customer|user|card|entity)|(?:가맹점|계좌|고객|카드|사용자|기관).*(?:누적|매출|비율|위험|점수|건수)",
     },
     "t9_cardinality_sanity": {
         "fail_if_amount_distinct_lte": 100,
@@ -478,12 +478,18 @@ def average_precision(y: list[int], scores: list[float]) -> float | None:
         return None
     order = sorted(range(len(y)), key=lambda index: scores[index], reverse=True)
     hits = 0
-    total_precision = 0.0
-    for rank, index in enumerate(order, start=1):
-        if y[index]:
-            hits += 1
-            total_precision += hits / rank
-    return total_precision / pos
+    average = 0.0
+    start = 0
+    while start < len(order):
+        end = start + 1
+        while end < len(order) and scores[order[end]] == scores[order[start]]:
+            end += 1
+        group_hits = sum(y[index] for index in order[start:end])
+        hits += group_hits
+        if group_hits:
+            average += (group_hits / pos) * (hits / end)
+        start = end
+    return average
 
 
 def best_score_f1(y: list[int], scores: list[float]) -> float | None:
@@ -665,6 +671,12 @@ def run_entity_holdout_baseline(
 ) -> dict[str, object] | None:
     if not entity_col:
         return None
+    entity_counts = Counter(
+        normalize(row.get(entity_col, "")) for row in iter_rows(all_paths)
+    )
+    repeated_entities = sum(count > 1 for count in entity_counts.values())
+    if not repeated_entities:
+        return None
     threshold = max(1, min(99, round(holdout_share * 100)))
     date_cols = set(config.get("date_cols", []))
     numeric_cols = set(config.get("numeric_cols", []))
@@ -702,6 +714,11 @@ def run_entity_holdout_baseline(
         return None
     metrics = evaluate_scores(y_values, scores)
     metrics["entity_col"] = entity_col
+    metrics["entity_count"] = len(entity_counts)
+    metrics["repeated_entity_count"] = repeated_entities
+    metrics["rows_in_repeated_entities"] = sum(
+        count for count in entity_counts.values() if count > 1
+    )
     metrics["holdout_share"] = holdout_share
     metrics["train_rows"] = train_rows
     metrics["train_positives"] = train_pos
@@ -1421,7 +1438,7 @@ def evaluate_t6(
         "T6.1",
         "Duplicate feature rows",
         status,
-        f"Duplicate rows excluding the label: {duplicate_features:,}.",
+        f"Duplicate rows excluding labels and configured IDs: {duplicate_features:,}.",
         metric=duplicate_rate,
         threshold=threshold,
     )
@@ -1442,7 +1459,7 @@ def evaluate_t6(
         "T6.2",
         "Label conflicts for identical features",
         status,
-        f"Rows in duplicate feature groups with mixed labels: {label_conflict_rows:,}.",
+        f"Rows in identical non-ID feature groups with mixed labels: {label_conflict_rows:,}.",
         metric=conflict_rate,
         threshold=threshold,
     )
@@ -1579,7 +1596,7 @@ def evaluate_t8(
             "T8.3",
             "Entity aggregate feature names",
             "WARN",
-            "Feature names look like entity-level aggregate rates or scores: "
+            "Feature names look like entity-level aggregates, rates, or scores: "
             + ", ".join(aggregate_suspicious[:8])
             + ". Verify they are computed from prior-period data only.",
             metric=len(aggregate_suspicious),
@@ -1591,7 +1608,7 @@ def evaluate_t8(
             "T8.3",
             "Entity aggregate feature names",
             "PASS",
-            "No entity-level aggregate rate/risk/score feature names were found.",
+            "No entity-level aggregate, rate, risk, or score feature names were found.",
         )
     return tests
 
@@ -1744,7 +1761,9 @@ def audit(
     label_alignment_counts = Counter()
     split_stats = {}
     split_value_counts: dict[str, dict[str, Counter[str]]] = {}
-    non_leak_hash_cols = [col for col in header if col not in leak_cols]
+    non_leak_hash_cols = [
+        col for col in header if col not in leak_cols and col not in id_cols
+    ]
 
     for split_name, paths in paths_by_split.items():
         rows = 0
@@ -1991,10 +2010,7 @@ def audit(
         if amount_temporal:
             baselines["temporal_holdout_amount_only_nb"] = amount_temporal
 
-    entity_col = str(
-        config.get("entity_holdout_col")
-        or (configured_id_cols[0] if configured_id_cols else "")
-    )
+    entity_col = str(config.get("entity_holdout_col") or "")
     if entity_col:
         entity_no_id = run_entity_holdout_baseline(
             config, all_paths, entity_col, no_id_feature_cols, reference_model
@@ -2062,8 +2078,8 @@ def audit(
             "positives": combined_pos,
             "prevalence": prevalence,
             "duplicate_full_rows": duplicate_full,
-            "duplicate_rows_excluding_label": duplicate_features,
-            "label_conflict_rows_excluding_label": label_conflict_rows,
+            "duplicate_rows_excluding_label_and_ids": duplicate_features,
+            "label_conflict_rows_excluding_label_and_ids": label_conflict_rows,
             "date_by_year": {
                 year: {
                     "rows": date_by_year[year],
@@ -2147,8 +2163,8 @@ def render_markdown(result: dict[str, object]) -> str:
         f"- Rows: {profile['rows']:,}",
         f"- Positives: {profile['positives']:,} ({pct(profile['prevalence'])})",
         f"- Duplicate full rows: {profile['duplicate_full_rows']:,}",
-        f"- Duplicate rows excluding label: {profile['duplicate_rows_excluding_label']:,}",
-        f"- Label-conflict rows excluding label: {profile['label_conflict_rows_excluding_label']:,}",
+        f"- Duplicate rows excluding label and IDs: {profile['duplicate_rows_excluding_label_and_ids']:,}",
+        f"- Label-conflict rows excluding label and IDs: {profile['label_conflict_rows_excluding_label_and_ids']:,}",
         "",
     ]
     if result.get("reference_model"):

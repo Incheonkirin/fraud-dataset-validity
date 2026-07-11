@@ -5,7 +5,6 @@
   "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
   "leak_cols": [],
   "id_cols": ["transaction_id"],
-  "entity_holdout_col": "transaction_id",
   "date_cols": ["event_date"],
   "temporal_granularity": "day",
   "amount_cols": ["Amount"],

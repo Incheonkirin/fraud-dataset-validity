@@ -136,7 +136,7 @@ class FraudDatasetValidityHarnessTest(unittest.TestCase):
         self.assertEqual(len(selected), 17)
         self.assertEqual(selected, sorted(selected))
 
-    def test_default_entity_holdout_preserves_config_id_order(self) -> None:
+    def test_entity_holdout_requires_explicit_repeated_entity(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             tmpdir = Path(tmp)
             train = tmpdir / "train.csv"
@@ -168,8 +168,75 @@ class FraudDatasetValidityHarnessTest(unittest.TestCase):
                 ],
             }
             result = fdvh.audit(config, fdvh.load_thresholds(Path("thresholds.yaml")))
+            self.assertNotIn("entity_holdout_no_id_nb", result["baselines"])
+
+            config["entity_holdout_col"] = "first_id"
+            result = fdvh.audit(config, fdvh.load_thresholds(Path("thresholds.yaml")))
             entity = result["baselines"]["entity_holdout_no_id_nb"]
             self.assertEqual(entity["entity_col"], "first_id")
+            self.assertEqual(entity["entity_count"], 20)
+            self.assertEqual(entity["repeated_entity_count"], 20)
+
+    def test_entity_holdout_rejects_unique_row_identifier(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "rows.csv"
+            rows = [
+                {"row_id": f"row-{index}", "amount": index, "label": index % 7 == 0}
+                for index in range(100)
+            ]
+            self.write_csv(path, rows)
+            config = {"label_col": "label", "positive_values": ["1", "True"]}
+            result = fdvh.run_entity_holdout_baseline(
+                config,
+                [path],
+                "row_id",
+                ["amount"],
+                fdvh.DEFAULT_REFERENCE_MODEL,
+            )
+            self.assertIsNone(result)
+
+    def test_duplicate_features_exclude_ids(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "rows.csv"
+            self.write_csv(
+                path,
+                [
+                    {"row_id": "a", "feature": "same", "label": 0},
+                    {"row_id": "b", "feature": "same", "label": 1},
+                ],
+            )
+            config = {
+                "name": "duplicates",
+                "title": "Duplicates",
+                "label_col": "label",
+                "positive_values": ["1"],
+                "leak_cols": [],
+                "id_cols": ["row_id"],
+                "date_cols": [],
+                "amount_cols": [],
+                "numeric_cols": [],
+                "splits": [{"name": "all", "paths": [str(path)]}],
+            }
+            result = fdvh.audit(config, fdvh.load_thresholds(Path("thresholds.yaml")))
+            profile = result["row_profile"]
+            self.assertEqual(profile["duplicate_rows_excluding_label_and_ids"], 1)
+            self.assertEqual(profile["label_conflict_rows_excluding_label_and_ids"], 2)
+
+    def test_average_precision_is_invariant_with_tied_scores(self) -> None:
+        first = fdvh.average_precision([1, 0, 1, 0], [0.9, 0.9, 0.1, 0.1])
+        permuted = fdvh.average_precision([0, 1, 0, 1], [0.9, 0.9, 0.1, 0.1])
+        self.assertAlmostEqual(first, permuted)
+        self.assertAlmostEqual(first, 0.5)
+
+    def test_t8_flags_korean_entity_aggregate_name(self) -> None:
+        tests = fdvh.evaluate_t8(
+            ["가맹점누적매출금액_구간화"],
+            ["가맹점누적매출금액_구간화"],
+            set(),
+            fdvh.load_thresholds(Path("thresholds.yaml")),
+        )
+        statuses = {test["id"]: test["status"] for test in tests}
+        self.assertEqual(statuses["T8.3"], "WARN")
 
     def test_weak_reference_makes_ratio_gate_screening_only(self) -> None:
         baselines = {

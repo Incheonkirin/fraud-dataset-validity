@@ -133,7 +133,7 @@ def evaluate(
 
 def render(result: dict[str, object]) -> str:
     lines = [
-        "# K-Claims Benchmark Acceptance",
+        "# K-Claims Test-Fixture Acceptance",
         "",
         f"Verdict: **{result['verdict']}**",
         "",
@@ -151,11 +151,11 @@ def render(result: dict[str, object]) -> str:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Check K-Claims benchmark acceptance")
+    parser = argparse.ArgumentParser(description="Check K-Claims test-fixture acceptance")
     parser.add_argument("--audit-json", required=True, type=Path)
     parser.add_argument("--sensitivity-json", required=True, type=Path)
     parser.add_argument(
-        "--thresholds", type=Path, default=Path("k_claims_acceptance.json")
+        "--thresholds", type=Path, default=Path("k_claims_fixture_acceptance.json")
     )
     parser.add_argument("--out", required=True, type=Path)
     args = parser.parse_args()
@@ -164,11 +164,11 @@ def main() -> None:
     thresholds = json.loads(args.thresholds.read_text(encoding="utf-8"))
     result = evaluate(audit, sensitivity, thresholds)
     args.out.mkdir(parents=True, exist_ok=True)
-    (args.out / "benchmark_acceptance.json").write_text(
+    (args.out / "fixture_acceptance.json").write_text(
         json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
     )
     report = render(result)
-    (args.out / "benchmark_acceptance.md").write_text(report, encoding="utf-8")
+    (args.out / "fixture_acceptance.md").write_text(report, encoding="utf-8")
     print(report)
     raise SystemExit(0 if result["verdict"] == "PASS" else 1)
 

@@ -1,6 +1,6 @@
 import unittest
 
-from scripts.check_benchmark_acceptance import evaluate
+from scripts.check_fixture_acceptance import evaluate
 
 
 def metric(roc_auc: float, average_precision: float, prevalence: float, top1_lift: float):
@@ -12,7 +12,7 @@ def metric(roc_auc: float, average_precision: float, prevalence: float, top1_lif
     }
 
 
-class BenchmarkAcceptanceTest(unittest.TestCase):
+class FixtureAcceptanceTest(unittest.TestCase):
     def setUp(self) -> None:
         self.thresholds = {
             "required_audit_verdict": "PASS",

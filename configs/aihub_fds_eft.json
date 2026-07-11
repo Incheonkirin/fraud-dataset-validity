@@ -5,6 +5,7 @@
   "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
   "leak_cols": ["이상거래유형", "이상거래설명"],
   "id_cols": ["출금계좌일련번호", "입금계좌일련번호"],
+  "entity_holdout_col": "출금계좌일련번호",
   "date_cols": ["거래일자"],
   "amount_cols": ["거래금액"],
   "numeric_cols": ["거래금액"],

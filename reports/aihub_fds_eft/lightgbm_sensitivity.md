@@ -14,17 +14,17 @@ It is a sensitivity check, not a tuned leaderboard model.
 | model/check | ROC-AUC | PR-AUC | best F1 | status |
 |---|---:|---:|---:|---:|
 | LightGBM no-ID | 0.9982 | 0.6161 | 0.6147 | reference |
-| LightGBM amount-only | 0.9972 | 0.4600 | 0.5540 | reference |
-| T1.2 amount/no-ID AP ratio |  | 0.7466 |  | PASS |
+| LightGBM amount-only | 0.9972 | 0.4433 | 0.5540 | reference |
+| T1.2 amount/no-ID AP ratio |  | 0.7195 |  | PASS |
 | T1.3 fixed amount rule/no-ID F1 ratio |  |  | 0.9095 | PASS |
 
 ## Split Robustness
 
 | split | rows | prevalence | no-ID ROC-AUC | no-ID PR-AUC | AP lift |
 |---|---:|---:|---:|---:|---:|
-| valid | 150,000 | 0.0039 | 0.9982 | 0.6161 | 158.2394 |
+| valid | 150,000 | 0.0039 | 0.9982 | 0.6161 | 158.2431 |
 
 ## Robustness
 
-- Independent full-audit FAIL gates: T0.1, T1.1, T2, T3, T5, T9.1, T9.2
+- Independent full-audit FAIL gates: T0.1, T1.1, T2, T3, T5, T6.1, T9.1, T9.2
 - Dataset FAIL survives T1.2/T1.3 changes: **TRUE**

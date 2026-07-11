@@ -60,7 +60,7 @@
         "positives": 2093,
         "prevalence": 0.013953333333333333,
         "roc_auc": 0.8807390787210069,
-        "average_precision": 0.168834131063793,
+        "average_precision": 0.16883413106379289,
         "best_f1": 0.25028100412139376,
         "topk": {
           "top_0.1%": {
@@ -105,7 +105,7 @@
         "positives": 2093,
         "prevalence": 0.013953333333333333,
         "roc_auc": 0.5802051993189726,
-        "average_precision": 0.01689407918188067,
+        "average_precision": 0.016905448561022166,
         "best_f1": 0.03405350800013035,
         "topk": {
           "top_0.1%": {
@@ -153,7 +153,7 @@
       "positives": 2093,
       "prevalence": 0.013953333333333333,
       "roc_auc": 0.8807390787210069,
-      "average_precision": 0.168834131063793,
+      "average_precision": 0.16883413106379289,
       "best_f1": 0.25028100412139376,
       "topk": {
         "top_0.1%": {
@@ -198,7 +198,7 @@
       "positives": 2093,
       "prevalence": 0.013953333333333333,
       "roc_auc": 0.5802051993189726,
-      "average_precision": 0.01689407918188067,
+      "average_precision": 0.016905448561022166,
       "best_f1": 0.03405350800013035,
       "topk": {
         "top_0.1%": {
@@ -238,7 +238,7 @@
         }
       }
     },
-    "amount_only_ap_ratio": 0.10006317487722514,
+    "amount_only_ap_ratio": 0.1001305154029226,
     "fixed_amount_rule_f1": 0.03247794707297514,
     "fixed_amount_rule_to_lightgbm_f1_ratio": 0.12976592924815966
   },

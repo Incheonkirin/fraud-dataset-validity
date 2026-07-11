@@ -63,7 +63,7 @@
         "positives": 469,
         "prevalence": 0.0311876579332358,
         "roc_auc": 0.7462963171649475,
-        "average_precision": 0.17484961618553366,
+        "average_precision": 0.17484961618553363,
         "best_f1": 0.25727069351230425,
         "topk": {
           "top_0.1%": {
@@ -108,7 +108,7 @@
         "positives": 469,
         "prevalence": 0.0311876579332358,
         "roc_auc": 0.516456503359281,
-        "average_precision": 0.033315560662942584,
+        "average_precision": 0.03344761782597182,
         "best_f1": 0.06364749082007344,
         "topk": {
           "top_0.1%": {
@@ -160,7 +160,7 @@
         "positives": 886,
         "prevalence": 0.03911527084896914,
         "roc_auc": 0.7440138064146105,
-        "average_precision": 0.17183464583924035,
+        "average_precision": 0.17183464583923996,
         "best_f1": 0.25199203187250996,
         "topk": {
           "top_0.1%": {
@@ -205,7 +205,7 @@
         "positives": 886,
         "prevalence": 0.03911527084896914,
         "roc_auc": 0.5096767803424535,
-        "average_precision": 0.03944943047685301,
+        "average_precision": 0.03948099897630126,
         "best_f1": 0.07741738066095472,
         "topk": {
           "top_0.1%": {
@@ -257,7 +257,7 @@
         "positives": 326,
         "prevalence": 0.03208345635272119,
         "roc_auc": 0.7508675351895229,
-        "average_precision": 0.14852601975687488,
+        "average_precision": 0.14852601975687477,
         "best_f1": 0.22601839684625494,
         "topk": {
           "top_0.1%": {
@@ -302,7 +302,7 @@
         "positives": 326,
         "prevalence": 0.03208345635272119,
         "roc_auc": 0.5160234357699589,
-        "average_precision": 0.03318123537951394,
+        "average_precision": 0.033176271137099915,
         "best_f1": 0.06550040683482507,
         "topk": {
           "top_0.1%": {
@@ -350,7 +350,7 @@
       "positives": 469,
       "prevalence": 0.0311876579332358,
       "roc_auc": 0.7462963171649475,
-      "average_precision": 0.17484961618553366,
+      "average_precision": 0.17484961618553363,
       "best_f1": 0.25727069351230425,
       "topk": {
         "top_0.1%": {
@@ -395,7 +395,7 @@
       "positives": 469,
       "prevalence": 0.0311876579332358,
       "roc_auc": 0.516456503359281,
-      "average_precision": 0.033315560662942584,
+      "average_precision": 0.03344761782597182,
       "best_f1": 0.06364749082007344,
       "topk": {
         "top_0.1%": {
@@ -435,7 +435,7 @@
         }
       }
     },
-    "amount_only_ap_ratio": 0.19053836885516123,
+    "amount_only_ap_ratio": 0.19129363023868703,
     "fixed_amount_rule_f1": 0.059271455031899574,
     "fixed_amount_rule_to_lightgbm_f1_ratio": 0.23038556868920965
   },

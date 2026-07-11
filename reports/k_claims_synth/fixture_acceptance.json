@@ -22,13 +22,13 @@
     },
     {
       "name": "validation AP lift",
-      "value": 5.606372128354062,
+      "value": 5.606372128354061,
       "status": "PASS",
       "threshold": ">= 4.0"
     },
     {
       "name": "no-ID AP / amount-only AP",
-      "value": 5.248286767691159,
+      "value": 5.227565595112853,
       "status": "PASS",
       "threshold": ">= 2.0"
     },
@@ -46,13 +46,13 @@
     },
     {
       "name": "temporal AP lift",
-      "value": 4.393032238041347,
+      "value": 4.393032238041337,
       "status": "PASS",
       "threshold": ">= 3.0"
     },
     {
       "name": "temporal AP-lift ratio to validation",
-      "value": 0.7835784242404666,
+      "value": 0.7835784242404649,
       "status": "PASS",
       "threshold": ">= 0.5"
     },
@@ -64,13 +64,13 @@
     },
     {
       "name": "entity_holdout AP lift",
-      "value": 4.629364683280999,
+      "value": 4.629364683280995,
       "status": "PASS",
       "threshold": ">= 3.0"
     },
     {
       "name": "entity_holdout AP-lift ratio to validation",
-      "value": 0.8257326801173478,
+      "value": 0.8257326801173472,
       "status": "PASS",
       "threshold": ">= 0.5"
     }

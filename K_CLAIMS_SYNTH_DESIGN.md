@@ -1,9 +1,9 @@
 # K-Claims-Synth Design Notes
 
-`K-Claims-Synth` is a deterministic insurance-claim fraud benchmark candidate
-produced by `k_claims_synth.py`.
+`K-Claims-Synth` is a deterministic insurance-claim fraud test fixture produced
+by `k_claims_synth.py`.
 
-The benchmark is released through the generator and audit reports. Raw CSV
+The fixture is released through the generator and audit reports. Raw CSV
 outputs are local artifacts and are not committed.
 
 ## Current Status
@@ -12,11 +12,13 @@ outputs are local artifacts and are not committed.
 
 1. The T0-T10 shortcut-validity protocol must return `PASS`.
 2. A frozen LightGBM model must meet versioned learnability and holdout
-   thresholds in `k_claims_acceptance.json`.
+   thresholds in `k_claims_fixture_acceptance.json`.
 
 This closes the v0.2 gap: v0.2 avoided trivial shortcuts but was nearly
-unlearnable. V0.3 is a benchmark candidate, not a claim that its distributions
-are calibrated to a particular insurer's private claims data.
+unlearnable. V0.3 only demonstrates that the harness can exercise a nontrivial
+synthetic task. Because the risk function and labels are authored here, model
+performance is circular evidence and must not be presented as insurance-model
+quality or benchmark realism.
 
 ## Changes From v0.2
 
@@ -27,7 +29,7 @@ are calibrated to a particular insurer's private claims data.
   - `customer_prior_same_provider_count_365d`
 - Strengthened fraud signal through multi-feature interactions rather than a
   single amount, code, provider, or customer identifier.
-- Seeded one year of unlabeled provider history before the benchmark begins so
+- Seeded one year of unlabeled provider history before the scored window begins so
   rolling features do not start at an artificial zero.
 - Evaluated one frozen model on validation, future-period, and unseen-provider
   splits.
@@ -66,7 +68,7 @@ components co-occur; no component is a direct label rule.
 
 The generator creates one year of unlabeled provider events before 2024. These
 events are used only to initialize rolling 365-day features and are not included
-in the benchmark rows.
+in the scored fixture rows.
 
 Without this warmup, early rows had zero provider history while late rows had
 mature histories. That artifact doubled late-period prevalence and caused a
@@ -86,7 +88,10 @@ The resulting full-dataset rates are:
 - observed positive rate: `2.22%`
 - observed/oracle mismatch rate: `1.49%`
 
-## Acceptance Results
+## Fixture Diagnostics
+
+The values below are regression targets for test wiring. They are not empirical
+estimates of performance on Korean insurance claims.
 
 | check | result | threshold |
 |---|---:|---:|
@@ -104,7 +109,7 @@ Supporting reports:
 
 - `reports/k_claims_synth/audit.md`
 - `reports/k_claims_synth/lightgbm_sensitivity.md`
-- `reports/k_claims_synth/benchmark_acceptance.md`
+- `reports/k_claims_synth/fixture_acceptance.md`
 
 ## Remaining Limits
 
@@ -113,5 +118,6 @@ Supporting reports:
 - Fraud mechanisms are stylized and do not cover investigation workflow,
   recoveries, legal outcomes, or network evidence outside the claim table.
 - External practitioners have not yet reviewed the schema or thresholds.
-- The benchmark should be described as an acceptance-gated synthetic candidate,
-  not as a replacement for confidential production validation.
+- The fixture must not be called an insurance benchmark until its distributions,
+  mechanisms, and effect sizes are calibrated against defensible external or
+  private insurance evidence.

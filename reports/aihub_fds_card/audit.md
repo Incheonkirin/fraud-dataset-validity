@@ -7,8 +7,8 @@ Verdict: **FAIL**
 - Rows: 1,952,871
 - Positives: 72,008 (3.69%)
 - Duplicate full rows: 0
-- Duplicate rows excluding label: 0
-- Label-conflict rows excluding label: 0
+- Duplicate rows excluding label and IDs: 44
+- Label-conflict rows excluding label and IDs: 0
 
 ## Reference Model
 
@@ -26,19 +26,19 @@ Verdict: **FAIL**
 | T0.3 Entity holdout | WARN |  |  | Entity ID columns exist, but the published evaluation metadata does not record an entity holdout. |
 | T0.4 Type-classification scope | INFO |  |  | Type classification is recorded as a fraud-only task, so it is not evidence of detection validity. |
 | T1.1 Amount-only ROC-AUC | FAIL | 0.9519 | >= 0.95 | Amount-only baseline is evaluated on the provided split. |
-| T1.2 Amount-only share of no-ID PR-AUC | WARN | 0.8937 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
+| T1.2 Amount-only share of no-ID PR-AUC | WARN | 0.8713 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
 | T1.3 Best one-sided amount threshold | WARN | {'f1': 0.7204085858237284, 'f1_ratio': 1.1282727396956076} | F1 >= 0.7 and ratio >= 0.8 | Training-selected threshold rule: 통합승인금액: amount >= 318000; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
 | T2 Single-feature shortcut | FAIL | {'column': '가맹점누적매출금액_구간화', 'value': '3', 'count': 182758, 'positive_rate': 0.22922115584543495, 'recall': 0.5817686923675147, 'lift': 6.2165224396876795} | recall >= 0.1 and lift >= 5.0 | Recall-weighted shortcut: 가맹점누적매출금액_구간화=3 has positive_rate 22.9%, lift 6.2x, recall 58.2% (n=182,758). |
 | T3 Class distribution overlap | PASS | 0.2104 | > 0.2 | Lowest checked overlap is 0.2104 on 통합승인금액. |
-| T4.1 ID-only baseline | WARN | {'ap_ratio': 0.6761673233398245, 'ap_lift': 13.06720588730982} | ratio >= 0.5 and lift >= 1.5 | Compares ID-only AP to no-ID AP and fraud prevalence. |
-| T4.2 Entity-holdout degradation | PASS | {'ap_lift_ratio': 0.9940123816633417, 'raw_ap_ratio': 0.9912346053061446, 'provided_prevalence': 0.03687334666752694, 'holdout_prevalence': 0.036770303775432986} | > 0.75 | Compares prevalence-normalized AP-lift on entity holdout against the provided split. |
+| T4.1 ID-only baseline | WARN | {'ap_ratio': 0.6761809060995843, 'ap_lift': 13.067468202175169} | ratio >= 0.5 and lift >= 1.5 | Compares ID-only AP to no-ID AP and fraud prevalence. |
+| T4.2 Entity-holdout degradation | PASS | {'ap_lift_ratio': 1.03094196450983, 'raw_ap_ratio': 0.9691543289458119, 'provided_prevalence': 0.03687334666752694, 'holdout_prevalence': 0.03466340955724343} | > 0.75 | Compares prevalence-normalized AP-lift on entity holdout against the provided split. |
 | T5 Zero-fraud low-amount region | PASS |  |  | No zero-positive low-amount region was found. |
-| T6.1 Duplicate feature rows | PASS | 0 | < 0.01 | Duplicate rows excluding the label: 0. |
-| T6.2 Label conflicts for identical features | PASS | 0 | = 0.0 | Rows in duplicate feature groups with mixed labels: 0. |
-| T7 Temporal split degradation | PASS | {'ap_lift_ratio': 1.0396206500930953, 'raw_ap_ratio': 0.9836485999866273, 'provided_prevalence': 0.03687334666752694, 'temporal_prevalence': 0.034888125609169575} | > 0.75 | Compares prevalence-normalized AP-lift on temporal holdout against the provided split. |
+| T6.1 Duplicate feature rows | PASS | 2.253e-05 | < 0.01 | Duplicate rows excluding labels and configured IDs: 44. |
+| T6.2 Label conflicts for identical features | PASS | 0 | = 0.0 | Rows in identical non-ID feature groups with mixed labels: 0. |
+| T7 Temporal split degradation | PASS | {'ap_lift_ratio': 1.0396206814661069, 'raw_ap_ratio': 0.9836486296705499, 'provided_prevalence': 0.03687334666752694, 'temporal_prevalence': 0.034888125609169575} | > 0.75 | Compares prevalence-normalized AP-lift on temporal holdout against the provided split. |
 | T8.1 Configured leak-column exclusion | PASS |  |  | Configured label/leak columns are excluded from features. |
 | T8.2 Suspicious feature names | PASS |  |  | No suspicious label/post-outcome feature names were found. |
-| T8.3 Entity aggregate feature names | PASS |  |  | No entity-level aggregate rate/risk/score feature names were found. |
+| T8.3 Entity aggregate feature names | WARN | 1 | 0 suspicious aggregate names | Feature names look like entity-level aggregates, rates, or scores: 가맹점누적매출금액_구간화. Verify they are computed from prior-period data only. |
 | T9.1 Amount distinct-value count | PASS | 1931 | <= 100 | 통합승인금액 has 1,931 distinct amount values. |
 | T9.2 Amount top-10 concentration | WARN | 0.8601 | >= 0.7 | Top 10 통합승인금액 values cover 86.01% of rows. |
 | T9.3 Round-amount concentration | WARN | 1 | >= 0.95 | 통합승인금액 values are multiples of 1,000 for 100.00% of rows. |
@@ -55,11 +55,11 @@ Verdict: **FAIL**
 
 ## Amount Profiles
 
-- 통합승인금액: distinct 1,931, p50 9,000, p95 105,000, p99 1,688,000, max 2,943,000, top10 share 86.01%, round(1000) share 100.00%
-- 카드이용한도금액: distinct 4, p50 5,000,000, p95 10,000,000, p99 10,000,000, max 10,000,000, top10 share 100.00%, round(1000) share 100.00%
-- 전월_매출금액: distinct 339,865, p50 1,871,000, p95 3,815,204,000, p99 51,811,979,000, max 93,263,339,000, top10 share 0.78%, round(1000) share 100.00%
 - 전월_매출건수: distinct 123,657, p50 338, p95 143,031, p99 1,597,241, max 1,853,135, top10 share 14.26%, round(1000) share 0.53%
+- 카드이용한도금액: distinct 4, p50 5,000,000, p95 10,000,000, p99 10,000,000, max 10,000,000, top10 share 100.00%, round(1000) share 100.00%
 - 경과일수_최종이용일자: distinct 33, p50 32, p95 35, p99 39, max 62, top10 share 99.16%, round(1000) share 0.00%
+- 통합승인금액: distinct 1,931, p50 9,000, p95 105,000, p99 1,688,000, max 2,943,000, top10 share 86.01%, round(1000) share 100.00%
+- 전월_매출금액: distinct 339,865, p50 1,871,000, p95 3,815,204,000, p99 51,811,979,000, max 93,263,339,000, top10 share 0.78%, round(1000) share 100.00%
 
 ## Single-Feature Shortcuts
 
@@ -88,12 +88,12 @@ Verdict: **FAIL**
 - provided_split_no_id_nb: ROC-AUC 0.9751, PR-AUC 0.7126, Best F1 0.6385, Top 1% P=95.12%, R=25.80%
 - provided_split_id_only_nb: ROC-AUC 0.9077, PR-AUC 0.4818, Best F1 0.499, Top 1% P=77.00%, R=20.88%
 - provided_split_with_id_nb: ROC-AUC 0.9733, PR-AUC 0.6987, Best F1 0.6254, Top 1% P=94.24%, R=25.56%
-- provided_split_amount_only_nb: ROC-AUC 0.9519, PR-AUC 0.6369, Best F1 0.7203, Top 1% P=79.31%, R=21.51%
+- provided_split_amount_only_nb: ROC-AUC 0.9519, PR-AUC 0.6209, Best F1 0.7203, Top 1% P=79.31%, R=21.51%
 - provided_split_amount_threshold: `통합승인금액` amount >= 318000, train F1 0.7177, validation F1 0.7204
 - temporal_holdout_no_id_nb: ROC-AUC 0.9741, PR-AUC 0.7009, Best F1 0.6286, Top 1% P=94.36%, R=27.05%
-- temporal_holdout_amount_only_nb: ROC-AUC 0.9558, PR-AUC 0.6495, Best F1 0.7198, Top 1% P=81.63%, R=23.40%
-- entity_holdout_no_id_nb: ROC-AUC 0.9751, PR-AUC 0.7063, Best F1 0.6328, Top 1% P=94.00%, R=25.56%
-- entity_holdout_id_only_nb: ROC-AUC 0.9048, PR-AUC 0.4809, Best F1 0.4993, Top 1% P=77.20%, R=21.00%
+- temporal_holdout_amount_only_nb: ROC-AUC 0.9558, PR-AUC 0.6277, Best F1 0.7198, Top 1% P=81.63%, R=23.40%
+- entity_holdout_no_id_nb: ROC-AUC 0.9731, PR-AUC 0.6906, Best F1 0.6247, Top 1% P=93.88%, R=27.08%
+- entity_holdout_id_only_nb: ROC-AUC 0.8752, PR-AUC 0.3843, Best F1 0.4283, Top 1% P=67.13%, R=19.37%
 
 ## Split Drift
 
@@ -122,3 +122,4 @@ Verdict: **FAIL**
 - [WARN][T4.1] Compares ID-only AP to no-ID AP and fraud prevalence.
 - [WARN][T9.2] Top 10 통합승인금액 values cover 86.01% of rows.
 - [WARN][T9.3] 통합승인금액 values are multiples of 1,000 for 100.00% of rows.
+- [WARN][T8.3] Feature names look like entity-level aggregates, rates, or scores: 가맹점누적매출금액_구간화. Verify they are computed from prior-period data only.

@@ -14,8 +14,8 @@ It is a sensitivity check, not a tuned leaderboard model.
 | model/check | ROC-AUC | PR-AUC | best F1 | status |
 |---|---:|---:|---:|---:|
 | LightGBM no-ID | 0.7463 | 0.1748 | 0.2573 | reference |
-| LightGBM amount-only | 0.5165 | 0.0333 | 0.0636 | reference |
-| T1.2 amount/no-ID AP ratio |  | 0.1905 |  | PASS |
+| LightGBM amount-only | 0.5165 | 0.0334 | 0.0636 | reference |
+| T1.2 amount/no-ID AP ratio |  | 0.1913 |  | PASS |
 | T1.3 fixed amount rule/no-ID F1 ratio |  |  | 0.2304 | PASS |
 
 ## Split Robustness

@@ -8,8 +8,8 @@
     "positives": 3274,
     "prevalence": 0.03274,
     "duplicate_full_rows": 0,
-    "duplicate_rows_excluding_label": 0,
-    "label_conflict_rows_excluding_label": 0,
+    "duplicate_rows_excluding_label_and_ids": 0,
+    "label_conflict_rows_excluding_label_and_ids": 0,
     "date_by_year": {
       "2024": {
         "rows": 49997,
@@ -1584,6 +1584,249 @@
     }
   ],
   "numeric_profiles": {
+    "policy_age_days": {
+      "count": 100000,
+      "distinct": 3262,
+      "min": 1.0,
+      "p01": 6.0,
+      "p05": 32.0,
+      "p25": 178.0,
+      "p50": 427.0,
+      "p75": 856.0,
+      "p95": 1852.0,
+      "p99": 2845.0,
+      "max": 3650.0,
+      "mean": 615.04816,
+      "top_values": [
+        {
+          "value": 1.0,
+          "count": 360,
+          "share": 0.0036
+        },
+        {
+          "value": 3650.0,
+          "count": 263,
+          "share": 0.00263
+        },
+        {
+          "value": 78.0,
+          "count": 178,
+          "share": 0.00178
+        },
+        {
+          "value": 37.0,
+          "count": 177,
+          "share": 0.00177
+        },
+        {
+          "value": 47.0,
+          "count": 176,
+          "share": 0.00176
+        },
+        {
+          "value": 17.0,
+          "count": 176,
+          "share": 0.00176
+        },
+        {
+          "value": 11.0,
+          "count": 175,
+          "share": 0.00175
+        },
+        {
+          "value": 13.0,
+          "count": 171,
+          "share": 0.00171
+        },
+        {
+          "value": 18.0,
+          "count": 171,
+          "share": 0.00171
+        },
+        {
+          "value": 3.0,
+          "count": 170,
+          "share": 0.0017
+        }
+      ],
+      "top1_share": 0.0036,
+      "top10_share": 0.02017,
+      "multiple_100_share": 0.00925,
+      "multiple_1000_share": 0.0003,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "prior_claim_count_30d": {
+      "count": 100000,
+      "distinct": 8,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p95": 2.0,
+      "p99": 3.0,
+      "max": 7.0,
+      "mean": 0.74038,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 48012,
+          "share": 0.48012
+        },
+        {
+          "value": 1.0,
+          "count": 34911,
+          "share": 0.34911
+        },
+        {
+          "value": 2.0,
+          "count": 12985,
+          "share": 0.12985
+        },
+        {
+          "value": 3.0,
+          "count": 3340,
+          "share": 0.0334
+        },
+        {
+          "value": 4.0,
+          "count": 639,
+          "share": 0.00639
+        },
+        {
+          "value": 5.0,
+          "count": 100,
+          "share": 0.001
+        },
+        {
+          "value": 6.0,
+          "count": 10,
+          "share": 0.0001
+        },
+        {
+          "value": 7.0,
+          "count": 3,
+          "share": 3e-05
+        }
+      ],
+      "top1_share": 0.48012,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.48012,
+      "multiple_1000_share": 0.48012,
+      "zero_count": 48012,
+      "negative_count": 0
+    },
+    "claim_amount": {
+      "count": 100000,
+      "distinct": 99236,
+      "min": 1200.0,
+      "p01": 2682.44,
+      "p05": 5188.33,
+      "p25": 13178.28,
+      "p50": 25213.35,
+      "p75": 48520.2,
+      "p95": 124335.32,
+      "p99": 241567.81,
+      "max": 1591567.6,
+      "mean": 40366.5249876,
+      "top_values": [
+        {
+          "value": 1200.0,
+          "count": 85,
+          "share": 0.00085
+        },
+        {
+          "value": 10518.96,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 10892.59,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 7931.12,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 16096.13,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 18962.1,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 12387.29,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 31554.27,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 6592.9,
+          "count": 3,
+          "share": 3e-05
+        },
+        {
+          "value": 17892.72,
+          "count": 3,
+          "share": 3e-05
+        }
+      ],
+      "top1_share": 0.00085,
+      "top10_share": 0.00112,
+      "multiple_100_share": 0.00102,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
+    "customer_prior_same_provider_count_365d": {
+      "count": 100000,
+      "distinct": 3,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 0.0,
+      "max": 2.0,
+      "mean": 0.00985,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 99021,
+          "share": 0.99021
+        },
+        {
+          "value": 1.0,
+          "count": 973,
+          "share": 0.00973
+        },
+        {
+          "value": 2.0,
+          "count": 6,
+          "share": 6e-05
+        }
+      ],
+      "top1_share": 0.99021,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.99021,
+      "multiple_1000_share": 0.99021,
+      "zero_count": 99021,
+      "negative_count": 0
+    },
     "customer_age": {
       "count": 100000,
       "distinct": 71,
@@ -1656,74 +1899,290 @@
       "zero_count": 0,
       "negative_count": 0
     },
-    "provider_prior_claim_count_365d": {
+    "provider_prior_same_pair_count_365d": {
       "count": 100000,
-      "distinct": 73,
-      "min": 36.0,
-      "p01": 51.0,
-      "p05": 56.0,
-      "p25": 64.0,
-      "p50": 70.0,
-      "p75": 76.0,
-      "p95": 84.0,
-      "p99": 91.0,
-      "max": 108.0,
-      "mean": 69.94861,
+      "distinct": 23,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 0.0,
+      "p95": 0.0,
+      "p99": 1.0,
+      "max": 23.0,
+      "mean": 0.11248,
       "top_values": [
         {
-          "value": 68.0,
-          "count": 4513,
-          "share": 0.04513
+          "value": 0.0,
+          "count": 97853,
+          "share": 0.97853
         },
         {
-          "value": 71.0,
-          "count": 4479,
-          "share": 0.04479
+          "value": 1.0,
+          "count": 1416,
+          "share": 0.01416
         },
         {
-          "value": 69.0,
-          "count": 4396,
-          "share": 0.04396
+          "value": 13.0,
+          "count": 84,
+          "share": 0.00084
         },
         {
-          "value": 70.0,
-          "count": 4381,
-          "share": 0.04381
+          "value": 15.0,
+          "count": 78,
+          "share": 0.00078
         },
         {
-          "value": 67.0,
-          "count": 4375,
-          "share": 0.04375
+          "value": 14.0,
+          "count": 77,
+          "share": 0.00077
         },
         {
-          "value": 72.0,
-          "count": 4338,
-          "share": 0.04338
+          "value": 12.0,
+          "count": 77,
+          "share": 0.00077
         },
         {
-          "value": 73.0,
-          "count": 4280,
-          "share": 0.0428
+          "value": 11.0,
+          "count": 69,
+          "share": 0.00069
         },
         {
-          "value": 66.0,
-          "count": 4204,
-          "share": 0.04204
+          "value": 16.0,
+          "count": 64,
+          "share": 0.00064
         },
         {
-          "value": 74.0,
-          "count": 4187,
-          "share": 0.04187
+          "value": 17.0,
+          "count": 47,
+          "share": 0.00047
         },
         {
-          "value": 65.0,
-          "count": 3979,
-          "share": 0.03979
+          "value": 10.0,
+          "count": 45,
+          "share": 0.00045
         }
       ],
-      "top1_share": 0.04513,
-      "top10_share": 0.43132,
-      "multiple_100_share": 0.00042,
+      "top1_share": 0.97853,
+      "top10_share": 0.9981,
+      "multiple_100_share": 0.97853,
+      "multiple_1000_share": 0.97853,
+      "zero_count": 97853,
+      "negative_count": 0
+    },
+    "claim_lag_days": {
+      "count": 100000,
+      "distinct": 61,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 2.0,
+      "p50": 5.0,
+      "p75": 11.0,
+      "p95": 23.0,
+      "p99": 36.0,
+      "max": 60.0,
+      "mean": 7.48223,
+      "top_values": [
+        {
+          "value": 0.0,
+          "count": 11805,
+          "share": 0.11805
+        },
+        {
+          "value": 1.0,
+          "count": 10226,
+          "share": 0.10226
+        },
+        {
+          "value": 2.0,
+          "count": 9377,
+          "share": 0.09377
+        },
+        {
+          "value": 3.0,
+          "count": 8277,
+          "share": 0.08277
+        },
+        {
+          "value": 4.0,
+          "count": 6997,
+          "share": 0.06997
+        },
+        {
+          "value": 5.0,
+          "count": 6132,
+          "share": 0.06132
+        },
+        {
+          "value": 6.0,
+          "count": 5471,
+          "share": 0.05471
+        },
+        {
+          "value": 7.0,
+          "count": 5037,
+          "share": 0.05037
+        },
+        {
+          "value": 8.0,
+          "count": 4246,
+          "share": 0.04246
+        },
+        {
+          "value": 9.0,
+          "count": 3791,
+          "share": 0.03791
+        }
+      ],
+      "top1_share": 0.11805,
+      "top10_share": 0.71359,
+      "multiple_100_share": 0.11805,
+      "multiple_1000_share": 0.11805,
+      "zero_count": 11805,
+      "negative_count": 0
+    },
+    "prior_claim_count_365d": {
+      "count": 100000,
+      "distinct": 19,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 1.0,
+      "p25": 4.0,
+      "p50": 7.0,
+      "p75": 10.0,
+      "p95": 13.0,
+      "p99": 16.0,
+      "max": 18.0,
+      "mean": 6.92464,
+      "top_values": [
+        {
+          "value": 8.0,
+          "count": 9831,
+          "share": 0.09831
+        },
+        {
+          "value": 7.0,
+          "count": 9812,
+          "share": 0.09812
+        },
+        {
+          "value": 6.0,
+          "count": 9359,
+          "share": 0.09359
+        },
+        {
+          "value": 9.0,
+          "count": 9073,
+          "share": 0.09073
+        },
+        {
+          "value": 5.0,
+          "count": 8433,
+          "share": 0.08433
+        },
+        {
+          "value": 10.0,
+          "count": 7794,
+          "share": 0.07794
+        },
+        {
+          "value": 4.0,
+          "count": 7538,
+          "share": 0.07538
+        },
+        {
+          "value": 3.0,
+          "count": 6837,
+          "share": 0.06837
+        },
+        {
+          "value": 2.0,
+          "count": 6285,
+          "share": 0.06285
+        },
+        {
+          "value": 11.0,
+          "count": 6085,
+          "share": 0.06085
+        }
+      ],
+      "top1_share": 0.09831,
+      "top10_share": 0.81047,
+      "multiple_100_share": 0.02348,
+      "multiple_1000_share": 0.02348,
+      "zero_count": 2348,
+      "negative_count": 0
+    },
+    "provider_prior_high_amount_share_365d": {
+      "count": 100000,
+      "distinct": 759,
+      "min": 0.0122,
+      "p01": 0.0375,
+      "p05": 0.06154,
+      "p25": 0.09524,
+      "p50": 0.12162,
+      "p75": 0.15,
+      "p95": 0.19355,
+      "p99": 0.22581,
+      "max": 0.30612,
+      "mean": 0.1237778152,
+      "top_values": [
+        {
+          "value": 0.125,
+          "count": 1789,
+          "share": 0.01789
+        },
+        {
+          "value": 0.14286,
+          "count": 1672,
+          "share": 0.01672
+        },
+        {
+          "value": 0.11111,
+          "count": 1515,
+          "share": 0.01515
+        },
+        {
+          "value": 0.1,
+          "count": 1236,
+          "share": 0.01236
+        },
+        {
+          "value": 0.16667,
+          "count": 1224,
+          "share": 0.01224
+        },
+        {
+          "value": 0.09091,
+          "count": 1011,
+          "share": 0.01011
+        },
+        {
+          "value": 0.13333,
+          "count": 1008,
+          "share": 0.01008
+        },
+        {
+          "value": 0.11765,
+          "count": 834,
+          "share": 0.00834
+        },
+        {
+          "value": 0.08333,
+          "count": 820,
+          "share": 0.0082
+        },
+        {
+          "value": 0.15385,
+          "count": 814,
+          "share": 0.00814
+        }
+      ],
+      "top1_share": 0.01789,
+      "top10_share": 0.11923,
+      "multiple_100_share": 0.0,
       "multiple_1000_share": 0.0,
       "zero_count": 0,
       "negative_count": 0
@@ -1800,535 +2259,76 @@
       "zero_count": 42334,
       "negative_count": 0
     },
-    "provider_prior_high_amount_share_365d": {
+    "provider_prior_claim_count_365d": {
       "count": 100000,
-      "distinct": 759,
-      "min": 0.0122,
-      "p01": 0.0375,
-      "p05": 0.06154,
-      "p25": 0.09524,
-      "p50": 0.12162,
-      "p75": 0.15,
-      "p95": 0.19355,
-      "p99": 0.22581,
-      "max": 0.30612,
-      "mean": 0.1237778152,
+      "distinct": 73,
+      "min": 36.0,
+      "p01": 51.0,
+      "p05": 56.0,
+      "p25": 64.0,
+      "p50": 70.0,
+      "p75": 76.0,
+      "p95": 84.0,
+      "p99": 91.0,
+      "max": 108.0,
+      "mean": 69.94861,
       "top_values": [
         {
-          "value": 0.125,
-          "count": 1789,
-          "share": 0.01789
+          "value": 68.0,
+          "count": 4513,
+          "share": 0.04513
         },
         {
-          "value": 0.14286,
-          "count": 1672,
-          "share": 0.01672
+          "value": 71.0,
+          "count": 4479,
+          "share": 0.04479
         },
         {
-          "value": 0.11111,
-          "count": 1515,
-          "share": 0.01515
+          "value": 69.0,
+          "count": 4396,
+          "share": 0.04396
         },
         {
-          "value": 0.1,
-          "count": 1236,
-          "share": 0.01236
+          "value": 70.0,
+          "count": 4381,
+          "share": 0.04381
         },
         {
-          "value": 0.16667,
-          "count": 1224,
-          "share": 0.01224
+          "value": 67.0,
+          "count": 4375,
+          "share": 0.04375
         },
         {
-          "value": 0.09091,
-          "count": 1011,
-          "share": 0.01011
+          "value": 72.0,
+          "count": 4338,
+          "share": 0.04338
         },
         {
-          "value": 0.13333,
-          "count": 1008,
-          "share": 0.01008
+          "value": 73.0,
+          "count": 4280,
+          "share": 0.0428
         },
         {
-          "value": 0.11765,
-          "count": 834,
-          "share": 0.00834
+          "value": 66.0,
+          "count": 4204,
+          "share": 0.04204
         },
         {
-          "value": 0.08333,
-          "count": 820,
-          "share": 0.0082
+          "value": 74.0,
+          "count": 4187,
+          "share": 0.04187
         },
         {
-          "value": 0.15385,
-          "count": 814,
-          "share": 0.00814
+          "value": 65.0,
+          "count": 3979,
+          "share": 0.03979
         }
       ],
-      "top1_share": 0.01789,
-      "top10_share": 0.11923,
-      "multiple_100_share": 0.0,
+      "top1_share": 0.04513,
+      "top10_share": 0.43132,
+      "multiple_100_share": 0.00042,
       "multiple_1000_share": 0.0,
       "zero_count": 0,
-      "negative_count": 0
-    },
-    "prior_claim_count_365d": {
-      "count": 100000,
-      "distinct": 19,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 1.0,
-      "p25": 4.0,
-      "p50": 7.0,
-      "p75": 10.0,
-      "p95": 13.0,
-      "p99": 16.0,
-      "max": 18.0,
-      "mean": 6.92464,
-      "top_values": [
-        {
-          "value": 8.0,
-          "count": 9831,
-          "share": 0.09831
-        },
-        {
-          "value": 7.0,
-          "count": 9812,
-          "share": 0.09812
-        },
-        {
-          "value": 6.0,
-          "count": 9359,
-          "share": 0.09359
-        },
-        {
-          "value": 9.0,
-          "count": 9073,
-          "share": 0.09073
-        },
-        {
-          "value": 5.0,
-          "count": 8433,
-          "share": 0.08433
-        },
-        {
-          "value": 10.0,
-          "count": 7794,
-          "share": 0.07794
-        },
-        {
-          "value": 4.0,
-          "count": 7538,
-          "share": 0.07538
-        },
-        {
-          "value": 3.0,
-          "count": 6837,
-          "share": 0.06837
-        },
-        {
-          "value": 2.0,
-          "count": 6285,
-          "share": 0.06285
-        },
-        {
-          "value": 11.0,
-          "count": 6085,
-          "share": 0.06085
-        }
-      ],
-      "top1_share": 0.09831,
-      "top10_share": 0.81047,
-      "multiple_100_share": 0.02348,
-      "multiple_1000_share": 0.02348,
-      "zero_count": 2348,
-      "negative_count": 0
-    },
-    "policy_age_days": {
-      "count": 100000,
-      "distinct": 3262,
-      "min": 1.0,
-      "p01": 6.0,
-      "p05": 32.0,
-      "p25": 178.0,
-      "p50": 427.0,
-      "p75": 856.0,
-      "p95": 1852.0,
-      "p99": 2845.0,
-      "max": 3650.0,
-      "mean": 615.04816,
-      "top_values": [
-        {
-          "value": 1.0,
-          "count": 360,
-          "share": 0.0036
-        },
-        {
-          "value": 3650.0,
-          "count": 263,
-          "share": 0.00263
-        },
-        {
-          "value": 78.0,
-          "count": 178,
-          "share": 0.00178
-        },
-        {
-          "value": 37.0,
-          "count": 177,
-          "share": 0.00177
-        },
-        {
-          "value": 47.0,
-          "count": 176,
-          "share": 0.00176
-        },
-        {
-          "value": 17.0,
-          "count": 176,
-          "share": 0.00176
-        },
-        {
-          "value": 11.0,
-          "count": 175,
-          "share": 0.00175
-        },
-        {
-          "value": 13.0,
-          "count": 171,
-          "share": 0.00171
-        },
-        {
-          "value": 18.0,
-          "count": 171,
-          "share": 0.00171
-        },
-        {
-          "value": 3.0,
-          "count": 170,
-          "share": 0.0017
-        }
-      ],
-      "top1_share": 0.0036,
-      "top10_share": 0.02017,
-      "multiple_100_share": 0.00925,
-      "multiple_1000_share": 0.0003,
-      "zero_count": 0,
-      "negative_count": 0
-    },
-    "customer_prior_same_provider_count_365d": {
-      "count": 100000,
-      "distinct": 3,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 0.0,
-      "p25": 0.0,
-      "p50": 0.0,
-      "p75": 0.0,
-      "p95": 0.0,
-      "p99": 0.0,
-      "max": 2.0,
-      "mean": 0.00985,
-      "top_values": [
-        {
-          "value": 0.0,
-          "count": 99021,
-          "share": 0.99021
-        },
-        {
-          "value": 1.0,
-          "count": 973,
-          "share": 0.00973
-        },
-        {
-          "value": 2.0,
-          "count": 6,
-          "share": 6e-05
-        }
-      ],
-      "top1_share": 0.99021,
-      "top10_share": 1.0,
-      "multiple_100_share": 0.99021,
-      "multiple_1000_share": 0.99021,
-      "zero_count": 99021,
-      "negative_count": 0
-    },
-    "prior_claim_count_30d": {
-      "count": 100000,
-      "distinct": 8,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 0.0,
-      "p25": 0.0,
-      "p50": 1.0,
-      "p75": 1.0,
-      "p95": 2.0,
-      "p99": 3.0,
-      "max": 7.0,
-      "mean": 0.74038,
-      "top_values": [
-        {
-          "value": 0.0,
-          "count": 48012,
-          "share": 0.48012
-        },
-        {
-          "value": 1.0,
-          "count": 34911,
-          "share": 0.34911
-        },
-        {
-          "value": 2.0,
-          "count": 12985,
-          "share": 0.12985
-        },
-        {
-          "value": 3.0,
-          "count": 3340,
-          "share": 0.0334
-        },
-        {
-          "value": 4.0,
-          "count": 639,
-          "share": 0.00639
-        },
-        {
-          "value": 5.0,
-          "count": 100,
-          "share": 0.001
-        },
-        {
-          "value": 6.0,
-          "count": 10,
-          "share": 0.0001
-        },
-        {
-          "value": 7.0,
-          "count": 3,
-          "share": 3e-05
-        }
-      ],
-      "top1_share": 0.48012,
-      "top10_share": 1.0,
-      "multiple_100_share": 0.48012,
-      "multiple_1000_share": 0.48012,
-      "zero_count": 48012,
-      "negative_count": 0
-    },
-    "claim_lag_days": {
-      "count": 100000,
-      "distinct": 61,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 0.0,
-      "p25": 2.0,
-      "p50": 5.0,
-      "p75": 11.0,
-      "p95": 23.0,
-      "p99": 36.0,
-      "max": 60.0,
-      "mean": 7.48223,
-      "top_values": [
-        {
-          "value": 0.0,
-          "count": 11805,
-          "share": 0.11805
-        },
-        {
-          "value": 1.0,
-          "count": 10226,
-          "share": 0.10226
-        },
-        {
-          "value": 2.0,
-          "count": 9377,
-          "share": 0.09377
-        },
-        {
-          "value": 3.0,
-          "count": 8277,
-          "share": 0.08277
-        },
-        {
-          "value": 4.0,
-          "count": 6997,
-          "share": 0.06997
-        },
-        {
-          "value": 5.0,
-          "count": 6132,
-          "share": 0.06132
-        },
-        {
-          "value": 6.0,
-          "count": 5471,
-          "share": 0.05471
-        },
-        {
-          "value": 7.0,
-          "count": 5037,
-          "share": 0.05037
-        },
-        {
-          "value": 8.0,
-          "count": 4246,
-          "share": 0.04246
-        },
-        {
-          "value": 9.0,
-          "count": 3791,
-          "share": 0.03791
-        }
-      ],
-      "top1_share": 0.11805,
-      "top10_share": 0.71359,
-      "multiple_100_share": 0.11805,
-      "multiple_1000_share": 0.11805,
-      "zero_count": 11805,
-      "negative_count": 0
-    },
-    "claim_amount": {
-      "count": 100000,
-      "distinct": 99236,
-      "min": 1200.0,
-      "p01": 2682.44,
-      "p05": 5188.33,
-      "p25": 13178.28,
-      "p50": 25213.35,
-      "p75": 48520.2,
-      "p95": 124335.32,
-      "p99": 241567.81,
-      "max": 1591567.6,
-      "mean": 40366.5249876,
-      "top_values": [
-        {
-          "value": 1200.0,
-          "count": 85,
-          "share": 0.00085
-        },
-        {
-          "value": 10518.96,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 10892.59,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 7931.12,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 16096.13,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 18962.1,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 12387.29,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 31554.27,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 6592.9,
-          "count": 3,
-          "share": 3e-05
-        },
-        {
-          "value": 17892.72,
-          "count": 3,
-          "share": 3e-05
-        }
-      ],
-      "top1_share": 0.00085,
-      "top10_share": 0.00112,
-      "multiple_100_share": 0.00102,
-      "multiple_1000_share": 0.0,
-      "zero_count": 0,
-      "negative_count": 0
-    },
-    "provider_prior_same_pair_count_365d": {
-      "count": 100000,
-      "distinct": 23,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 0.0,
-      "p25": 0.0,
-      "p50": 0.0,
-      "p75": 0.0,
-      "p95": 0.0,
-      "p99": 1.0,
-      "max": 23.0,
-      "mean": 0.11248,
-      "top_values": [
-        {
-          "value": 0.0,
-          "count": 97853,
-          "share": 0.97853
-        },
-        {
-          "value": 1.0,
-          "count": 1416,
-          "share": 0.01416
-        },
-        {
-          "value": 13.0,
-          "count": 84,
-          "share": 0.00084
-        },
-        {
-          "value": 15.0,
-          "count": 78,
-          "share": 0.00078
-        },
-        {
-          "value": 14.0,
-          "count": 77,
-          "share": 0.00077
-        },
-        {
-          "value": 12.0,
-          "count": 77,
-          "share": 0.00077
-        },
-        {
-          "value": 11.0,
-          "count": 69,
-          "share": 0.00069
-        },
-        {
-          "value": 16.0,
-          "count": 64,
-          "share": 0.00064
-        },
-        {
-          "value": 17.0,
-          "count": 47,
-          "share": 0.00047
-        },
-        {
-          "value": 10.0,
-          "count": 45,
-          "share": 0.00045
-        }
-      ],
-      "top1_share": 0.97853,
-      "top10_share": 0.9981,
-      "multiple_100_share": 0.97853,
-      "multiple_1000_share": 0.97853,
-      "zero_count": 97853,
       "negative_count": 0
     }
   },
@@ -3445,57 +3445,57 @@
     {
       "column": "policy_id",
       "is_id": true,
-      "overlap": 0.2597750346339156
+      "overlap": 0.2597750346339157
     },
     {
       "column": "customer_id",
       "is_id": true,
-      "overlap": 0.4156867686795052
+      "overlap": 0.41568676867950444
     },
     {
       "column": "hospital_days",
       "is_id": false,
-      "overlap": 0.7334848309334857
+      "overlap": 0.7334848309334856
     },
     {
       "column": "prior_claim_count_30d",
       "is_id": false,
-      "overlap": 0.7521483106446918
+      "overlap": 0.7521483106446917
     },
     {
       "column": "customer_age",
       "is_id": false,
-      "overlap": 0.7772263794455773
+      "overlap": 0.7772263794455772
     },
     {
       "column": "policy_age_days",
       "is_id": false,
-      "overlap": 0.7796486914380736
+      "overlap": 0.7796486914380737
     },
     {
       "column": "accident_date",
       "is_id": false,
-      "overlap": 0.7837792591510799
+      "overlap": 0.7837792591510807
     },
     {
       "column": "claim_date",
       "is_id": false,
-      "overlap": 0.7871016190416307
+      "overlap": 0.7871016190416312
     },
     {
       "column": "provider_id",
       "is_id": true,
-      "overlap": 0.8011744906996665
+      "overlap": 0.801174490699666
     },
     {
       "column": "prior_claim_count_365d",
       "is_id": false,
-      "overlap": 0.849176478972254
+      "overlap": 0.8491764789722541
     },
     {
       "column": "claim_lag_days",
       "is_id": false,
-      "overlap": 0.8704764673479353
+      "overlap": 0.8704764673479354
     },
     {
       "column": "channel",
@@ -3505,17 +3505,17 @@
     {
       "column": "treatment_code",
       "is_id": false,
-      "overlap": 0.9259388481511441
+      "overlap": 0.9259388481511434
     },
     {
       "column": "provider_prior_same_pair_count_365d",
       "is_id": false,
-      "overlap": 0.9299696687761337
+      "overlap": 0.9299696687761339
     },
     {
       "column": "diagnosis_code",
       "is_id": false,
-      "overlap": 0.9416261650164947
+      "overlap": 0.9416261650164949
     },
     {
       "column": "product_type",
@@ -3525,12 +3525,12 @@
     {
       "column": "claim_amount",
       "is_id": false,
-      "overlap": 0.9716892451659008
+      "overlap": 0.9716892451659005
     },
     {
       "column": "region",
       "is_id": false,
-      "overlap": 0.9740923327607822
+      "overlap": 0.9740923327607823
     },
     {
       "column": "customer_prior_same_provider_count_365d",
@@ -3540,7 +3540,7 @@
     {
       "column": "provider_prior_claim_count_365d",
       "is_id": false,
-      "overlap": 0.9962668417627834
+      "overlap": 0.9962668417627832
     },
     {
       "column": "provider_prior_high_amount_share_365d",
@@ -3575,7 +3575,7 @@
     {
       "column": "claim_id",
       "is_id": true,
-      "js_divergence": 1.0000000000000033
+      "js_divergence": 1.0000000000000102
     },
     {
       "column": "provider_id",
@@ -3585,22 +3585,22 @@
     {
       "column": "claim_amount",
       "is_id": false,
-      "js_divergence": 0.9956327253169995
+      "js_divergence": 0.9956327253169963
     },
     {
       "column": "policy_id",
       "is_id": true,
-      "js_divergence": 0.21488089656191614
+      "js_divergence": 0.21488089656191645
     },
     {
       "column": "customer_id",
       "is_id": true,
-      "js_divergence": 0.09688690149030117
+      "js_divergence": 0.09688690149030098
     },
     {
       "column": "policy_age_days",
       "is_id": false,
-      "js_divergence": 0.05257757216749451
+      "js_divergence": 0.052577572167494764
     },
     {
       "column": "provider_prior_high_amount_share_365d",
@@ -3610,57 +3610,57 @@
     {
       "column": "accident_date",
       "is_id": false,
-      "js_divergence": 0.008957422803044617
+      "js_divergence": 0.008957422803044606
     },
     {
       "column": "claim_date",
       "is_id": false,
-      "js_divergence": 0.008287921346079965
+      "js_divergence": 0.008287921346079972
     },
     {
       "column": "provider_prior_claim_count_365d",
       "is_id": false,
-      "js_divergence": 0.003919262310864676
+      "js_divergence": 0.003919262310864675
     },
     {
       "column": "treatment_code",
       "is_id": false,
-      "js_divergence": 0.0013340624929934937
+      "js_divergence": 0.0013340624929934941
     },
     {
       "column": "claim_lag_days",
       "is_id": false,
-      "js_divergence": 0.0009855688779119443
+      "js_divergence": 0.000985568877911945
     },
     {
       "column": "customer_age",
       "is_id": false,
-      "js_divergence": 0.0009533950297298004
+      "js_divergence": 0.0009533950297298008
     },
     {
       "column": "diagnosis_code",
       "is_id": false,
-      "js_divergence": 0.0009091743348111469
+      "js_divergence": 0.0009091743348111472
     },
     {
       "column": "provider_prior_same_pair_count_365d",
       "is_id": false,
-      "js_divergence": 0.0008964243352778789
+      "js_divergence": 0.0008964243352778793
     },
     {
       "column": "hospital_days",
       "is_id": false,
-      "js_divergence": 0.00026347407733814677
+      "js_divergence": 0.0002634740773381467
     },
     {
       "column": "prior_claim_count_365d",
       "is_id": false,
-      "js_divergence": 0.00023550308883959716
+      "js_divergence": 0.0002355030888395971
     },
     {
       "column": "prior_claim_count_30d",
       "is_id": false,
-      "js_divergence": 0.00010231526744927658
+      "js_divergence": 0.00010231526744927655
     },
     {
       "column": "channel",
@@ -3670,12 +3670,12 @@
     {
       "column": "region",
       "is_id": false,
-      "js_divergence": 7.350136003016249e-05
+      "js_divergence": 7.350136003016306e-05
     },
     {
       "column": "product_type",
       "is_id": false,
-      "js_divergence": 2.2586368099845313e-05
+      "js_divergence": 2.2586368099845476e-05
     },
     {
       "column": "customer_prior_same_provider_count_365d",
@@ -3689,7 +3689,7 @@
       "positives": 469,
       "prevalence": 0.0311876579332358,
       "roc_auc": 0.7858838340191612,
-      "average_precision": 0.1883524631797068,
+      "average_precision": 0.18835246317970722,
       "best_f1": 0.26195426195426197,
       "topk": {
         "top_0.1%": {
@@ -3737,7 +3737,7 @@
       "positives": 469,
       "prevalence": 0.0311876579332358,
       "roc_auc": 0.48183864709087454,
-      "average_precision": 0.031434651929418286,
+      "average_precision": 0.030486545670555823,
       "best_f1": 0.060546619589381456,
       "topk": {
         "top_0.1%": {
@@ -3785,7 +3785,7 @@
       "positives": 469,
       "prevalence": 0.0311876579332358,
       "roc_auc": 0.7630813798202539,
-      "average_precision": 0.1415251208874929,
+      "average_precision": 0.141525120887493,
       "best_f1": 0.22956521739130434,
       "topk": {
         "top_0.1%": {
@@ -3833,7 +3833,7 @@
       "positives": 469,
       "prevalence": 0.0311876579332358,
       "roc_auc": 0.4940474422061271,
-      "average_precision": 0.03094241719788946,
+      "average_precision": 0.0311589052651825,
       "best_f1": 0.06048881150448185,
       "topk": {
         "top_0.1%": {
@@ -3954,7 +3954,7 @@
       "positives": 6,
       "prevalence": 0.0425531914893617,
       "roc_auc": 0.5561728395061728,
-      "average_precision": 0.05348919570062508,
+      "average_precision": 0.05161723197437482,
       "best_f1": 0.1111111111111111,
       "topk": {
         "top_0.1%": {
@@ -4005,7 +4005,7 @@
       "positives": 581,
       "prevalence": 0.03209767416164853,
       "roc_auc": 0.8022115860703086,
-      "average_precision": 0.16915940185685616,
+      "average_precision": 0.16915940185685646,
       "best_f1": 0.25602202339986235,
       "topk": {
         "top_0.1%": {
@@ -4045,6 +4045,9 @@
         }
       },
       "entity_col": "provider_id",
+      "entity_count": 714,
+      "repeated_entity_count": 714,
+      "rows_in_repeated_entities": 100000,
       "holdout_share": 0.2,
       "train_rows": 81899,
       "train_positives": 1806,
@@ -4055,7 +4058,7 @@
       "positives": 581,
       "prevalence": 0.03209767416164853,
       "roc_auc": 0.5284436179158906,
-      "average_precision": 0.03540657924698122,
+      "average_precision": 0.03537903284002682,
       "best_f1": 0.06967572304995617,
       "topk": {
         "top_0.1%": {
@@ -4095,6 +4098,9 @@
         }
       },
       "entity_col": "provider_id",
+      "entity_count": 714,
+      "repeated_entity_count": 714,
+      "rows_in_repeated_entities": 100000,
       "holdout_share": 0.2,
       "train_rows": 81899,
       "train_positives": 1806,
@@ -4206,7 +4212,7 @@
       "id": "T1.2",
       "name": "Amount-only share of no-ID PR-AUC",
       "status": "PASS",
-      "metric": 0.164279333944082,
+      "metric": 0.16542871135937187,
       "threshold": ">= 0.8",
       "details": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
@@ -4240,7 +4246,7 @@
       "id": "T3",
       "name": "Class distribution overlap",
       "status": "PASS",
-      "metric": 0.7334848309334857,
+      "metric": 0.7334848309334856,
       "threshold": "> 0.2",
       "details": "Lowest checked overlap is 0.7335 on hospital_days."
     },
@@ -4249,8 +4255,8 @@
       "name": "ID-only baseline",
       "status": "PASS",
       "metric": {
-        "ap_ratio": 0.16689270423517918,
-        "ap_lift": 1.0079196070673608
+        "ap_ratio": 0.1618590230034241,
+        "ap_lift": 0.9775195603279712
       },
       "threshold": "ratio/lift below warning pair",
       "details": "Compares ID-only AP to no-ID AP and fraud prevalence."
@@ -4260,8 +4266,8 @@
       "name": "Entity-holdout degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 0.8726378273380904,
-        "raw_ap_ratio": 0.8981002902811068,
+        "ap_lift_ratio": 0.87263782733809,
+        "raw_ap_ratio": 0.8981002902811064,
         "provided_prevalence": 0.0311876579332358,
         "holdout_prevalence": 0.03209767416164853
       },
@@ -4282,7 +4288,7 @@
       "status": "PASS",
       "metric": 0.0,
       "threshold": "< 0.01",
-      "details": "Duplicate rows excluding the label: 0."
+      "details": "Duplicate rows excluding labels and configured IDs: 0."
     },
     {
       "id": "T6.2",
@@ -4290,15 +4296,15 @@
       "status": "PASS",
       "metric": 0.0,
       "threshold": "= 0.0",
-      "details": "Rows in duplicate feature groups with mixed labels: 0."
+      "details": "Rows in identical non-ID feature groups with mixed labels: 0."
     },
     {
       "id": "T7",
       "name": "Temporal split degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 1.3612890814266585,
-        "raw_ap_ratio": 1.8573756028212214,
+        "ap_lift_ratio": 1.3612890814266554,
+        "raw_ap_ratio": 1.8573756028212174,
         "provided_prevalence": 0.0311876579332358,
         "temporal_prevalence": 0.0425531914893617
       },

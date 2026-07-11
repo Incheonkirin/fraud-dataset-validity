@@ -47,7 +47,7 @@ Access-limited targets:
 - IEEE-CIS Fraud Detection: Kaggle API returned `403`
 - PaySim: Kaggle API returned `403`
 
-## Completed Phase 3: K-Claims-Synth
+## Completed Engineering Fixture: K-Claims-Synth
 
 Implemented:
 
@@ -56,26 +56,31 @@ Implemented:
 - held-out scoring label: `oracle_fraud_label`
 - train, validation, temporal, and entity-holdout split files
 - self-application gate through `configs/k_claims_synth.json`
-- versioned learnability thresholds: `k_claims_acceptance.json`
+- versioned fixture learnability thresholds: `k_claims_fixture_acceptance.json`
 - LightGBM checks on validation, temporal, and provider-holdout splits
 - pre-observation unlabeled history for mature rolling features
 
 Primary result:
 
 - K-Claims-Synth v0.3 validity audit: `PASS`
-- K-Claims-Synth v0.3 benchmark acceptance: `PASS`
+- K-Claims-Synth v0.3 fixture acceptance: `PASS`
+
+These results validate test wiring, not fidelity to Korean insurance claims.
+The next workstream is the label-honest evaluation design in
+`INSURANCE_FDS_PREPARATION.md`.
 
 ## Repository Outputs
 
 - `fdvh.py`: audit runner
 - `thresholds.yaml`: versioned thresholds
 - `reference_model.yaml`: stdlib reference-model parameters
-- `k_claims_acceptance.json`: benchmark learnability and robustness thresholds
+- `k_claims_fixture_acceptance.json`: fixture learnability and robustness thresholds
 - `configs/`: dataset configs
 - `reports/`: generated case-study and anchor reports
 - `PROTOCOL.md`: test definitions
 - `RESULT_SUMMARY.md`: AI Hub case-study summary
 - `ANCHOR_COMPARISON.md`: cross-dataset result table
 - `MODEL_PACKAGE_AUDIT.md`: reference-model audit notes
-- `K_CLAIMS_SYNTH_DESIGN.md`: insurance benchmark design
+- `K_CLAIMS_SYNTH_DESIGN.md`: insurance test-fixture design and limits
+- `INSURANCE_FDS_PREPARATION.md`: internal insurance FDS rebuild preparation
 - `IMPLEMENTATION_STATUS.md`: requirement-by-requirement completion map

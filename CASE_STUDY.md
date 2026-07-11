@@ -15,6 +15,8 @@ dominated by a discrete amount template:
   KRW 1,000,000 and contain zero positive labels.
 - The 4,434,106 audited rows use only 48 distinct transaction amounts.
 - The 10 most common amounts cover 98.05% of rows.
+- Excluding configured IDs and labels, 2,319,072 rows (52.30%) repeat another
+  row's observable feature vector.
 - Amount-only ROC-AUC is 0.9969 on the supplied train/validation split.
 - The positive and negative amount distributions have overlap 0.0065.
 
@@ -61,8 +63,8 @@ A frozen LightGBM sensitivity run changed both AI Hub T1.2 results:
 
 | subset | LightGBM no-ID PR-AUC | amount-only PR-AUC | amount/no-ID ratio | T1.2 |
 |---|---:|---:|---:|---:|
-| Card | 0.9935 | 0.6640 | 0.6683 | PASS |
-| Electronic financial network | 0.6161 | 0.4600 | 0.7466 | PASS |
+| Card | 0.9935 | 0.6588 | 0.6631 | PASS |
+| Electronic financial network | 0.6161 | 0.4433 | 0.7195 | PASS |
 
 The amount-rule-to-model F1 ratio also passes under LightGBM for both subsets.
 Those two ratio gates must not be used as the public basis for failure.
@@ -83,17 +85,16 @@ The same protocol produces a graded result rather than failing every dataset:
 
 | dataset | protocol verdict | LightGBM amount/no-ID AP ratio |
 |---|---:|---:|
-| K-Claims-Synth v0.3 | PASS | 0.1905 |
-| ULB Credit Card Fraud | WARN | 0.0033 |
+| K-Claims-Synth v0.3 test fixture | PASS | 0.1913 |
+| ULB Credit Card Fraud | WARN | 0.0031 |
 | BAF Base | WARN | 0.1001 |
-| AI Hub Card | FAIL | 0.6683 |
-| AI Hub Electronic Financial Network | FAIL | 0.7466 |
+| AI Hub Card | FAIL | 0.6631 |
+| AI Hub Electronic Financial Network | FAIL | 0.7195 |
 
 ULB and BAF warn because of broad single-feature subgroups, not because of
-amount templates. K-Claims-Synth v0.3 separately passes a learnability gate:
-validation ROC-AUC 0.7463, temporal ROC-AUC 0.7440, and unseen-provider ROC-AUC
-0.7509. It remains a synthetic benchmark candidate, not a claim of calibration
-to any insurer's private production distribution.
+amount templates. K-Claims-Synth is retained only as a harness test fixture.
+Its authored risk function makes its model scores circular evidence, so those
+scores are not used to claim insurance realism or model effectiveness.
 
 ## What the AI Hub Data Can Still Be Used For
 

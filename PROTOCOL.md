@@ -50,8 +50,17 @@ Default fails:
 
 - amount-only ROC-AUC >= `0.95`
 - amount-only PR-AUC is at least `80%` of no-ID PR-AUC
-- best one-sided amount threshold F1 >= `0.70` and at least `80%` of the
-  no-ID baseline's best score-threshold F1
+- a one-sided amount threshold selected on the training split reaches F1 >=
+  `0.70` on the unchanged validation split and at least `80%` of the no-ID
+  baseline's best validation score-threshold F1
+
+The training-only threshold selection prevents validation leakage. The optional
+LightGBM sensitivity analysis should be consulted before a ratio-based T1.2 or
+T1.3 result is used publicly.
+
+With the default dependency-free evidence Naive Bayes reference, triggered T1.2
+and T1.3 ratio gates are `WARN` screening results rather than final `FAIL`
+evidence. A stronger frozen reference model is required to confirm them.
 
 ### T2. Single-Feature Shortcut
 

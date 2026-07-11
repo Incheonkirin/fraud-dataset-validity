@@ -22,9 +22,11 @@ weak split design.
 - `T10` observed/oracle label-noise plausibility checks
 - Markdown and JSON audit reports
 - deterministic `K-Claims-Synth` generator with observed and oracle labels
+- optional frozen LightGBM sensitivity analysis for ratio-based gates
 
 Thresholds are stored in `thresholds.yaml`.
 The stdlib reference model is described in `reference_model.yaml`.
+The optional LightGBM settings are described in `lightgbm_sensitivity.json`.
 
 ## Quick Start
 
@@ -48,6 +50,23 @@ Each run writes:
 
 - `audit.md`
 - `audit.json`
+
+## LightGBM Sensitivity
+
+The default audit remains dependency-free. Before publishing a ratio-based T1
+finding, run the stronger optional denominator:
+
+```bash
+python3 -m pip install -r requirements-sensitivity.txt
+
+python3 scripts/lightgbm_sensitivity.py \
+  --config configs/aihub_fds_eft.json \
+  --audit-json reports/aihub_fds_eft/audit.json \
+  --out reports/aihub_fds_eft
+```
+
+This writes `lightgbm_sensitivity.md` and `lightgbm_sensitivity.json` without
+changing the dependency-free default verdict report.
 
 ## K-Claims-Synth
 
@@ -93,7 +112,8 @@ graded spectrum is summarized in `ANCHOR_COMPARISON.md`.
 
 ## Current Results
 
-See `ANCHOR_COMPARISON.md` and `RESULT_SUMMARY.md`.
+Start with `CASE_STUDY.md`. Supporting results are in `ANCHOR_COMPARISON.md`,
+`RESULT_SUMMARY.md`, and `AIHUB_MODEL_SOURCE_EVIDENCE.md`.
 
 ## Scope
 

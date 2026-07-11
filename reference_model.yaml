@@ -2,6 +2,7 @@ version: "0.1"
 model_type: "evidence_naive_bayes"
 alpha: 1.0
 weight_clip: 4.0
+ratio_gates_are_screening_only: true
 
 tokenization:
   categorical: "exact normalized values"

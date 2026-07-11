@@ -1,0 +1,154 @@
+{
+  "dataset": "k_claims_synth",
+  "title": "K-Claims-Synth v0.2",
+  "run_type": "lightgbm_reference_model_sensitivity",
+  "settings": {
+    "version": "0.1",
+    "sampling": {
+      "max_train_rows": 300000,
+      "max_eval_rows": 150000,
+      "method": "deterministic_systematic"
+    },
+    "model": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 777,
+      "n_jobs": 6,
+      "verbosity": -1
+    }
+  },
+  "package_versions": {
+    "lightgbm": "4.6.0",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "features": {
+    "no_id_count": 15,
+    "amount_columns": [
+      "claim_amount"
+    ],
+    "excluded_id_columns": [
+      "claim_id",
+      "policy_id",
+      "customer_id",
+      "provider_id"
+    ],
+    "excluded_leak_columns": [
+      "fraud_type"
+    ]
+  },
+  "sample": {
+    "train_rows_total": 52231,
+    "train_rows_used": 52231,
+    "train_positives_used": 677,
+    "eval_rows_total": 15071,
+    "eval_rows_used": 15071,
+    "eval_positives_used": 226
+  },
+  "metrics": {
+    "lightgbm_no_id": {
+      "rows": 15071,
+      "positives": 226,
+      "prevalence": 0.014995687081149227,
+      "roc_auc": 0.5598741568479003,
+      "average_precision": 0.025029988542945573,
+      "best_f1": 0.051490514905149054,
+      "topk": {
+        "top_0.1%": {
+          "k": 15,
+          "hits": 2,
+          "precision": 0.13333333333333333,
+          "recall": 0.008849557522123894,
+          "lift": 8.891445427728614
+        },
+        "top_0.5%": {
+          "k": 75,
+          "hits": 6,
+          "precision": 0.08,
+          "recall": 0.02654867256637168,
+          "lift": 5.334867256637168
+        },
+        "top_1.0%": {
+          "k": 151,
+          "hits": 8,
+          "precision": 0.052980132450331126,
+          "recall": 0.035398230088495575,
+          "lift": 3.5330246732696478
+        },
+        "top_2.0%": {
+          "k": 301,
+          "hits": 11,
+          "precision": 0.036544850498338874,
+          "recall": 0.048672566371681415,
+          "lift": 2.437024079028607
+        },
+        "top_5.0%": {
+          "k": 754,
+          "hits": 23,
+          "precision": 0.03050397877984085,
+          "recall": 0.10176991150442478,
+          "lift": 2.0341834698715995
+        }
+      }
+    },
+    "lightgbm_amount_only": {
+      "rows": 15071,
+      "positives": 226,
+      "prevalence": 0.014995687081149227,
+      "roc_auc": 0.5093252696745425,
+      "average_precision": 0.015423122869305765,
+      "best_f1": 0.03161512027491409,
+      "topk": {
+        "top_0.1%": {
+          "k": 15,
+          "hits": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "lift": 0.0
+        },
+        "top_0.5%": {
+          "k": 75,
+          "hits": 1,
+          "precision": 0.013333333333333334,
+          "recall": 0.004424778761061947,
+          "lift": 0.8891445427728615
+        },
+        "top_1.0%": {
+          "k": 151,
+          "hits": 1,
+          "precision": 0.006622516556291391,
+          "recall": 0.004424778761061947,
+          "lift": 0.44162808415870597
+        },
+        "top_2.0%": {
+          "k": 301,
+          "hits": 2,
+          "precision": 0.006644518272425249,
+          "recall": 0.008849557522123894,
+          "lift": 0.44309528709611035
+        },
+        "top_5.0%": {
+          "k": 754,
+          "hits": 15,
+          "precision": 0.01989389920424403,
+          "recall": 0.06637168141592921,
+          "lift": 1.3266413933945211
+        }
+      }
+    },
+    "amount_only_ap_ratio": 0.6161857742301126,
+    "fixed_amount_rule_f1": 0.02627737226277372,
+    "fixed_amount_rule_to_lightgbm_f1_ratio": 0.5103342297349212
+  },
+  "sensitivity_verdict": {
+    "t1_2": "PASS",
+    "t1_3": "PASS",
+    "independent_fail_gates": [],
+    "dataset_fail_survives_ratio_gate_changes": false
+  }
+}

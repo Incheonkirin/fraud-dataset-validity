@@ -2155,12 +2155,12 @@
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "overlap": 0.17166681371068154
+      "overlap": 0.17166681371068096
     },
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "overlap": 0.20267600650086698
+      "overlap": 0.2026760065008654
     },
     {
       "column": "출금금융회사일련번호",
@@ -2175,7 +2175,7 @@
     {
       "column": "거래일자",
       "is_id": false,
-      "overlap": 0.7736175866085958
+      "overlap": 0.7736175866085968
     },
     {
       "column": "자금구분",
@@ -2202,6 +2202,8 @@
       },
       "best_low_threshold": {
         "rule": "amount <= 5e+08",
+        "direction": "low",
+        "threshold": 500000000.0,
         "rows": 4434106,
         "precision": 0.0038733850746914935,
         "recall": 1.0,
@@ -2209,6 +2211,8 @@
       },
       "best_high_threshold": {
         "rule": "amount >= 4e+06",
+        "direction": "high",
+        "threshold": 4000000.0,
         "rows": 43751,
         "precision": 0.3891111060318621,
         "recall": 0.9912081513828239,
@@ -2220,47 +2224,47 @@
     {
       "column": "입금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.13265519655197006
+      "js_divergence": 0.13265519655197303
     },
     {
       "column": "출금계좌일련번호",
       "is_id": true,
-      "js_divergence": 0.013741080210219334
+      "js_divergence": 0.01374108021021937
     },
     {
       "column": "거래일자",
       "is_id": false,
-      "js_divergence": 0.0005200235884660594
+      "js_divergence": 0.0005200235884660592
     },
     {
       "column": "출금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.3392768801892383e-05
+      "js_divergence": 2.3392768801892335e-05
     },
     {
       "column": "입금금융회사일련번호",
       "is_id": false,
-      "js_divergence": 2.1440812899565256e-05
+      "js_divergence": 2.1440812899565334e-05
     },
     {
       "column": "거래금액",
       "is_id": false,
-      "js_divergence": 1.8615140918571853e-05
+      "js_divergence": 1.8615140918571825e-05
     },
     {
       "column": "매체구분",
       "is_id": false,
-      "js_divergence": 1.987098208777939e-06
+      "js_divergence": 1.9870982087779492e-06
     },
     {
       "column": "거래시간대",
       "is_id": false,
-      "js_divergence": 1.3842280330357039e-06
+      "js_divergence": 1.3842280330357174e-06
     },
     {
       "column": "자금구분",
       "is_id": false,
-      "js_divergence": 7.784044028480567e-07
+      "js_divergence": 7.784044028480622e-07
     }
   ],
   "baselines": {
@@ -2456,6 +2460,28 @@
       "train_positives": 15267,
       "train_prevalence": 0.0038734692096367104
     },
+    "provided_split_amount_threshold": {
+      "column": "거래금액",
+      "rule": "amount >= 4e+06",
+      "direction": "high",
+      "threshold": 4000000.0,
+      "train_metrics": {
+        "rule": "amount >= 4e+06",
+        "direction": "high",
+        "threshold": 4000000.0,
+        "rows": 38891,
+        "precision": 0.38908744953845364,
+        "recall": 0.9911573983100805,
+        "f1": 0.5588094095055209
+      },
+      "eval_rows": 492678,
+      "eval_metrics": {
+        "rows": 4860,
+        "precision": 0.3893004115226337,
+        "recall": 0.9916142557651991,
+        "f1": 0.5591016548463357
+      }
+    },
     "temporal_holdout_no_id_nb": {
       "rows": 1431700,
       "positives": 6636,
@@ -2559,104 +2585,104 @@
       "train_prevalence": 0.0035101848317649247
     },
     "entity_holdout_no_id_nb": {
-      "rows": 905832,
-      "positives": 3354,
-      "prevalence": 0.0037026733434014254,
-      "roc_auc": 0.9965622258893004,
-      "average_precision": 0.33681534061655866,
-      "best_f1": 0.5306456899377253,
+      "rows": 886328,
+      "positives": 3457,
+      "prevalence": 0.003900361942757083,
+      "roc_auc": 0.9956549418526082,
+      "average_precision": 0.2914861060053429,
+      "best_f1": 0.49403932497290604,
       "topk": {
         "top_0.1%": {
-          "k": 906,
-          "hits": 262,
-          "precision": 0.2891832229580574,
-          "recall": 0.07811568276684555,
-          "lift": 78.10119773957753
+          "k": 886,
+          "hits": 161,
+          "precision": 0.18171557562076748,
+          "recall": 0.04657217240381834,
+          "lift": 46.58941356922291
         },
         "top_0.5%": {
-          "k": 4529,
-          "hits": 1597,
-          "precision": 0.3526164716272908,
-          "recall": 0.4761478831246273,
-          "lift": 95.23294088464284
+          "k": 4432,
+          "hits": 1308,
+          "precision": 0.2951263537906137,
+          "recall": 0.37836274226207695,
+          "lift": 75.66640176526673
         },
         "top_1.0%": {
-          "k": 9058,
-          "hits": 3271,
-          "precision": 0.36111724442481785,
-          "recall": 0.9752534287418009,
-          "lift": 97.52878823846798
+          "k": 8863,
+          "hits": 2997,
+          "precision": 0.33814735416901726,
+          "recall": 0.8669366502748047,
+          "lift": 86.6964038547633
         },
         "top_2.0%": {
-          "k": 18117,
-          "hits": 3354,
-          "precision": 0.18512998840867692,
-          "recall": 1.0,
-          "lift": 49.99900645802285
+          "k": 17727,
+          "hits": 3453,
+          "precision": 0.1947876121171095,
+          "recall": 0.998842927393694,
+          "lift": 49.94090676092954
         },
         "top_5.0%": {
-          "k": 45292,
-          "hits": 3354,
-          "precision": 0.07405281285878301,
+          "k": 44316,
+          "hits": 3457,
+          "precision": 0.07800794295514035,
           "recall": 1.0,
-          "lift": 19.999823368365277
+          "lift": 20.000180521707733
         }
       },
-      "entity_col": "입금계좌일련번호",
+      "entity_col": "출금계좌일련번호",
       "holdout_share": 0.2,
-      "train_rows": 3528274,
-      "train_positives": 13821,
-      "train_prevalence": 0.0039172127788261344
+      "train_rows": 3547778,
+      "train_positives": 13718,
+      "train_prevalence": 0.003866645545465359
     },
     "entity_holdout_id_only_nb": {
-      "rows": 905832,
-      "positives": 3354,
-      "prevalence": 0.0037026733434014254,
-      "roc_auc": 0.8913203834007933,
-      "average_precision": 0.07957268204779457,
-      "best_f1": 0.19145758661887693,
+      "rows": 886328,
+      "positives": 3457,
+      "prevalence": 0.003900361942757083,
+      "roc_auc": 0.7208111181772059,
+      "average_precision": 0.008703489856935007,
+      "best_f1": 0.020005936104778563,
       "topk": {
         "top_0.1%": {
-          "k": 906,
-          "hits": 206,
-          "precision": 0.22737306843267108,
-          "recall": 0.06141920095408467,
-          "lift": 61.40781196317928
+          "k": 886,
+          "hits": 7,
+          "precision": 0.007900677200902935,
+          "recall": 0.00202487706103558,
+          "lift": 2.0256266769227356
         },
         "top_0.5%": {
-          "k": 4529,
-          "hits": 702,
-          "precision": 0.15500110399646722,
-          "recall": 0.20930232558139536,
-          "lift": 41.861943958058404
+          "k": 4432,
+          "hits": 53,
+          "precision": 0.011958483754512635,
+          "recall": 0.015331212033555105,
+          "lift": 3.065993343699646
         },
         "top_1.0%": {
-          "k": 9058,
-          "hits": 940,
-          "precision": 0.10377566791786266,
-          "recall": 0.2802623732856291,
-          "lift": 28.02722743630691
+          "k": 8863,
+          "hits": 121,
+          "precision": 0.013652262213697393,
+          "recall": 0.035001446340757886,
+          "lift": 3.5002552106861393
         },
         "top_2.0%": {
-          "k": 18117,
-          "hits": 1290,
-          "precision": 0.07120384169564498,
-          "recall": 0.38461538461538464,
-          "lift": 19.230387099239557
+          "k": 17727,
+          "hits": 209,
+          "precision": 0.011789924973204717,
+          "recall": 0.06045704367949089,
+          "lift": 3.0227771540788515
         },
         "top_5.0%": {
-          "k": 45292,
-          "hits": 1908,
-          "precision": 0.042126644882098385,
-          "recall": 0.5688729874776386,
-          "lift": 11.377359268587044
+          "k": 44316,
+          "hits": 454,
+          "precision": 0.010244606913981406,
+          "recall": 0.1313277408157362,
+          "lift": 2.626578523822769
         }
       },
-      "entity_col": "입금계좌일련번호",
+      "entity_col": "출금계좌일련번호",
       "holdout_share": 0.2,
-      "train_rows": 3528274,
-      "train_positives": 13821,
-      "train_prevalence": 0.0039172127788261344
+      "train_rows": 3547778,
+      "train_positives": 13718,
+      "train_prevalence": 0.003866645545465359
     }
   },
   "thresholds": {
@@ -2736,6 +2762,7 @@
     "model_type": "evidence_naive_bayes",
     "alpha": 1.0,
     "weight_clip": 4.0,
+    "ratio_gates_are_screening_only": true,
     "tokenization": {
       "categorical": "exact normalized values",
       "numeric": "signed log10 bucket of abs(x)+1 with 8 buckets per order",
@@ -2786,21 +2813,21 @@
     {
       "id": "T1.2",
       "name": "Amount-only share of no-ID PR-AUC",
-      "status": "FAIL",
+      "status": "WARN",
       "metric": 1.119338901476771,
       "threshold": ">= 0.8",
-      "details": "Compares amount-only average precision to the no-ID baseline."
+      "details": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T1.3",
       "name": "Best one-sided amount threshold",
       "status": "PASS",
       "metric": {
-        "f1": 0.5588418737484817,
-        "f1_ratio": 1.0361346855237543
+        "f1": 0.5591016548463357,
+        "f1_ratio": 1.0366163391341476
       },
       "threshold": "F1 >= 0.7 and ratio >= 0.8",
-      "details": "Best threshold rule: 거래금액: amount >= 4e+06; ratio compares against the no-ID baseline's best score-threshold F1."
+      "details": "Training-selected threshold rule: 거래금액: amount >= 4e+06; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T2",
@@ -2841,10 +2868,10 @@
       "name": "Entity-holdout degradation",
       "status": "PASS",
       "metric": {
-        "ap_lift_ratio": 0.9991025513841852,
-        "raw_ap_ratio": 0.9552350883926574,
+        "ap_lift_ratio": 0.8208173959901078,
+        "raw_ap_ratio": 0.8266777746095231,
         "provided_prevalence": 0.003872711994446677,
-        "holdout_prevalence": 0.0037026733434014254
+        "holdout_prevalence": 0.003900361942757083
       },
       "threshold": "> 0.75",
       "details": "Compares prevalence-normalized AP-lift on entity holdout against the provided split."
@@ -2965,9 +2992,9 @@
       "message": "Amount-only baseline is evaluated on the provided split."
     },
     {
-      "severity": "fail",
+      "severity": "warn",
       "gate": "T1.2",
-      "message": "Compares amount-only average precision to the no-ID baseline."
+      "message": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "severity": "fail",

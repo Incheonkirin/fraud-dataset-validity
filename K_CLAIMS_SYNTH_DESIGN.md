@@ -87,10 +87,18 @@ Key audit results:
 - Observed fraud rate: `1.33%`
 - Observed/oracle label-noise rate: `1.05%`
 - Amount-only ROC-AUC: `0.5387`
-- Amount-only / no-ID PR-AUC ratio: `0.5924`
+- Amount-only / no-ID stdlib PR-AUC ratio: `0.5924`
+- LightGBM no-ID ROC-AUC: `0.5599`
+- LightGBM no-ID PR-AUC: `0.0250`
+- LightGBM amount / no-ID PR-AUC ratio: `0.6162`
 - T2 single-feature shortcut: `PASS`
 - T7 AP-lift temporal ratio: `1.017`
 - `claim_amount` distinct values: `99,227`
 - Top 10 `claim_amount` share: `0.11%`
 
 Report: `reports/k_claims_synth/audit.md`
+
+The LightGBM result confirms the current limitation: v0.2 avoids trivial
+shortcuts, but its learnable signal is too weak to claim benchmark usefulness.
+The next version must improve behavioral and relational signal while continuing
+to pass the validity gate.

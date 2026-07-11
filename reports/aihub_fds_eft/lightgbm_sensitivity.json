@@ -1,0 +1,161 @@
+{
+  "dataset": "aihub_fds_eft",
+  "title": "AI Hub FDS - Electronic Financial Network",
+  "run_type": "lightgbm_reference_model_sensitivity",
+  "settings": {
+    "version": "0.1",
+    "sampling": {
+      "max_train_rows": 300000,
+      "max_eval_rows": 150000,
+      "method": "deterministic_systematic"
+    },
+    "model": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 777,
+      "n_jobs": 6,
+      "verbosity": -1
+    }
+  },
+  "package_versions": {
+    "lightgbm": "4.6.0",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "features": {
+    "no_id_count": 7,
+    "amount_columns": [
+      "거래금액"
+    ],
+    "excluded_id_columns": [
+      "출금계좌일련번호",
+      "입금계좌일련번호"
+    ],
+    "excluded_leak_columns": [
+      "이상거래유형",
+      "이상거래설명"
+    ]
+  },
+  "sample": {
+    "train_rows_total": 3941428,
+    "train_rows_used": 300000,
+    "train_positives_used": 1167,
+    "eval_rows_total": 492678,
+    "eval_rows_used": 150000,
+    "eval_positives_used": 584
+  },
+  "metrics": {
+    "lightgbm_no_id": {
+      "rows": 150000,
+      "positives": 584,
+      "prevalence": 0.0038933333333333333,
+      "roc_auc": 0.9982333730740541,
+      "average_precision": 0.6160787947870928,
+      "best_f1": 0.6147248034310222,
+      "topk": {
+        "top_0.1%": {
+          "k": 150,
+          "hits": 113,
+          "precision": 0.7533333333333333,
+          "recall": 0.1934931506849315,
+          "lift": 193.4931506849315
+        },
+        "top_0.5%": {
+          "k": 750,
+          "hits": 406,
+          "precision": 0.5413333333333333,
+          "recall": 0.6952054794520548,
+          "lift": 139.04109589041096
+        },
+        "top_1.0%": {
+          "k": 1500,
+          "hits": 576,
+          "precision": 0.384,
+          "recall": 0.9863013698630136,
+          "lift": 98.63013698630137
+        },
+        "top_2.0%": {
+          "k": 3000,
+          "hits": 584,
+          "precision": 0.19466666666666665,
+          "recall": 1.0,
+          "lift": 50.0
+        },
+        "top_5.0%": {
+          "k": 7500,
+          "hits": 584,
+          "precision": 0.07786666666666667,
+          "recall": 1.0,
+          "lift": 20.0
+        }
+      }
+    },
+    "lightgbm_amount_only": {
+      "rows": 150000,
+      "positives": 584,
+      "prevalence": 0.0038933333333333333,
+      "roc_auc": 0.9971864431455875,
+      "average_precision": 0.4599824272308373,
+      "best_f1": 0.55396370582617,
+      "topk": {
+        "top_0.1%": {
+          "k": 150,
+          "hits": 83,
+          "precision": 0.5533333333333333,
+          "recall": 0.1421232876712329,
+          "lift": 142.12328767123287
+        },
+        "top_0.5%": {
+          "k": 750,
+          "hits": 317,
+          "precision": 0.4226666666666667,
+          "recall": 0.5428082191780822,
+          "lift": 108.56164383561645
+        },
+        "top_1.0%": {
+          "k": 1500,
+          "hits": 575,
+          "precision": 0.38333333333333336,
+          "recall": 0.9845890410958904,
+          "lift": 98.45890410958904
+        },
+        "top_2.0%": {
+          "k": 3000,
+          "hits": 584,
+          "precision": 0.19466666666666665,
+          "recall": 1.0,
+          "lift": 50.0
+        },
+        "top_5.0%": {
+          "k": 7500,
+          "hits": 584,
+          "precision": 0.07786666666666667,
+          "recall": 1.0,
+          "lift": 20.0
+        }
+      }
+    },
+    "amount_only_ap_ratio": 0.7466292154882559,
+    "fixed_amount_rule_f1": 0.5591016548463357,
+    "fixed_amount_rule_to_lightgbm_f1_ratio": 0.90951536643026
+  },
+  "sensitivity_verdict": {
+    "t1_2": "PASS",
+    "t1_3": "PASS",
+    "independent_fail_gates": [
+      "T0.1",
+      "T1.1",
+      "T2",
+      "T3",
+      "T5",
+      "T9.1",
+      "T9.2"
+    ],
+    "dataset_fail_survives_ratio_gate_changes": true
+  }
+}

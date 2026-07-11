@@ -94,6 +94,7 @@ DEFAULT_REFERENCE_MODEL = {
     "model_type": "evidence_naive_bayes",
     "alpha": 1.0,
     "weight_clip": 4.0,
+    "ratio_gates_are_screening_only": True,
 }
 
 
@@ -745,6 +746,8 @@ def best_amount_rules(
         if best_low is None or low_f1 > best_low["f1"]:
             best_low = {
                 "rule": f"amount <= {value:g}",
+                "direction": "low",
+                "threshold": value,
                 "rows": prefix_rows,
                 "precision": low_precision,
                 "recall": low_recall,
@@ -760,6 +763,8 @@ def best_amount_rules(
         if best_high is None or high_f1 > best_high["f1"]:
             best_high = {
                 "rule": f"amount >= {value:g}",
+                "direction": "high",
+                "threshold": value,
                 "rows": suffix_rows,
                 "precision": high_precision,
                 "recall": high_recall,
@@ -772,6 +777,85 @@ def best_amount_rules(
         "best_low_threshold": best_low,
         "best_high_threshold": best_high,
     }
+
+
+def classification_metrics(tp: int, fp: int, fn: int, predicted: int) -> dict[str, object]:
+    precision = tp / predicted if predicted else 0.0
+    positives = tp + fn
+    recall = tp / positives if positives else 0.0
+    f1 = (
+        2 * precision * recall / (precision + recall)
+        if precision + recall
+        else 0.0
+    )
+    return {
+        "rows": predicted,
+        "precision": precision,
+        "recall": recall,
+        "f1": f1,
+    }
+
+
+def run_amount_threshold_baseline(
+    config: dict[str, object],
+    train_paths: list[Path],
+    test_paths: list[Path],
+    amount_cols: list[str],
+) -> dict[str, object] | None:
+    """Select one amount rule on training data and freeze it for evaluation."""
+    train_total = {col: Counter() for col in amount_cols}
+    train_pos = {col: Counter() for col in amount_cols}
+    for row in iter_rows(train_paths):
+        y = positive_label(config, row, "train")
+        for col in amount_cols:
+            value = parse_float(row.get(col))
+            if value is None:
+                continue
+            train_total[col][value] += 1
+            if y:
+                train_pos[col][value] += 1
+
+    selected = None
+    for col in amount_cols:
+        rules = best_amount_rules(train_total[col], train_pos[col])
+        for key in ("best_high_threshold", "best_low_threshold"):
+            rule = rules.get(key)
+            if not isinstance(rule, dict):
+                continue
+            if selected is None or rule["f1"] > selected["train_metrics"]["f1"]:
+                selected = {
+                    "column": col,
+                    "rule": rule["rule"],
+                    "direction": rule["direction"],
+                    "threshold": rule["threshold"],
+                    "train_metrics": rule,
+                }
+    if selected is None:
+        return None
+
+    tp = fp = fn = predicted = eval_rows = 0
+    col = str(selected["column"])
+    threshold = float(selected["threshold"])
+    direction = str(selected["direction"])
+    for row in iter_rows(test_paths):
+        y = positive_label(config, row, "eval")
+        value = parse_float(row.get(col))
+        prediction = False
+        if value is not None:
+            prediction = value >= threshold if direction == "high" else value <= threshold
+        eval_rows += 1
+        if prediction:
+            predicted += 1
+            if y:
+                tp += 1
+            else:
+                fp += 1
+        elif y:
+            fn += 1
+
+    selected["eval_rows"] = eval_rows
+    selected["eval_metrics"] = classification_metrics(tp, fp, fn, predicted)
+    return selected
 
 
 def threshold_group(thresholds: dict[str, object], name: str) -> dict[str, object]:
@@ -873,13 +957,16 @@ def evaluate_t0(
 
 def evaluate_t1(
     baselines: dict[str, object],
-    amount_rules: dict[str, object],
     thresholds: dict[str, object],
+    reference_model: dict[str, object] | None = None,
 ) -> list[dict[str, object]]:
     tests: list[dict[str, object]] = []
     t1 = threshold_group(thresholds, "t1_amount_only_baseline")
     amount_metric = baselines.get("provided_split_amount_only_nb")
     no_id_metric = baselines.get("provided_split_no_id_nb")
+    screening_only = bool(
+        reference_model and reference_model.get("ratio_gates_are_screening_only")
+    )
 
     if isinstance(amount_metric, dict):
         roc_auc_value = amount_metric.get("roc_auc")
@@ -901,12 +988,23 @@ def evaluate_t1(
             ratio_threshold = t1.get("fail_if_average_precision_ratio_gte", 0.80)
             if isinstance(ap_value, (int, float)) and isinstance(no_id_ap, (int, float)) and no_id_ap:
                 ratio = ap_value / no_id_ap
+                triggered = ratio >= ratio_threshold
+                status = (
+                    "WARN"
+                    if triggered and screening_only
+                    else "FAIL" if triggered else "PASS"
+                )
                 add_test(
                     tests,
                     "T1.2",
                     "Amount-only share of no-ID PR-AUC",
-                    "FAIL" if ratio >= ratio_threshold else "PASS",
-                    "Compares amount-only average precision to the no-ID baseline.",
+                    status,
+                    "Compares amount-only average precision to the no-ID baseline."
+                    + (
+                        " This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
+                        if screening_only
+                        else ""
+                    ),
                     metric=ratio,
                     threshold=f">= {ratio_threshold}",
                 )
@@ -921,38 +1019,42 @@ def evaluate_t1(
 
     f1_threshold = t1.get("fail_if_best_threshold_f1_gte", 0.70)
     f1_ratio_threshold = t1.get("fail_if_best_threshold_f1_ratio_gte", 0.80)
-    best_f1 = None
-    best_rule = None
-    for col, rules in amount_rules.items():
-        if not isinstance(rules, dict):
-            continue
-        for rule_key in ["best_high_threshold", "best_low_threshold"]:
-            rule = rules.get(rule_key)
-            if isinstance(rule, dict) and isinstance(rule.get("f1"), (int, float)):
-                if best_f1 is None or rule["f1"] > best_f1:
-                    best_f1 = rule["f1"]
-                    best_rule = f"{col}: {rule.get('rule')}"
+    threshold_metric = baselines.get("provided_split_amount_threshold")
+    eval_metric = (
+        threshold_metric.get("eval_metrics")
+        if isinstance(threshold_metric, dict)
+        else None
+    )
+    best_f1 = eval_metric.get("f1") if isinstance(eval_metric, dict) else None
+    best_rule = threshold_metric.get("rule") if isinstance(threshold_metric, dict) else None
     if best_f1 is not None:
         no_id_best_f1 = no_id_metric.get("best_f1") if isinstance(no_id_metric, dict) else None
         f1_ratio = None
         if isinstance(no_id_best_f1, (int, float)) and no_id_best_f1:
             f1_ratio = best_f1 / no_id_best_f1
+            triggered = best_f1 >= f1_threshold and f1_ratio >= f1_ratio_threshold
             status = (
-                "FAIL"
-                if best_f1 >= f1_threshold and f1_ratio >= f1_ratio_threshold
-                else "PASS"
+                "WARN"
+                if triggered and screening_only
+                else "FAIL" if triggered else "PASS"
             )
             metric: object = {"f1": best_f1, "f1_ratio": f1_ratio}
             threshold = f"F1 >= {f1_threshold} and ratio >= {f1_ratio_threshold}"
             details = (
-                f"Best threshold rule: {best_rule}; ratio compares against the "
-                "no-ID baseline's best score-threshold F1."
+                f"Training-selected threshold rule: {threshold_metric.get('column')}: "
+                f"{best_rule}; evaluated unchanged on the provided validation split. "
+                "The ratio compares against the no-ID baseline's best score-threshold F1."
+                + (
+                    " This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
+                    if screening_only
+                    else ""
+                )
             )
         else:
             status = "FAIL" if best_f1 >= f1_threshold else "PASS"
             metric = best_f1
             threshold = f">= {f1_threshold}"
-            details = f"Best threshold rule: {best_rule}."
+            details = f"Training-selected threshold rule evaluated on validation: {best_rule}."
         add_test(
             tests,
             "T1.3",
@@ -1614,7 +1716,8 @@ def audit(
     label_col = label_column(config, "train")
     eval_col = label_column(config, "eval")
     leak_cols = set(config.get("leak_cols", [])) | {label_col, eval_col}
-    id_cols = set(config.get("id_cols", []))
+    configured_id_cols = list(config.get("id_cols", []))
+    id_cols = set(configured_id_cols)
     feature_cols = [col for col in header if col not in leak_cols]
     no_id_feature_cols = [col for col in feature_cols if col not in id_cols]
     id_feature_cols = [col for col in feature_cols if col in id_cols]
@@ -1869,6 +1972,11 @@ def audit(
             baselines["provided_split_amount_only_nb"] = run_nb_baseline(
                 config, train_paths, test_paths, amount_feature_cols, reference_model
             )
+            amount_threshold = run_amount_threshold_baseline(
+                config, train_paths, test_paths, amount_feature_cols
+            )
+            if amount_threshold:
+                baselines["provided_split_amount_threshold"] = amount_threshold
 
     temporal = run_temporal_baseline(
         config, all_paths, header, no_id_feature_cols, reference_model
@@ -1883,7 +1991,10 @@ def audit(
         if amount_temporal:
             baselines["temporal_holdout_amount_only_nb"] = amount_temporal
 
-    entity_col = str(config.get("entity_holdout_col") or (list(id_cols)[0] if id_cols else ""))
+    entity_col = str(
+        config.get("entity_holdout_col")
+        or (configured_id_cols[0] if configured_id_cols else "")
+    )
     if entity_col:
         entity_no_id = run_entity_holdout_baseline(
             config, all_paths, entity_col, no_id_feature_cols, reference_model
@@ -1899,7 +2010,7 @@ def audit(
 
     tests: list[dict[str, object]] = []
     tests.extend(evaluate_t0(config, thresholds))
-    tests.extend(evaluate_t1(baselines, amount_rules, thresholds))
+    tests.extend(evaluate_t1(baselines, thresholds, reference_model))
     tests.extend(evaluate_t2(single_feature_rules, thresholds, min_support))
     tests.extend(evaluate_t3(overlap_by_col, config, thresholds))
     tests.extend(evaluate_t4(baselines, thresholds))
@@ -2008,6 +2119,13 @@ def number(value: object) -> str:
 
 
 def metric_line(name: str, metric: dict[str, object]) -> str:
+    if name == "provided_split_amount_threshold":
+        train = metric.get("train_metrics", {})
+        evaluation = metric.get("eval_metrics", {})
+        return (
+            f"- {name}: `{metric.get('column')}` {metric.get('rule')}, "
+            f"train F1 {number(train.get('f1'))}, validation F1 {number(evaluation.get('f1'))}"
+        )
     top1 = metric.get("topk", {}).get("top_1.0%", {})
     return (
         f"- {name}: ROC-AUC {number(metric.get('roc_auc'))}, "
@@ -2042,6 +2160,7 @@ def render_markdown(result: dict[str, object]) -> str:
                 f"- Type: `{model.get('model_type')}`",
                 f"- Alpha: {number(model.get('alpha'))}",
                 f"- Weight clip: {number(model.get('weight_clip'))}",
+                f"- Ratio gates screening-only: {str(bool(model.get('ratio_gates_are_screening_only'))).lower()}",
                 "",
             ]
         )

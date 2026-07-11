@@ -1,0 +1,149 @@
+{
+  "dataset": "ulb_creditcard",
+  "title": "ULB Credit Card Fraud",
+  "run_type": "lightgbm_reference_model_sensitivity",
+  "settings": {
+    "version": "0.1",
+    "sampling": {
+      "max_train_rows": 300000,
+      "max_eval_rows": 150000,
+      "method": "deterministic_systematic"
+    },
+    "model": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 777,
+      "n_jobs": 6,
+      "verbosity": -1
+    }
+  },
+  "package_versions": {
+    "lightgbm": "4.6.0",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "features": {
+    "no_id_count": 31,
+    "amount_columns": [
+      "Amount"
+    ],
+    "excluded_id_columns": [
+      "transaction_id"
+    ],
+    "excluded_leak_columns": []
+  },
+  "sample": {
+    "train_rows_total": 199364,
+    "train_rows_used": 199364,
+    "train_positives_used": 384,
+    "eval_rows_total": 85443,
+    "eval_rows_used": 85443,
+    "eval_positives_used": 108
+  },
+  "metrics": {
+    "lightgbm_no_id": {
+      "rows": 85443,
+      "positives": 108,
+      "prevalence": 0.0012640005617780275,
+      "roc_auc": 0.8680415855593098,
+      "average_precision": 0.49689049487495074,
+      "best_f1": 0.6854460093896714,
+      "topk": {
+        "top_0.1%": {
+          "k": 85,
+          "hits": 62,
+          "precision": 0.7294117647058823,
+          "recall": 0.5740740740740741,
+          "lift": 577.0660130718954
+        },
+        "top_0.5%": {
+          "k": 427,
+          "hits": 78,
+          "precision": 0.18266978922716628,
+          "recall": 0.7222222222222222,
+          "lift": 144.51717408274786
+        },
+        "top_1.0%": {
+          "k": 854,
+          "hits": 82,
+          "precision": 0.09601873536299765,
+          "recall": 0.7592592592592593,
+          "lift": 75.96415560759823
+        },
+        "top_2.0%": {
+          "k": 1709,
+          "hits": 82,
+          "precision": 0.04798127559976594,
+          "recall": 0.7592592592592593,
+          "lift": 37.959853065470384
+        },
+        "top_5.0%": {
+          "k": 4272,
+          "hits": 82,
+          "precision": 0.019194756554307114,
+          "recall": 0.7592592592592593,
+          "lift": 15.185718372867248
+        }
+      }
+    },
+    "lightgbm_amount_only": {
+      "rows": 85443,
+      "positives": 108,
+      "prevalence": 0.0012640005617780275,
+      "roc_auc": 0.5615418210147806,
+      "average_precision": 0.0016311529649353364,
+      "best_f1": 0.0038666834783339637,
+      "topk": {
+        "top_0.1%": {
+          "k": 85,
+          "hits": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "lift": 0.0
+        },
+        "top_0.5%": {
+          "k": 427,
+          "hits": 0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "lift": 0.0
+        },
+        "top_1.0%": {
+          "k": 854,
+          "hits": 1,
+          "precision": 0.00117096018735363,
+          "recall": 0.009259259259259259,
+          "lift": 0.926392141556076
+        },
+        "top_2.0%": {
+          "k": 1709,
+          "hits": 4,
+          "precision": 0.0023405500292568754,
+          "recall": 0.037037037037037035,
+          "lift": 1.8517001495351408
+        },
+        "top_5.0%": {
+          "k": 4272,
+          "hits": 6,
+          "precision": 0.0014044943820224719,
+          "recall": 0.05555555555555555,
+          "lift": 1.111150124843945
+        }
+      }
+    },
+    "amount_only_ap_ratio": 0.003282721206703377,
+    "fixed_amount_rule_f1": 0.032490974729241874,
+    "fixed_amount_rule_to_lightgbm_f1_ratio": 0.04740121655704465
+  },
+  "sensitivity_verdict": {
+    "t1_2": "PASS",
+    "t1_3": "PASS",
+    "independent_fail_gates": [],
+    "dataset_fail_survives_ratio_gate_changes": false
+  }
+}

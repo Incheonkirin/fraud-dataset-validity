@@ -1,0 +1,158 @@
+{
+  "dataset": "aihub_fds_card",
+  "title": "AI Hub FDS - Card Transactions",
+  "run_type": "lightgbm_reference_model_sensitivity",
+  "settings": {
+    "version": "0.1",
+    "sampling": {
+      "max_train_rows": 300000,
+      "max_eval_rows": 150000,
+      "method": "deterministic_systematic"
+    },
+    "model": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 777,
+      "n_jobs": 6,
+      "verbosity": -1
+    }
+  },
+  "package_versions": {
+    "lightgbm": "4.6.0",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "features": {
+    "no_id_count": 26,
+    "amount_columns": [
+      "통합승인금액"
+    ],
+    "excluded_id_columns": [
+      "승인SEQ",
+      "카드KEY",
+      "가맹점KEY"
+    ],
+    "excluded_leak_columns": [
+      "이상거래유형",
+      "이상거래설명"
+    ]
+  },
+  "sample": {
+    "train_rows_total": 1735885,
+    "train_rows_used": 300000,
+    "train_positives_used": 10992,
+    "eval_rows_total": 216986,
+    "eval_rows_used": 150000,
+    "eval_positives_used": 5445
+  },
+  "metrics": {
+    "lightgbm_no_id": {
+      "rows": 150000,
+      "positives": 5445,
+      "prevalence": 0.0363,
+      "roc_auc": 0.9997712126182887,
+      "average_precision": 0.9935470018975223,
+      "best_f1": 0.9608210620258814,
+      "topk": {
+        "top_0.1%": {
+          "k": 150,
+          "hits": 150,
+          "precision": 1.0,
+          "recall": 0.027548209366391185,
+          "lift": 27.548209366391184
+        },
+        "top_0.5%": {
+          "k": 750,
+          "hits": 750,
+          "precision": 1.0,
+          "recall": 0.13774104683195593,
+          "lift": 27.548209366391184
+        },
+        "top_1.0%": {
+          "k": 1500,
+          "hits": 1500,
+          "precision": 1.0,
+          "recall": 0.27548209366391185,
+          "lift": 27.548209366391184
+        },
+        "top_2.0%": {
+          "k": 3000,
+          "hits": 2996,
+          "precision": 0.9986666666666667,
+          "recall": 0.5502295684113866,
+          "lift": 27.511478420569333
+        },
+        "top_5.0%": {
+          "k": 7500,
+          "hits": 5445,
+          "precision": 0.726,
+          "recall": 1.0,
+          "lift": 20.0
+        }
+      }
+    },
+    "lightgbm_amount_only": {
+      "rows": 150000,
+      "positives": 5445,
+      "prevalence": 0.0363,
+      "roc_auc": 0.9563102169830028,
+      "average_precision": 0.6639894217366119,
+      "best_f1": 0.7148373983739837,
+      "topk": {
+        "top_0.1%": {
+          "k": 150,
+          "hits": 125,
+          "precision": 0.8333333333333334,
+          "recall": 0.02295684113865932,
+          "lift": 22.95684113865932
+        },
+        "top_0.5%": {
+          "k": 750,
+          "hits": 612,
+          "precision": 0.816,
+          "recall": 0.11239669421487604,
+          "lift": 22.479338842975206
+        },
+        "top_1.0%": {
+          "k": 1500,
+          "hits": 1223,
+          "precision": 0.8153333333333334,
+          "recall": 0.2246097337006428,
+          "lift": 22.46097337006428
+        },
+        "top_2.0%": {
+          "k": 3000,
+          "hits": 2444,
+          "precision": 0.8146666666666667,
+          "recall": 0.44885215794306704,
+          "lift": 22.44260789715335
+        },
+        "top_5.0%": {
+          "k": 7500,
+          "hits": 4010,
+          "precision": 0.5346666666666666,
+          "recall": 0.736455463728191,
+          "lift": 14.72910927456382
+        }
+      }
+    },
+    "amount_only_ap_ratio": 0.6683019731009142,
+    "fixed_amount_rule_f1": 0.7204085858237284,
+    "fixed_amount_rule_to_lightgbm_f1_ratio": 0.7497843399735162
+  },
+  "sensitivity_verdict": {
+    "t1_2": "PASS",
+    "t1_3": "PASS",
+    "independent_fail_gates": [
+      "T0.1",
+      "T1.1",
+      "T2"
+    ],
+    "dataset_fail_survives_ratio_gate_changes": true
+  }
+}

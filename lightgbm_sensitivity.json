@@ -1,0 +1,20 @@
+{
+  "version": "0.1",
+  "sampling": {
+    "max_train_rows": 300000,
+    "max_eval_rows": 150000,
+    "method": "deterministic_systematic"
+  },
+  "model": {
+    "n_estimators": 300,
+    "learning_rate": 0.05,
+    "num_leaves": 31,
+    "min_child_samples": 100,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "reg_lambda": 1.0,
+    "random_state": 777,
+    "n_jobs": 6,
+    "verbosity": -1
+  }
+}

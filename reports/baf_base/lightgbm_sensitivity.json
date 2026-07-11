@@ -1,0 +1,151 @@
+{
+  "dataset": "baf_base",
+  "title": "BAF Base",
+  "run_type": "lightgbm_reference_model_sensitivity",
+  "settings": {
+    "version": "0.1",
+    "sampling": {
+      "max_train_rows": 300000,
+      "max_eval_rows": 150000,
+      "method": "deterministic_systematic"
+    },
+    "model": {
+      "n_estimators": 300,
+      "learning_rate": 0.05,
+      "num_leaves": 31,
+      "min_child_samples": 100,
+      "subsample": 0.8,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 1.0,
+      "random_state": 777,
+      "n_jobs": 6,
+      "verbosity": -1
+    }
+  },
+  "package_versions": {
+    "lightgbm": "4.6.0",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2"
+  },
+  "features": {
+    "no_id_count": 31,
+    "amount_columns": [
+      "intended_balcon_amount"
+    ],
+    "excluded_id_columns": [
+      "application_id"
+    ],
+    "excluded_leak_columns": [
+      "device_fraud_count"
+    ]
+  },
+  "sample": {
+    "train_rows_total": 794989,
+    "train_rows_used": 300000,
+    "train_positives_used": 3185,
+    "eval_rows_total": 205011,
+    "eval_rows_used": 150000,
+    "eval_positives_used": 2093
+  },
+  "metrics": {
+    "lightgbm_no_id": {
+      "rows": 150000,
+      "positives": 2093,
+      "prevalence": 0.013953333333333333,
+      "roc_auc": 0.8807390787210069,
+      "average_precision": 0.168834131063793,
+      "best_f1": 0.25028100412139376,
+      "topk": {
+        "top_0.1%": {
+          "k": 150,
+          "hits": 75,
+          "precision": 0.5,
+          "recall": 0.0358337314859054,
+          "lift": 35.833731485905396
+        },
+        "top_0.5%": {
+          "k": 750,
+          "hits": 255,
+          "precision": 0.34,
+          "recall": 0.12183468705207835,
+          "lift": 24.366937410415673
+        },
+        "top_1.0%": {
+          "k": 1500,
+          "hits": 395,
+          "precision": 0.2633333333333333,
+          "recall": 0.18872431915910176,
+          "lift": 18.872431915910177
+        },
+        "top_2.0%": {
+          "k": 3000,
+          "hits": 633,
+          "precision": 0.211,
+          "recall": 0.30243669374104154,
+          "lift": 15.121834687052077
+        },
+        "top_5.0%": {
+          "k": 7500,
+          "hits": 1010,
+          "precision": 0.13466666666666666,
+          "recall": 0.482560917343526,
+          "lift": 9.65121834687052
+        }
+      }
+    },
+    "lightgbm_amount_only": {
+      "rows": 150000,
+      "positives": 2093,
+      "prevalence": 0.013953333333333333,
+      "roc_auc": 0.5802051993189726,
+      "average_precision": 0.01689407918188067,
+      "best_f1": 0.03405350800013035,
+      "topk": {
+        "top_0.1%": {
+          "k": 150,
+          "hits": 1,
+          "precision": 0.006666666666666667,
+          "recall": 0.00047778308647873863,
+          "lift": 0.4777830864787387
+        },
+        "top_0.5%": {
+          "k": 750,
+          "hits": 7,
+          "precision": 0.009333333333333334,
+          "recall": 0.0033444816053511705,
+          "lift": 0.6688963210702342
+        },
+        "top_1.0%": {
+          "k": 1500,
+          "hits": 16,
+          "precision": 0.010666666666666666,
+          "recall": 0.007644529383659818,
+          "lift": 0.7644529383659818
+        },
+        "top_2.0%": {
+          "k": 3000,
+          "hits": 48,
+          "precision": 0.016,
+          "recall": 0.022933588150979456,
+          "lift": 1.1466794075489728
+        },
+        "top_5.0%": {
+          "k": 7500,
+          "hits": 126,
+          "precision": 0.0168,
+          "recall": 0.06020066889632107,
+          "lift": 1.2040133779264213
+        }
+      }
+    },
+    "amount_only_ap_ratio": 0.10006317487722514,
+    "fixed_amount_rule_f1": 0.03247794707297514,
+    "fixed_amount_rule_to_lightgbm_f1_ratio": 0.12976592924815966
+  },
+  "sensitivity_verdict": {
+    "t1_2": "PASS",
+    "t1_3": "PASS",
+    "independent_fail_gates": [],
+    "dataset_fail_survives_ratio_gate_changes": false
+  }
+}

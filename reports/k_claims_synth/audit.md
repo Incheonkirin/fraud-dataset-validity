@@ -15,6 +15,7 @@ Verdict: **PASS**
 - Type: `evidence_naive_bayes`
 - Alpha: 1
 - Weight clip: 4
+- Ratio gates screening-only: true
 
 ## Label Alignment
 
@@ -30,8 +31,8 @@ Verdict: **PASS**
 |---|---:|---:|---:|---|
 | T0 Evaluation integrity | INFO |  |  | No published evaluation metadata was provided in the config. |
 | T1.1 Amount-only ROC-AUC | PASS | 0.5387 | >= 0.95 | Amount-only baseline is evaluated on the provided split. |
-| T1.2 Amount-only share of no-ID PR-AUC | PASS | 0.5924 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. |
-| T1.3 Best one-sided amount threshold | PASS | {'f1': 0.03976529190763645, 'f1_ratio': 0.6102442873518056} | F1 >= 0.7 and ratio >= 0.8 | Best threshold rule: claim_amount: amount >= 53006.1; ratio compares against the no-ID baseline's best score-threshold F1. |
+| T1.2 Amount-only share of no-ID PR-AUC | PASS | 0.5924 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
+| T1.3 Best one-sided amount threshold | PASS | {'f1': 0.02627737226277372, 'f1_ratio': 0.40325659741718134} | F1 >= 0.7 and ratio >= 0.8 | Training-selected threshold rule: claim_amount: amount >= 97457.7; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
 | T2 Single-feature shortcut | PASS | {'column': 'hospital_days', 'value': '12', 'count': 123, 'positive_rate': 0.0975609756097561, 'recall': 0.0068454078722190535, 'lift': 5.565372253836628} | below warning gates | Strongest checked non-ID value: hospital_days=12 has positive_rate 9.8%, lift 5.6x, recall 0.7% (n=123). |
 | T3 Class distribution overlap | PASS | 0.8957 | > 0.2 | Lowest checked overlap is 0.8957 on policy_age_days. |
 | T4.1 ID-only baseline | PASS | {'ap_ratio': 0.5407850046053172, 'ap_lift': 0.9983341014901134} | ratio/lift below warning pair | Compares ID-only AP to no-ID AP and fraud prevalence. |
@@ -57,14 +58,14 @@ Verdict: **PASS**
 
 ## Amount Profiles
 
-- customer_age: distinct 71, p50 45, p95 70, p99 80, max 88, top10 share 28.59%, round(1000) share 0.00%
-- provider_prior_claim_count_365d: distinct 111, p50 61, p95 82, p99 89, max 110, top10 share 25.75%, round(1000) share 0.71%
-- prior_claim_count_365d: distinct 19, p50 7, p95 13, p99 16, max 18, top10 share 81.28%, round(1000) share 2.42%
 - provider_prior_high_amount_share_365d: distinct 829, p50 0.125, p95 0.2222, p99 0.3333, max 1, top10 share 20.42%, round(1000) share 5.44%
+- provider_prior_claim_count_365d: distinct 111, p50 61, p95 82, p99 89, max 110, top10 share 25.75%, round(1000) share 0.71%
+- prior_claim_count_30d: distinct 8, p50 1, p95 2, p99 3, max 7, top10 share 100.00%, round(1000) share 48.20%
 - claim_amount: distinct 99,227, p50 25,086, p95 123,087, p99 238,912, max 1,591,568, top10 share 0.11%, round(1000) share 0.00%
 - policy_age_days: distinct 3,254, p50 430, p95 1,871, p99 2,826, max 3,650, top10 share 1.99%, round(1000) share 0.03%
+- customer_age: distinct 71, p50 45, p95 70, p99 80, max 88, top10 share 28.59%, round(1000) share 0.00%
 - hospital_days: distinct 25, p50 1, p95 6, p99 9, max 24, top10 share 99.05%, round(1000) share 42.18%
-- prior_claim_count_30d: distinct 8, p50 1, p95 2, p99 3, max 7, top10 share 100.00%, round(1000) share 48.20%
+- prior_claim_count_365d: distinct 19, p50 7, p95 13, p99 16, max 18, top10 share 81.28%, round(1000) share 2.42%
 
 ## Single-Feature Shortcuts
 
@@ -94,6 +95,7 @@ Verdict: **PASS**
 - provided_split_id_only_nb: ROC-AUC 0.4938, PR-AUC 0.01497, Best F1 0.0298, Top 1% P=1.99%, R=1.33%
 - provided_split_with_id_nb: ROC-AUC 0.5386, PR-AUC 0.02523, Best F1 0.06731, Top 1% P=5.96%, R=3.98%
 - provided_split_amount_only_nb: ROC-AUC 0.5387, PR-AUC 0.0164, Best F1 0.03489, Top 1% P=0.66%, R=0.44%
+- provided_split_amount_threshold: `claim_amount` amount >= 97457.7, train F1 0.02982, validation F1 0.02628
 - temporal_holdout_no_id_nb: ROC-AUC 0.617, PR-AUC 0.02626, Best F1 0.06061, Top 1% P=0.00%, R=0.00%
 - temporal_holdout_amount_only_nb: ROC-AUC 0.4574, PR-AUC 0.01965, Best F1 0.04082, Top 1% P=0.00%, R=0.00%
 - entity_holdout_no_id_nb: ROC-AUC 0.5892, PR-AUC 0.03881, Best F1 0.08491, Top 1% P=9.34%, R=5.17%

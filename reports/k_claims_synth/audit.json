@@ -1425,76 +1425,76 @@
     }
   ],
   "numeric_profiles": {
-    "customer_age": {
+    "provider_prior_high_amount_share_365d": {
       "count": 100000,
-      "distinct": 71,
-      "min": 18.0,
-      "p01": 18.0,
-      "p05": 21.0,
-      "p25": 35.0,
-      "p50": 45.0,
-      "p75": 56.0,
-      "p95": 70.0,
-      "p99": 80.0,
-      "max": 88.0,
-      "mean": 45.81035,
+      "distinct": 829,
+      "min": 0.0,
+      "p01": 0.0,
+      "p05": 0.0,
+      "p25": 0.09211,
+      "p50": 0.125,
+      "p75": 0.15873,
+      "p95": 0.22222,
+      "p99": 0.33333,
+      "max": 1.0,
+      "mean": 0.1273401533,
       "top_values": [
         {
-          "value": 18.0,
-          "count": 3691,
-          "share": 0.03691
+          "value": 0.0,
+          "count": 5441,
+          "share": 0.05441
         },
         {
-          "value": 44.0,
-          "count": 2951,
-          "share": 0.02951
+          "value": 0.14286,
+          "count": 2357,
+          "share": 0.02357
         },
         {
-          "value": 42.0,
-          "count": 2942,
-          "share": 0.02942
+          "value": 0.125,
+          "count": 2170,
+          "share": 0.0217
         },
         {
-          "value": 47.0,
-          "count": 2827,
-          "share": 0.02827
+          "value": 0.16667,
+          "count": 2009,
+          "share": 0.02009
         },
         {
-          "value": 45.0,
-          "count": 2799,
-          "share": 0.02799
+          "value": 0.11111,
+          "count": 1972,
+          "share": 0.01972
         },
         {
-          "value": 43.0,
-          "count": 2784,
-          "share": 0.02784
+          "value": 0.1,
+          "count": 1635,
+          "share": 0.01635
         },
         {
-          "value": 50.0,
-          "count": 2762,
-          "share": 0.02762
+          "value": 0.2,
+          "count": 1368,
+          "share": 0.01368
         },
         {
-          "value": 51.0,
-          "count": 2690,
-          "share": 0.0269
+          "value": 0.09091,
+          "count": 1343,
+          "share": 0.01343
         },
         {
-          "value": 40.0,
-          "count": 2639,
-          "share": 0.02639
+          "value": 0.08333,
+          "count": 1085,
+          "share": 0.01085
         },
         {
-          "value": 41.0,
-          "count": 2510,
-          "share": 0.0251
+          "value": 0.13333,
+          "count": 1037,
+          "share": 0.01037
         }
       ],
-      "top1_share": 0.03691,
-      "top10_share": 0.28595,
-      "multiple_100_share": 0.0,
-      "multiple_1000_share": 0.0,
-      "zero_count": 0,
+      "top1_share": 0.05441,
+      "top10_share": 0.20417,
+      "multiple_100_share": 0.05441,
+      "multiple_1000_share": 0.05441,
+      "zero_count": 5441,
       "negative_count": 0
     },
     "provider_prior_claim_count_365d": {
@@ -1569,148 +1569,66 @@
       "zero_count": 714,
       "negative_count": 0
     },
-    "prior_claim_count_365d": {
+    "prior_claim_count_30d": {
       "count": 100000,
-      "distinct": 19,
-      "min": 0.0,
-      "p01": 0.0,
-      "p05": 1.0,
-      "p25": 4.0,
-      "p50": 7.0,
-      "p75": 10.0,
-      "p95": 13.0,
-      "p99": 16.0,
-      "max": 18.0,
-      "mean": 6.92525,
-      "top_values": [
-        {
-          "value": 8.0,
-          "count": 9898,
-          "share": 0.09898
-        },
-        {
-          "value": 7.0,
-          "count": 9841,
-          "share": 0.09841
-        },
-        {
-          "value": 6.0,
-          "count": 9278,
-          "share": 0.09278
-        },
-        {
-          "value": 9.0,
-          "count": 9205,
-          "share": 0.09205
-        },
-        {
-          "value": 5.0,
-          "count": 8476,
-          "share": 0.08476
-        },
-        {
-          "value": 10.0,
-          "count": 7877,
-          "share": 0.07877
-        },
-        {
-          "value": 4.0,
-          "count": 7486,
-          "share": 0.07486
-        },
-        {
-          "value": 3.0,
-          "count": 6914,
-          "share": 0.06914
-        },
-        {
-          "value": 2.0,
-          "count": 6263,
-          "share": 0.06263
-        },
-        {
-          "value": 11.0,
-          "count": 6044,
-          "share": 0.06044
-        }
-      ],
-      "top1_share": 0.09898,
-      "top10_share": 0.81282,
-      "multiple_100_share": 0.02415,
-      "multiple_1000_share": 0.02415,
-      "zero_count": 2415,
-      "negative_count": 0
-    },
-    "provider_prior_high_amount_share_365d": {
-      "count": 100000,
-      "distinct": 829,
+      "distinct": 8,
       "min": 0.0,
       "p01": 0.0,
       "p05": 0.0,
-      "p25": 0.09211,
-      "p50": 0.125,
-      "p75": 0.15873,
-      "p95": 0.22222,
-      "p99": 0.33333,
-      "max": 1.0,
-      "mean": 0.1273401533,
+      "p25": 0.0,
+      "p50": 1.0,
+      "p75": 1.0,
+      "p95": 2.0,
+      "p99": 3.0,
+      "max": 7.0,
+      "mean": 0.735,
       "top_values": [
         {
           "value": 0.0,
-          "count": 5441,
-          "share": 0.05441
+          "count": 48198,
+          "share": 0.48198
         },
         {
-          "value": 0.14286,
-          "count": 2357,
-          "share": 0.02357
+          "value": 1.0,
+          "count": 34936,
+          "share": 0.34936
         },
         {
-          "value": 0.125,
-          "count": 2170,
-          "share": 0.0217
+          "value": 2.0,
+          "count": 12902,
+          "share": 0.12902
         },
         {
-          "value": 0.16667,
-          "count": 2009,
-          "share": 0.02009
+          "value": 3.0,
+          "count": 3238,
+          "share": 0.03238
         },
         {
-          "value": 0.11111,
-          "count": 1972,
-          "share": 0.01972
+          "value": 4.0,
+          "count": 600,
+          "share": 0.006
         },
         {
-          "value": 0.1,
-          "count": 1635,
-          "share": 0.01635
+          "value": 5.0,
+          "count": 111,
+          "share": 0.00111
         },
         {
-          "value": 0.2,
-          "count": 1368,
-          "share": 0.01368
+          "value": 6.0,
+          "count": 14,
+          "share": 0.00014
         },
         {
-          "value": 0.09091,
-          "count": 1343,
-          "share": 0.01343
-        },
-        {
-          "value": 0.08333,
-          "count": 1085,
-          "share": 0.01085
-        },
-        {
-          "value": 0.13333,
-          "count": 1037,
-          "share": 0.01037
+          "value": 7.0,
+          "count": 1,
+          "share": 1e-05
         }
       ],
-      "top1_share": 0.05441,
-      "top10_share": 0.20417,
-      "multiple_100_share": 0.05441,
-      "multiple_1000_share": 0.05441,
-      "zero_count": 5441,
+      "top1_share": 0.48198,
+      "top10_share": 1.0,
+      "multiple_100_share": 0.48198,
+      "multiple_1000_share": 0.48198,
+      "zero_count": 48198,
       "negative_count": 0
     },
     "claim_amount": {
@@ -1857,6 +1775,78 @@
       "zero_count": 0,
       "negative_count": 0
     },
+    "customer_age": {
+      "count": 100000,
+      "distinct": 71,
+      "min": 18.0,
+      "p01": 18.0,
+      "p05": 21.0,
+      "p25": 35.0,
+      "p50": 45.0,
+      "p75": 56.0,
+      "p95": 70.0,
+      "p99": 80.0,
+      "max": 88.0,
+      "mean": 45.81035,
+      "top_values": [
+        {
+          "value": 18.0,
+          "count": 3691,
+          "share": 0.03691
+        },
+        {
+          "value": 44.0,
+          "count": 2951,
+          "share": 0.02951
+        },
+        {
+          "value": 42.0,
+          "count": 2942,
+          "share": 0.02942
+        },
+        {
+          "value": 47.0,
+          "count": 2827,
+          "share": 0.02827
+        },
+        {
+          "value": 45.0,
+          "count": 2799,
+          "share": 0.02799
+        },
+        {
+          "value": 43.0,
+          "count": 2784,
+          "share": 0.02784
+        },
+        {
+          "value": 50.0,
+          "count": 2762,
+          "share": 0.02762
+        },
+        {
+          "value": 51.0,
+          "count": 2690,
+          "share": 0.0269
+        },
+        {
+          "value": 40.0,
+          "count": 2639,
+          "share": 0.02639
+        },
+        {
+          "value": 41.0,
+          "count": 2510,
+          "share": 0.0251
+        }
+      ],
+      "top1_share": 0.03691,
+      "top10_share": 0.28595,
+      "multiple_100_share": 0.0,
+      "multiple_1000_share": 0.0,
+      "zero_count": 0,
+      "negative_count": 0
+    },
     "hospital_days": {
       "count": 100000,
       "distinct": 25,
@@ -1929,66 +1919,76 @@
       "zero_count": 42179,
       "negative_count": 0
     },
-    "prior_claim_count_30d": {
+    "prior_claim_count_365d": {
       "count": 100000,
-      "distinct": 8,
+      "distinct": 19,
       "min": 0.0,
       "p01": 0.0,
-      "p05": 0.0,
-      "p25": 0.0,
-      "p50": 1.0,
-      "p75": 1.0,
-      "p95": 2.0,
-      "p99": 3.0,
-      "max": 7.0,
-      "mean": 0.735,
+      "p05": 1.0,
+      "p25": 4.0,
+      "p50": 7.0,
+      "p75": 10.0,
+      "p95": 13.0,
+      "p99": 16.0,
+      "max": 18.0,
+      "mean": 6.92525,
       "top_values": [
         {
-          "value": 0.0,
-          "count": 48198,
-          "share": 0.48198
-        },
-        {
-          "value": 1.0,
-          "count": 34936,
-          "share": 0.34936
-        },
-        {
-          "value": 2.0,
-          "count": 12902,
-          "share": 0.12902
-        },
-        {
-          "value": 3.0,
-          "count": 3238,
-          "share": 0.03238
-        },
-        {
-          "value": 4.0,
-          "count": 600,
-          "share": 0.006
-        },
-        {
-          "value": 5.0,
-          "count": 111,
-          "share": 0.00111
-        },
-        {
-          "value": 6.0,
-          "count": 14,
-          "share": 0.00014
+          "value": 8.0,
+          "count": 9898,
+          "share": 0.09898
         },
         {
           "value": 7.0,
-          "count": 1,
-          "share": 1e-05
+          "count": 9841,
+          "share": 0.09841
+        },
+        {
+          "value": 6.0,
+          "count": 9278,
+          "share": 0.09278
+        },
+        {
+          "value": 9.0,
+          "count": 9205,
+          "share": 0.09205
+        },
+        {
+          "value": 5.0,
+          "count": 8476,
+          "share": 0.08476
+        },
+        {
+          "value": 10.0,
+          "count": 7877,
+          "share": 0.07877
+        },
+        {
+          "value": 4.0,
+          "count": 7486,
+          "share": 0.07486
+        },
+        {
+          "value": 3.0,
+          "count": 6914,
+          "share": 0.06914
+        },
+        {
+          "value": 2.0,
+          "count": 6263,
+          "share": 0.06263
+        },
+        {
+          "value": 11.0,
+          "count": 6044,
+          "share": 0.06044
         }
       ],
-      "top1_share": 0.48198,
-      "top10_share": 1.0,
-      "multiple_100_share": 0.48198,
-      "multiple_1000_share": 0.48198,
-      "zero_count": 48198,
+      "top1_share": 0.09898,
+      "top10_share": 0.81282,
+      "multiple_100_share": 0.02415,
+      "multiple_1000_share": 0.02415,
+      "zero_count": 2415,
       "negative_count": 0
     }
   },
@@ -3105,27 +3105,27 @@
     {
       "column": "policy_id",
       "is_id": true,
-      "overlap": 0.14402475393650704
+      "overlap": 0.1440247539365069
     },
     {
       "column": "customer_id",
       "is_id": true,
-      "overlap": 0.2724866917055992
+      "overlap": 0.2724866917055993
     },
     {
       "column": "accident_date",
       "is_id": false,
-      "overlap": 0.7266937329236605
+      "overlap": 0.7266937329236615
     },
     {
       "column": "provider_id",
       "is_id": true,
-      "overlap": 0.7372852609379899
+      "overlap": 0.7372852609379894
     },
     {
       "column": "claim_date",
       "is_id": false,
-      "overlap": 0.7436846527731521
+      "overlap": 0.7436846527731529
     },
     {
       "column": "policy_age_days",
@@ -3140,12 +3140,12 @@
     {
       "column": "treatment_code",
       "is_id": false,
-      "overlap": 0.924156481372888
+      "overlap": 0.9241564813728879
     },
     {
       "column": "diagnosis_code",
       "is_id": false,
-      "overlap": 0.9274804783647416
+      "overlap": 0.9274804783647413
     },
     {
       "column": "claim_amount",
@@ -3160,7 +3160,7 @@
     {
       "column": "prior_claim_count_365d",
       "is_id": false,
-      "overlap": 0.9496350255576377
+      "overlap": 0.9496350255576376
     },
     {
       "column": "provider_prior_claim_count_365d",
@@ -3175,7 +3175,7 @@
     {
       "column": "region",
       "is_id": false,
-      "overlap": 0.9795470734317131
+      "overlap": 0.9795470734317132
     },
     {
       "column": "customer_age",
@@ -3198,6 +3198,8 @@
       "zero_positive_low_region": null,
       "best_low_threshold": {
         "rule": "amount <= 639822",
+        "direction": "low",
+        "threshold": 639822.2,
         "rows": 99973,
         "precision": 0.017534734378282135,
         "recall": 1.0,
@@ -3205,6 +3207,8 @@
       },
       "best_high_threshold": {
         "rule": "amount >= 53006.1",
+        "direction": "high",
+        "threshold": 53006.14,
         "rows": 21936,
         "precision": 0.02147155361050328,
         "recall": 0.26868225898459785,
@@ -3216,52 +3220,52 @@
     {
       "column": "provider_id",
       "is_id": true,
-      "js_divergence": 1.0000000000000007
+      "js_divergence": 1.0000000000000013
     },
     {
       "column": "claim_id",
       "is_id": true,
-      "js_divergence": 0.9999999999989512
+      "js_divergence": 0.9999999999989659
     },
     {
       "column": "claim_amount",
       "is_id": false,
-      "js_divergence": 0.9951822487932014
+      "js_divergence": 0.995182248793203
     },
     {
       "column": "policy_id",
       "is_id": true,
-      "js_divergence": 0.2161967790093001
+      "js_divergence": 0.21619677900930034
     },
     {
       "column": "customer_id",
       "is_id": true,
-      "js_divergence": 0.09722993482767892
+      "js_divergence": 0.09722993482767867
     },
     {
       "column": "policy_age_days",
       "is_id": false,
-      "js_divergence": 0.05364810670960039
+      "js_divergence": 0.0536481067096003
     },
     {
       "column": "provider_prior_high_amount_share_365d",
       "is_id": false,
-      "js_divergence": 0.023313422729240595
+      "js_divergence": 0.023313422729240574
     },
     {
       "column": "accident_date",
       "is_id": false,
-      "js_divergence": 0.009460090289379391
+      "js_divergence": 0.00946009028937939
     },
     {
       "column": "claim_date",
       "is_id": false,
-      "js_divergence": 0.009248618957825817
+      "js_divergence": 0.009248618957825822
     },
     {
       "column": "provider_prior_claim_count_365d",
       "is_id": false,
-      "js_divergence": 0.0014056316288822588
+      "js_divergence": 0.0014056316288822582
     },
     {
       "column": "treatment_code",
@@ -3271,12 +3275,12 @@
     {
       "column": "diagnosis_code",
       "is_id": false,
-      "js_divergence": 0.0010844141962594721
+      "js_divergence": 0.001084414196259472
     },
     {
       "column": "customer_age",
       "is_id": false,
-      "js_divergence": 0.0008684304923156993
+      "js_divergence": 0.000868430492315699
     },
     {
       "column": "hospital_days",
@@ -3291,7 +3295,7 @@
     {
       "column": "region",
       "is_id": false,
-      "js_divergence": 7.106498013386377e-05
+      "js_divergence": 7.106498013386342e-05
     },
     {
       "column": "product_type",
@@ -3301,7 +3305,7 @@
     {
       "column": "prior_claim_count_30d",
       "is_id": false,
-      "js_divergence": 5.083742131360309e-05
+      "js_divergence": 5.083742131360308e-05
     },
     {
       "column": "channel",
@@ -3501,6 +3505,28 @@
       "train_rows": 52231,
       "train_positives": 677,
       "train_prevalence": 0.012961651126725508
+    },
+    "provided_split_amount_threshold": {
+      "column": "claim_amount",
+      "rule": "amount >= 97457.7",
+      "direction": "high",
+      "threshold": 97457.71,
+      "train_metrics": {
+        "rule": "amount >= 97457.7",
+        "direction": "high",
+        "threshold": 97457.71,
+        "rows": 4219,
+        "precision": 0.0173026783598009,
+        "recall": 0.10782865583456426,
+        "f1": 0.02982026143790849
+      },
+      "eval_rows": 15071,
+      "eval_metrics": {
+        "rows": 1144,
+        "precision": 0.015734265734265736,
+        "recall": 0.07964601769911504,
+        "f1": 0.02627737226277372
+      }
     },
     "temporal_holdout_no_id_nb": {
       "rows": 143,
@@ -3782,6 +3808,7 @@
     "model_type": "evidence_naive_bayes",
     "alpha": 1.0,
     "weight_clip": 4.0,
+    "ratio_gates_are_screening_only": true,
     "tokenization": {
       "categorical": "exact normalized values",
       "numeric": "signed log10 bucket of abs(x)+1 with 8 buckets per order",
@@ -3811,18 +3838,18 @@
       "status": "PASS",
       "metric": 0.5923678781774356,
       "threshold": ">= 0.8",
-      "details": "Compares amount-only average precision to the no-ID baseline."
+      "details": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T1.3",
       "name": "Best one-sided amount threshold",
       "status": "PASS",
       "metric": {
-        "f1": 0.03976529190763645,
-        "f1_ratio": 0.6102442873518056
+        "f1": 0.02627737226277372,
+        "f1_ratio": 0.40325659741718134
       },
       "threshold": "F1 >= 0.7 and ratio >= 0.8",
-      "details": "Best threshold rule: claim_amount: amount >= 53006.1; ratio compares against the no-ID baseline's best score-threshold F1."
+      "details": "Training-selected threshold rule: claim_amount: amount >= 97457.7; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T2",

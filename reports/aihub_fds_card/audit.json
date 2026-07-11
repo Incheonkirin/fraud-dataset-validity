@@ -3402,17 +3402,17 @@
     {
       "column": "통합승인금액",
       "is_id": false,
-      "overlap": 0.21035464949233362
+      "overlap": 0.21035464949233365
     },
     {
       "column": "가맹점KEY",
       "is_id": true,
-      "overlap": 0.3609022857382269
+      "overlap": 0.36090228573822614
     },
     {
       "column": "가맹점승인업종코드",
       "is_id": false,
-      "overlap": 0.46328121694966856
+      "overlap": 0.463281216949669
     },
     {
       "column": "가맹점누적매출금액_구간화",
@@ -3422,17 +3422,17 @@
     {
       "column": "전월_매출건수",
       "is_id": false,
-      "overlap": 0.5191823793532497
+      "overlap": 0.5191823793532498
     },
     {
       "column": "카드KEY",
       "is_id": true,
-      "overlap": 0.5196851094421354
+      "overlap": 0.5196851094421348
     },
     {
       "column": "전월_매출금액",
       "is_id": false,
-      "overlap": 0.5962321571782715
+      "overlap": 0.5962321571782713
     },
     {
       "column": "개인법인구분코드_가맹점",
@@ -3442,12 +3442,12 @@
     {
       "column": "일시불할부구분코드",
       "is_id": false,
-      "overlap": 0.6684660505244912
+      "overlap": 0.668466050524491
     },
     {
       "column": "가맹점광역시도코드",
       "is_id": false,
-      "overlap": 0.6839812416628763
+      "overlap": 0.6839812416628761
     },
     {
       "column": "승인거래코드",
@@ -3462,7 +3462,7 @@
     {
       "column": "승인시간대",
       "is_id": false,
-      "overlap": 0.7921451018738771
+      "overlap": 0.792145101873877
     },
     {
       "column": "남녀구분코드",
@@ -3472,22 +3472,22 @@
     {
       "column": "승인SEQ",
       "is_id": true,
-      "overlap": 0.8515041884010867
+      "overlap": 0.8515041884010863
     },
     {
       "column": "연령",
       "is_id": false,
-      "overlap": 0.8651754910323026
+      "overlap": 0.8651754910323028
     },
     {
       "column": "승인일자",
       "is_id": false,
-      "overlap": 0.9107907509818499
+      "overlap": 0.9107907509818506
     },
     {
       "column": "할부가능개월수",
       "is_id": false,
-      "overlap": 0.9278511152736668
+      "overlap": 0.9278511152736669
     },
     {
       "column": "카드구분코드",
@@ -3502,7 +3502,7 @@
     {
       "column": "기준년월",
       "is_id": false,
-      "overlap": 0.9417691872357523
+      "overlap": 0.9417691872357521
     },
     {
       "column": "가맹점형태구분코드",
@@ -3517,7 +3517,7 @@
     {
       "column": "로고구분코드",
       "is_id": false,
-      "overlap": 0.9595435489315824
+      "overlap": 0.9595435489315823
     },
     {
       "column": "승인발생경로코드",
@@ -3530,6 +3530,8 @@
       "zero_positive_low_region": null,
       "best_low_threshold": {
         "rule": "amount <= 2.943e+06",
+        "direction": "low",
+        "threshold": 2943000.0,
         "rows": 1952871,
         "precision": 0.03687289124576073,
         "recall": 1.0,
@@ -3537,6 +3539,8 @@
       },
       "best_high_threshold": {
         "rule": "amount >= 318000",
+        "direction": "high",
+        "threshold": 318000.0,
         "rows": 58176,
         "precision": 0.803406903190319,
         "recall": 0.6490806577046995,
@@ -3548,22 +3552,22 @@
     {
       "column": "전월_매출금액",
       "is_id": false,
-      "js_divergence": 0.20486219574926803
+      "js_divergence": 0.2048621957492679
     },
     {
       "column": "전월_매출건수",
       "is_id": false,
-      "js_divergence": 0.08100747249410334
+      "js_divergence": 0.08100747249410323
     },
     {
       "column": "가맹점KEY",
       "is_id": true,
-      "js_divergence": 0.009441556447559911
+      "js_divergence": 0.009441556447559932
     },
     {
       "column": "카드KEY",
       "is_id": true,
-      "js_divergence": 0.0026447665531539348
+      "js_divergence": 0.002644766553153937
     },
     {
       "column": "통합승인금액",
@@ -3573,52 +3577,52 @@
     {
       "column": "승인일자",
       "is_id": false,
-      "js_divergence": 0.0013981879338489404
+      "js_divergence": 0.001398187933848937
     },
     {
       "column": "가맹점승인업종코드",
       "is_id": false,
-      "js_divergence": 0.0005135659725774057
+      "js_divergence": 0.0005135659725774056
     },
     {
       "column": "승인SEQ",
       "is_id": true,
-      "js_divergence": 0.0003315204288770254
+      "js_divergence": 0.00033152042887702566
     },
     {
       "column": "경과일수_최종이용일자",
       "is_id": false,
-      "js_divergence": 4.073436276496989e-05
+      "js_divergence": 4.0734362764969926e-05
     },
     {
       "column": "기준년월",
       "is_id": false,
-      "js_divergence": 3.745688944527724e-05
+      "js_divergence": 3.7456889445277225e-05
     },
     {
       "column": "가맹점광역시도코드",
       "is_id": false,
-      "js_divergence": 1.852329622218452e-05
+      "js_divergence": 1.8523296222184557e-05
     },
     {
       "column": "승인시간대",
       "is_id": false,
-      "js_divergence": 1.5029169540314887e-05
+      "js_divergence": 1.5029169540314806e-05
     },
     {
       "column": "할부가능개월수",
       "is_id": false,
-      "js_divergence": 1.2746413444719027e-05
+      "js_divergence": 1.2746413444719002e-05
     },
     {
       "column": "연령",
       "is_id": false,
-      "js_divergence": 6.588864605543761e-06
+      "js_divergence": 6.588864605543734e-06
     },
     {
       "column": "로고구분코드",
       "is_id": false,
-      "js_divergence": 6.229213911020798e-06
+      "js_divergence": 6.229213911020825e-06
     },
     {
       "column": "가맹점누적매출금액_구간화",
@@ -3643,12 +3647,12 @@
     {
       "column": "카드이용한도금액",
       "is_id": false,
-      "js_divergence": 1.0283803853914161e-06
+      "js_divergence": 1.0283803853914093e-06
     },
     {
       "column": "개인법인구분코드_가맹점",
       "is_id": false,
-      "js_divergence": 8.695550219521119e-07
+      "js_divergence": 8.695550219521052e-07
     },
     {
       "column": "카드구분코드",
@@ -3668,7 +3672,7 @@
     {
       "column": "남녀구분코드",
       "is_id": false,
-      "js_divergence": 6.328286160115837e-07
+      "js_divergence": 6.328286160115719e-07
     }
   ],
   "baselines": {
@@ -3863,6 +3867,28 @@
       "train_rows": 1735885,
       "train_positives": 64007,
       "train_prevalence": 0.03687283431794157
+    },
+    "provided_split_amount_threshold": {
+      "column": "통합승인금액",
+      "rule": "amount >= 318000",
+      "direction": "high",
+      "threshold": 318000.0,
+      "train_metrics": {
+        "rule": "amount >= 318000",
+        "direction": "high",
+        "threshold": 318000.0,
+        "rows": 51688,
+        "precision": 0.8032812258164371,
+        "recall": 0.6486790507288266,
+        "f1": 0.7177492545053806
+      },
+      "eval_rows": 216986,
+      "eval_metrics": {
+        "rows": 6488,
+        "precision": 0.8044081381011098,
+        "recall": 0.6522934633170854,
+        "f1": 0.7204085858237284
+      }
     },
     "temporal_holdout_no_id_nb": {
       "rows": 469902,
@@ -4144,6 +4170,7 @@
     "model_type": "evidence_naive_bayes",
     "alpha": 1.0,
     "weight_clip": 4.0,
+    "ratio_gates_are_screening_only": true,
     "tokenization": {
       "categorical": "exact normalized values",
       "numeric": "signed log10 bucket of abs(x)+1 with 8 buckets per order",
@@ -4194,21 +4221,21 @@
     {
       "id": "T1.2",
       "name": "Amount-only share of no-ID PR-AUC",
-      "status": "FAIL",
+      "status": "WARN",
       "metric": 0.8937319362097135,
       "threshold": ">= 0.8",
-      "details": "Compares amount-only average precision to the no-ID baseline."
+      "details": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T1.3",
       "name": "Best one-sided amount threshold",
-      "status": "FAIL",
+      "status": "WARN",
       "metric": {
-        "f1": 0.7180452282922632,
-        "f1_ratio": 1.1245713514426379
+        "f1": 0.7204085858237284,
+        "f1_ratio": 1.1282727396956076
       },
       "threshold": "F1 >= 0.7 and ratio >= 0.8",
-      "details": "Best threshold rule: 통합승인금액: amount >= 318000; ratio compares against the no-ID baseline's best score-threshold F1."
+      "details": "Training-selected threshold rule: 통합승인금액: amount >= 318000; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "id": "T2",
@@ -4229,7 +4256,7 @@
       "id": "T3",
       "name": "Class distribution overlap",
       "status": "PASS",
-      "metric": 0.21035464949233362,
+      "metric": 0.21035464949233365,
       "threshold": "> 0.2",
       "details": "Lowest checked overlap is 0.2104 on 통합승인금액."
     },
@@ -4373,14 +4400,14 @@
       "message": "Amount-only baseline is evaluated on the provided split."
     },
     {
-      "severity": "fail",
+      "severity": "warn",
       "gate": "T1.2",
-      "message": "Compares amount-only average precision to the no-ID baseline."
+      "message": "Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
-      "severity": "fail",
+      "severity": "warn",
       "gate": "T1.3",
-      "message": "Best threshold rule: 통합승인금액: amount >= 318000; ratio compares against the no-ID baseline's best score-threshold F1."
+      "message": "Training-selected threshold rule: 통합승인금액: amount >= 318000; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model."
     },
     {
       "severity": "fail",

@@ -15,6 +15,7 @@ Verdict: **FAIL**
 - Type: `evidence_naive_bayes`
 - Alpha: 1
 - Weight clip: 4
+- Ratio gates screening-only: true
 
 ## Test Verdicts
 
@@ -25,8 +26,8 @@ Verdict: **FAIL**
 | T0.3 Entity holdout | WARN |  |  | Entity ID columns exist, but the published evaluation metadata does not record an entity holdout. |
 | T0.4 Type-classification scope | INFO |  |  | Type classification is recorded as a fraud-only task, so it is not evidence of detection validity. |
 | T1.1 Amount-only ROC-AUC | FAIL | 0.9519 | >= 0.95 | Amount-only baseline is evaluated on the provided split. |
-| T1.2 Amount-only share of no-ID PR-AUC | FAIL | 0.8937 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. |
-| T1.3 Best one-sided amount threshold | FAIL | {'f1': 0.7180452282922632, 'f1_ratio': 1.1245713514426379} | F1 >= 0.7 and ratio >= 0.8 | Best threshold rule: 통합승인금액: amount >= 318000; ratio compares against the no-ID baseline's best score-threshold F1. |
+| T1.2 Amount-only share of no-ID PR-AUC | WARN | 0.8937 | >= 0.8 | Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
+| T1.3 Best one-sided amount threshold | WARN | {'f1': 0.7204085858237284, 'f1_ratio': 1.1282727396956076} | F1 >= 0.7 and ratio >= 0.8 | Training-selected threshold rule: 통합승인금액: amount >= 318000; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model. |
 | T2 Single-feature shortcut | FAIL | {'column': '가맹점누적매출금액_구간화', 'value': '3', 'count': 182758, 'positive_rate': 0.22922115584543495, 'recall': 0.5817686923675147, 'lift': 6.2165224396876795} | recall >= 0.1 and lift >= 5.0 | Recall-weighted shortcut: 가맹점누적매출금액_구간화=3 has positive_rate 22.9%, lift 6.2x, recall 58.2% (n=182,758). |
 | T3 Class distribution overlap | PASS | 0.2104 | > 0.2 | Lowest checked overlap is 0.2104 on 통합승인금액. |
 | T4.1 ID-only baseline | WARN | {'ap_ratio': 0.6761673233398245, 'ap_lift': 13.06720588730982} | ratio >= 0.5 and lift >= 1.5 | Compares ID-only AP to no-ID AP and fraud prevalence. |
@@ -88,6 +89,7 @@ Verdict: **FAIL**
 - provided_split_id_only_nb: ROC-AUC 0.9077, PR-AUC 0.4818, Best F1 0.499, Top 1% P=77.00%, R=20.88%
 - provided_split_with_id_nb: ROC-AUC 0.9733, PR-AUC 0.6987, Best F1 0.6254, Top 1% P=94.24%, R=25.56%
 - provided_split_amount_only_nb: ROC-AUC 0.9519, PR-AUC 0.6369, Best F1 0.7203, Top 1% P=79.31%, R=21.51%
+- provided_split_amount_threshold: `통합승인금액` amount >= 318000, train F1 0.7177, validation F1 0.7204
 - temporal_holdout_no_id_nb: ROC-AUC 0.9741, PR-AUC 0.7009, Best F1 0.6286, Top 1% P=94.36%, R=27.05%
 - temporal_holdout_amount_only_nb: ROC-AUC 0.9558, PR-AUC 0.6495, Best F1 0.7198, Top 1% P=81.63%, R=23.40%
 - entity_holdout_no_id_nb: ROC-AUC 0.9751, PR-AUC 0.7063, Best F1 0.6328, Top 1% P=94.00%, R=25.56%
@@ -114,8 +116,8 @@ Verdict: **FAIL**
 - [WARN][T0.2] Event-date columns exist, but the published evaluation metadata does not record a temporal holdout.
 - [WARN][T0.3] Entity ID columns exist, but the published evaluation metadata does not record an entity holdout.
 - [FAIL][T1.1] Amount-only baseline is evaluated on the provided split.
-- [FAIL][T1.2] Compares amount-only average precision to the no-ID baseline.
-- [FAIL][T1.3] Best threshold rule: 통합승인금액: amount >= 318000; ratio compares against the no-ID baseline's best score-threshold F1.
+- [WARN][T1.2] Compares amount-only average precision to the no-ID baseline. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model.
+- [WARN][T1.3] Training-selected threshold rule: 통합승인금액: amount >= 318000; evaluated unchanged on the provided validation split. The ratio compares against the no-ID baseline's best score-threshold F1. This dependency-free ratio is screening-only; confirm it with the optional LightGBM sensitivity model.
 - [FAIL][T2] Recall-weighted shortcut: 가맹점누적매출금액_구간화=3 has positive_rate 22.9%, lift 6.2x, recall 58.2% (n=182,758).
 - [WARN][T4.1] Compares ID-only AP to no-ID AP and fraud prevalence.
 - [WARN][T9.2] Top 10 통합승인금액 values cover 86.01% of rows.

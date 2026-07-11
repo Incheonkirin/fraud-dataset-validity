@@ -83,16 +83,17 @@ The same protocol produces a graded result rather than failing every dataset:
 
 | dataset | protocol verdict | LightGBM amount/no-ID AP ratio |
 |---|---:|---:|
-| K-Claims-Synth v0.2 | PASS | 0.6162 |
+| K-Claims-Synth v0.3 | PASS | 0.1905 |
 | ULB Credit Card Fraud | WARN | 0.0033 |
 | BAF Base | WARN | 0.1001 |
 | AI Hub Card | FAIL | 0.6683 |
 | AI Hub Electronic Financial Network | FAIL | 0.7466 |
 
 ULB and BAF warn because of broad single-feature subgroups, not because of
-amount templates. K-Claims-Synth is a prototype used to exercise the protocol;
-its low LightGBM PR-AUC means it is not yet offered as a useful replacement
-benchmark.
+amount templates. K-Claims-Synth v0.3 separately passes a learnability gate:
+validation ROC-AUC 0.7463, temporal ROC-AUC 0.7440, and unseen-provider ROC-AUC
+0.7509. It remains a synthetic benchmark candidate, not a claim of calibration
+to any insurer's private production distribution.
 
 ## What the AI Hub Data Can Still Be Used For
 

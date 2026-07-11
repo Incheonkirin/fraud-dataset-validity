@@ -1,0 +1,21 @@
+{
+  "version": "0.1",
+  "required_audit_verdict": "PASS",
+  "validation": {
+    "roc_auc_min": 0.70,
+    "roc_auc_max": 0.90,
+    "average_precision_lift_min": 4.0,
+    "no_id_to_amount_ap_ratio_min": 2.0,
+    "top_1pct_lift_min": 4.0
+  },
+  "temporal": {
+    "roc_auc_min": 0.65,
+    "average_precision_lift_min": 3.0,
+    "ap_lift_ratio_to_validation_min": 0.50
+  },
+  "entity_holdout": {
+    "roc_auc_min": 0.65,
+    "average_precision_lift_min": 3.0,
+    "ap_lift_ratio_to_validation_min": 0.50
+  }
+}

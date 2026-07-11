@@ -64,7 +64,7 @@ Key failures:
 
 The same protocol yields a graded comparison:
 
-- `K-Claims-Synth v0.2`: `PASS`
+- `K-Claims-Synth v0.3`: validity `PASS`, learnability acceptance `PASS`
 - ULB Credit Card Fraud: `WARN`
 - BAF Base: `WARN`
 - AI Hub Card: `FAIL`

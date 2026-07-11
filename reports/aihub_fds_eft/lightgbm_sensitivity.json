@@ -45,9 +45,109 @@
     "train_rows_total": 3941428,
     "train_rows_used": 300000,
     "train_positives_used": 1167,
+    "primary_eval_split": "valid",
     "eval_rows_total": 492678,
     "eval_rows_used": 150000,
     "eval_positives_used": 584
+  },
+  "split_metrics": {
+    "valid": {
+      "sample": {
+        "rows_total": 492678,
+        "rows_used": 150000,
+        "positives_used": 584
+      },
+      "lightgbm_no_id": {
+        "rows": 150000,
+        "positives": 584,
+        "prevalence": 0.0038933333333333333,
+        "roc_auc": 0.9982333730740541,
+        "average_precision": 0.6160787947870928,
+        "best_f1": 0.6147248034310222,
+        "topk": {
+          "top_0.1%": {
+            "k": 150,
+            "hits": 113,
+            "precision": 0.7533333333333333,
+            "recall": 0.1934931506849315,
+            "lift": 193.4931506849315
+          },
+          "top_0.5%": {
+            "k": 750,
+            "hits": 406,
+            "precision": 0.5413333333333333,
+            "recall": 0.6952054794520548,
+            "lift": 139.04109589041096
+          },
+          "top_1.0%": {
+            "k": 1500,
+            "hits": 576,
+            "precision": 0.384,
+            "recall": 0.9863013698630136,
+            "lift": 98.63013698630137
+          },
+          "top_2.0%": {
+            "k": 3000,
+            "hits": 584,
+            "precision": 0.19466666666666665,
+            "recall": 1.0,
+            "lift": 50.0
+          },
+          "top_5.0%": {
+            "k": 7500,
+            "hits": 584,
+            "precision": 0.07786666666666667,
+            "recall": 1.0,
+            "lift": 20.0
+          }
+        }
+      },
+      "lightgbm_amount_only": {
+        "rows": 150000,
+        "positives": 584,
+        "prevalence": 0.0038933333333333333,
+        "roc_auc": 0.9971864431455875,
+        "average_precision": 0.4599824272308373,
+        "best_f1": 0.55396370582617,
+        "topk": {
+          "top_0.1%": {
+            "k": 150,
+            "hits": 83,
+            "precision": 0.5533333333333333,
+            "recall": 0.1421232876712329,
+            "lift": 142.12328767123287
+          },
+          "top_0.5%": {
+            "k": 750,
+            "hits": 317,
+            "precision": 0.4226666666666667,
+            "recall": 0.5428082191780822,
+            "lift": 108.56164383561645
+          },
+          "top_1.0%": {
+            "k": 1500,
+            "hits": 575,
+            "precision": 0.38333333333333336,
+            "recall": 0.9845890410958904,
+            "lift": 98.45890410958904
+          },
+          "top_2.0%": {
+            "k": 3000,
+            "hits": 584,
+            "precision": 0.19466666666666665,
+            "recall": 1.0,
+            "lift": 50.0
+          },
+          "top_5.0%": {
+            "k": 7500,
+            "hits": 584,
+            "precision": 0.07786666666666667,
+            "recall": 1.0,
+            "lift": 20.0
+          }
+        }
+      }
+    }
   },
   "metrics": {
     "lightgbm_no_id": {

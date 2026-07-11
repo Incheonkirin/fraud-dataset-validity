@@ -21,6 +21,8 @@ This file maps the project design requirements to current repository evidence.
 | External anchors proving the protocol does not fail everything | Done | `reports/ulb_creditcard`, `reports/baf_base`, `ANCHOR_COMPARISON.md` |
 | K-Claims-Synth with observed and oracle labels | Done | `k_claims_synth.py`, `configs/k_claims_synth.json` |
 | K-Claims-Synth self-application gate | Done | `reports/k_claims_synth/audit.md` verdict `PASS` |
+| K-Claims learnability and holdout gate | Done | `k_claims_acceptance.json`, `scripts/check_benchmark_acceptance.py`, `reports/k_claims_synth/benchmark_acceptance.md` |
+| K-Claims pre-observation history warmup | Done | `k_claims_synth.py` |
 | T2 promoted into verdict table | Done | `fdvh.py`, all regenerated reports |
 | AP-lift normalization for cross-prevalence split ratios | Done | `T4.2`, `T7` in all regenerated reports |
 | Reference model parameters externalized | Done | `reference_model.yaml`, report `Reference Model` section |

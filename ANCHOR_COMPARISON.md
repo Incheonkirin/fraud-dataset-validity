@@ -14,15 +14,15 @@ Sensitivity model: `lightgbm_sensitivity.json`
 | AI Hub FDS Electronic Financial Network | AI Hub | FAIL | 4,434,106 | 0.39% | 0.9969 | 0.7466 | FAIL | 98.97% | 48 | 98.05% |
 | ULB Credit Card Fraud | Kaggle / ULB | WARN | 284,807 | 0.17% | 0.7196 | 0.0033 | WARN | none | 32,767 | 16.29% |
 | BAF Base | Kaggle / BAF | WARN | 1,000,000 | 1.10% | 0.5939 | 0.1001 | WARN | 0.02% | 994,971 | 0.00% |
-| K-Claims-Synth v0.2 | local synthetic generator | PASS | 100,000 | 1.75% | 0.5387 | 0.6162 | PASS | none | 99,227 | 0.11% |
+| K-Claims-Synth v0.3 | local synthetic generator | PASS | 100,000 | 3.27% | 0.4940 | 0.1905 | PASS | none | 99,212 | 0.11% |
 
 ## Interpretation
 
 The protocol now shows a graded spectrum rather than a binary curated pattern:
 
-- `K-Claims-Synth v0.2` passes after removing the provider-rate quasi-leak,
-  switching the entity holdout to providers, and flipping label noise toward
-  high false negatives with low false positives.
+- `K-Claims-Synth v0.3` passes both shortcut validity and a separate learnability
+  gate after adding observable multi-feature interactions and mature prior-only
+  rolling histories.
 - ULB and BAF warn on broad single-feature shortcuts, but do not fail the amount,
   overlap, temporal, duplicate, leakage, or cardinality gates.
 - AI Hub Card retains split-integrity, marginal amount ROC-AUC, and

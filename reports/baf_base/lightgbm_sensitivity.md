@@ -18,6 +18,12 @@ It is a sensitivity check, not a tuned leaderboard model.
 | T1.2 amount/no-ID AP ratio |  | 0.1001 |  | PASS |
 | T1.3 fixed amount rule/no-ID F1 ratio |  |  | 0.1298 | PASS |
 
+## Split Robustness
+
+| split | rows | prevalence | no-ID ROC-AUC | no-ID PR-AUC | AP lift |
+|---|---:|---:|---:|---:|---:|
+| valid | 150,000 | 0.0140 | 0.8807 | 0.1688 | 12.0999 |
+
 ## Robustness
 
 - Independent full-audit FAIL gates: none

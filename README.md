@@ -23,6 +23,7 @@ weak split design.
 - Markdown and JSON audit reports
 - deterministic `K-Claims-Synth` generator with observed and oracle labels
 - optional frozen LightGBM sensitivity analysis for ratio-based gates
+- explicit K-Claims learnability acceptance gate
 
 Thresholds are stored in `thresholds.yaml`.
 The stdlib reference model is described in `reference_model.yaml`.
@@ -84,8 +85,22 @@ python3 fdvh.py \
   --out reports/k_claims_synth
 ```
 
-The included generated report shows `K-Claims-Synth v0.2` passing its own
-validity gate.
+Run the learnability and holdout acceptance gate after the validity audit:
+
+```bash
+python3 scripts/lightgbm_sensitivity.py \
+  --config configs/k_claims_synth.json \
+  --audit-json reports/k_claims_synth/audit.json \
+  --out reports/k_claims_synth
+
+python3 scripts/check_benchmark_acceptance.py \
+  --audit-json reports/k_claims_synth/audit.json \
+  --sensitivity-json reports/k_claims_synth/lightgbm_sensitivity.json \
+  --out reports/k_claims_synth
+```
+
+The included reports show `K-Claims-Synth v0.3` passing both its shortcut
+validity audit and its learnability acceptance gate.
 
 ## External Anchors
 

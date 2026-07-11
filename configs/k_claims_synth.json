@@ -1,6 +1,6 @@
 {
   "name": "k_claims_synth",
-  "title": "K-Claims-Synth v0.2",
+  "title": "K-Claims-Synth v0.3",
   "label_col": "observed_fraud_label",
   "oracle_label_col": "oracle_fraud_label",
   "positive_values": ["1", "1.0", "Y", "y", "true", "True"],
@@ -17,7 +17,10 @@
     "prior_claim_count_30d",
     "prior_claim_count_365d",
     "provider_prior_claim_count_365d",
-    "provider_prior_high_amount_share_365d"
+    "provider_prior_high_amount_share_365d",
+    "provider_prior_same_pair_count_365d",
+    "customer_prior_same_provider_count_365d",
+    "claim_lag_days"
   ],
   "numeric_cols": [
     "hospital_days",
@@ -27,7 +30,10 @@
     "prior_claim_count_30d",
     "prior_claim_count_365d",
     "provider_prior_claim_count_365d",
-    "provider_prior_high_amount_share_365d"
+    "provider_prior_high_amount_share_365d",
+    "provider_prior_same_pair_count_365d",
+    "customer_prior_same_provider_count_365d",
+    "claim_lag_days"
   ],
   "splits": [
     {

@@ -1,0 +1,99 @@
+{
+  "dataset": "k_claims_synth",
+  "verdict": "PASS",
+  "checks": [
+    {
+      "name": "shortcut validity audit",
+      "value": "PASS",
+      "status": "PASS",
+      "threshold": "PASS"
+    },
+    {
+      "name": "validation ROC-AUC floor",
+      "value": 0.7462963171649475,
+      "status": "PASS",
+      "threshold": ">= 0.7"
+    },
+    {
+      "name": "validation ROC-AUC ceiling",
+      "value": 0.7462963171649475,
+      "status": "PASS",
+      "threshold": "<= 0.9"
+    },
+    {
+      "name": "validation AP lift",
+      "value": 5.606372128354062,
+      "status": "PASS",
+      "threshold": ">= 4.0"
+    },
+    {
+      "name": "no-ID AP / amount-only AP",
+      "value": 5.248286767691159,
+      "status": "PASS",
+      "threshold": ">= 2.0"
+    },
+    {
+      "name": "validation top-1% lift",
+      "value": 13.466865671641791,
+      "status": "PASS",
+      "threshold": ">= 4.0"
+    },
+    {
+      "name": "temporal ROC-AUC",
+      "value": 0.7440138064146105,
+      "status": "PASS",
+      "threshold": ">= 0.65"
+    },
+    {
+      "name": "temporal AP lift",
+      "value": 4.393032238041347,
+      "status": "PASS",
+      "threshold": ">= 3.0"
+    },
+    {
+      "name": "temporal AP-lift ratio to validation",
+      "value": 0.7835784242404666,
+      "status": "PASS",
+      "threshold": ">= 0.5"
+    },
+    {
+      "name": "entity_holdout ROC-AUC",
+      "value": 0.7508675351895229,
+      "status": "PASS",
+      "threshold": ">= 0.65"
+    },
+    {
+      "name": "entity_holdout AP lift",
+      "value": 4.629364683280999,
+      "status": "PASS",
+      "threshold": ">= 3.0"
+    },
+    {
+      "name": "entity_holdout AP-lift ratio to validation",
+      "value": 0.8257326801173478,
+      "status": "PASS",
+      "threshold": ">= 0.5"
+    }
+  ],
+  "thresholds": {
+    "version": "0.1",
+    "required_audit_verdict": "PASS",
+    "validation": {
+      "roc_auc_min": 0.7,
+      "roc_auc_max": 0.9,
+      "average_precision_lift_min": 4.0,
+      "no_id_to_amount_ap_ratio_min": 2.0,
+      "top_1pct_lift_min": 4.0
+    },
+    "temporal": {
+      "roc_auc_min": 0.65,
+      "average_precision_lift_min": 3.0,
+      "ap_lift_ratio_to_validation_min": 0.5
+    },
+    "entity_holdout": {
+      "roc_auc_min": 0.65,
+      "average_precision_lift_min": 3.0,
+      "ap_lift_ratio_to_validation_min": 0.5
+    }
+  }
+}

@@ -56,16 +56,21 @@ Implemented:
 - held-out scoring label: `oracle_fraud_label`
 - train, validation, temporal, and entity-holdout split files
 - self-application gate through `configs/k_claims_synth.json`
+- versioned learnability thresholds: `k_claims_acceptance.json`
+- LightGBM checks on validation, temporal, and provider-holdout splits
+- pre-observation unlabeled history for mature rolling features
 
 Primary result:
 
-- K-Claims-Synth v0.2: `PASS`
+- K-Claims-Synth v0.3 validity audit: `PASS`
+- K-Claims-Synth v0.3 benchmark acceptance: `PASS`
 
 ## Repository Outputs
 
 - `fdvh.py`: audit runner
 - `thresholds.yaml`: versioned thresholds
 - `reference_model.yaml`: stdlib reference-model parameters
+- `k_claims_acceptance.json`: benchmark learnability and robustness thresholds
 - `configs/`: dataset configs
 - `reports/`: generated case-study and anchor reports
 - `PROTOCOL.md`: test definitions
